@@ -1,28 +1,37 @@
-import React from 'react';
-import '../../styles/bootstrap-italia.min.css';
+import React from "react";
+//import "../../styles/bootstrap-italia.min.css";
 const Header = () => (
-  <div class="it-header-slim-wrapper" data-testid="Header">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="it-header-slim-wrapper-content">
-        <a class="d-none d-lg-block navbar-brand" href="#">Team Digitale</a>
-          <div class="nav-mobile">
-            <nav>
-              <div class="link-list-wrapper collapse" id="menu2">
-                <ul class="link-list">
-                  <li><a class="list-item" href="#">Chi Siamo</a></li>
-                  <li><a class="list-item active" href="#">Documentazione</a></li>
-                </ul>
-              </div>
-            </nav>
+  <div className="it-header-slim-wrapper" data-testid="Header">
+    <div className="container">
+      <div className="row">
+        <div className="col-12">
+          <div className="it-header-slim-wrapper-content">
+            <a className="d-none d-lg-block navbar-brand" href="#">
+              Team Digitale
+            </a>
+            <div className="nav-mobile">
+              <nav>
+                <div className="link-list-wrapper collapse" id="menu2">
+                  <ul className="link-list">
+                    <li>
+                      <a className="list-item" href="#">
+                        Chi Siamo
+                      </a>
+                    </li>
+                    <li>
+                      <a className="list-item active" href="#">
+                        Documentazione
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
           </div>
-          
         </div>
       </div>
     </div>
   </div>
-</div>
 );
 
 Header.propTypes = {};
