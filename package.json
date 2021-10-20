@@ -17,12 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "yarn eslint ./src"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo \"HelloWorld\""
-    }
+    "lint": "yarn eslint ./src",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
