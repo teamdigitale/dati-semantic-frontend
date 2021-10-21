@@ -33,8 +33,8 @@
     "prettier:fix": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
     "prettier:check": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
     "postinstall": "sh talisman/talisman-precommit.sh",
-    "stylelint:check": "stylelint ./src/**/*.{scss,css}",
-    "stylelint:fix": "stylelint ./src/**/*.{scss,css} --fix"
+    "stylelint:check": "stylelint './src/**/*.{scss,css}'",
+    "stylelint:fix": "stylelint --fix './src/**/*.{scss,css}'"
   },
   "eslintConfig": {
     "extends": [
