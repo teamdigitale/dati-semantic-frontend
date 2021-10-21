@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  react-app:
+    container_name: reactapp
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        CUSTOM_ENV: production
+    ports:
+      - 7001:80
