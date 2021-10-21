@@ -27,11 +27,11 @@
 ## Come installare
 
 Steps for fresh install of app
-- yarn install
-- yarn lint (to verify all is fine)
-- yarn test (to verify all is fine)
-- yarn build
-- yarn start
+- `yarn install`
+- `yarn lint` (to verify all is fine)
+- `yarn test` (to verify all is fine)
+- `yarn build`
+- `yarn start` or `docker-compose up` (will create the docker image and start the app)
 
 ### `yarn install`
 To install the needed plugins for the React app
