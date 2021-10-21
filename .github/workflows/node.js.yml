@@ -84,4 +84,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Running audit check
-        run: yarn audit
+        run: yarn audit --groups dependencies
