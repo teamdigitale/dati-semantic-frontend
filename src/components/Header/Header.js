@@ -1,5 +1,5 @@
 import React from "react";
-//import "../../styles/bootstrap-italia.min.css";
+
 const Header = () => (
   <div className="it-header-slim-wrapper" data-testid="Header">
     <div className="container">

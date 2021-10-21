@@ -10,6 +10,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "stylelint": "^13.13.1",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^22.0.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
@@ -18,7 +21,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "yarn eslint ./src",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+    "lint:check": "eslint './src/**/*.{ts,tsx,js,jsx}'",
+    "prettier:fix": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
+    "prettier:check": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
+    "postinstall": "sh talisman/talisman-precommit.sh",
+    "stylelint:check": "stylelint ./src/**/*.{scss,css}",
+    "stylelint:fix": "stylelint ./src/**/*.{scss,css} --fix"
   },
   "eslintConfig": {
     "extends": [
