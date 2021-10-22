@@ -48,6 +48,14 @@ jobs:
         run: yarn prettier:check
       - name: Running stylelint
         run: yarn stylelint:check
+      - name: Running stylelint
+        run: yarn stylelint:check
+      - name: Further linting Super-Linter
+        uses: github/super-linter@v4.8.1
+        env:
+          VALIDATE_MARKDOWN: false
+          VALIDATE_BASH: false
+        
   security:
     runs-on: ubuntu-latest
     steps:
