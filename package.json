@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "5.5.0",
-    "webpack": "5.5.0",
+    "webpack": "4.44.2",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "5.1.4",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
