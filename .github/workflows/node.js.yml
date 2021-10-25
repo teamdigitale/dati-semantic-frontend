@@ -59,6 +59,11 @@ jobs:
           cache: "yarn"
       - name: Running audit check
         run: yarn audit --groups dependencies
+      - name: docker-security
+        uses: instrumenta/conftest-action@master
+        with:
+          files: Dockerfile
+          policy: dockerfile-security.rego
   test:
     runs-on: ubuntu-latest
     steps:
