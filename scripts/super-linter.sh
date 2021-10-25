@@ -13,4 +13,5 @@ docker run \
   -e CSS_FILE_NAME='../../.stylelintrc.json' \
   -e FILTER_REGEX_INCLUDE='.*(src|\.github)/.*' \
   -e FILTER_REGEX_EXCLUDE='.*.(min.css)' \
+  --rm \
   -v $(pwd):/tmp/lint github/super-linter
