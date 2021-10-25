@@ -1,0 +1,2 @@
+docker pull github/super-linter:latest
+docker run -e RUN_LOCAL=true -e VALIDATE_BASH=false -e VALIDATE_MARKDOWN=false -e FILTER_REGEX_INCLUDE='.*(src|\.github)/.*' -e FILTER_REGEX_EXCLUDE='.*.(min.css)' -v ~/project/digitale/dati-semantic-frontend:/tmp/lint github/super-linter
