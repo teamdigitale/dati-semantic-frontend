@@ -1,12 +1,14 @@
 {
   "extends": "stylelint-config-sass-guidelines",
-  "rules": { "string-quotes": "double" ,    
+  "rules": {
+      "string-quotes": "double",
       "block-no-empty": null,
       "order/properties-alphabetical-order": null,
       "color-named": null,
       "rule-empty-line-before": null,
       "no-missing-end-of-source-newline": null,
-    "selector-class-pattern": null},
+      "selector-class-pattern": null
+  },
   "ignoreFiles": [
     "src/styles/bootstrap-italia.min.css"
   ]
