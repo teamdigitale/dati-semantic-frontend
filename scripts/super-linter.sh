@@ -12,6 +12,6 @@ docker run \
   -e JAVASCRIPT_DEFAULT_STYLE='prettier' \
   -e CSS_FILE_NAME='../../.stylelintrc.json' \
   -e FILTER_REGEX_INCLUDE='.*(src|\.github)/.*' \
-  -e FILTER_REGEX_EXCLUDE='.*.(min.css)' \
+  -e FILTER_REGEX_EXCLUDE='.*.(min.css|ttf|woff|woff2|svg|txt|md)' \
   --rm \
   -v $(pwd):/tmp/lint github/super-linter
