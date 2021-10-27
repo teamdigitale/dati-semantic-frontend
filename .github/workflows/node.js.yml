@@ -132,7 +132,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           labels: |
-            org.opencontainers.image.source.branch=${{GITHUB_REF##*/}}
+            "org.opencontainers.image.source.branch=$(git rev-parse --abbrev-ref HEAD)"
           tags: |
             type=raw,value={{date 'YYYYMMDD'}}-${{github.run_number}}-{{sha}}
       - name: Build and push Docker image
