@@ -132,7 +132,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value={{branch}}-{{date 'YYYYMMDD'}}-{{sha}}
+            type=raw,value=ndc-{{branch}}-{{date 'YYYYMMDD'}}-{{sha}}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
