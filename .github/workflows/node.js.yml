@@ -131,8 +131,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: |
+            org.opencontainers.image.source.branch=${GITHUB_REF##*/}
           tags: |
-            type=raw,value=ndc-{{date 'YYYYMMDD'}}-{{sha}}
+            type=raw,value={{date 'YYYYMMDD'}}-{{github.run_number}}-{{sha}}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
