@@ -137,6 +137,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           labels: |
+            maintainer=Team Digitale
             org.opencontainers.image.source.branch=${{ steps.extract_branch.outputs.branch }}
           tags: |
             type=raw,value={{date 'YYYYMMDD'}}-${{github.run_number}}-{{sha}}
