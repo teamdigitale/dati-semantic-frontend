@@ -109,7 +109,6 @@ jobs:
           clover_file: "./coverage/clover.xml"
   publish:
     runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request'
     permissions:
       contents: read
       packages: write
@@ -137,5 +136,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: |
+            type=raw,value={{branch}}-{{date 'YYYYMMDD'}}-{{sha}}
           labels: ${{ steps.meta.outputs.labels }}
