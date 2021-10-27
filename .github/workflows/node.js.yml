@@ -132,9 +132,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           labels: |
-            org.opencontainers.image.source.branch=${GITHUB_REF##*/}
+            org.opencontainers.image.source.branch=${{GITHUB_REF##*/}}
           tags: |
-            type=raw,value={{date 'YYYYMMDD'}}-{{github.run_number}}-{{sha}}
+            type=raw,value={{date 'YYYYMMDD'}}-${{github.run_number}}-{{sha}}
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
