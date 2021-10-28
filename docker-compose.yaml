@@ -10,3 +10,17 @@ services:
         CUSTOM_ENV: production
     ports:
       - 7001:80
+    networks:
+      - react
+  mock-server:
+    container_name: mockserver
+    build:
+      context: ./mock-server
+      dockerfile: Dockerfile
+    ports:
+      - 7002:5001
+    networks:
+      - react
+networks:
+  react:
+    driver: bridge

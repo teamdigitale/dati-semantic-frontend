@@ -4,9 +4,11 @@
 /node_modules
 /.pnp
 .pnp.js
+mock-server/node_modules
 
 # testing
 /coverage
+/report
 
 # production
 /build
@@ -22,3 +24,4 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+super-linter.log*
