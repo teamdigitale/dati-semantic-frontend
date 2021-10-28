@@ -845,7 +845,7 @@ mountebank@^2.4.0:
     xpath "0.0.32"
     yargs "17.1.1"
 
-"mountebank@github:bbyars/mountebank":
+mountebank@bbyars/mountebank:
   version "2.6.0"
   resolved "https://codeload.github.com/bbyars/mountebank/tar.gz/7bc7fd5cd9df3478f6966aa5504d824c647acb0a"
   dependencies:
