@@ -75,7 +75,7 @@
     "jest-resolve": "26.6.0",
     "jest-watch-typeahead": "0.6.1",
     "prettier": "^2.4.1",
-    "mountebank": "^2.4.0",
+    "mountebank": "^2.5.0",
     "mountebank-helper": "^1.2.1",
     "react-dev-utils": "^11.0.3",
     "webpack-dev-server": "3.11.1"

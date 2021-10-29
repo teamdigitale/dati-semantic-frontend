@@ -8036,7 +8036,7 @@ mountebank-helper@^1.2.1:
     node-fetch "^1.5.3"
     tcp-port-used "^0.1.2"
 
-mountebank@^2.4.0:
+mountebank@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/mountebank/-/mountebank-2.5.0.tgz#ef9308f0bfef519333b037b5ded25eccb5af7109"
   integrity sha512-gr/G4Pm2q1MWYsibEfTR1QZ7N2yyi/CDYyc/3Mgxe0j/ZihOtWMUJhvfQrLudKH7nx+6ANoXSfb7J/VuksiheQ==
@@ -8063,7 +8063,7 @@ mountebank@^2.4.0:
     xpath "0.0.32"
     yargs "17.1.1"
 
-"mountebank@github:bbyars/mountebank":
+mountebank@bbyars/mountebank:
   version "2.6.0"
   resolved "https://codeload.github.com/bbyars/mountebank/tar.gz/7bc7fd5cd9df3478f6966aa5504d824c647acb0a"
   dependencies:
