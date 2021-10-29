@@ -8,11 +8,11 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY . ./
+COPY .. ./
 
 RUN apk add --no-cache git openssh
 
 RUN yarn install
 
 # start app
-CMD ["yarn", "start"]
+CMD ["yarn", "start-mock-server"]
