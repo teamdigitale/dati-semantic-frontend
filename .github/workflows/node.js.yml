@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      issues: write
+      pull-requests: write
     strategy:
       matrix:
         node-version: [16.x]
