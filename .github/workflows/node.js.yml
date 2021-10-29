@@ -80,6 +80,8 @@ jobs:
           policy: dockerfile-security.rego
   test:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     strategy:
       matrix:
         node-version: [16.x]
