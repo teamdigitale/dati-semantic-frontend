@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  test:
+    container_name: react-app-test
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    volumes:
+      - './react-app:/usr/src/app'
+      - '/usr/src/app/node_modules'
