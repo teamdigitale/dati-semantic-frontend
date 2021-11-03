@@ -6,6 +6,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-test
-    volumes:
-      - './react-app:/usr/src/app'
-      - '/usr/src/app/node_modules'
+    command: yarn test:coverage 
+
+  security:
+    container_name: security
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    command: yarn audit --groups dependencies
+
+  lint:
+    container_name: react-app-lint
+    build:
+      context: .
+      dockerfile: Dockerfile-test
+    command: yarn lint
