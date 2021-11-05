@@ -8,7 +8,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
-COPY .. ./
+COPY . ./
 
 RUN apk add --no-cache git openssh
 

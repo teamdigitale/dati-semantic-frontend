@@ -8,11 +8,7 @@ RUN yarn install --silent
 RUN CUSTOM_ENV=$CUSTOM_ENV yarn build
 
 #Run
-FROM nginx:stable-alpine
+FROM nginxinc/nginx-unprivileged:stable-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
-EXPOSE 80
-USER appUser
-CMD ["appUser", "nginx", "-g", "daemon off;"]
-
