@@ -57,7 +57,7 @@
     "workbox-webpack-plugin": "5.1.4",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.0",
+    "babel-jest": "^27.3.1",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
