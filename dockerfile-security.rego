@@ -22,7 +22,7 @@ deny[msg] {
 }
 
 # Only use trusted base images
-deny[msg] {
+deny_untrusted_base_image[msg] {
     input[i].Cmd == "from"
     val := split(input[i].Value[0], "/")
     count(val) > 1
@@ -71,7 +71,7 @@ any_user {
     input[i].Cmd == "user"
  }
 
-deny[msg] {
+deny_root_user[msg] {
     not any_user
     msg = "Do not run as root, use USER instead"
 }
@@ -82,4 +82,11 @@ deny[msg] {
     val := concat(" ", input[i].Value)
     contains(lower(val), "sudo")
     msg = sprintf("Line %d: Do not use 'sudo' command", [i])
+}
+
+exception[rules] {
+  input[i].Cmd == "from"
+  input[i].Value[0] == "nginxinc/nginx-unprivileged:stable-alpine"
+
+  rules := ["root_user", "untrusted_base_image"]
 }
