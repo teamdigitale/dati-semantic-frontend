@@ -73,7 +73,7 @@
     "jest": "26.6.0",
     "jest-circus": "26.6.0",
     "jest-resolve": "26.6.0",
-    "jest-watch-typeahead": "0.6.1",
+    "jest-watch-typeahead": "0.6.5",
     "prettier": "^2.4.1",
     "mountebank": "^2.5.0",
     "mountebank-helper": "^1.2.1",
