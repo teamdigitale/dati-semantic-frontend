@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "node ./src/index.js"
+    "start-mock-server": "node ./src/index.js"
   },
   "devDependencies": {
     "mountebank": "^2.4.0",
