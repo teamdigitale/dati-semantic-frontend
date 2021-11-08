@@ -101,12 +101,6 @@ jobs:
           name: coverage
           path: |
             ./coverage
-      - name: Monitor coverage
-        if: github.event_name == 'pull_request'
-        uses: slavcodev/coverage-monitor-action@1.2.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          clover_file: "./coverage/clover.xml"
   publish:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
