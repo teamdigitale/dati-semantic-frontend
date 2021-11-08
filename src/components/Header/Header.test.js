@@ -11,4 +11,13 @@ describe("<Header />", () => {
 
     expect(header).toBeInTheDocument();
   });
+
+  test("it should point to Team Digitale's homepage", () => {
+    render(<Header />);
+
+    const anchor = screen.getByText("Team Digitale").closest("a");
+
+    expect(anchor).toBeInTheDocument();
+    expect(anchor).toHaveAttribute("href", "https://teamdigitale.governo.it/");
+  });
 });
