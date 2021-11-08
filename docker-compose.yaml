@@ -32,7 +32,7 @@ services:
     networks:
       - ndc
   backend:
-    image: ghcr.io/teamdigitale/dati-semantic-backend:20211104-42-313b969
+    image: ghcr.io/teamdigitale/dati-semantic-backend:latest
     ports:
       - 8080:8080
     networks:
