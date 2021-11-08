@@ -65,7 +65,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-testing-library": "^5.0.0",
+    "eslint-plugin-testing-library": "5.0.0",
     "eslint-webpack-plugin": "^2.5.2",
     "jest": "27.3.1",
     "jest-circus": "26.6.0",
