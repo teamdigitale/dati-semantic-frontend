@@ -1,9 +1,10 @@
 import React from "react";
+import Categories from "../Categories/Categories";
 
 const Main = () => (
   <main>
-    <div role="main" className="container">
-      naviga i dati per categoria tematica
+    <div className="container">
+      <Categories />
     </div>
   </main>
 );
