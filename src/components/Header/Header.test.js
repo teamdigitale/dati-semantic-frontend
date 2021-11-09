@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 import Header from "./Header";
 
 describe("<Header />", () => {
-  test("it should mount", () => {
+  test("it should mount and contain logo", () => {
     render(<Header />);
 
     const header = screen.getByText("Team Digitale");
@@ -12,12 +12,11 @@ describe("<Header />", () => {
     expect(header).toBeInTheDocument();
   });
 
-  test("it should point to Team Digitale's homepage", () => {
+  test("it should mount and contain main title", () => {
     render(<Header />);
 
-    const anchor = screen.getByText("Team Digitale").closest("a");
+    const header = screen.getByText("National Data Catalog");
 
-    expect(anchor).toBeInTheDocument();
-    expect(anchor).toHaveAttribute("href", "https://teamdigitale.governo.it/");
+    expect(header).toBeInTheDocument();
   });
 });
