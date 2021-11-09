@@ -16,7 +16,7 @@ const HeaderMainTitle = () => (
                   <div>
                     <a href="/" className="focus-element">
                       <Logo
-                        className="img-fluid img-logo-header-normal d-inline-block align-top"
+                        className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
                         alt="Logo"
                         title="Logo"
                         width="78"

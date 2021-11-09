@@ -39,7 +39,7 @@ const HeaderMainMenu = () => (
                     <span className="it-close"></span>Chiudi
                   </button>
                 </div>
-                <h2 id="main-menu-title" className="invisible">
+                <h2 id="main-menu-title" className="d-none">
                   Main Menu
                 </h2>
                 <div className="menu-wrapper">
