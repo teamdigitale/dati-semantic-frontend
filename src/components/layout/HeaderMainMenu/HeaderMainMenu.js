@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const menuItems = [
-  { label: "Categorie", href: "#" },
+  { label: "Categorie", href: "/" },
   { label: "Ontologie", href: "#" },
-  { label: "Vocabolari", href: "#" },
+  { label: "Vocabolari", href: "vocabularies" },
 ];
 const HeaderMainMenu = () => (
   <div className="it-header-navbar-wrapper">
@@ -46,12 +47,12 @@ const HeaderMainMenu = () => (
                   <ul className="navbar-nav">
                     {menuItems.map((menuItem) => (
                       <li className="nav-item megamenu" key={menuItem.label}>
-                        <a
+                        <NavLink
                           className="nav-link    pl-0 focus-element"
-                          href={menuItem.href}
+                          to={menuItem.href}
                         >
                           <span>{menuItem.label}</span>
-                        </a>
+                        </NavLink>
                       </li>
                     ))}
                   </ul>
