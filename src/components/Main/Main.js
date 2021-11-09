@@ -1,6 +1,12 @@
 import React from "react";
 
-const Main = () => <div role="main">naviga i dati per categoria tematica</div>;
+const Main = () => (
+  <main>
+    <div role="main" className="container">
+      naviga i dati per categoria tematica
+    </div>
+  </main>
+);
 
 Main.propTypes = {};
 
