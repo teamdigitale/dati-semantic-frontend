@@ -1,5 +1,5 @@
 import React from "react";
-import Categories from "../Categories/Categories";
+import Categories from "../../Categories/Categories";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 
