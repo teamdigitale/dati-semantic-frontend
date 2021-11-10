@@ -86,7 +86,7 @@ deny[msg] {
 
 exception[rules] {
   input[i].Cmd == "from"
-  input[i].Value[0] == "nginxinc/nginx-unprivileged:stable-alpine"
+  input[i].Value[0] == "registry.redhat.io/rhel8/nginx-120"
 
   rules := ["root_user", "untrusted_base_image"]
 }
