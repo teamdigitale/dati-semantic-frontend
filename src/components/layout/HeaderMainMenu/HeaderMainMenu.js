@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const menuItems = [
   { label: "Categorie", href: "/" },
-  { label: "Ontologie", href: "#" },
-  { label: "Vocabolari", href: "vocabularies" },
+  { label: "Ontologie", href: "/search?type=ontology" },
+  { label: "Vocabolari", href: "/search?type=vocabulary" },
 ];
 const HeaderMainMenu = () => (
   <div className="it-header-navbar-wrapper">
@@ -48,7 +48,7 @@ const HeaderMainMenu = () => (
                     {menuItems.map((menuItem) => (
                       <li className="nav-item megamenu" key={menuItem.label}>
                         <NavLink
-                          className="nav-link    pl-0 focus-element"
+                          className="nav-link pl-0 focus-element"
                           to={menuItem.href}
                         >
                           <span>{menuItem.label}</span>
