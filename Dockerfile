@@ -8,7 +8,7 @@ RUN yarn install --silent
 RUN CUSTOM_ENV=$CUSTOM_ENV yarn build
 
 #Run
-FROM nginxinc/nginx-unprivileged:stable-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
+FROM registry.redhat.io/rhel8/nginx-120
+COPY --from=build /app/build .
+ADD nginx/*.conf "${NGINX_CONFIGURATION_PATH}"
+CMD nginx -g "daemon off;"
