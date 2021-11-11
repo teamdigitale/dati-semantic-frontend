@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "design-react-kit";
 
 const NotFound = () => (
   <div className="callout danger">
     <div className="callout-title">
-      <svg className="icon">
-        <use xlinkHref="/bootstrap-italia/dist/svg/sprite.svg#it-close-circle" />
-      </svg>
+      <Icon icon="it-close-circle" />
       Pagina non trovata
     </div>
     <p>

@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Icon } from "design-react-kit";
 
 const menuItems = [
   { label: "Categorie", href: "/" },
@@ -25,9 +26,7 @@ const HeaderMainMenu = () => (
                 aria-label="Toggle navigation"
                 data-target="#main-menu"
               >
-                <svg className="icon">
-                  <use xlinkHref="/themes/contrib/bootstrap_italia/assets/icons/sprite.svg#it-burger"></use>
-                </svg>
+                <Icon icon="it-burger" />
               </button>
               <div
                 className="navbar-collapsable"
