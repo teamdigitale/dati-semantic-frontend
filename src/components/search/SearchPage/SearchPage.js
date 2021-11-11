@@ -1,11 +1,20 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 
 function useQuery() {
   const { search } = useLocation();
 
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
+
+const assetTypeFilter = (type) => {
+  if (!type) {
+    return;
+  }
+
+  return <AssetTypeFilter types={[type]} />;
+};
 
 const SearchPage = () => {
   let query = useQuery();
@@ -17,8 +26,8 @@ const SearchPage = () => {
             <div id="cv-facet-pane">
               <div className="row d-flex justify-content-center p-3">
                 <div className="col">
-                  <h4>cerca tra i vocabolari</h4>
-                  <span>{query.get("type")}</span>
+                  <h4>Ricerca</h4>
+                  {assetTypeFilter(query.get("type"))}
                 </div>
               </div>
             </div>

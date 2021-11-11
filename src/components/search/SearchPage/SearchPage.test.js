@@ -24,8 +24,20 @@ describe("<SearchPage />", () => {
       </MemoryRouter>
     );
 
-    const filter = screen.getByText("ontology");
+    const filter = screen.getByText("Ontologia");
 
     expect(filter).toBeInTheDocument();
+  });
+
+  test("it should not show any type filter", () => {
+    render(
+      <MemoryRouter initialEntries={["/search"]}>
+        <SearchPage />
+      </MemoryRouter>
+    );
+
+    const filter = screen.queryByText("Ontologia");
+
+    expect(filter).not.toBeInTheDocument();
   });
 });
