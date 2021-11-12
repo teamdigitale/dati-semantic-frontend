@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
+import { search } from "../../../services/searchService";
 
 function useQuery() {
   const { search } = useLocation();
@@ -8,7 +9,7 @@ function useQuery() {
   return React.useMemo(() => new URLSearchParams(search), [search]);
 }
 
-const assetTypeFilter = (type) => {
+const showAssetTypeFilter = (type) => {
   if (!type) {
     return;
   }
@@ -16,8 +17,33 @@ const assetTypeFilter = (type) => {
   return <AssetTypeFilter types={[type]} />;
 };
 
+const showItems = (items) => {
+  if (!items) {
+    return <h2>Caricamento...</h2>;
+  }
+
+  return items.map((item) => {
+    return (
+      <div key={item.dataset}>
+        <div>Tipo: ${item.type}</div>
+        <div>Titolo: ${item.title}</div>
+      </div>
+    );
+  });
+};
+
 const SearchPage = () => {
+  const [items, setItems] = useState(null);
   let query = useQuery();
+  useEffect(async () => {
+    if (items) {
+      return;
+    }
+
+    const results = await search({ pattern: query.get("pattern") });
+    setItems(results);
+  }, []);
+
   return (
     <div data-testid="SearchPage">
       <div className="container main-container pl-4 pr-4">
@@ -27,16 +53,12 @@ const SearchPage = () => {
               <div className="row d-flex justify-content-center p-3">
                 <div className="col">
                   <h4>Ricerca</h4>
-                  {assetTypeFilter(query.get("type"))}
+                  {showAssetTypeFilter(query.get("type"))}
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-8 col-md-8">
-            <div className="border bg-secondary text-white p-3 m-5">
-              Immetti un criterio di ricerca
-            </div>
-          </div>
+          <div className="col-12 col-lg-8 col-md-8">{showItems(items)}</div>
         </div>
       </div>
     </div>
