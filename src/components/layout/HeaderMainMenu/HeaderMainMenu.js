@@ -1,11 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "design-react-kit";
+import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
 
 const menuItems = [
   { label: "Categorie", href: "/" },
-  { label: "Ontologie", href: "/search?type=ontology" },
-  { label: "Vocabolari", href: "/search?type=vocabulary" },
+  {
+    label: "Ontologie",
+    href: `/search?type=${AT_ONTOLOGY}`,
+  },
+  {
+    label: "Vocabolari",
+    href: `/search?type=${AT_VOCABULARY}`,
+  },
 ];
 const HeaderMainMenu = () => (
   <div className="it-header-navbar-wrapper">
@@ -33,10 +40,9 @@ const HeaderMainMenu = () => (
                 id="main-menu"
                 style={{ display: " none" }}
               >
-                <div className="overlay" style={{ display: " none" }}></div>
                 <div className="close-div sr-only">
                   <button className="btn close-menu" type="button">
-                    <span className="it-close"></span>Chiudi
+                    <span className="it-close">Chiudi</span>
                   </button>
                 </div>
                 <h2 id="main-menu-title" className="d-none">
