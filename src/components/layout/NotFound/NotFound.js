@@ -9,8 +9,9 @@ const NotFound = () => (
       Pagina non trovata
     </div>
     <p>
-      Ci dispiace, la risorsa ricercata non è disponibile: torna alla
-      <Link to="/">Homepage</Link>.
+      Ci dispiace, la risorsa ricercata non è disponibile.
+      <br />
+      Torna alla <Link to="/">Homepage</Link>.
     </p>
   </div>
 );
