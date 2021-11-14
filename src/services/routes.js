@@ -1,0 +1,4 @@
+export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
+export const ASSETS_VOCABULARIES_URL_TOKEN = "vocabularies";
+
+export const ASSETS_VOCABULARIES_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_VOCABULARIES_URL_TOKEN}`;

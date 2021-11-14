@@ -9,6 +9,10 @@ import { renderWithRoute } from "../../../services/testUtils";
 import { getVocabularyByUri } from "../../../services/vocabService";
 import { act } from "@testing-library/react";
 import VocabDetails from "../VocabDetails/VocabDetails";
+import { ASSETS_VOCABULARIES_FULL_URL } from "../../../services/routes";
+const { getVocabularyUrl } = jest.requireActual(
+  "../../../services/vocabService"
+);
 
 jest.mock("../../../services/vocabService");
 jest.mock("../AssetNotFound/AssetNotFound", () => ({
@@ -34,7 +38,7 @@ describe("<VocabPage />", () => {
 
     test("it should show error if uri param is missing", async () => {
       await act(async () => {
-        renderWithRoute(<VocabPage />, "/semantic-assets/vocabularies");
+        renderWithRoute(<VocabPage />, ASSETS_VOCABULARIES_FULL_URL);
       });
 
       expect(AssetNotFound).toHaveBeenCalledWith({ reason: MISSING_URI }, {});
@@ -43,13 +47,10 @@ describe("<VocabPage />", () => {
 
     test("it should show missing vocab if uri lookup fails", async () => {
       await act(async () => {
-        renderWithRoute(
-          <VocabPage />,
-          "/semantic-assets/vocabularies?uri=completelyMadeUp"
-        );
+        renderWithRoute(<VocabPage />, getVocabularyUrl("non-existent"));
       });
 
-      expect(getVocabularyByUri).toHaveBeenCalledWith("completelyMadeUp");
+      expect(getVocabularyByUri).toHaveBeenCalledWith("non-existent");
       expect(AssetNotFound).toHaveBeenCalledWith(
         { reason: MISSING_RESOURCE },
         {}
@@ -68,10 +69,7 @@ describe("<VocabPage />", () => {
 
     test("it should show missing vocab if uri lookup fails", async () => {
       await act(async () => {
-        renderWithRoute(
-          <VocabPage />,
-          "/semantic-assets/vocabularies?uri=" + encodeURIComponent(uri)
-        );
+        renderWithRoute(<VocabPage />, getVocabularyUrl(uri));
       });
 
       expect(getVocabularyByUri).toHaveBeenCalledWith(uri);

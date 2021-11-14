@@ -4,6 +4,10 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import SearchPage from "../../search/SearchPage/SearchPage";
 import VocabPage from "../../semantic-assets/VocabPage/VocabPage";
+import {
+  ASSETS_BASE_URL_TOKEN,
+  ASSETS_VOCABULARIES_URL_TOKEN,
+} from "../../../services/routes";
 
 const Main = () => (
   <main>
@@ -12,8 +16,8 @@ const Main = () => (
         <Route index path="/" element={<Categories />} />
         <Route path="search" element={<SearchPage />} />
         <Route path="*" element={<NotFound />} />
-        <Route path="semantic-assets">
-          <Route path="vocabularies" element={<VocabPage />} />
+        <Route path={ASSETS_BASE_URL_TOKEN}>
+          <Route path={ASSETS_VOCABULARIES_URL_TOKEN} element={<VocabPage />} />
           <Route index path="*" element={<NotFound />} />
         </Route>
       </Routes>

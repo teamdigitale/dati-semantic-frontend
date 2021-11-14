@@ -1,8 +1,10 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import SearchResultItem from "./SearchResultItem";
 import { AT_VOCABULARY } from "../../../services/dataConstants";
+import { renderWithRoute } from "../../../services/testUtils";
+import { getVocabularyUrl } from "../../../services/vocabService";
 
 const vocabItem = {
   uri: "http://www.disney.com/characters",
@@ -13,7 +15,7 @@ const vocabItem = {
 
 describe("<SearchResultItem />", () => {
   test("it should mount with proper item", () => {
-    render(<SearchResultItem item={vocabItem} />);
+    renderWithRoute(<SearchResultItem item={vocabItem} />);
 
     expect(screen.getByTestId("SearchResultItem")).toBeInTheDocument();
   });
@@ -21,9 +23,21 @@ describe("<SearchResultItem />", () => {
   test.each(["uri", "title", "desc"])(
     "it should display %s from the item",
     (key) => {
-      render(<SearchResultItem item={vocabItem} />);
+      renderWithRoute(<SearchResultItem item={vocabItem} />);
 
       expect(screen.getByText(vocabItem[key])).toBeInTheDocument();
     }
   );
+
+  test("it should display a link with uri", () => {
+    renderWithRoute(<SearchResultItem item={vocabItem} />);
+
+    let link = screen.getByText(vocabItem.uri);
+
+    expect(link).toBeInTheDocument();
+    expect(link.closest("a")).toHaveAttribute(
+      "href",
+      getVocabularyUrl(vocabItem.uri)
+    );
+  });
 });

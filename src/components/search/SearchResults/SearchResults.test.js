@@ -3,8 +3,19 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import SearchResults from "./SearchResults";
 import { AT_VOCABULARY } from "../../../services/dataConstants";
+import SearchResultItem from "../SearchResultItem/SearchResultItem";
+
+jest.mock("../SearchResultItem/SearchResultItem", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe("<SearchResults />", () => {
+  beforeEach(() => {
+    SearchResultItem.mockClear();
+    SearchResultItem.mockReturnValue(<div>The item</div>);
+  });
+
   test("it should mount with empty results", () => {
     render(<SearchResults items={[]} />);
 
@@ -49,10 +60,7 @@ describe("<SearchResults />", () => {
       test("it should show as many items as in result", () => {
         render(<SearchResults items={someVocabs} />);
 
-        const searchResultComponents =
-          screen.getAllByTestId("SearchResultItem");
-
-        expect(searchResultComponents.length).toBe(someVocabs.length);
+        expect(SearchResultItem).toHaveBeenCalledTimes(someVocabs.length);
       });
     });
   });
