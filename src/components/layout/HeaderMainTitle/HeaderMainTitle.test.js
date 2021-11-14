@@ -5,11 +5,10 @@ import HeaderMainTitle from "./HeaderMainTitle";
 import { renderWithRoute } from "../../../services/testUtils";
 
 describe("<HeaderMainTitle />", () => {
-  test("it should mount", () => {
+  test("it should mount and contain main title", () => {
     renderWithRoute(<HeaderMainTitle />);
 
-    const navigation = screen.getByText("National Data Catalog");
-
-    expect(navigation).toBeInTheDocument();
+    expect(screen.getByText("NDC")).toBeInTheDocument();
+    expect(screen.getByText("National Data Catalog")).toBeInTheDocument();
   });
 });
