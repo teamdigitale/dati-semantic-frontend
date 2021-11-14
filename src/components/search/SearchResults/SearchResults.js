@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styles from "./SearchResults.module.css";
 import { Icon } from "design-react-kit";
-import { getAssetLabel } from "../../../services/dataConstants";
+import SearchResultItem from "../SearchResultItem/SearchResultItem";
 
 const SearchResults = (props) => {
   const items = props.items;
@@ -29,18 +29,7 @@ const SearchResults = (props) => {
       return;
     }
 
-    return (
-      <ul>
-        {items.map((item) => (
-          <li key={item.uri} data-testid="SearchResultComponent">
-            <div>
-              <div>Tipo: {getAssetLabel(item.type)}</div>
-              <div>Titolo: {item.title}</div>
-            </div>
-          </li>
-        ))}
-      </ul>
-    );
+    return items.map((item) => <SearchResultItem key={item.uri} item={item} />);
   };
 
   return (

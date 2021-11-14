@@ -28,11 +28,13 @@ describe("<SearchResults />", () => {
           type: AT_VOCABULARY,
           uri: "http://www.disney.com/characters/",
           title: "Disney characters",
+          desc: "Some description",
         },
         {
           type: AT_VOCABULARY,
           uri: "http://www.atptour.com/court-types",
           title: "Tennis court types",
+          desc: "Some other description",
         },
       ];
 
@@ -44,12 +46,11 @@ describe("<SearchResults />", () => {
         expect(emptyMessage).toBeFalsy();
       });
 
-      test("it as many items", () => {
+      test("it should show as many items as in result", () => {
         render(<SearchResults items={someVocabs} />);
 
-        const searchResultComponents = screen.getAllByTestId(
-          "SearchResultComponent"
-        );
+        const searchResultComponents =
+          screen.getAllByTestId("SearchResultItem");
 
         expect(searchResultComponents.length).toBe(someVocabs.length);
       });
