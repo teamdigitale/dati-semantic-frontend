@@ -51,7 +51,7 @@
     "terser-webpack-plugin": "4.2.3",
     "ts-pnp": "1.2.0",
     "url-loader": "4.1.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^2.1.2"
   },
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
