@@ -1,18 +1,13 @@
-/**
- *
- * @returns {Promise<unknown>}
- */
-import { getVocabularyMetadata } from "../assets/data/vocabularyMetadata";
-import { getOntologyMetadata } from "../assets/data/ontologyMetadata";
+import { searchVocabularies } from "../assets/data/vocabularyMetadata";
+import { searchOntologies } from "../assets/data/ontologyMetadata";
 import { AT_ONTOLOGY, AT_VOCABULARY } from "./dataConstants";
+import { resolveDelayed } from "./fakeDataUtils";
 
-export async function search({ pattern = "", type = "" } = {}) {
-  return new Promise((resolve) => {
-    let vocabs =
-      type === AT_VOCABULARY ? getVocabularyMetadata({ pattern }) : [];
-    let ontos = type === AT_ONTOLOGY ? getOntologyMetadata({ pattern }) : [];
+export function search({ pattern = "", type = "" } = {}) {
+  return resolveDelayed(() => {
+    let vocabs = type === AT_VOCABULARY ? searchVocabularies({ pattern }) : [];
+    let ontos = type === AT_ONTOLOGY ? searchOntologies({ pattern }) : [];
 
-    const timeout = Math.random() * 200;
-    setTimeout(() => resolve(vocabs.concat(ontos)), timeout);
-  });
+    return vocabs.concat(ontos);
+  }, 300);
 }

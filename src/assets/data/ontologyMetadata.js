@@ -304,7 +304,7 @@ const ontos = [
   },
 ];
 
-export function getOntologyMetadata({ pattern = "" } = {}) {
+export function searchOntologies({ pattern = "" } = {}) {
   let result = ontos;
   if (pattern) {
     const matcher = propertyMatcher(pattern);

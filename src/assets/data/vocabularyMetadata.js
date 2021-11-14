@@ -612,7 +612,7 @@ const vocabs = [
   },
 ];
 
-export function getVocabularyMetadata({ pattern = "" } = {}) {
+export function searchVocabularies({ pattern = "" } = {}) {
   let result = vocabs;
   if (pattern) {
     const matcher = propertyMatcher(pattern);
@@ -627,4 +627,8 @@ export function getVocabularyMetadata({ pattern = "" } = {}) {
   }
 
   return result.slice(0, 20);
+}
+
+export function getVocabularyByUri(uri) {
+  return vocabs.find((v) => v.uri === uri);
 }
