@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./SearchResults.module.css";
 import { Icon } from "design-react-kit";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
 
@@ -33,7 +32,7 @@ const SearchResults = (props) => {
   };
 
   return (
-    <div className={styles.SearchResults} data-testid="SearchResults">
+    <div data-testid="SearchResults">
       {emptyResultsMessage()}
 
       {renderItems()}

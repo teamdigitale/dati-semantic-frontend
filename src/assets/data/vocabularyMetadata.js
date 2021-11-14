@@ -17,7 +17,9 @@ const vocabs = [
       "Stelle",
       "Struttura ricettiva",
     ],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -37,7 +39,9 @@ const vocabs = [
       "vacanze",
       "villaggio",
     ],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -50,7 +54,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["luoghi", "luogo", "tempo libero", "tipologia luogo pubblico"],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -68,7 +74,10 @@ const vocabs = [
       "categoria prevalente",
       "discipline",
     ],
-    themes: ["EDUC", "TECH"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -89,7 +98,9 @@ const vocabs = [
       "Documento",
       "Tipi di documenti",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -110,7 +121,9 @@ const vocabs = [
       "ente locale",
       "ente territoriale",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -124,7 +137,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Aree tematiche riviste scientifiche", "Riviste scientifiche"],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -140,7 +155,10 @@ const vocabs = [
       "Aree tematiche ERC",
       "Schede di valutazione ERC e parole chiave",
     ],
-    themes: ["EDUC", "TECH"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -154,7 +172,10 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Settori ricerca e sviluppo"],
-    themes: ["EDUC", "TECH"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -167,7 +188,10 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Indicatori", "Tipi di indicatori"],
-    themes: ["HEAL", "TECH"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/HEAL",
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -187,7 +211,9 @@ const vocabs = [
       "S13",
       "classificazione",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -201,7 +227,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["ATECO", "Ateco2007", "Attività Economica", "classificazione"],
-    themes: ["ECON"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/ECON",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -216,7 +244,10 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Cofog", "Cofog2009", "Spesa pubblica", "classificazione"],
-    themes: ["GOVE", "ECON"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+      "http://publications.europa.eu/resource/authority/data-theme/ECON",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -235,7 +266,10 @@ const vocabs = [
       "tipo impresa",
       "tipo organizzazione",
     ],
-    themes: ["GOVE", "ECON"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+      "http://publications.europa.eu/resource/authority/data-theme/ECON",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -249,7 +283,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Grado Istruzione", "Istruzione", "Titolo di studio"],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -271,7 +307,9 @@ const vocabs = [
       "Relazione di parentela",
       "Relazione parentale",
     ],
-    themes: ["SOCI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/SOCI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -284,7 +322,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Appellativo di una persona", "Titolo di una persona"],
-    themes: ["SOCI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/SOCI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -298,7 +338,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Genere", "Sesso"],
-    themes: ["SOCI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/SOCI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -317,7 +359,9 @@ const vocabs = [
       "servizio pubblico",
       "spid",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -338,7 +382,9 @@ const vocabs = [
       "sito web",
       "sportello pa",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -352,7 +398,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["interattività", "livello interattività", "servizio pubblico"],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -371,7 +419,9 @@ const vocabs = [
       "evento di business",
       "servizio pubblico",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -384,7 +434,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["evento", "evento della vita", "servizio pubblico"],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -397,7 +449,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Servizi pubblici", "Tematiche", "Temi servizi pubblici"],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -417,7 +471,9 @@ const vocabs = [
       "output",
       "servizio pubblico",
     ],
-    themes: ["GOVE"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -430,7 +486,10 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Cammini", "Mezzi di trasporto", "Percorsi", "Tipi di Percorso"],
-    themes: ["EDUC", "TRAN"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      "http://publications.europa.eu/resource/authority/data-theme/TRAN",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -448,7 +507,10 @@ const vocabs = [
       "trasparenza pa",
       "trasparenza pubblica amministrazione",
     ],
-    themes: ["GOVE", "TECH"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -468,7 +530,9 @@ const vocabs = [
       "settore scientifico disciplinare",
       "università",
     ],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -486,7 +550,9 @@ const vocabs = [
       "titolario di classificazione",
       "università",
     ],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -499,7 +565,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Personale università", "Ruoli accademici"],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -512,7 +580,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Licenza", "Licenza dati"],
-    themes: ["TECH"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -525,7 +595,10 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Categoria", "Punti di Interesse", "Settore"],
-    themes: ["EDUC", "REGI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -538,7 +611,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["evento", "evento pubblico", "tempo libero"],
-    themes: ["EDUC"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -556,7 +631,9 @@ const vocabs = [
       "Comune",
       "Comuni",
     ],
-    themes: ["REGI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -569,7 +646,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Italia", "Paese"],
-    themes: ["REGI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -582,7 +661,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Ripartizioni Geografiche"],
-    themes: ["REGI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -595,7 +676,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Province", "Provincia"],
-    themes: ["REGI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    ],
   },
   {
     type: AT_VOCABULARY,
@@ -608,7 +691,9 @@ const vocabs = [
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     keywords: ["Regione", "Regioni"],
-    themes: ["REGI"],
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/REGI",
+    ],
   },
 ];
 

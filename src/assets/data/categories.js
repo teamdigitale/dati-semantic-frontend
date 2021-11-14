@@ -136,6 +136,7 @@ export function getCategories() {
         idleImg: t.key.toLowerCase() + ".png",
         hoverImg: t.key.toLowerCase() + "-hover.png",
         label: t.label_it,
+        uri: t.url,
       };
     });
 }
