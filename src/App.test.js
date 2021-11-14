@@ -1,8 +1,33 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import App from "./App";
+import Header from "./components/layout/Header/Header";
+import Main from "./components/layout/Main/Main";
 
-test("renders Team Digitale title", () => {
-  render(<App />);
-  const linkElement = screen.getByText("Team Digitale");
-  expect(linkElement).toBeInTheDocument();
+jest.mock("./components/layout/Header/Header", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock("./components/layout/Main/Main", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+describe("The NDC App", () => {
+  beforeEach(() => {
+    Header.mockReturnValue(<div>Header</div>);
+    Main.mockReturnValue(<div>Main body</div>);
+  });
+
+  test("renders a header", () => {
+    render(<App />);
+
+    expect(Header).toHaveBeenCalled();
+  });
+
+  test("renders the body", () => {
+    render(<App />);
+
+    expect(Main).toHaveBeenCalled();
+  });
 });
