@@ -1,23 +1,37 @@
 import React from "react";
-import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Header from "./Header";
 import { renderWithRoute } from "../../../services/testUtils";
+import HeaderSlim from "../HeaderSlim/HeaderSlim";
+import HeaderMainTitle from "../HeaderMainTitle/HeaderMainTitle";
+
+jest.mock("../HeaderSlim/HeaderSlim", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock("../HeaderMainTitle/HeaderMainTitle", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe("<Header />", () => {
-  test("it should mount and contain logo", () => {
-    renderWithRoute(<Header />);
-
-    const header = screen.getByText("Team Digitale");
-
-    expect(header).toBeInTheDocument();
+  beforeEach(() => {
+    HeaderSlim.mockClear();
+    HeaderSlim.mockReturnValue(<div>Slim header</div>);
+    HeaderMainTitle.mockClear();
+    HeaderMainTitle.mockReturnValue(<div>Title header</div>);
   });
 
-  test("it should mount and contain main title", () => {
+  test("it should contain the upper thin header", () => {
     renderWithRoute(<Header />);
 
-    const header = screen.getByText("National Data Catalog");
+    expect(HeaderSlim).toHaveBeenCalled();
+  });
 
-    expect(header).toBeInTheDocument();
+  test("it should contain main title", () => {
+    renderWithRoute(<Header />);
+
+    expect(HeaderMainTitle).toHaveBeenCalled();
   });
 });
