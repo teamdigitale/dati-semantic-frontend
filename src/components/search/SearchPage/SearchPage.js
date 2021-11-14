@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
-
-function useQuery() {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
-}
+import { useQuery } from "../../../hooks/useQuery";
 
 const showAssetTypeFilter = (type) => {
   if (!type) {
