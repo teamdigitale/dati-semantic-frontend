@@ -1,16 +1,12 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Main from "./Main";
-import { MemoryRouter } from "react-router-dom";
+import { renderWithRoute } from "../../../services/testUtils";
 
 describe("<Main />", () => {
   test("it should mount", () => {
-    render(
-      <MemoryRouter>
-        <Main />
-      </MemoryRouter>
-    );
+    renderWithRoute(<Main />);
 
     const main = screen.getByRole("main");
 
@@ -18,11 +14,7 @@ describe("<Main />", () => {
   });
 
   test("it should display an error for a wrong URL", () => {
-    render(
-      <MemoryRouter initialEntries={["/not-existing"]}>
-        <Main />
-      </MemoryRouter>
-    );
+    renderWithRoute(<Main />, "/not-existing");
 
     const main = screen.getByRole("main");
 

@@ -2,15 +2,12 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import HeaderMainMenu from "./HeaderMainMenu";
-import { BrowserRouter, MemoryRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { renderWithRoute } from "../../../services/testUtils";
 
 describe("<HeaderMainMenu />", () => {
   test("it should mount", () => {
-    render(
-      <MemoryRouter>
-        <HeaderMainMenu />
-      </MemoryRouter>
-    );
+    renderWithRoute(<HeaderMainMenu />);
 
     const categories = screen.getByText("Categorie");
 

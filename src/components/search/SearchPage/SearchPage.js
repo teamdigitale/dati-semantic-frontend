@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { search } from "../../../services/searchService";
+import SearchResults from "../SearchResults/SearchResults";
 
 function useQuery() {
   const { search } = useLocation();
@@ -11,37 +12,32 @@ function useQuery() {
 
 const showAssetTypeFilter = (type) => {
   if (!type) {
-    return;
+    return null;
   }
 
   return <AssetTypeFilter types={[type]} />;
 };
 
-const showItems = (items) => {
-  if (!items) {
+const showItems = (isLoading, items) => {
+  if (isLoading) {
     return <h2>Caricamento...</h2>;
   }
 
-  return items.map((item) => {
-    return (
-      <div key={item.dataset}>
-        <div>Tipo: ${item.type}</div>
-        <div>Titolo: ${item.title}</div>
-      </div>
-    );
-  });
+  return <SearchResults items={items} />;
 };
 
 const SearchPage = () => {
   const [items, setItems] = useState(null);
+  const [isLoading, setLoading] = useState(true);
   let query = useQuery();
-  useEffect(async () => {
-    if (items) {
-      return;
-    }
-
-    const results = await search({ pattern: query.get("pattern") });
-    setItems(results);
+  useEffect(() => {
+    const doSearch = async () => {
+      setLoading(true);
+      const results = await search({ pattern: query.get("pattern") });
+      setItems(results);
+      setLoading(false);
+    };
+    doSearch();
   }, []);
 
   return (
@@ -58,7 +54,9 @@ const SearchPage = () => {
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-8 col-md-8">{showItems(items)}</div>
+          <div className="col-12 col-lg-8 col-md-8">
+            {showItems(isLoading, items)}
+          </div>
         </div>
       </div>
     </div>

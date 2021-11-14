@@ -1,16 +1,12 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import NotFound from "./NotFound";
-import { MemoryRouter } from "react-router-dom";
+import { renderWithRoute } from "../../../services/testUtils";
 
 describe("<NotFound />", () => {
   test("it should contain an error message", () => {
-    render(
-      <MemoryRouter>
-        <NotFound />
-      </MemoryRouter>
-    );
+    renderWithRoute(<NotFound />);
 
     const notFound = screen.getByTestId("NotFound");
 

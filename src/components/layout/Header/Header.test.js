@@ -1,16 +1,12 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Header from "./Header";
-import { MemoryRouter } from "react-router-dom";
+import { renderWithRoute } from "../../../services/testUtils";
 
 describe("<Header />", () => {
   test("it should mount and contain logo", () => {
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
+    renderWithRoute(<Header />);
 
     const header = screen.getByText("Team Digitale");
 
@@ -18,11 +14,7 @@ describe("<Header />", () => {
   });
 
   test("it should mount and contain main title", () => {
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
+    renderWithRoute(<Header />);
 
     const header = screen.getByText("National Data Catalog");
 
