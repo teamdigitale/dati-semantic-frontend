@@ -22,7 +22,6 @@ const showItems = (isLoading, items) => {
   if (isLoading) {
     return <h2>Caricamento...</h2>;
   }
-
   return <SearchResults items={items} />;
 };
 
@@ -30,15 +29,19 @@ const SearchPage = () => {
   const [items, setItems] = useState(null);
   const [isLoading, setLoading] = useState(true);
   let query = useQuery();
+
   useEffect(() => {
     const doSearch = async () => {
       setLoading(true);
-      const results = await search({ pattern: query.get("pattern") });
+      const results = await search({
+        type: query.get("type"),
+        pattern: query.get("pattern"),
+      });
       setItems(results);
       setLoading(false);
     };
     doSearch();
-  }, []);
+  }, [query]);
 
   return (
     <div data-testid="SearchPage">

@@ -16,6 +16,8 @@ jest.mock("../SearchResults/SearchResults", () => ({
 describe("<SearchPage />", () => {
   beforeEach(() => {
     SearchResults.mockReturnValue(<p>A pragraph</p>);
+    search.mockClear();
+    search.mockResolvedValue([]);
   });
 
   test("it should mount", async () => {
@@ -26,6 +28,17 @@ describe("<SearchPage />", () => {
     const vocabs = screen.getByTestId("SearchPage");
 
     expect(vocabs).toBeInTheDocument();
+  });
+
+  test("it should search with appropriate filters", async () => {
+    await act(async () => {
+      renderWithRoute(<SearchPage />, "/search?type=vocabulary&pattern=abc");
+    });
+
+    expect(search).toHaveBeenCalledWith({
+      type: AT_VOCABULARY,
+      pattern: "abc",
+    });
   });
 
   describe("FilterBar", () => {
