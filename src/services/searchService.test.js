@@ -73,4 +73,13 @@ describe("Search service", () => {
     expect(items.filter((a) => a.type === AT_VOCABULARY).length).toBe(2);
     expect(items.filter((a) => a.type === AT_ONTOLOGY).length).toBe(1);
   });
+
+  test("should filter vocabularies on theme", async () => {
+    const items = await search({
+      theme: "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      type: AT_VOCABULARY,
+    });
+
+    expect(items.length).toBe(14);
+  });
 });

@@ -697,9 +697,9 @@ const vocabs = [
   },
 ];
 
-export function searchVocabularies({ pattern = "" } = {}) {
+export function searchVocabularies({ pattern = "", theme = "" } = {}) {
   let result = vocabs;
-  if (pattern) {
+  if (pattern && pattern.trim().length > 0) {
     const matcher = propertyMatcher(pattern);
 
     result = result.filter((i) => {
@@ -709,6 +709,10 @@ export function searchVocabularies({ pattern = "" } = {}) {
 
       return false;
     });
+  }
+
+  if (theme && theme.trim().length > 0 && theme !== "*") {
+    result = result.filter((i) => i.themes.includes(theme));
   }
 
   return result;

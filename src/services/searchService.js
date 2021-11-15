@@ -3,7 +3,16 @@ import { searchOntologies } from "../assets/data/ontologyMetadata";
 import { AT_ONTOLOGY, AT_VOCABULARY } from "./dataConstants";
 import { resolveDelayed } from "./fakeDataUtils";
 
-export function search({ pattern = "", type = "" } = {}) {
+export function search(options = {}) {
+  const defaultOptions = {
+    pattern: "",
+    type: "*",
+    theme: "*",
+  };
+
+  options = { ...defaultOptions, ...options };
+  const type = options.type;
+
   return resolveDelayed(() => {
     const includeType = (t) =>
       !type ||
@@ -11,10 +20,8 @@ export function search({ pattern = "", type = "" } = {}) {
       type === t ||
       type === "*";
 
-    let vocabs = includeType(AT_VOCABULARY)
-      ? searchVocabularies({ pattern })
-      : [];
-    let ontos = includeType(AT_ONTOLOGY) ? searchOntologies({ pattern }) : [];
+    let vocabs = includeType(AT_VOCABULARY) ? searchVocabularies(options) : [];
+    let ontos = includeType(AT_ONTOLOGY) ? searchOntologies(options) : [];
 
     return vocabs.concat(ontos).slice(0, 20);
   }, 300);
