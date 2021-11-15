@@ -5,9 +5,17 @@ import { resolveDelayed } from "./fakeDataUtils";
 
 export function search({ pattern = "", type = "" } = {}) {
   return resolveDelayed(() => {
-    let vocabs = type === AT_VOCABULARY ? searchVocabularies({ pattern }) : [];
-    let ontos = type === AT_ONTOLOGY ? searchOntologies({ pattern }) : [];
+    const includeType = (t) =>
+      !type ||
+      (Array.isArray(type) && (type.length === 0 || type.includes(t))) ||
+      type === t ||
+      type === "*";
 
-    return vocabs.concat(ontos);
+    let vocabs = includeType(AT_VOCABULARY)
+      ? searchVocabularies({ pattern })
+      : [];
+    let ontos = includeType(AT_ONTOLOGY) ? searchOntologies({ pattern }) : [];
+
+    return vocabs.concat(ontos).slice(0, 20);
   }, 300);
 }

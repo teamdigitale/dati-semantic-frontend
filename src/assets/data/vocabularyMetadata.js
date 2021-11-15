@@ -711,7 +711,7 @@ export function searchVocabularies({ pattern = "" } = {}) {
     });
   }
 
-  return result.slice(0, 20);
+  return result;
 }
 
 export function getVocabularyByUri(uri) {
