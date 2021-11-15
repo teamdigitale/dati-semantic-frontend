@@ -1,0 +1,115 @@
+.category-icon {
+  width: 100%;
+  height: auto;
+  max-width: 128px;
+}
+
+.category-icon-small {
+  width: 100%;
+  height: auto;
+  max-width: 64px;
+}
+
+.agri-category-icon {
+  content: url("../theme-icons/agri.png");
+}
+
+.agri-category-icon:hover {
+  content: url("../theme-icons/agri-hover.png");
+}
+
+.econ-category-icon {
+  content: url("../theme-icons/econ.png");
+}
+
+.econ-category-icon:hover {
+  content: url("../theme-icons/econ-hover.png");
+}
+
+.educ-category-icon {
+  content: url("../theme-icons/educ.png");
+}
+
+.educ-category-icon:hover {
+  content: url("../theme-icons/educ-hover.png");
+}
+
+.ener-category-icon {
+  content: url("../theme-icons/ener.png");
+}
+
+.ener-category-icon:hover {
+  content: url("../theme-icons/ener-hover.png");
+}
+
+.envi-category-icon {
+  content: url("../theme-icons/envi.png");
+}
+
+.envi-category-icon:hover {
+  content: url("../theme-icons/envi-hover.png");
+}
+
+.gove-category-icon {
+  content: url("../theme-icons/gove.png");
+}
+
+.gove-category-icon:hover {
+  content: url("../theme-icons/gove-hover.png");
+}
+
+.heal-category-icon {
+  content: url("../theme-icons/heal.png");
+}
+
+.heal-category-icon:hover {
+  content: url("../theme-icons/heal-hover.png");
+}
+
+.intr-category-icon {
+  content: url("../theme-icons/intr.png");
+}
+
+.intr-category-icon:hover {
+  content: url("../theme-icons/intr-hover.png");
+}
+
+.just-category-icon {
+  content: url("../theme-icons/just.png");
+}
+
+.just-category-icon:hover {
+  content: url("../theme-icons/just-hover.png");
+}
+
+.regi-category-icon {
+  content: url("../theme-icons/regi.png");
+}
+
+.regi-category-icon:hover {
+  content: url("../theme-icons/regi-hover.png");
+}
+
+.soci-category-icon {
+  content: url("../theme-icons/soci.png");
+}
+
+.soci-category-icon:hover {
+  content: url("../theme-icons/soci-hover.png");
+}
+
+.tech-category-icon {
+  content: url("../theme-icons/tech.png");
+}
+
+.tech-category-icon:hover {
+  content: url("../theme-icons/tech-hover.png");
+}
+
+.tran-category-icon {
+  content: url("../theme-icons/tran.png");
+}
+
+.tran-category-icon:hover {
+  content: url("../theme-icons/tran-hover.png");
+}

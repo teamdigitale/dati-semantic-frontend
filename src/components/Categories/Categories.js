@@ -1,6 +1,5 @@
 import React from "react";
 import { getCategories } from "../../assets/data/categories";
-import "./Categories.css";
 
 const categoryData = getCategories();
 

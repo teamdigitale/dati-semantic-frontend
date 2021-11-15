@@ -11,9 +11,15 @@ const displayTheme = (theme) => {
     <div key={theme} className="row p-2">
       {/*<div className="col-md-4">{category.hoverImg}</div>*/}
       {/*<div className="col-md-4">{category.label}</div>*/}
-      <div className="col-md-8">{category.label}</div>
-      <div className="col-md-4">
-        <a href={category.uri}>{category.key}</a>
+      <div className="col-12">
+        <img
+          className={`${category.key.toLowerCase()}-category-icon category-icon-small float-left`}
+          title={category.label}
+          alt={category.key}
+        />
+        {category.label}
+        <br />
+        <a href={category.uri}>{category.uri}</a>
       </div>
     </div>
   );
