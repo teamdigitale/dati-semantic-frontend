@@ -1,7 +1,13 @@
 import { search } from "./searchService";
 import { AT_ONTOLOGY, AT_VOCABULARY } from "./dataConstants";
 
+jest.spyOn(Math, "random");
+
 describe("Search service", () => {
+  beforeEach(() => {
+    Math.random.mockReturnValue(0);
+  });
+
   test("should return all vocabularies, capped at 20", async () => {
     const items = await search({ type: AT_VOCABULARY });
 
@@ -81,5 +87,24 @@ describe("Search service", () => {
     });
 
     expect(items.length).toBe(14);
+    items.forEach((i) =>
+      expect(i.themes).toContainEqual(
+        "http://publications.europa.eu/resource/authority/data-theme/EDUC"
+      )
+    );
+  });
+
+  test("should filter ontologies on theme", async () => {
+    const items = await search({
+      theme: "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+      type: AT_ONTOLOGY,
+    });
+
+    expect(items.length).toBe(6);
+    items.forEach((i) =>
+      expect(i.themes).toContainEqual(
+        "http://publications.europa.eu/resource/authority/data-theme/EDUC"
+      )
+    );
   });
 });

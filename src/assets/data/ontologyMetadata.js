@@ -304,7 +304,7 @@ const ontos = [
   },
 ];
 
-export function searchOntologies({ pattern = "" } = {}) {
+export function searchOntologies({ pattern = "", theme = "" } = {}) {
   let result = ontos;
   if (pattern) {
     const matcher = propertyMatcher(pattern);
@@ -316,6 +316,10 @@ export function searchOntologies({ pattern = "" } = {}) {
 
       return false;
     });
+  }
+
+  if (theme && theme.trim().length > 0 && theme !== "*") {
+    result = result.filter((i) => i.themes.includes(theme));
   }
 
   return result;
