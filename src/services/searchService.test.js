@@ -53,6 +53,7 @@ describe("Search service", () => {
     expect(items.length).toBe(16);
   });
 
+  /* jscpd:ignore-start */
   test("should find vocabularies and ontologies, without a type filter", async () => {
     const items = await search({ pattern: "cittadini" });
 
@@ -79,7 +80,7 @@ describe("Search service", () => {
     expect(items.filter((a) => a.type === AT_VOCABULARY).length).toBe(2);
     expect(items.filter((a) => a.type === AT_ONTOLOGY).length).toBe(1);
   });
-
+  /* jscpd:ignore-end */
   test("should filter vocabularies on theme", async () => {
     const items = await search({
       theme: "http://publications.europa.eu/resource/authority/data-theme/EDUC",
