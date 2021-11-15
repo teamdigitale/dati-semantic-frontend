@@ -15,19 +15,21 @@ jest.mock("./components/layout/Main/Main", () => ({
 
 describe("The NDC App", () => {
   beforeEach(() => {
+    Header.mockClear();
     Header.mockReturnValue(<div>Header</div>);
+    Main.mockClear();
     Main.mockReturnValue(<div>Main body</div>);
   });
 
   test("renders a header", () => {
     render(<App />);
 
-    expect(Header).toHaveBeenCalled();
+    expect(Header).toHaveBeenCalledTimes(1);
   });
 
   test("renders the body", () => {
     render(<App />);
 
-    expect(Main).toHaveBeenCalled();
+    expect(Main).toHaveBeenCalledTimes(1);
   });
 });
