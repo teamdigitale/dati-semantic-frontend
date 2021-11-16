@@ -9,7 +9,7 @@ services:
       args:
         CUSTOM_ENV: production
     ports:
-      - 7001:80
+      - 7001:8080
     networks:
       - ndc
   mock-server:
