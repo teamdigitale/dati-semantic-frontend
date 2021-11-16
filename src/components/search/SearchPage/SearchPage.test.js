@@ -1,5 +1,6 @@
 import React from "react";
-import { act, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import { waitFor } from "@testing-library/dom";
 import "@testing-library/jest-dom/extend-expect";
 import SearchPage from "./SearchPage";
 import { search } from "../../../services/searchService";
@@ -21,23 +22,21 @@ describe("<SearchPage />", () => {
   });
 
   test("it should mount", async () => {
-    await act(async () => {
-      renderWithRoute(<SearchPage />, "");
-    });
+    renderWithRoute(<SearchPage />);
 
-    const vocabs = screen.getByTestId("SearchPage");
+    const vocabs = await screen.findByTestId("SearchPage");
 
     expect(vocabs).toBeInTheDocument();
   });
 
   test("it should search with appropriate filters", async () => {
-    await act(async () => {
-      renderWithRoute(<SearchPage />, "/search?type=vocabulary&pattern=abc");
-    });
+    renderWithRoute(<SearchPage />, "/search?type=vocabulary&pattern=abc");
 
-    expect(search).toHaveBeenCalledWith({
-      type: AT_VOCABULARY,
-      pattern: "abc",
+    await waitFor(() => {
+      expect(search).toHaveBeenCalledWith({
+        type: AT_VOCABULARY,
+        pattern: "abc",
+      });
     });
   });
 
@@ -48,23 +47,19 @@ describe("<SearchPage />", () => {
     });
 
     test("it should show selected filter", async () => {
-      await act(async () => {
-        renderWithRoute(<SearchPage />, "/search?type=ontology");
-      });
+      renderWithRoute(<SearchPage />, "/search?type=ontology");
 
-      const filter = screen.getByText("Ontologia");
+      const filter = await screen.findByText("Ontologia");
 
       expect(filter).toBeInTheDocument();
     });
 
     test("it should not show any type filter", async () => {
-      await act(async () => {
-        renderWithRoute(<SearchPage />, "/search");
-      });
+      renderWithRoute(<SearchPage />, "/search");
 
-      const filter = screen.queryByText("Ontologia");
-
-      expect(filter).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(screen.queryByText("Ontologia")).not.toBeInTheDocument()
+      );
     });
   });
 
@@ -97,13 +92,10 @@ describe("<SearchPage />", () => {
     });
 
     test("it show propagate items to result component", async () => {
-      await act(async () => {
-        renderWithRoute(<SearchPage />, "/search?type=vocabulary");
+      renderWithRoute(<SearchPage />, "/search?type=vocabulary");
+      simulateVocabDataLoaded();
 
-        simulateVocabDataLoaded();
-      });
-
-      expect(SearchResults).toHaveBeenCalled();
+      await waitFor(() => expect(SearchResults).toHaveBeenCalled());
       expect(SearchResults).toHaveBeenCalledWith({ items: someVocabs }, {});
     });
   });
