@@ -32,9 +32,11 @@ describe("<SearchPage />", () => {
   test("it should search with appropriate filters", async () => {
     renderWithRoute(<SearchPage />, "/search?type=vocabulary&pattern=abc");
 
-    expect(search).toHaveBeenCalledWith({
-      type: AT_VOCABULARY,
-      pattern: "abc",
+    await waitFor(() => {
+      expect(search).toHaveBeenCalledWith({
+        type: AT_VOCABULARY,
+        pattern: "abc",
+      });
     });
   });
 
@@ -55,9 +57,9 @@ describe("<SearchPage />", () => {
     test("it should not show any type filter", async () => {
       renderWithRoute(<SearchPage />, "/search");
 
-      const filter = screen.queryByText("Ontologia");
-
-      expect(filter).not.toBeInTheDocument();
+      await waitFor(() =>
+        expect(screen.queryByText("Ontologia")).not.toBeInTheDocument()
+      );
     });
   });
 
