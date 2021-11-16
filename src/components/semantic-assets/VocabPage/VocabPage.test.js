@@ -1,5 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
+import { waitFor } from "@testing-library/dom";
 import VocabPage from "./VocabPage";
 import AssetNotFound, {
   MISSING_RESOURCE,
@@ -7,7 +8,6 @@ import AssetNotFound, {
 } from "../AssetNotFound/AssetNotFound";
 import { renderWithRoute } from "../../../services/testUtils";
 import { getVocabularyByUri } from "../../../services/vocabService";
-import { act } from "@testing-library/react";
 import VocabDetails from "../VocabDetails/VocabDetails";
 import { ASSETS_VOCABULARIES_FULL_URL } from "../../../services/routes";
 const { getVocabularyUrl } = jest.requireActual(
@@ -36,21 +36,19 @@ describe("<VocabPage />", () => {
       getVocabularyByUri.mockResolvedValue(null);
     });
 
-    test("it should show error if uri param is missing", async () => {
-      await act(async () => {
-        renderWithRoute(<VocabPage />, ASSETS_VOCABULARIES_FULL_URL);
-      });
+    test("it should show error if uri param is missing", () => {
+      renderWithRoute(<VocabPage />, ASSETS_VOCABULARIES_FULL_URL);
 
       expect(AssetNotFound).toHaveBeenCalledWith({ reason: MISSING_URI }, {});
       expect(getVocabularyByUri).not.toHaveBeenCalled();
     });
 
     test("it should show missing vocab if uri lookup fails", async () => {
-      await act(async () => {
-        renderWithRoute(<VocabPage />, getVocabularyUrl("non-existent"));
-      });
+      renderWithRoute(<VocabPage />, getVocabularyUrl("non-existent"));
 
-      expect(getVocabularyByUri).toHaveBeenCalledWith("non-existent");
+      await waitFor(() =>
+        expect(getVocabularyByUri).toHaveBeenCalledWith("non-existent")
+      );
       expect(AssetNotFound).toHaveBeenCalledWith(
         { reason: MISSING_RESOURCE },
         {}
@@ -68,11 +66,9 @@ describe("<VocabPage />", () => {
     });
 
     test("it should show missing vocab if uri lookup fails", async () => {
-      await act(async () => {
-        renderWithRoute(<VocabPage />, getVocabularyUrl(uri));
-      });
+      renderWithRoute(<VocabPage />, getVocabularyUrl(uri));
 
-      expect(getVocabularyByUri).toHaveBeenCalledWith(uri);
+      await waitFor(() => expect(getVocabularyByUri).toHaveBeenCalledWith(uri));
       expect(AssetNotFound).not.toHaveBeenCalled();
       expect(VocabDetails).toHaveBeenCalledWith({ details: vocabData }, {});
     });
