@@ -1,22 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
-import {
-  getAssetLabel,
-  SUPPORTED_ASSET_TYPES,
-} from "../../../services/dataConstants";
+import { oneOf, shape, string } from "prop-types";
+import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { Icon } from "design-react-kit";
 import { NavLink } from "react-router-dom";
 import { getVocabularyUrl } from "../../../services/vocabService";
+import { getCategories } from "../../../assets/data/categories";
+import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 
 const SearchResultItem = ({ item }) => {
+  const category = getCategories().find((c) => c.uri === item.themes[0]);
   return (
     <div className="card-wrapper card-space" data-testid="SearchResultItem">
       <div className="card card-bg">
         <div className="card-body">
-          <div className="category-top">
-            <a className="category" href="#">
-              {getAssetLabel(item.type)}
-            </a>
+          <div className="category-top clearfix">
+            <div className="category">
+              <CategoryIcon
+                category={category}
+                size="tiny"
+                className="float-left"
+              />{" "}
+              {category.label}
+            </div>
           </div>
           <h5 className="card-title big-heading">{item.title}</h5>
           <p className="card-text">{item.desc}</p>
@@ -32,11 +37,11 @@ const SearchResultItem = ({ item }) => {
 };
 
 SearchResultItem.propTypes = {
-  item: PropTypes.shape({
-    type: PropTypes.oneOf(SUPPORTED_ASSET_TYPES).isRequired,
-    uri: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    desc: PropTypes.string.isRequired,
+  item: shape({
+    type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
+    uri: string.isRequired,
+    title: string.isRequired,
+    desc: string.isRequired,
   }).isRequired,
 };
 

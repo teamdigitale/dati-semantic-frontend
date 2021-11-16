@@ -1,13 +1,18 @@
 .category-icon {
   width: 100%;
   height: auto;
+}
+
+.category-icon-large {
   max-width: 128px;
 }
 
 .category-icon-small {
-  width: 100%;
-  height: auto;
   max-width: 64px;
+}
+
+.category-icon-tiny {
+  max-width: 25px;
 }
 
 .agri-category-icon {

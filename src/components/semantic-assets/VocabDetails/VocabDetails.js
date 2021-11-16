@@ -2,6 +2,7 @@ import React from "react";
 import { shape, string } from "prop-types";
 import styles from "./VocabDetails.module.css";
 import { getCategories } from "../../../assets/data/categories";
+import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 
 const categories = getCategories();
 
@@ -9,14 +10,8 @@ const displayTheme = (theme) => {
   let category = categories.find((c) => c.uri === theme);
   return (
     <div key={theme} className="row p-2">
-      {/*<div className="col-md-4">{category.hoverImg}</div>*/}
-      {/*<div className="col-md-4">{category.label}</div>*/}
       <div className="col-12">
-        <img
-          className={`${category.key.toLowerCase()}-category-icon category-icon-small float-left`}
-          title={category.label}
-          alt={category.key}
-        />
+        <CategoryIcon category={category} className="float-left" />
         {category.label}
         <br />
         <a href={category.uri}>{category.uri}</a>

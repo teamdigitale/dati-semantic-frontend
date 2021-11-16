@@ -1,5 +1,6 @@
 import React from "react";
 import { getCategories } from "../../assets/data/categories";
+import CategoryIcon from "../common/CategoryIcon/CategoryIcon";
 
 const categoryData = getCategories();
 
@@ -17,10 +18,10 @@ const Categories = () => (
           >
             <p className="font-weight-bolder clearfix">
               {" "}
-              <img
-                className={`${category.key.toLowerCase()}-category-icon category-icon float-left`}
-                title={category.label}
-                alt={category.key}
+              <CategoryIcon
+                category={category}
+                size="large"
+                className="float-left"
               />
               {category.label}
             </p>

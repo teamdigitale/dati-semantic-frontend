@@ -11,6 +11,7 @@ const vocabItem = {
   type: AT_VOCABULARY,
   title: "Disney characters",
   desc: "Fully comprehensive list of Disney characters",
+  themes: ["http://publications.europa.eu/resource/authority/data-theme/EDUC"],
 };
 
 describe("<SearchResultItem />", () => {
