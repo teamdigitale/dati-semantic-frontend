@@ -8,7 +8,9 @@ describe("<HeaderMainTitle />", () => {
   test("it should mount and contain main title", () => {
     renderWithRoute(<HeaderMainTitle />);
 
-    expect(screen.getByText("NDC")).toBeInTheDocument();
-    expect(screen.getByText("National Data Catalog")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /ndc/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /national data catalog/i })
+    ).toBeInTheDocument();
   });
 });

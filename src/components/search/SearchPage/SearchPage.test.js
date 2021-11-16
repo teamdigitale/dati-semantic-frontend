@@ -22,7 +22,7 @@ describe("<SearchPage />", () => {
   });
 
   test("it should mount", async () => {
-    renderWithRoute(<SearchPage />, "");
+    renderWithRoute(<SearchPage />);
 
     const vocabs = await screen.findByTestId("SearchPage");
 

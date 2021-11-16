@@ -8,7 +8,9 @@ describe("<HeaderNavigation />", () => {
   test("it should mount with main title", () => {
     renderWithRoute(<HeaderNavigation />);
 
-    const navigation = screen.getByText("National Data Catalog");
+    const navigation = screen.getByRole("heading", {
+      name: /national data catalog/i,
+    });
 
     expect(navigation).toBeInTheDocument();
   });
@@ -16,7 +18,7 @@ describe("<HeaderNavigation />", () => {
   test("it should mount with categories", () => {
     renderWithRoute(<HeaderNavigation />);
 
-    const categories = screen.getByText("Categorie");
+    const categories = screen.getByText(/categorie/i);
 
     expect(categories).toBeInTheDocument();
   });

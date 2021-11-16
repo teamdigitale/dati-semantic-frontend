@@ -7,7 +7,7 @@ describe("<HeaderSlim />", () => {
   test("it should mount", () => {
     render(<HeaderSlim />);
 
-    const header = screen.getByText("Team Digitale");
+    const header = screen.getByRole("link", { name: /team digitale/i });
 
     expect(header).toBeInTheDocument();
   });
@@ -15,7 +15,9 @@ describe("<HeaderSlim />", () => {
   test("it HeaderSlim point to Team Digitale's homepage", () => {
     render(<HeaderSlim />);
 
-    const anchor = screen.getByText("Team Digitale").closest("a");
+    const anchor = screen
+      .getByRole("link", { name: /team digitale/i })
+      .closest("a");
 
     expect(anchor).toBeInTheDocument();
     expect(anchor).toHaveAttribute("href", "https://teamdigitale.governo.it/");
