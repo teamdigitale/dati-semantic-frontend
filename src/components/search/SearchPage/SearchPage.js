@@ -6,11 +6,9 @@ import { useQuery } from "../../../hooks/useQuery";
 import CategoryFilter from "../CategoryFilter/CategoryFilter";
 
 const showAssetTypeFilter = (type) => {
-  if (!type) {
-    return null;
-  }
+  const types = !type ? [] : [type];
 
-  return <AssetTypeFilter types={[type]} />;
+  return <AssetTypeFilter types={types} />;
 };
 
 const showCategoryFilter = (theme) => {
