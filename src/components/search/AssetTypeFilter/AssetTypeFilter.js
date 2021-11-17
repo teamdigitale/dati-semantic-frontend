@@ -7,12 +7,11 @@ import {
 
 const AssetTypeFilter = (props) => (
   <div data-testid="AssetTypeFilter">
-    <div role="label">Tipologia Strumento Semantico</div>
-    <ul>
-      {props.types.map((t) => (
-        <li key="t">{getAssetLabel(t)}</li>
-      ))}
-    </ul>
+    {props.types.map((t) => (
+      <div key={t} className="chip chip-simple chip-lg">
+        <span className="chip-label">Tipologia: {getAssetLabel(t)}</span>
+      </div>
+    ))}
   </div>
 );
 

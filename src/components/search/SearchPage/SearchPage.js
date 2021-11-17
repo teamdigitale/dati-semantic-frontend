@@ -3,6 +3,7 @@ import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import { useQuery } from "../../../hooks/useQuery";
+import CategoryFilter from "../CategoryFilter/CategoryFilter";
 
 const showAssetTypeFilter = (type) => {
   if (!type) {
@@ -10,6 +11,14 @@ const showAssetTypeFilter = (type) => {
   }
 
   return <AssetTypeFilter types={[type]} />;
+};
+
+const showCategoryFilter = (theme) => {
+  if (!theme) {
+    return null;
+  }
+
+  return <CategoryFilter themes={[theme]} />;
 };
 
 const showItems = (isLoading, items) => {
@@ -48,6 +57,7 @@ const SearchPage = () => {
                 <div className="col">
                   <h4>Ricerca</h4>
                   {showAssetTypeFilter(query.get("type"))}
+                  {showCategoryFilter(query.get("theme"))}
                 </div>
               </div>
             </div>
