@@ -1,7 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Icon } from "design-react-kit";
-import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
+import {
+  AT_ONTOLOGY,
+  AT_SCHEMA,
+  AT_VOCABULARY,
+} from "../../../services/dataConstants";
 
 const menuItems = [
   { label: "Categorie", href: "/" },
@@ -12,6 +16,14 @@ const menuItems = [
   {
     label: "Vocabolari",
     href: `/search?type=${AT_VOCABULARY}`,
+  },
+  {
+    label: "Schemi",
+    href: `/search?type=${AT_SCHEMA}`,
+  },
+  {
+    label: "Ricerca libera",
+    href: "/search",
   },
 ];
 const HeaderMainMenu = () => (
@@ -52,12 +64,12 @@ const HeaderMainMenu = () => (
                   <ul className="navbar-nav">
                     {menuItems.map((menuItem) => (
                       <li className="nav-item megamenu" key={menuItem.label}>
-                        <NavLink
+                        <Link
                           className="nav-link pl-0 focus-element"
                           to={menuItem.href}
                         >
                           <span>{menuItem.label}</span>
-                        </NavLink>
+                        </Link>
                       </li>
                     ))}
                   </ul>
