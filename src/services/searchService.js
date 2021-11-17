@@ -11,6 +11,17 @@ export function search(options = {}) {
   };
 
   options = { ...defaultOptions, ...options };
+  if (!!options.theme && options.theme !== "*") {
+    if (
+      !options.theme.startsWith(
+        "http://publications.europa.eu/resource/authority/data-theme/"
+      )
+    ) {
+      options.theme =
+        "http://publications.europa.eu/resource/authority/data-theme/" +
+        options.theme;
+    }
+  }
   const type = options.type;
 
   return resolveDelayed(() => {

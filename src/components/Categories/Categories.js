@@ -1,6 +1,7 @@
 import React from "react";
 import { getCategories } from "../../assets/data/categories";
 import CategoryIcon from "../common/CategoryIcon/CategoryIcon";
+import { Link } from "react-router-dom";
 
 const categoryData = getCategories();
 
@@ -18,11 +19,13 @@ const Categories = () => (
           >
             <p className="font-weight-bolder clearfix">
               {" "}
-              <CategoryIcon
-                category={category}
-                size="large"
-                className="float-left"
-              />
+              <Link to={"/search?theme=" + category.key}>
+                <CategoryIcon
+                  category={category}
+                  size="large"
+                  className="float-left"
+                />
+              </Link>
               {category.label}
             </p>
           </div>

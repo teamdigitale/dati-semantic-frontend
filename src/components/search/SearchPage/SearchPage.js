@@ -30,6 +30,7 @@ const SearchPage = () => {
       const results = await search({
         type: query.get("type"),
         pattern: query.get("pattern"),
+        theme: query.get("theme"),
       });
       setItems(results);
       setLoading(false);
