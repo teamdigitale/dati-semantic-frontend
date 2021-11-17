@@ -1,6 +1,9 @@
 import React from "react";
 import { oneOf, shape, string } from "prop-types";
-import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
+import {
+  getAssetLabel,
+  SUPPORTED_ASSET_TYPES,
+} from "../../../services/dataConstants";
 import { Icon } from "design-react-kit";
 import { NavLink } from "react-router-dom";
 import { getVocabularyUrl } from "../../../services/vocabService";
@@ -20,7 +23,10 @@ const SearchResultItem = ({ item }) => {
                 size="tiny"
                 className="float-left"
               />{" "}
-              {category.label}
+              {category.label}{" "}
+              <span className="badge badge-secondary">
+                {getAssetLabel(item.type)}
+              </span>
             </div>
           </div>
           <h5 className="card-title big-heading">{item.title}</h5>
