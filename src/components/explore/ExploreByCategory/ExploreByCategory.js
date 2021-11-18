@@ -12,7 +12,7 @@ const ExploreByCategory = () => {
   const navigate = useNavigate();
 
   const searchFor = (key) => {
-    navigate(routes.search({ theme: key }));
+    navigate(routes.search({ themes: [key] }));
   };
 
   const categoryCells = categoryData.map((c) => ({

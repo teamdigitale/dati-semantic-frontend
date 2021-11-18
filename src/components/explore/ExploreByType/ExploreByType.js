@@ -14,7 +14,7 @@ const ExploreByType = () => {
   const navigate = useNavigate();
 
   const searchFor = (type) => {
-    navigate(routes.search({ type: type }));
+    navigate(routes.search({ types: [type] }));
   };
 
   const category = getCategories()[2];

@@ -15,7 +15,7 @@ describe("Routes object", () => {
       });
 
       test("should return a search URL with a single type", () => {
-        const searchRoute = routes.search({ type: AT_ONTOLOGY });
+        const searchRoute = routes.search({ types: [AT_ONTOLOGY] });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
         expect(searchRoute).toContain(`type=${AT_ONTOLOGY}`);
@@ -23,7 +23,7 @@ describe("Routes object", () => {
 
       test("should return a search URL with multiple types", () => {
         const searchRoute = routes.search({
-          type: [AT_ONTOLOGY, AT_VOCABULARY],
+          types: [AT_ONTOLOGY, AT_VOCABULARY],
         });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
@@ -33,14 +33,14 @@ describe("Routes object", () => {
       });
 
       test("should return a search URL with a single theme", () => {
-        const searchRoute = routes.search({ theme: "ECON" });
+        const searchRoute = routes.search({ themes: ["ECON"] });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
         expect(searchRoute).toContain("theme=ECON");
       });
 
       test("should return a search URL with multiple themes", () => {
-        const searchRoute = routes.search({ theme: ["ECON", "AGRI"] });
+        const searchRoute = routes.search({ themes: ["ECON", "AGRI"] });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
         expect(searchRoute).toContain("theme=ECON&theme=AGRI");
@@ -48,8 +48,8 @@ describe("Routes object", () => {
 
       test("should return a search URL with themes and a type", () => {
         const searchRoute = routes.search({
-          theme: ["ECON", "AGRI"],
-          type: AT_SCHEMA,
+          themes: ["ECON", "AGRI"],
+          types: [AT_SCHEMA],
         });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
@@ -79,7 +79,7 @@ describe("Routes object", () => {
         const filter = routes.searchUrlToFilter(`type=${AT_VOCABULARY}`);
 
         expect(filter).toEqual({
-          type: AT_VOCABULARY,
+          types: [AT_VOCABULARY],
         });
       });
 
@@ -89,7 +89,7 @@ describe("Routes object", () => {
         );
 
         expect(filter).toEqual({
-          type: [AT_VOCABULARY, AT_ONTOLOGY],
+          types: [AT_VOCABULARY, AT_ONTOLOGY],
         });
       });
 
@@ -99,8 +99,8 @@ describe("Routes object", () => {
         );
 
         expect(filter).toEqual({
-          type: AT_VOCABULARY,
-          theme: "AGRI",
+          types: [AT_VOCABULARY],
+          themes: ["AGRI"],
           pattern: "abc",
         });
       });

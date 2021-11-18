@@ -16,28 +16,20 @@ export const SearchParameterNames = {
 
 class Routes {
   search(filters = {}) {
-    const defaultFilters = { type: "", theme: "", pattern: "" };
-    const { type, theme, pattern } = { ...defaultFilters, ...filters };
+    const defaultFilters = { types: [], themes: [], pattern: "" };
+    const { types, themes, pattern } = { ...defaultFilters, ...filters };
 
     const params = [];
-    if (type) {
-      if (Array.isArray(type)) {
-        type
-          .map((t) => [SearchParameterNames.type, t])
-          .forEach((p) => params.push(p));
-      } else {
-        params.push([SearchParameterNames.type, type]);
-      }
+    if (types) {
+      types
+        .map((t) => [SearchParameterNames.type, t])
+        .forEach((p) => params.push(p));
     }
 
-    if (theme) {
-      if (Array.isArray(theme)) {
-        theme
-          .map((t) => [SearchParameterNames.theme, t])
-          .forEach((p) => params.push(p));
-      } else {
-        params.push([SearchParameterNames.theme, theme]);
-      }
+    if (themes) {
+      themes
+        .map((t) => [SearchParameterNames.theme, t])
+        .forEach((p) => params.push(p));
     }
 
     if (pattern) {
@@ -55,23 +47,15 @@ class Routes {
   searchUrlToFilter(search) {
     let result = {};
     const params = new URLSearchParams(search);
-    const appendToFilterObject = (key) => {
-      if (params.has(key)) {
-        const values = params.getAll(key);
-        if (values.length === 0) {
-          return;
-        }
-        if (values.length === 1) {
-          result = { ...result, [key]: values[0] };
-        } else {
-          result = { ...result, [key]: values };
-        }
-      }
-    };
-
-    appendToFilterObject("type");
-    appendToFilterObject("theme");
-    appendToFilterObject("pattern");
+    if (params.has("type")) {
+      result = { ...result, ["types"]: params.getAll("type") };
+    }
+    if (params.has("theme")) {
+      result = { ...result, ["themes"]: params.getAll("theme") };
+    }
+    if (params.has("pattern")) {
+      result = { ...result, pattern: params.get("pattern") };
+    }
     return result;
   }
 

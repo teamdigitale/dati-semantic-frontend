@@ -20,10 +20,18 @@ jest.mock("../FilterPanel/FilterPanel", () => ({
   default: jest.fn(),
 }));
 
+const mockNavigation = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigation,
+}));
+
 describe("<SearchPage />", () => {
   beforeEach(() => {
-    SearchResults.mockReturnValue(<p>A pragraph</p>);
+    SearchResults.mockReturnValue(<p>A paragraph</p>);
     FilterPanel.mockReturnValue(<div>The filters</div>);
+    FilterPanel.mockClear();
     search.mockClear();
     search.mockResolvedValue([]);
   });
@@ -39,14 +47,64 @@ describe("<SearchPage />", () => {
   test("it should search with appropriate filters", async () => {
     renderWithRoute(
       <SearchPage />,
-      routes.search({ type: AT_VOCABULARY, pattern: "abc" })
+      routes.search({ types: [AT_VOCABULARY], pattern: "abc" })
     );
 
     await waitFor(() => {
       expect(search).toHaveBeenCalledWith({
-        type: AT_VOCABULARY,
+        types: [AT_VOCABULARY],
         pattern: "abc",
       });
+    });
+  });
+
+  test("it should propagate filters to panel for showing", async () => {
+    renderWithRoute(
+      <SearchPage />,
+      routes.search({
+        types: [AT_VOCABULARY],
+        pattern: "abc",
+        themes: ["AGRI"],
+      })
+    );
+
+    await waitFor(() => {
+      expect(FilterPanel).toHaveBeenCalledWith(
+        expect.objectContaining({
+          types: [AT_VOCABULARY],
+          pattern: "abc",
+          themes: ["AGRI"],
+        }),
+        {}
+      );
+    });
+  });
+
+  test("it should allow filter panel to update URL", async () => {
+    renderWithRoute(
+      <SearchPage />,
+      routes.search({ types: [AT_VOCABULARY], pattern: "abc" })
+    );
+
+    await waitFor(() => {
+      expect(FilterPanel).toHaveBeenCalled();
+    });
+
+    const callCount = FilterPanel.mock.calls.length;
+    const latestProvidedProps = FilterPanel.mock.calls[callCount - 1][0];
+    expect(latestProvidedProps.theme).toBeFalsy();
+    const updateCallback = latestProvidedProps.onThemeUpdate;
+    expect(updateCallback).toBeInstanceOf(Function);
+    updateCallback(["AGRI"]);
+
+    await waitFor(() => {
+      expect(mockNavigation).toHaveBeenCalledWith(
+        routes.search({
+          types: [AT_VOCABULARY],
+          pattern: "abc",
+          themes: ["AGRI"],
+        })
+      );
     });
   });
 
@@ -79,7 +137,10 @@ describe("<SearchPage />", () => {
     });
 
     test("it show propagate items to result component", async () => {
-      renderWithRoute(<SearchPage />, routes.search({ type: AT_VOCABULARY }));
+      renderWithRoute(
+        <SearchPage />,
+        routes.search({ types: [AT_VOCABULARY] })
+      );
       simulateVocabDataLoaded();
 
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());
