@@ -12,11 +12,9 @@ const showAssetTypeFilter = (type) => {
 };
 
 const showCategoryFilter = (theme) => {
-  if (!theme) {
-    return null;
-  }
+  const themes = !theme ? [] : [theme];
 
-  return <CategoryFilter themes={[theme]} />;
+  return <CategoryFilter themes={themes} />;
 };
 
 const showItems = (isLoading, items) => {
