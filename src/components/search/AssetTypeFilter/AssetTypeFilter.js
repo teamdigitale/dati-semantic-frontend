@@ -5,17 +5,40 @@ import {
   SUPPORTED_ASSET_TYPES,
 } from "../../../services/dataConstants";
 import { Icon } from "design-react-kit";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-const appliedFilter = (types) => (
-  <div data-testid="AssetTypeFilter">
-    {types.map((t) => (
-      <div key={t} className="chip chip-simple chip-lg">
-        <span className="chip-label">Tipologia: {getAssetLabel(t)}</span>
-      </div>
-    ))}
-  </div>
-);
+const appliedFilter = (types, search, navigate) => {
+  const removeLink = (type) => {
+    const query = new URLSearchParams(search);
+    const types = query.getAll("type");
+    query.delete("type");
+    if (types.length > 1) {
+      types.filter((t) => t !== type).forEach((t) => query.append("type", t));
+    }
+    return `/search?${query.toString()}`;
+  };
+
+  return (
+    <div data-testid="AssetTypeFilter">
+      {types.map((t) => {
+        let assetLabel = getAssetLabel(t);
+        return (
+          <div key={t} className="chip chip-lg">
+            <span className="chip-label">Tipologia: {assetLabel}</span>
+            <button
+              onClick={() => {
+                navigate(removeLink(t));
+              }}
+            >
+              <Icon icon="it-close" />
+              <span className="sr-only">Rimuovi filtro per {assetLabel}</span>
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 
 const filterSelection = (search) => {
   const newLink = (type) => {
@@ -52,9 +75,10 @@ const filterSelection = (search) => {
 
 const AssetTypeFilter = ({ types }) => {
   const { search } = useLocation();
+  const navigate = useNavigate();
 
   if (!!types && Array.isArray(types) && types.length > 0) {
-    return appliedFilter(types);
+    return appliedFilter(types, search, navigate);
   }
 
   return filterSelection(search);
