@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Categories from "./Categories";
-import { getCategories } from "../../assets/data/categories";
+import { getCategories } from "../../../assets/data/categories";
 
 describe("<Categories />", () => {
   test("it should mount", () => {

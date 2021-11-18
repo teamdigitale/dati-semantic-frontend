@@ -1,14 +1,14 @@
 import React from "react";
-import { getCategories } from "../../assets/data/categories";
-import CategoryIcon from "../common/CategoryIcon/CategoryIcon";
+import { getCategories } from "../../../assets/data/categories";
 import { Link } from "react-router-dom";
+import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 
 const categoryData = getCategories();
 
 const Categories = () => (
   <div data-testid="Categories">
     <div className="row p-3">
-      <h2>naviga i dati per categoria tematica</h2>
+      <h2>Sfoglia i dati per categoria tematica</h2>
     </div>
     <div className="row" role="list">
       {categoryData.map((category) => (
