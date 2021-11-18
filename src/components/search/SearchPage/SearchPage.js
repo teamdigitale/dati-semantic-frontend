@@ -1,21 +1,8 @@
 import React, { useEffect, useState } from "react";
-import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import { useQuery } from "../../../hooks/useQuery";
-import CategoryFilter from "../CategoryFilter/CategoryFilter";
-
-const showAssetTypeFilter = (type) => {
-  const types = !type ? [] : [type];
-
-  return <AssetTypeFilter types={types} />;
-};
-
-const showCategoryFilter = (theme) => {
-  const themes = !theme ? [] : [theme];
-
-  return <CategoryFilter themes={themes} />;
-};
+import FilterBar from "../FilterBar/FilterBar";
 
 const showItems = (isLoading, items) => {
   if (isLoading) {
@@ -27,15 +14,19 @@ const showItems = (isLoading, items) => {
 const SearchPage = () => {
   const [items, setItems] = useState(null);
   const [isLoading, setLoading] = useState(true);
-  let query = useQuery();
+  const query = useQuery();
+
+  const type = query.get("type");
+  const theme = query.get("theme");
+  const pattern = query.get("pattern");
 
   useEffect(() => {
     const doSearch = async () => {
       setLoading(true);
       const results = await search({
-        type: query.get("type"),
-        pattern: query.get("pattern"),
-        theme: query.get("theme"),
+        type: type,
+        pattern: pattern,
+        theme: theme,
       });
       setItems(results);
       setLoading(false);
@@ -48,15 +39,7 @@ const SearchPage = () => {
       <div className="container main-container pl-4 pr-4">
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4 primary-bg-a2" role="search">
-            <div id="cv-facet-pane">
-              <div className="row d-flex justify-content-center p-3">
-                <div className="col">
-                  <h4>Ricerca</h4>
-                  {showAssetTypeFilter(query.get("type"))}
-                  {showCategoryFilter(query.get("theme"))}
-                </div>
-              </div>
-            </div>
+            <FilterBar type={type} theme={theme} />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
             {showItems(isLoading, items)}
