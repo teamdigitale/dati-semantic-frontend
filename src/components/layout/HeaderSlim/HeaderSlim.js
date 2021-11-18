@@ -1,4 +1,5 @@
 import React from "react";
+import "./HeaderSlim.css";
 
 const HeaderSlim = () => (
   <div className="it-header-slim-wrapper" data-testid="Header">
@@ -15,18 +16,7 @@ const HeaderSlim = () => (
             <div className="nav-mobile">
               <nav>
                 <div className="link-list-wrapper collapse" id="menu2">
-                  <ul className="link-list">
-                    <li>
-                      <a className="list-item" href="#">
-                        Chi Siamo
-                      </a>
-                    </li>
-                    <li>
-                      <a className="list-item active" href="#">
-                        Documentazione
-                      </a>
-                    </li>
-                  </ul>
+                  <ul className="link-list" />
                 </div>
               </nav>
             </div>
