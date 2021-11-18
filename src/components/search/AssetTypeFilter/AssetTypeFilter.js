@@ -30,7 +30,7 @@ const filterSelection = (search) => {
         aria-haspopup="true"
         aria-expanded="false"
       >
-        <span className="pr-5">Filtra per tipo</span>
+        <span className="pr-5">Tipologia: nessun filtro</span>
         <Icon icon="it-expand" />
       </div>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
