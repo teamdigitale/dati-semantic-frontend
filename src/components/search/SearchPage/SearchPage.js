@@ -39,7 +39,7 @@ const SearchPage = () => {
       <div className="container main-container pl-4 pr-4">
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4 primary-bg-a2" role="search">
-            <FilterBar type={type} theme={theme} />
+            <FilterBar type={type} theme={theme} pattern={pattern} />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
             {showItems(isLoading, items)}

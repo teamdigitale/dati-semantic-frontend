@@ -2,6 +2,7 @@ import React from "react";
 import { string } from "prop-types";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import CategoryFilter from "../CategoryFilter/CategoryFilter";
+import TextFilter from "../TextFilter/TextFilter";
 
 const showAssetTypeFilter = (type) => {
   const types = !type ? [] : [type];
@@ -15,12 +16,13 @@ const showCategoryFilter = (theme) => {
   return <CategoryFilter themes={themes} />;
 };
 
-const FilterBar = ({ type, theme }) => {
+const FilterBar = ({ type, theme, pattern }) => {
   return (
     <div id="facet-pane">
       <div className="row d-flex justify-content-center p-3">
         <div className="col">
           <h4>Ricerca</h4>
+          <TextFilter pattern={pattern} />
           {showAssetTypeFilter(type)}
           {showCategoryFilter(theme)}
         </div>
