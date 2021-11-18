@@ -12,24 +12,6 @@ const HeaderSlim = () => (
             >
               Team Digitale
             </a>
-            <div className="nav-mobile">
-              <nav>
-                <div className="link-list-wrapper collapse" id="menu2">
-                  <ul className="link-list">
-                    <li>
-                      <a className="list-item" href="#">
-                        Chi Siamo
-                      </a>
-                    </li>
-                    <li>
-                      <a className="list-item active" href="#">
-                        Documentazione
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-            </div>
           </div>
         </div>
       </div>
