@@ -7,7 +7,7 @@ import {
 import { Icon } from "design-react-kit";
 import { useLocation } from "react-router-dom";
 
-const appliedFilter = () => (
+const appliedFilter = (types) => (
   <div data-testid="AssetTypeFilter">
     {types.map((t) => (
       <div key={t} className="chip chip-simple chip-lg">
@@ -18,7 +18,6 @@ const appliedFilter = () => (
 );
 
 const filterSelection = (search) => {
-  console.log("Search ", search);
   const newLink = (type) => {
     return search ? `/search${search}&type=${type}` : `/search?type=${type}`;
   };
@@ -53,11 +52,11 @@ const filterSelection = (search) => {
   );
 };
 
-const AssetTypeFilter = (types) => {
+const AssetTypeFilter = ({ types }) => {
   const { search } = useLocation();
 
   if (!!types && Array.isArray(types) && types.length > 0) {
-    return appliedFilter();
+    return appliedFilter(types);
   }
 
   return filterSelection(search);

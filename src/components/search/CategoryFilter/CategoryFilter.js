@@ -7,7 +7,7 @@ const CategoryFilter = ({ themes }) => (
     {themes.map((t) => {
       let category = getCategories().find((c) => c.key === t || c.uri === t);
       if (!category) {
-        console.log("Cannot find category!!!", t);
+        console.error("Cannot find category!!!", t);
         return null;
       }
       return (
