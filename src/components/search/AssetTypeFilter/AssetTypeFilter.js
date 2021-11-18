@@ -24,17 +24,15 @@ const filterSelection = (search) => {
 
   return (
     <div className="dropdown">
-      <button
-        className="btn btn-dropdown dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
+      <div
+        className="chip chip-simple chip-lg dropdown-toggle"
         data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
       >
-        Filtra per tipo
+        <span className="pr-5">Filtra per tipo</span>
         <Icon icon="it-expand" />
-      </button>
+      </div>
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <div className="link-list-wrapper">
           <ul className="link-list">
