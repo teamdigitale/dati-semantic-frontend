@@ -5,7 +5,7 @@ import {
   SUPPORTED_ASSET_TYPES,
 } from "../../../services/dataConstants";
 import { Icon } from "design-react-kit";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const appliedFilter = (types) => (
   <div data-testid="AssetTypeFilter">
@@ -38,9 +38,9 @@ const filterSelection = (search) => {
           <ul className="link-list">
             {SUPPORTED_ASSET_TYPES.map((t) => (
               <li key={t}>
-                <a className="list-item" href={newLink(t)}>
+                <Link className="list-item" to={newLink(t)}>
                   <span>{getAssetLabel(t)}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
