@@ -42,7 +42,7 @@ const VocabDetails = ({ details }) => (
     <div className="row p-3">
       <div className="col-12">
         <h2>{details.title}</h2>
-        <h3>Vocabolario di Controllo</h3>
+        <h3>Vocabolario controllato</h3>
       </div>
     </div>
     <div className="row p-3">
