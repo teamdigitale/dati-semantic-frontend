@@ -55,7 +55,7 @@ jobs:
           VALIDATE_MARKDOWN: false
           VALIDATE_BASH: false
           FILTER_REGEX_INCLUDE: '.*(src|\.github)/.*'
-          FILTER_REGEX_EXCLUDE: '.*.(min.css|ttf|woff|woff2|svg|txt|md)'
+          FILTER_REGEX_EXCLUDE: '.*.(min.css|ttf|woff|woff2|svg|txt|md|yaml)'
           JAVASCRIPT_ES_CONFIG_FILE: '../../.eslintrc.json'
           JAVASCRIPT_DEFAULT_STYLE: 'prettier'
           CSS_FILE_NAME: '../../.stylelintrc.json'
