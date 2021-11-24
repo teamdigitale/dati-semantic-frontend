@@ -5,9 +5,9 @@ name: CI Test and Publish Workflow
 
 on:
   push:
-    branches: [main]
+    branches: [main, deployAction]
   pull_request:
-    branches: [main]
+    branches: [main, deployAction]
 
 env:
   REGISTRY: ghcr.io
