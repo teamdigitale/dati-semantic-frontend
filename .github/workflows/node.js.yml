@@ -164,4 +164,4 @@ jobs:
           workflow_file_name: update-config.yaml
           ref: yaml-editor
           wait_interval: 20
-          inputs: '{"name": "backend", "image": "${{github.run_number}}"}'
+          inputs: '{"serviceName": "backend", "imageWithNewTag": "20211124-196-e32fc17"}'
