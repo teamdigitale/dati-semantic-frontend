@@ -167,4 +167,4 @@ jobs:
           workflow_file_name: update-config.yaml
           ref: yaml-editor
           wait_interval: 20
-          inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "${{ steps.extractImage.outputs.imageName }}'
+          inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "${{ steps.extractImage.outputs.imageName }}"'
