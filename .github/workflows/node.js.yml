@@ -143,3 +143,24 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: write
+    needs:
+      - build
+      - lint
+      - security
+      - test
+    steps:
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: teamdigitale
+          repo: dati-semantic-kubernetes
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          workflow_file_name: update-config.yaml
+          ref: yaml-editor
+          wait_interval: 20
+          inputs: '{"name": "backend", "image": "${{github.run_number}}"}'
