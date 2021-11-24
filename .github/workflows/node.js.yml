@@ -111,8 +111,6 @@ jobs:
       - build
       - security
       - test
-    outputs:
-      tag: ${{ steps.meta.outputs.tags[0] }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -161,4 +159,4 @@ jobs:
           workflow_file_name: update-config.yaml
           ref: yaml-editor
           wait_interval: 20
-          inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "${{ needs.publish.outputs.tag }}"}'
+          inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:{{date 'YYYYMMDD'}}-${{github.run_number}}-{{sha}}"}'
