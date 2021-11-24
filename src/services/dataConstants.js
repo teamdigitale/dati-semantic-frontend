@@ -4,7 +4,7 @@ export const AT_SCHEMA = "schema";
 
 export const AT_TO_LABEL = [
   { type: AT_ONTOLOGY, label: "Ontologia" },
-  { type: AT_VOCABULARY, label: "Vocabolario di Controllo" },
+  { type: AT_VOCABULARY, label: "Vocabolario controllato" },
   { type: AT_SCHEMA, label: "Schema" },
 ];
 
