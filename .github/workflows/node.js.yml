@@ -151,6 +151,8 @@ jobs:
     needs:
       - publish
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: build image
         id: extractImage
         run: |
