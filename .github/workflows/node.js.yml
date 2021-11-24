@@ -154,6 +154,7 @@ jobs:
       - lint
       - security
       - test
+      - publish
     steps:
       - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
