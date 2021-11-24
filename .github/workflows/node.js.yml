@@ -150,10 +150,6 @@ jobs:
       contents: read
       packages: write
     needs:
-      - build
-      - lint
-      - security
-      - test
       - publish
     steps:
       - uses: convictional/trigger-workflow-and-wait@v1.3.0
@@ -164,4 +160,4 @@ jobs:
           workflow_file_name: update-config.yaml
           ref: yaml-editor
           wait_interval: 20
-          inputs: '{"serviceName": "backend", "imageWithNewTag": "20211124-196-e32fc17"}'
+          inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "ghcr.io/teamdigitale/dati-semantic-frontend:latest"}'
