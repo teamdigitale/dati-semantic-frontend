@@ -35,30 +35,30 @@ jobs:
           name: Static Build folder
           path: |
             ./build
-  # lint:
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       node-version: [16.x]
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #         cache: "yarn"
-  #     - name: Install dependencies
-  #       run: yarn --frozen-lockfile
-  #     - name: Linting with Super-Linter
-  #       uses: github/super-linter@v4.8.1
-  #       env:
-  #         VALIDATE_MARKDOWN: false
-  #         VALIDATE_BASH: false
-  #         FILTER_REGEX_INCLUDE: '.*(src|\.github)/.*'
-  #         FILTER_REGEX_EXCLUDE: '.*.(min.css|ttf|woff|woff2|svg|txt|md|yaml)'
-  #         JAVASCRIPT_ES_CONFIG_FILE: '../../.eslintrc.json'
-  #         JAVASCRIPT_DEFAULT_STYLE: 'prettier'
-  #         CSS_FILE_NAME: '../../.stylelintrc.json'
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn --frozen-lockfile
+      - name: Linting with Super-Linter
+        uses: github/super-linter@v4.8.1
+        env:
+          VALIDATE_MARKDOWN: false
+          VALIDATE_BASH: false
+          FILTER_REGEX_INCLUDE: '.*(src|\.github)/.*'
+          FILTER_REGEX_EXCLUDE: '.*.(min.css|ttf|woff|woff2|svg|txt|md)'
+          JAVASCRIPT_ES_CONFIG_FILE: '../../.eslintrc.json'
+          JAVASCRIPT_DEFAULT_STYLE: 'prettier'
+          CSS_FILE_NAME: '../../.stylelintrc.json'
   security:
     runs-on: ubuntu-latest
     strategy:
