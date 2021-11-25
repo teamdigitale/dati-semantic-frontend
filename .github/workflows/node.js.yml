@@ -110,6 +110,7 @@ jobs:
     needs:
       - build
       - security
+      - lint
       - test
     steps:
       - name: Checkout repository
