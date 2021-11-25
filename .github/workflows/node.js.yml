@@ -5,9 +5,9 @@ name: CI Test and Publish Workflow
 
 on:
   push:
-    branches: [main, deployAction]
+    branches: [main]
   pull_request:
-    branches: [main, deployAction]
+    branches: [main]
 
 env:
   REGISTRY: ghcr.io
@@ -166,6 +166,6 @@ jobs:
           repo: dati-semantic-kubernetes
           github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           workflow_file_name: update-config.yaml
-          ref: yaml-editor
+          ref: dev
           wait_interval: 20
           inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "${{ steps.extractImage.outputs.imageName }}"}'
