@@ -4,9 +4,10 @@ import { waitFor } from "@testing-library/dom";
 import "@testing-library/jest-dom/extend-expect";
 import SearchPage from "./SearchPage";
 import { search } from "../../../services/searchService";
-import { AT_VOCABULARY } from "../../../services/dataConstants";
+import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 import SearchResults from "../SearchResults/SearchResults";
+import { routes } from "../../../services/routes";
 
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
@@ -30,7 +31,10 @@ describe("<SearchPage />", () => {
   });
 
   test("it should search with appropriate filters", async () => {
-    renderWithRoute(<SearchPage />, "/search?type=vocabulary&pattern=abc");
+    renderWithRoute(
+      <SearchPage />,
+      routes.search({ type: AT_VOCABULARY, pattern: "abc" })
+    );
 
     await waitFor(() => {
       expect(search).toHaveBeenCalledWith({
@@ -47,7 +51,7 @@ describe("<SearchPage />", () => {
     });
 
     test("it should show selected filter", async () => {
-      renderWithRoute(<SearchPage />, "/search?type=ontology");
+      renderWithRoute(<SearchPage />, routes.search({ type: AT_ONTOLOGY }));
 
       const filter = await screen.findByText("Ontologia");
 
@@ -55,7 +59,7 @@ describe("<SearchPage />", () => {
     });
 
     test("it should not show any type filter", async () => {
-      renderWithRoute(<SearchPage />, "/search");
+      renderWithRoute(<SearchPage />, routes.search());
 
       await waitFor(() =>
         expect(screen.queryByText("Ontologia")).not.toBeInTheDocument()
@@ -92,7 +96,7 @@ describe("<SearchPage />", () => {
     });
 
     test("it show propagate items to result component", async () => {
-      renderWithRoute(<SearchPage />, "/search?type=vocabulary");
+      renderWithRoute(<SearchPage />, routes.search({ type: AT_VOCABULARY }));
       simulateVocabDataLoaded();
 
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());

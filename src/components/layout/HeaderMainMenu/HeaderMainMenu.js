@@ -2,16 +2,17 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "design-react-kit";
 import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
+import { routes } from "../../../services/routes";
 
 const menuItems = [
   { label: "Categorie", href: "/" },
   {
     label: "Ontologie",
-    href: `/search?type=${AT_ONTOLOGY}`,
+    href: routes.search({ type: AT_ONTOLOGY }),
   },
   {
     label: "Vocabolari",
-    href: `/search?type=${AT_VOCABULARY}`,
+    href: routes.search({ type: AT_VOCABULARY }),
   },
 ];
 const HeaderMainMenu = () => (
