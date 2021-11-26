@@ -1,6 +1,6 @@
 import React from "react";
-import { getCategories } from "../../assets/data/categories";
-import CategoryIcon from "../common/CategoryIcon/CategoryIcon";
+import { getCategories } from "../../../assets/data/categories";
+import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 
 const categoryData = getCategories();
 

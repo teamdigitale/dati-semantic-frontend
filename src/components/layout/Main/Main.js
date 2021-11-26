@@ -1,5 +1,4 @@
 import React from "react";
-import Categories from "../../Categories/Categories";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import SearchPage from "../../search/SearchPage/SearchPage";
@@ -9,12 +8,13 @@ import {
   ASSETS_VOCABULARIES_URL_TOKEN,
   SEARCH_BASE_URL,
 } from "../../../services/routes";
+import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 
 const Main = () => (
   <main>
     <div className="container">
       <Routes>
-        <Route path="/" element={<Categories />} />
+        <Route path="/" element={<ExplorePage />} />
         <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path={ASSETS_BASE_URL_TOKEN}>
