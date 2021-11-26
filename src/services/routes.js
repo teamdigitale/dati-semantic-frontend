@@ -5,6 +5,8 @@ export const ASSETS_VOCABULARIES_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_
 
 export const SEARCH_BASE_URL = "search";
 export const EXPLORE_BASE_URL = "explore";
+export const VALIDATE_URL = "validate";
+export const CONTRIBUTING_URL = "how-to-contribute";
 
 export const SearchParameterNames = {
   type: "type",
@@ -51,11 +53,11 @@ class Routes {
   }
 
   validate() {
-    return "/validate";
+    return "/" + VALIDATE_URL;
   }
 
   howToContribute() {
-    return "/how-to-contribute";
+    return "/" + CONTRIBUTING_URL;
   }
 
   explore() {

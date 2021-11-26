@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "design-react-kit";
 
 const NotFound = () => (
-  <div className="callout danger" data-testid="NotFound">
+  <div className="callout danger m-5" data-testid="NotFound">
     <div className="callout-title">
       <Icon icon="it-close-circle" />
       Pagina non trovata
