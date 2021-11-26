@@ -1,33 +1,34 @@
 import React from "react";
-import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Categories from "./Categories";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import { renderWithRoute } from "../../../services/testUtils";
+import ExploreGrid from "../ExploreGrid/ExploreGrid";
 
 jest.mock("../../common/CategoryIcon/CategoryIcon", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
 
+jest.mock("../ExploreGrid/ExploreGrid", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
 describe("<Categories />", () => {
   beforeEach(() => {
-    CategoryIcon.mockReturnValue("<div>an icon</div>");
+    CategoryIcon.mockReturnValue(<div>an icon</div>);
     CategoryIcon.mockClear();
+    ExploreGrid.mockReturnValue(<div>Grid cells</div>);
+    ExploreGrid.mockClear();
   });
 
-  test("it should contain list item per category", () => {
+  test("it should render all the categories in a grid", () => {
     renderWithRoute(<Categories />);
 
-    const categories = screen.getAllByRole("listitem");
-
-    expect(categories.length).toBe(getCategories().length);
-  });
-
-  test("it should render all the categories", () => {
-    renderWithRoute(<Categories />);
-
-    expect(CategoryIcon).toHaveBeenCalledTimes(getCategories().length);
+    expect(ExploreGrid).toHaveBeenCalled();
+    const props = ExploreGrid.mock.calls[0][0];
+    expect(props.cells.length).toBe(getCategories().length);
   });
 });
