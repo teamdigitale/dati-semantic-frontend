@@ -3,7 +3,10 @@ export const ASSETS_VOCABULARIES_URL_TOKEN = "vocabularies";
 
 export const ASSETS_VOCABULARIES_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_VOCABULARIES_URL_TOKEN}`;
 
-export const FilterParameterNames = {
+export const SEARCH_BASE_URL = "search";
+export const EXPLORE_BASE_URL = "explore";
+
+export const SearchParameterNames = {
   type: "type",
   theme: "theme",
   pattern: "pattern",
@@ -18,33 +21,45 @@ class Routes {
     if (type) {
       if (Array.isArray(type)) {
         type
-          .map((t) => [FilterParameterNames.type, t])
+          .map((t) => [SearchParameterNames.type, t])
           .forEach((p) => params.push(p));
       } else {
-        params.push([FilterParameterNames.type, type]);
+        params.push([SearchParameterNames.type, type]);
       }
     }
 
     if (theme) {
       if (Array.isArray(theme)) {
         theme
-          .map((t) => [FilterParameterNames.theme, t])
+          .map((t) => [SearchParameterNames.theme, t])
           .forEach((p) => params.push(p));
       } else {
-        params.push([FilterParameterNames.theme, theme]);
+        params.push([SearchParameterNames.theme, theme]);
       }
     }
 
     if (pattern) {
-      params.push([FilterParameterNames.pattern, pattern]);
+      params.push([SearchParameterNames.pattern, pattern]);
     }
 
     if (params.length > 0) {
       let paramString = new URLSearchParams(params).toString();
-      return `/search?${paramString}`;
+      return `/${SEARCH_BASE_URL}?${paramString}`;
     } else {
-      return "/search";
+      return "/" + SEARCH_BASE_URL;
     }
+  }
+
+  validate() {
+    return "/validate";
+  }
+
+  howToContribute() {
+    return "/how-to-contribute";
+  }
+
+  explore() {
+    return "/";
   }
 }
 

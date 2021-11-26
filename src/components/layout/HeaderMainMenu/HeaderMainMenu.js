@@ -1,18 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Icon } from "design-react-kit";
-import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
 import { routes } from "../../../services/routes";
 
 const menuItems = [
-  { label: "Categorie", href: "/" },
+  { label: "Esplora", href: routes.explore() },
   {
-    label: "Ontologie",
-    href: routes.search({ type: AT_ONTOLOGY }),
+    label: "Valida",
+    href: routes.validate(),
   },
   {
-    label: "Vocabolari",
-    href: routes.search({ type: AT_VOCABULARY }),
+    label: "Come contribuire",
+    href: routes.howToContribute(),
   },
 ];
 const HeaderMainMenu = () => (

@@ -14,12 +14,4 @@ describe("<HeaderNavigation />", () => {
 
     expect(navigation).toBeInTheDocument();
   });
-
-  test("it should mount with categories", () => {
-    renderWithRoute(<HeaderNavigation />);
-
-    const categories = screen.getByText(/categorie/i);
-
-    expect(categories).toBeInTheDocument();
-  });
 });

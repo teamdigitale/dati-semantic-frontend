@@ -9,25 +9,25 @@ describe("<HeaderMainMenu />", () => {
   test("it should mount", () => {
     renderWithRoute(<HeaderMainMenu />);
 
-    const categories = screen.getByText("Categorie");
+    const categories = screen.getByText("Esplora");
 
     expect(categories).toBeInTheDocument();
   });
 
-  test("Ontologie should navigate to search", () => {
+  test("Validate should navigate to static content", () => {
     render(
       <BrowserRouter>
         <HeaderMainMenu />
       </BrowserRouter>
     );
 
-    const ontologyNavLink = screen.getByText("Ontologie").closest(".nav-link");
+    const ontologyNavLink = screen.getByText("Valida").closest(".nav-link");
 
     expect(ontologyNavLink).toBeInTheDocument();
-    expect(ontologyNavLink).toHaveAttribute("href", "/search?type=ontology");
+    expect(ontologyNavLink).toHaveAttribute("href", "/validate");
   });
 
-  test("Vocabolari should navigate to search", () => {
+  test("Contribute should navigate to search", () => {
     render(
       <BrowserRouter>
         <HeaderMainMenu />
@@ -35,13 +35,10 @@ describe("<HeaderMainMenu />", () => {
     );
 
     const vocabularyNavLink = screen
-      .getByText("Vocabolari")
+      .getByText("Come contribuire")
       .closest(".nav-link");
 
     expect(vocabularyNavLink).toBeInTheDocument();
-    expect(vocabularyNavLink).toHaveAttribute(
-      "href",
-      "/search?type=vocabulary"
-    );
+    expect(vocabularyNavLink).toHaveAttribute("href", "/how-to-contribute");
   });
 });
