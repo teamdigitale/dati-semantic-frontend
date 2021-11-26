@@ -1,5 +1,6 @@
 import React from "react";
 import Categories from "../Categories/Categories";
+import Types from "../Types/Types";
 
 const introSection = () => (
   <div className="section section-muted">
@@ -29,6 +30,7 @@ const introSection = () => (
 const ExplorePage = () => (
   <div data-testid="ExplorePage">
     {introSection()}
+    <Types />
     <Categories />
   </div>
 );
