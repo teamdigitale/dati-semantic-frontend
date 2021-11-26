@@ -5,7 +5,11 @@ import ExploreSection from "./ExploreSection";
 
 describe("<ExploreSection />", () => {
   test("it should show the title", () => {
-    render(<ExploreSection title="Section Title">Some content</ExploreSection>);
+    render(
+      <ExploreSection title="Section Title">
+        <div>Some content</div>
+      </ExploreSection>
+    );
 
     const title = screen.getByText("Section Title");
 
