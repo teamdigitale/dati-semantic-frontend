@@ -24,7 +24,7 @@ const Categories = () => {
   return (
     <div data-testid="Categories">
       <div className="row p-3">
-        <h2>Esplora gli strumenti semantici per categoria</h2>
+        <h4 className="p-2">Esplora gli strumenti semantici per categoria</h4>
       </div>
       <ExploreGrid cells={categoryCells} />
     </div>

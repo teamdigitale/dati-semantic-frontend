@@ -28,7 +28,7 @@ const Types = () => {
   return (
     <div data-testid="Types">
       <div className="row p-3">
-        <h2>Esplora gli strumenti semantici per tipo</h2>
+        <h4 className="p-2">Esplora gli strumenti semantici per tipo</h4>
       </div>
       <ExploreGrid cells={typeCells} />
     </div>
