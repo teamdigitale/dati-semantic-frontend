@@ -1,6 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import Categories from "./Categories";
+import ExploreByCategory from "./ExploreByCategory";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import { renderWithRoute } from "../../../services/testUtils";
@@ -16,7 +16,7 @@ jest.mock("../ExploreGrid/ExploreGrid", () => ({
   default: jest.fn(),
 }));
 
-describe("<Categories />", () => {
+describe("<ExploreByCategory />", () => {
   beforeEach(() => {
     CategoryIcon.mockReturnValue(<div>an icon</div>);
     CategoryIcon.mockClear();
@@ -25,7 +25,7 @@ describe("<Categories />", () => {
   });
 
   test("it should render all the categories in a grid", () => {
-    renderWithRoute(<Categories />);
+    renderWithRoute(<ExploreByCategory />);
 
     expect(ExploreGrid).toHaveBeenCalled();
     const props = ExploreGrid.mock.calls[0][0];

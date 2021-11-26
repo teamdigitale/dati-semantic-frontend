@@ -4,10 +4,11 @@ import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import ExploreGrid from "../ExploreGrid/ExploreGrid";
+import ExploreSection from "../ExploreSection/ExploreSection";
 
 const categoryData = getCategories();
 
-const Categories = () => {
+const ExploreByCategory = () => {
   const navigate = useNavigate();
 
   const searchFor = (key) => {
@@ -16,23 +17,20 @@ const Categories = () => {
 
   const categoryCells = categoryData.map((c) => ({
     key: c.key,
-    icon: <CategoryIcon category={c} />,
+    icon: <CategoryIcon category={c} className="mt-5" />,
     label: c.label,
     onClick: () => searchFor(c.key),
   }));
 
   return (
-    <div data-testid="Categories">
-      <div className="row p-3">
-        <h4 className="p-2">Esplora gli strumenti semantici per categoria</h4>
-      </div>
+    <ExploreSection title="Esplora gli strumenti semantici per categoria">
       <ExploreGrid cells={categoryCells} />
-    </div>
+    </ExploreSection>
   );
 };
 
-Categories.propTypes = {};
+ExploreByCategory.propTypes = {};
 
-Categories.defaultProps = {};
+ExploreByCategory.defaultProps = {};
 
-export default Categories;
+export default ExploreByCategory;

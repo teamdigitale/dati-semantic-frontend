@@ -2,25 +2,33 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import ExplorePage from "./ExplorePage";
-import Categories from "../Categories/Categories";
-import Types from "../Types/Types";
+import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
+import ExploreByType from "../ExploreByType/ExploreByType";
+import ExploreByText from "../ExploreByText/ExploreByText";
 
-jest.mock("../Categories/Categories", () => ({
+jest.mock("../ExploreByCategory/ExploreByCategory", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
 
-jest.mock("../Types/Types", () => ({
+jest.mock("../ExploreByType/ExploreByType", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock("../ExploreByText/ExploreByText", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
 
 describe("<ExplorePage />", () => {
   beforeEach(() => {
-    Categories.mockReturnValue(<div>categories</div>);
-    Categories.mockClear();
-    Types.mockReturnValue(<div>types</div>);
-    Types.mockClear();
+    ExploreByText.mockReturnValue(<div>text search</div>);
+    ExploreByText.mockClear();
+    ExploreByCategory.mockReturnValue(<div>categories</div>);
+    ExploreByCategory.mockClear();
+    ExploreByType.mockReturnValue(<div>types</div>);
+    ExploreByType.mockClear();
   });
 
   test("it should mount with an introduction text", () => {
@@ -32,15 +40,21 @@ describe("<ExplorePage />", () => {
     expect(introduction).toContainHTML("catalogo semantico");
   });
 
+  test("it should contain the text search form", () => {
+    render(<ExplorePage />);
+
+    expect(ExploreByText).toHaveBeenCalled();
+  });
+
   test("it should contain the Categories explore links", () => {
     render(<ExplorePage />);
 
-    expect(Categories).toHaveBeenCalled();
+    expect(ExploreByCategory).toHaveBeenCalled();
   });
 
   test("it should contain the Types explore links", () => {
     render(<ExplorePage />);
 
-    expect(Types).toHaveBeenCalled();
+    expect(ExploreByType).toHaveBeenCalled();
   });
 });

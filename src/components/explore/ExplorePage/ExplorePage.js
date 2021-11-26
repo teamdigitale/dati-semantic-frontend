@@ -1,6 +1,7 @@
 import React from "react";
-import Categories from "../Categories/Categories";
-import Types from "../Types/Types";
+import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
+import ExploreByType from "../ExploreByType/ExploreByType";
+import ExploreByText from "../ExploreByText/ExploreByText";
 
 const introSection = () => (
   <div className="section section-muted">
@@ -30,8 +31,9 @@ const introSection = () => (
 const ExplorePage = () => (
   <div data-testid="ExplorePage">
     {introSection()}
-    <Types />
-    <Categories />
+    <ExploreByText />
+    <ExploreByType />
+    <ExploreByCategory />
   </div>
 );
 

@@ -8,8 +8,9 @@ import {
 } from "../../../services/dataConstants";
 import ExploreGrid from "../ExploreGrid/ExploreGrid";
 import { getCategories } from "../../../assets/data/categories";
+import ExploreSection from "../ExploreSection/ExploreSection";
 
-const Types = () => {
+const ExploreByType = () => {
   const navigate = useNavigate();
 
   const searchFor = (type) => {
@@ -20,23 +21,20 @@ const Types = () => {
 
   const typeCells = SUPPORTED_ASSET_TYPES.map((t) => ({
     key: t,
-    icon: <CategoryIcon category={category} />,
+    icon: <CategoryIcon category={category} className="mt-5" />,
     label: getAssetLabel(t),
     onClick: () => searchFor(t),
   }));
 
   return (
-    <div data-testid="Types">
-      <div className="row p-3">
-        <h4 className="p-2">Esplora gli strumenti semantici per tipo</h4>
-      </div>
+    <ExploreSection title="Esplora gli strumenti semantici per tipo">
       <ExploreGrid cells={typeCells} />
-    </div>
+    </ExploreSection>
   );
 };
 
-Types.propTypes = {};
+ExploreByType.propTypes = {};
 
-Types.defaultProps = {};
+ExploreByType.defaultProps = {};
 
-export default Types;
+export default ExploreByType;
