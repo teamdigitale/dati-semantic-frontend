@@ -10,10 +10,7 @@ RUN yarn build
 
 #Run
 FROM nginxinc/nginx-unprivileged:stable-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-USER root
-RUN chown -R nginx:nginx /usr/share/nginx/html
-USER nginx
+COPY --from=build /app/build /etc/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
 COPY docker/update-env.sh /docker-entrypoint.d
