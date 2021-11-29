@@ -52,6 +52,29 @@ class Routes {
     }
   }
 
+  searchUrlToFilter(search) {
+    let result = {};
+    const params = new URLSearchParams(search);
+    const appendToFilterObject = (key) => {
+      if (params.has(key)) {
+        const values = params.getAll(key);
+        if (values.length === 0) {
+          return;
+        }
+        if (values.length === 1) {
+          result = { ...result, [key]: values[0] };
+        } else {
+          result = { ...result, [key]: values };
+        }
+      }
+    };
+
+    appendToFilterObject("type");
+    appendToFilterObject("theme");
+    appendToFilterObject("pattern");
+    return result;
+  }
+
   validate() {
     return "/" + VALIDATE_URL;
   }
