@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from "react";
-import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import { useQuery } from "../../../hooks/useQuery";
-
-const showAssetTypeFilter = (type) => {
-  if (!type) {
-    return null;
-  }
-
-  return <AssetTypeFilter types={[type]} />;
-};
+import FilterPanel from "../FilterPanel/FilterPanel";
 
 const showItems = (isLoading, items) => {
   if (isLoading) {
@@ -41,15 +33,8 @@ const SearchPage = () => {
     <div data-testid="SearchPage">
       <div className="container main-container pl-4 pr-4">
         <div className="row">
-          <div className="col-12 col-lg-4 col-md-4 primary-bg-a2" role="search">
-            <div id="cv-facet-pane">
-              <div className="row d-flex justify-content-center p-3">
-                <div className="col">
-                  <h4>Ricerca</h4>
-                  {showAssetTypeFilter(query.get("type"))}
-                </div>
-              </div>
-            </div>
+          <div className="col-12 col-lg-4 col-md-4" role="search">
+            <FilterPanel />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
             {showItems(isLoading, items)}

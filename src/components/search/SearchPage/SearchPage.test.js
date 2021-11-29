@@ -4,13 +4,18 @@ import { waitFor } from "@testing-library/dom";
 import "@testing-library/jest-dom/extend-expect";
 import SearchPage from "./SearchPage";
 import { search } from "../../../services/searchService";
-import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
+import { AT_VOCABULARY } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 import SearchResults from "../SearchResults/SearchResults";
 import { routes } from "../../../services/routes";
+import FilterPanel from "../FilterPanel/FilterPanel";
 
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+jest.mock("../FilterPanel/FilterPanel", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -18,6 +23,7 @@ jest.mock("../SearchResults/SearchResults", () => ({
 describe("<SearchPage />", () => {
   beforeEach(() => {
     SearchResults.mockReturnValue(<p>A pragraph</p>);
+    FilterPanel.mockReturnValue(<div>The filters</div>);
     search.mockClear();
     search.mockResolvedValue([]);
   });
@@ -41,29 +47,6 @@ describe("<SearchPage />", () => {
         type: AT_VOCABULARY,
         pattern: "abc",
       });
-    });
-  });
-
-  describe("FilterBar", () => {
-    beforeEach(() => {
-      search.mockClear();
-      search.mockResolvedValue([]);
-    });
-
-    test("it should show selected filter", async () => {
-      renderWithRoute(<SearchPage />, routes.search({ type: AT_ONTOLOGY }));
-
-      const filter = await screen.findByText("Ontologia");
-
-      expect(filter).toBeInTheDocument();
-    });
-
-    test("it should not show any type filter", async () => {
-      renderWithRoute(<SearchPage />, routes.search());
-
-      await waitFor(() =>
-        expect(screen.queryByText("Ontologia")).not.toBeInTheDocument()
-      );
     });
   });
 
