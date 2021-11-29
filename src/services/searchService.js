@@ -1,3 +1,5 @@
+import { baseUrl } from "../assets/data/env";
+
 export function search(options = {}) {
   const defaultOptions = {
     pattern: "",
@@ -12,7 +14,7 @@ export function search(options = {}) {
     return encodeURI(pattern);
   }
 
-  return fetch(`/semantic-assets/search?term=${getSearchPattern()}`).then(
-    (response) => response.json()
-  );
+  return fetch(
+    `${baseUrl()}/semantic-assets/search?term=${getSearchPattern()}`
+  ).then((response) => response.json());
 }
