@@ -31,7 +31,7 @@ const SearchPage = () => {
         type: query.get("type"),
         pattern: query.get("pattern"),
       });
-      setItems(results);
+      setItems(results.data);
       setLoading(false);
     };
     doSearch();

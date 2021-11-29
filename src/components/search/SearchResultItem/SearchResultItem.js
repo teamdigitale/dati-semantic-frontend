@@ -1,8 +1,6 @@
 import React from "react";
-import { oneOf, shape, string } from "prop-types";
+import { arrayOf, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
-import { Icon } from "design-react-kit";
-import { NavLink } from "react-router-dom";
 import { getVocabularyUrl } from "../../../services/vocabService";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
@@ -12,25 +10,27 @@ const SearchResultItem = ({ item }) => {
   return (
     <div className="card-wrapper card-space" data-testid="SearchResultItem">
       <div className="card card-bg">
-        <div className="card-body">
+        <a
+          className="card-body stretched-link text-decoration-none"
+          href={getVocabularyUrl(item.iri)}
+        >
           <div className="category-top clearfix">
             <div className="category">
               <CategoryIcon
                 category={category}
-                size="tiny"
+                size="small"
                 className="float-left"
               />{" "}
               {category.label}
             </div>
           </div>
           <h5 className="card-title big-heading">{item.title}</h5>
-          <p className="card-text">{item.desc}</p>
-          {/*<span className="card-signature">rights holder could go here?</span>*/}
-          <NavLink className="read-more" to={getVocabularyUrl(item.uri)}>
-            <Icon icon="it-arrow-right" />
-            <span className="text pl-2">{item.uri}</span>
-          </NavLink>
-        </div>
+          <p className="card-text text-truncate">{item.description}</p>
+          <span className="card-signature">{item.rightsHolder.summary}</span>
+          <div>
+            <div>{item.iri}</div>
+          </div>
+        </a>
       </div>
     </div>
   );
@@ -39,9 +39,13 @@ const SearchResultItem = ({ item }) => {
 SearchResultItem.propTypes = {
   item: shape({
     type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
-    uri: string.isRequired,
+    iri: string.isRequired,
     title: string.isRequired,
-    desc: string.isRequired,
+    description: string.isRequired,
+    themes: arrayOf(string).isRequired,
+    rightsHolder: shape({
+      summary: string.isRequired,
+    }).isRequired,
   }).isRequired,
 };
 

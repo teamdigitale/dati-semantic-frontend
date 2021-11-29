@@ -1,12 +1,26 @@
 import { getVocabularyByUri } from "./vocabService";
 
+let fetchMock;
+
+beforeEach(() => {
+  fetchMock = jest.spyOn(global, "fetch").mockResolvedValue({
+    json: jest.fn().mockResolvedValue({ iri: "https://w3id.org/id" }),
+  });
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 describe("Vocab service", () => {
   test("should vocabulary, by its URI", async () => {
-    const uri =
-      "https://w3id.org/italia/controlled-vocabulary/classifications-for-culture/cultural-interest-places";
-    const vocab = await getVocabularyByUri(uri);
+    const iri = "https://w3id.org/id";
+    const vocab = await getVocabularyByUri(iri);
 
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/semantic-assets/details?iri=" + iri
+    );
     expect(vocab).toBeTruthy();
-    expect(vocab.uri).toBe(uri);
+    expect(vocab.iri).toBe(iri);
   });
 });

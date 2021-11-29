@@ -28,7 +28,7 @@ const SearchResults = (props) => {
       return;
     }
 
-    return items.map((item) => <SearchResultItem key={item.uri} item={item} />);
+    return items.map((item) => <SearchResultItem key={item.iri} item={item} />);
   };
 
   return (

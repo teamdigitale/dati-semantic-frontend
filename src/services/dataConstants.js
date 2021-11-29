@@ -1,6 +1,6 @@
-export const AT_ONTOLOGY = "ontology";
-export const AT_VOCABULARY = "vocabulary";
-export const AT_SCHEMA = "schema";
+export const AT_ONTOLOGY = "ONTOLOGY";
+export const AT_VOCABULARY = "CONTROLLED_VOCABULARY";
+export const AT_SCHEMA = "SCHEMA";
 
 export const AT_TO_LABEL = [
   { type: AT_ONTOLOGY, label: "Ontologia" },

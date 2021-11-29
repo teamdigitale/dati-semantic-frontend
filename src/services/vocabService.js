@@ -1,11 +1,9 @@
-import { resolveDelayed } from "./fakeDataUtils";
-import { getVocabularyByUri as delegate } from "../assets/data/vocabularyMetadata";
 import { ASSETS_VOCABULARIES_FULL_URL } from "./routes";
 
 export function getVocabularyByUri(uri) {
-  return resolveDelayed(() => {
-    return delegate(uri);
-  }, 200);
+  return fetch(`/semantic-assets/details?iri=${uri}`).then((response) =>
+    response.json()
+  );
 }
 
 export function getVocabularyUrl(uri) {

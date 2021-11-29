@@ -5,7 +5,7 @@ import AssetTypeFilter from "./AssetTypeFilter";
 
 describe("<AssetTypeFilter />", () => {
   test("it should mount for ontologies", () => {
-    render(<AssetTypeFilter types={["ontology"]} />);
+    render(<AssetTypeFilter types={["ONTOLOGY"]} />);
 
     const ontology = screen.getByText("Ontologia");
 
