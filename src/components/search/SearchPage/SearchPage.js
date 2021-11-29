@@ -12,8 +12,8 @@ const showItems = (isLoading, items) => {
   return <SearchResults items={items} />;
 };
 
-const onThemeUpdate = (filter, navigate) => (themes) => {
-  filter.themes = themes;
+const onFilterUpdate = (filter, navigate, fieldName) => (newFieldValue) => {
+  filter[fieldName] = newFieldValue;
   navigate(routes.search(filter));
 };
 
@@ -39,10 +39,12 @@ const SearchPage = () => {
     <div data-testid="SearchPage">
       <div className="container main-container pl-4 pr-4">
         <div className="row">
-          <div className="col-12 col-lg-4 col-md-4 primary-bg-a2" role="search">
+          <div className="col-12 col-lg-4 col-md-4" role="search">
             <FilterPanel
               {...filter}
-              onThemeUpdate={onThemeUpdate(filter, navigate)}
+              onThemeUpdate={onFilterUpdate(filter, navigate, "themes")}
+              onTypeUpdate={onFilterUpdate(filter, navigate, "types")}
+              onPatternUpdate={onFilterUpdate(filter, navigate, "pattern")}
             />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
