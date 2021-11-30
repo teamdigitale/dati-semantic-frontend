@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { func, string } from "prop-types";
+import { Icon } from "design-react-kit";
 
 const PatternFilter = ({ pattern, onPatternUpdate }) => {
   const [value, setValue] = useState(pattern);
@@ -14,20 +15,30 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
           e.preventDefault();
         }}
       >
-        <div className="form-group col-12 col-xl-9">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="inserisci la parola"
-            role="searchbox"
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
-        </div>
-        <div className="form-group col-12 col-xl-3">
-          <button type="submit" className="btn btn-primary" role="submit">
-            Cerca
-          </button>
+        <div className="form-group">
+          <div className="input-group col-12">
+            <div className="input-group-prepend">
+              <Icon icon="it-search" size="sm" />
+            </div>
+            <label htmlFor="pattern-input">Inserisci la parola</label>
+            <input
+              type="text"
+              className="form-control"
+              id="pattern-input"
+              role="searchbox"
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
+          </div>
+          <div className="col-12">
+            <button
+              type="submit"
+              className="btn btn-primary w-75 mx-auto m-4 p-2"
+              role="submit"
+            >
+              Cerca
+            </button>
+          </div>
         </div>
       </form>
     </div>
