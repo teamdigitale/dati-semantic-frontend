@@ -37,13 +37,13 @@ describe("<SearchResults />", () => {
       const someVocabs = [
         {
           type: AT_VOCABULARY,
-          iri: "http://www.disney.com/characters/",
+          assetIri: "http://www.disney.com/characters/",
           title: "Disney characters",
           description: "Some description",
         },
         {
           type: AT_VOCABULARY,
-          iri: "http://www.atptour.com/court-types",
+          assetIri: "http://www.atptour.com/court-types",
           title: "Tennis court types",
           description: "Some other description",
         },

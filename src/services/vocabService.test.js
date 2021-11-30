@@ -4,7 +4,7 @@ let fetchMock;
 
 beforeEach(() => {
   fetchMock = jest.spyOn(global, "fetch").mockResolvedValue({
-    json: jest.fn().mockResolvedValue({ iri: "https://w3id.org/id" }),
+    json: jest.fn().mockResolvedValue({ assetIri: "https://w3id.org/id" }),
   });
 });
 
@@ -14,13 +14,13 @@ afterEach(() => {
 
 describe("Vocab service", () => {
   test("should vocabulary, by its URI", async () => {
-    const iri = "https://w3id.org/id";
-    const vocab = await getVocabularyByUri(iri);
+    const assetIri = "https://w3id.org/id";
+    const vocab = await getVocabularyByUri(assetIri);
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets/details?iri=" + iri
+      "/semantic-assets/details?iri=" + assetIri
     );
     expect(vocab).toBeTruthy();
-    expect(vocab.iri).toBe(iri);
+    expect(vocab.assetIri).toBe(assetIri);
   });
 });

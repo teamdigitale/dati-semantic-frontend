@@ -28,7 +28,9 @@ const SearchResults = (props) => {
       return;
     }
 
-    return items.map((item) => <SearchResultItem key={item.iri} item={item} />);
+    return items.map((item) => (
+      <SearchResultItem key={item.assetIri} item={item} />
+    ));
   };
 
   return (
