@@ -71,9 +71,11 @@ describe("<SearchPage />", () => {
     await waitFor(() => {
       expect(FilterPanel).toHaveBeenCalledWith(
         expect.objectContaining({
-          types: [AT_VOCABULARY],
-          pattern: "abc",
-          themes: ["AGRI"],
+          filter: {
+            types: [AT_VOCABULARY],
+            pattern: "abc",
+            themes: ["AGRI"],
+          },
         }),
         {}
       );

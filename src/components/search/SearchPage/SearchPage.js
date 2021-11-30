@@ -40,7 +40,7 @@ const SearchPage = () => {
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4" role="search">
             <FilterPanel
-              {...filter}
+              filter={filter}
               onFilterUpdate={onFilterUpdate(navigate)}
             />
           </div>

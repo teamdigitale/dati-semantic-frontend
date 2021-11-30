@@ -1,17 +1,18 @@
 import React from "react";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
-import { arrayOf, func, oneOf, string } from "prop-types";
+import { arrayOf, func, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import PatternFilter from "../PatternFilter/PatternFilter";
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 
-const FilterPanel = ({ pattern, types, themes, onFilterUpdate }) => {
+const FilterPanel = ({ filter, onFilterUpdate }) => {
+  const defaultFilterValues = { pattern: "", types: [], themes: [] };
+  const { pattern, types, themes } = { ...defaultFilterValues, ...filter };
   const onPatternUpdate = (newPattern) => {
     if (onFilterUpdate) {
-      const filter = { pattern: newPattern, types, themes };
-      onFilterUpdate(filter);
+      onFilterUpdate({ ...filter, pattern: newPattern });
     }
   };
 
@@ -31,16 +32,14 @@ const FilterPanel = ({ pattern, types, themes, onFilterUpdate }) => {
 };
 
 FilterPanel.propTypes = {
-  pattern: string,
-  types: arrayOf(oneOf(SUPPORTED_ASSET_TYPES)),
-  themes: arrayOf(oneOf(SUPPORTED_THEMES)),
+  filter: shape({
+    pattern: string,
+    types: arrayOf(oneOf(SUPPORTED_ASSET_TYPES)),
+    themes: arrayOf(oneOf(SUPPORTED_THEMES)),
+  }).isRequired,
   onFilterUpdate: func,
 };
 
-FilterPanel.defaultProps = {
-  types: [],
-  themes: [],
-  pattern: "",
-};
+FilterPanel.defaultProps = {};
 
 export default FilterPanel;

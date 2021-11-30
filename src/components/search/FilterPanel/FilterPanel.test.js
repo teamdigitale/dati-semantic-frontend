@@ -21,15 +21,17 @@ describe("<FilterPanel />", () => {
   });
 
   test("it should show selected filter", async () => {
-    render(<FilterPanel types={[AT_ONTOLOGY]} onFilterUpdate={filterUpdate} />);
+    const filter = { types: [AT_ONTOLOGY] };
+    render(<FilterPanel filter={filter} onFilterUpdate={filterUpdate} />);
 
-    const filter = await screen.findByText("Ontologia");
+    const typeFilterSelection = await screen.findByText("Ontologia");
 
-    expect(filter).toBeInTheDocument();
+    expect(typeFilterSelection).toBeInTheDocument();
   });
 
   test("it should not show any type filter", async () => {
-    render(<FilterPanel onFilterUpdate={filterUpdate} />);
+    const emptyFilter = {};
+    render(<FilterPanel filter={emptyFilter} onFilterUpdate={filterUpdate} />);
 
     await waitFor(() =>
       expect(screen.queryByText("Ontologia")).not.toBeInTheDocument()
@@ -37,13 +39,11 @@ describe("<FilterPanel />", () => {
   });
 
   test("it should propagate pattern value to pattern filter", () => {
-    render(
-      <FilterPanel
-        types={[AT_ONTOLOGY]}
-        pattern="abc"
-        onFilterUpdate={filterUpdate}
-      />
-    );
+    const filter = {
+      types: [AT_ONTOLOGY],
+      pattern: "abc",
+    };
+    render(<FilterPanel filter={filter} onFilterUpdate={filterUpdate} />);
 
     expect(PatternFilter).toHaveBeenCalledWith(
       expect.objectContaining({ pattern: "abc" }),
@@ -52,12 +52,12 @@ describe("<FilterPanel />", () => {
   });
 
   test("it should bubble up pattern changes to callback", () => {
+    const originalFilter = {
+      types: [AT_ONTOLOGY],
+      pattern: "abc",
+    };
     render(
-      <FilterPanel
-        types={[AT_ONTOLOGY]}
-        pattern="abc"
-        onFilterUpdate={filterUpdate}
-      />
+      <FilterPanel filter={originalFilter} onFilterUpdate={filterUpdate} />
     );
 
     const patternProps = PatternFilter.mock.calls[0][0];
@@ -65,8 +65,9 @@ describe("<FilterPanel />", () => {
     expect(patternUpdate).toBeTruthy();
     patternUpdate("def");
 
-    expect(filterUpdate).toHaveBeenCalledWith(
-      expect.objectContaining({ pattern: "def" })
-    );
+    expect(filterUpdate).toHaveBeenCalledWith({
+      ...originalFilter,
+      pattern: "def",
+    });
   });
 });
