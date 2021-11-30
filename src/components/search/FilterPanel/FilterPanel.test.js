@@ -7,7 +7,7 @@ import { waitFor } from "@testing-library/dom";
 
 describe("<FilterPanel />", () => {
   test("it should show selected filter", async () => {
-    render(<FilterPanel types={[AT_ONTOLOGY]} />);
+    render(<FilterPanel types={[AT_ONTOLOGY]} onPatternUpdate={console.log} />);
 
     const filter = await screen.findByText("Ontologia");
 
@@ -15,7 +15,7 @@ describe("<FilterPanel />", () => {
   });
 
   test("it should not show any type filter", async () => {
-    render(<FilterPanel />);
+    render(<FilterPanel onPatternUpdate={console.log} />);
 
     await waitFor(() =>
       expect(screen.queryByText("Ontologia")).not.toBeInTheDocument()

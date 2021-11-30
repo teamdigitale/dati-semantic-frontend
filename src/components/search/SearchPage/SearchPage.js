@@ -13,8 +13,8 @@ const showItems = (isLoading, items) => {
 };
 
 const onFilterUpdate = (filter, navigate, fieldName) => (newFieldValue) => {
-  filter[fieldName] = newFieldValue;
-  navigate(routes.search(filter));
+  const newFilter = { ...filter, [fieldName]: newFieldValue };
+  navigate(routes.search(newFilter));
 };
 
 const SearchPage = () => {
