@@ -25,7 +25,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
           />
         </div>
         <div className="form-group col-12 col-xl-3">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" role="submit">
             Cerca
           </button>
         </div>
