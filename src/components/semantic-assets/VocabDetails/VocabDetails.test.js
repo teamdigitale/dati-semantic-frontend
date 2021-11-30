@@ -105,6 +105,14 @@ describe("<VocabDetails />", () => {
     expect(screen.getByText(details[key])).toBeInTheDocument();
   });
 
+  it("should render label for accrual periodicity", () => {
+    render(<VocabDetails details={details} />);
+
+    const type = screen.getByText("Irregolare");
+
+    expect(type).toBeInTheDocument();
+  });
+
   it("should render type", () => {
     render(<VocabDetails details={details} />);
 

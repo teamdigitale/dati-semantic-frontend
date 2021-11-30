@@ -7,6 +7,7 @@ import {
   getAssetLabel,
   SUPPORTED_ASSET_TYPES,
 } from "../../../services/dataConstants";
+import { getFrequencyLabel } from "../../../assets/data/accrualPeriodicity";
 
 const categories = getCategories();
 
@@ -102,6 +103,9 @@ const VocabDetails = ({ details }) => (
       <div className="col-md-12">
         <div className={styles.propertyLabel}>Periodicità di maturazione</div>
         <div className={styles.propertyValue}>{details.accrualPeriodicity}</div>
+        <div className={styles.propertyValue}>
+          {getFrequencyLabel(details.accrualPeriodicity)}
+        </div>
       </div>
     </div>
     <div className="row p-3">
