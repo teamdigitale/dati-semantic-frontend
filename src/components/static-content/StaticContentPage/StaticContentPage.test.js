@@ -7,7 +7,7 @@ describe("<StaticContentPage />", () => {
   test("it should mount", () => {
     render(<StaticContentPage article="Validate" />);
 
-    const staticContentPage = screen.getByTestId("StaticContentPage");
+    const staticContentPage = screen.getByRole("alert");
 
     expect(staticContentPage).toBeInTheDocument();
   });

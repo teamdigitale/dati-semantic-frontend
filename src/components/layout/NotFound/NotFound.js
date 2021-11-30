@@ -1,19 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Icon } from "design-react-kit";
+import Callout from "../../common/Callout/Callout";
 
 const NotFound = () => (
-  <div className="callout danger m-5" data-testid="NotFound">
-    <div className="callout-title">
-      <Icon icon="it-close-circle" />
-      Pagina non trovata
-    </div>
+  <Callout type="danger" title="Pagina non trovata">
     <p>
       Ci dispiace, la risorsa ricercata non è disponibile.
       <br />
       Torna alla <Link to="/">Homepage</Link>.
     </p>
-  </div>
+  </Callout>
 );
 
 NotFound.propTypes = {};

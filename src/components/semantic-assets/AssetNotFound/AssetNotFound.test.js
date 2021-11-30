@@ -8,7 +8,7 @@ describe("<AssetNotFound />", () => {
   test("it should mount", () => {
     renderWithRoute(<AssetNotFound reason={MISSING_URI} />);
 
-    const assetNotFound = screen.getByTestId("AssetNotFound");
+    const assetNotFound = screen.getByRole("alert");
 
     expect(assetNotFound).toBeInTheDocument();
   });

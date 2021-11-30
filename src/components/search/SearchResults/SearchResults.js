@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Icon } from "design-react-kit";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
+import Callout from "../../common/Callout/Callout";
 
 const SearchResults = (props) => {
   const items = props.items;
@@ -9,16 +9,9 @@ const SearchResults = (props) => {
   const emptyResultsMessage = () => {
     if (!items || items.length === 0) {
       return (
-        <div
-          className="callout callout-highlight note"
-          data-testid="EmptySearchResults"
-        >
-          <div className="callout-title">
-            <Icon icon="it-info-circle" />
-            Nessun risultato
-          </div>
+        <Callout type="callout-highlight" title="Nessun risultato">
           <p>I criteri immessi non corrispondono a nessun elemento.</p>
-        </div>
+        </Callout>
       );
     }
   };

@@ -8,7 +8,7 @@ describe("<NotFound />", () => {
   test("it should contain an error message", () => {
     renderWithRoute(<NotFound />);
 
-    const notFound = screen.getByTestId("NotFound");
+    const notFound = screen.getByRole("alert");
 
     expect(notFound).toBeInTheDocument();
     expect(notFound).toContainHTML("non è disponibile");

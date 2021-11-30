@@ -1,7 +1,7 @@
 import React from "react";
 import { oneOf } from "prop-types";
-import { Icon } from "design-react-kit";
 import { Link } from "react-router-dom";
+import Callout from "../../common/Callout/Callout";
 
 export const MISSING_URI = "missing-uri";
 export const MISSING_RESOURCE = "missing-resource";
@@ -19,11 +19,7 @@ const AssetNotFound = ({ reason }) => {
   };
 
   return (
-    <div className="callout danger" data-testid="AssetNotFound">
-      <div className="callout-title">
-        <Icon icon="it-close-circle" />
-        Risorsa non trovata
-      </div>
+    <Callout type="danger" title="Risorsa non trovata">
       <p>
         Si è verificato un errore.
         <br />
@@ -31,7 +27,7 @@ const AssetNotFound = ({ reason }) => {
         <br />
         <Link to="/">Homepage</Link>.
       </p>
-    </div>
+    </Callout>
   );
 };
 

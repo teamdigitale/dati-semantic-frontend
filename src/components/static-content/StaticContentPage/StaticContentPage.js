@@ -1,15 +1,11 @@
 import React from "react";
 import { string } from "prop-types";
-import { Icon } from "design-react-kit";
+import Callout from "../../common/Callout/Callout";
 
 const StaticContentPage = ({ article }) => (
-  <div className="callout danger m-5" data-testid="StaticContentPage">
-    <div className="callout-title">
-      <Icon icon="it-info-circle" />
-      Pagina in costruzione
-    </div>
-    <p>{article}</p>
-  </div>
+  <Callout type="info" title="Pagina in costruzione">
+    {article}
+  </Callout>
 );
 
 StaticContentPage.propTypes = {

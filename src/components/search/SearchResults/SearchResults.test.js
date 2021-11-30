@@ -28,9 +28,10 @@ describe("<SearchResults />", () => {
     test("it should show empty results message", () => {
       render(<SearchResults items={[]} />);
 
-      const emptyMessage = screen.getByTestId("EmptySearchResults");
+      const emptyMessage = screen.getByRole("alert");
 
       expect(emptyMessage).toBeInTheDocument();
+      expect(emptyMessage).toContainHTML("nessun elemento");
     });
 
     describe("with some vocabularies", () => {
