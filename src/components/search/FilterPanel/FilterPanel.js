@@ -10,18 +10,22 @@ const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 const FilterPanel = ({ filter, onFilterUpdate }) => {
   const defaultFilterValues = { pattern: "", types: [], themes: [] };
   const { pattern, types, themes } = { ...defaultFilterValues, ...filter };
-  const onPatternUpdate = (newPattern) => {
-    if (onFilterUpdate) {
-      onFilterUpdate({ ...filter, pattern: newPattern });
-    }
+  const onFilterFieldUpdate = (field) => (newValue) => {
+    onFilterUpdate({ ...filter, [field]: newValue });
   };
 
   return (
     <div id="filter-panel" data-testid="FilterPanel">
       <div className="row d-flex justify-content-center p-3">
         <div className="col">
-          <PatternFilter pattern={pattern} onPatternUpdate={onPatternUpdate} />
-          <AssetTypeFilter types={types} />
+          <PatternFilter
+            pattern={pattern}
+            onPatternUpdate={onFilterFieldUpdate("pattern")}
+          />
+          <AssetTypeFilter
+            types={types}
+            onTypesUpdate={onFilterFieldUpdate("types")}
+          />
           <div>
             Filtro per categoria: &quot;<strong>{themes}</strong>&quot;
           </div>
@@ -37,7 +41,7 @@ FilterPanel.propTypes = {
     types: arrayOf(oneOf(SUPPORTED_ASSET_TYPES)),
     themes: arrayOf(oneOf(SUPPORTED_THEMES)),
   }).isRequired,
-  onFilterUpdate: func,
+  onFilterUpdate: func.isRequired,
 };
 
 FilterPanel.defaultProps = {};
