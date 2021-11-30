@@ -8,7 +8,8 @@ let details;
 
 beforeEach(() => {
   details = {
-    iri: "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
+    assetIri:
+      "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
     title: "Vocabolario Controllato Forme Giuridiche",
     description:
       "Classificazione delle forme giuridiche per le organizzazioni disciplinate dal diritto pubblico e privato.",
@@ -89,7 +90,7 @@ describe("<VocabDetails />", () => {
   });
 
   test.each([
-    "iri",
+    "assetIri",
     "title",
     "description",
     "modifiedOn",

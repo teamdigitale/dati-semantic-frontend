@@ -12,7 +12,7 @@ const SearchResultItem = ({ item }) => {
       <div className="card card-bg">
         <a
           className="card-body stretched-link text-decoration-none"
-          href={getVocabularyUrl(item.iri)}
+          href={getVocabularyUrl(item.assetIri)}
         >
           <div className="category-top clearfix">
             <div className="category">
@@ -28,7 +28,7 @@ const SearchResultItem = ({ item }) => {
           <p className="card-text text-truncate">{item.description}</p>
           <span className="card-signature">{item.rightsHolder.summary}</span>
           <div>
-            <div>{item.iri}</div>
+            <div>{item.assetIri}</div>
           </div>
         </a>
       </div>
@@ -39,7 +39,7 @@ const SearchResultItem = ({ item }) => {
 SearchResultItem.propTypes = {
   item: shape({
     type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
-    iri: string.isRequired,
+    assetIri: string.isRequired,
     title: string.isRequired,
     description: string.isRequired,
     themes: arrayOf(string).isRequired,

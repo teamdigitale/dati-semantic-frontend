@@ -7,7 +7,7 @@ import { renderWithRoute } from "../../../services/testUtils";
 import { getVocabularyUrl } from "../../../services/vocabService";
 
 const vocabItem = {
-  iri: "http://www.disney.com/characters",
+  assetIri: "http://www.disney.com/characters",
   type: AT_VOCABULARY,
   title: "Disney characters",
   description: "Fully comprehensive list of Disney characters",
@@ -25,7 +25,7 @@ describe("<SearchResultItem />", () => {
     expect(screen.getByTestId("SearchResultItem")).toBeInTheDocument();
   });
 
-  test.each(["iri", "title", "description"])(
+  test.each(["assetIri", "title", "description"])(
     "it should display %s from the item",
     (key) => {
       renderWithRoute(<SearchResultItem item={vocabItem} />);
@@ -34,15 +34,15 @@ describe("<SearchResultItem />", () => {
     }
   );
 
-  test("it should display a link with iri", () => {
+  test("it should display a link with assetIri", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let link = screen.getByText(vocabItem.iri);
+    let link = screen.getByText(vocabItem.assetIri);
 
     expect(link).toBeInTheDocument();
     expect(link.closest("a")).toHaveAttribute(
       "href",
-      getVocabularyUrl(vocabItem.iri)
+      getVocabularyUrl(vocabItem.assetIri)
     );
   });
 

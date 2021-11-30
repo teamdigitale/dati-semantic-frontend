@@ -89,7 +89,7 @@ const VocabDetails = ({ details }) => (
     <div className="row p-3">
       <div className="col-md-12">
         <div className={styles.propertyLabel}>Identificativo</div>
-        <a href={details.iri}>{details.iri}</a>
+        <a href={details.assetIri}>{details.assetIri}</a>
       </div>
     </div>
     <div className="row p-3">
@@ -187,7 +187,7 @@ const VocabDetails = ({ details }) => (
 VocabDetails.propTypes = {
   details: shape({
     type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
-    iri: string.isRequired,
+    assetIri: string.isRequired,
     title: string.isRequired,
     description: string.isRequired,
     modifiedOn: string.isRequired,
