@@ -4,7 +4,7 @@ import { waitFor } from "@testing-library/dom";
 import "@testing-library/jest-dom/extend-expect";
 import SearchPage from "./SearchPage";
 import { search } from "../../../services/searchService";
-import { AT_ONTOLOGY, AT_VOCABULARY } from "../../../services/dataConstants";
+import { AT_VOCABULARY } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 import SearchResults from "../SearchResults/SearchResults";
 import { routes } from "../../../services/routes";
@@ -80,7 +80,7 @@ describe("<SearchPage />", () => {
     });
   });
 
-  test("it should allow filter panel to update theme and then navigate", async () => {
+  test("it should allow filter panel to update filter and then navigate", async () => {
     renderWithRoute(
       <SearchPage />,
       routes.search({ types: [AT_VOCABULARY], pattern: "abc" })
@@ -96,88 +96,17 @@ describe("<SearchPage />", () => {
     expect(latestProvidedProps.theme).toBeFalsy();
 
     // retrieve the callback passed to the FilterPanel child component and simulate the udpate to a theme
-    const updateCallback = latestProvidedProps.onThemeUpdate;
+    const updateCallback = latestProvidedProps.onFilterUpdate;
     expect(updateCallback).toBeInstanceOf(Function);
-    updateCallback(["AGRI"]);
+    const updatedFilter = {
+      types: [AT_VOCABULARY],
+      pattern: "abc",
+      themes: ["AGRI"],
+    };
+    updateCallback(updatedFilter);
 
     await waitFor(() => {
-      expect(mockNavigation).toHaveBeenCalledWith(
-        routes.search({
-          types: [AT_VOCABULARY],
-          pattern: "abc",
-          themes: ["AGRI"],
-        })
-      );
-    });
-  });
-
-  test("it should allow filter panel to update type and then navigate", async () => {
-    renderWithRoute(
-      <SearchPage />,
-      routes.search({
-        types: [AT_VOCABULARY],
-        pattern: "abc",
-        themes: ["AGRI"],
-      })
-    );
-
-    await waitFor(() => {
-      expect(FilterPanel).toHaveBeenCalled();
-    });
-
-    // check the FilterPanel child component was passed an empty theme to show
-    const callCount = FilterPanel.mock.calls.length;
-    const latestProvidedProps = FilterPanel.mock.calls[callCount - 1][0];
-    expect(latestProvidedProps.theme).toBeFalsy();
-
-    // retrieve the callback passed to the FilterPanel child component and simulate the udpate to a theme
-    const updateCallback = latestProvidedProps.onTypeUpdate;
-    expect(updateCallback).toBeInstanceOf(Function);
-    updateCallback([AT_VOCABULARY, AT_ONTOLOGY]);
-
-    await waitFor(() => {
-      expect(mockNavigation).toHaveBeenCalledWith(
-        routes.search({
-          types: [AT_VOCABULARY, AT_ONTOLOGY],
-          pattern: "abc",
-          themes: ["AGRI"],
-        })
-      );
-    });
-  });
-
-  test("it should allow filter panel to update pattern and then navigate", async () => {
-    renderWithRoute(
-      <SearchPage />,
-      routes.search({
-        types: [AT_VOCABULARY],
-        pattern: "abc",
-        themes: ["AGRI"],
-      })
-    );
-
-    await waitFor(() => {
-      expect(FilterPanel).toHaveBeenCalled();
-    });
-
-    // check the FilterPanel child component was passed an empty theme to show
-    const callCount = FilterPanel.mock.calls.length;
-    const latestProvidedProps = FilterPanel.mock.calls[callCount - 1][0];
-    expect(latestProvidedProps.theme).toBeFalsy();
-
-    // retrieve the callback passed to the FilterPanel child component and simulate the udpate to a theme
-    const updateCallback = latestProvidedProps.onPatternUpdate;
-    expect(updateCallback).toBeInstanceOf(Function);
-    updateCallback("def");
-
-    await waitFor(() => {
-      expect(mockNavigation).toHaveBeenCalledWith(
-        routes.search({
-          types: [AT_VOCABULARY],
-          pattern: "def",
-          themes: ["AGRI"],
-        })
-      );
+      expect(mockNavigation).toHaveBeenCalledWith(routes.search(updatedFilter));
     });
   });
 

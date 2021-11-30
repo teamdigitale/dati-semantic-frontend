@@ -7,14 +7,14 @@ import PatternFilter from "../PatternFilter/PatternFilter";
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 
-const FilterPanel = ({
-  pattern,
-  onPatternUpdate,
-  types,
-  // onTypeUpdate,
-  themes,
-  // onThemeUpdate,
-}) => {
+const FilterPanel = ({ pattern, types, themes, onFilterUpdate }) => {
+  const onPatternUpdate = (newPattern) => {
+    if (onFilterUpdate) {
+      const filter = { pattern: newPattern, types, themes };
+      onFilterUpdate(filter);
+    }
+  };
+
   return (
     <div id="filter-panel" data-testid="FilterPanel">
       <div className="row d-flex justify-content-center p-3">
@@ -34,9 +34,7 @@ FilterPanel.propTypes = {
   pattern: string,
   types: arrayOf(oneOf(SUPPORTED_ASSET_TYPES)),
   themes: arrayOf(oneOf(SUPPORTED_THEMES)),
-  onPatternUpdate: func,
-  onTypeUpdate: func,
-  onThemeUpdate: func,
+  onFilterUpdate: func,
 };
 
 FilterPanel.defaultProps = {
