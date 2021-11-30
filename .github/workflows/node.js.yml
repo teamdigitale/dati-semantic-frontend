@@ -132,7 +132,8 @@ jobs:
       - build
       - security
       - lint
-      - test
+      - unit-test
+      - ui-test
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
