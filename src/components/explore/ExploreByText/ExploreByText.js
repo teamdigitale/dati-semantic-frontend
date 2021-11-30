@@ -7,8 +7,9 @@ const ExploreByText = () => {
   const [pattern, setPattern] = useState("");
   const navigate = useNavigate();
 
-  const doSubmit = () => {
+  const doSubmit = (e) => {
     navigate(routes.search({ pattern: pattern }));
+    e.preventDefault();
   };
 
   return (

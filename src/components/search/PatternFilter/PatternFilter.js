@@ -9,9 +9,10 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
       <h6 className="filter-section-title">Cerca per nome</h6>
       <form
         role="search"
-        onSubmit={() => {
+        onSubmit={(e) => {
           console.log("Updating pattern", value);
           onPatternUpdate(value);
+          e.preventDefault();
         }}
       >
         <div className="form-group col-12 col-xl-9">
