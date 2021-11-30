@@ -72,6 +72,10 @@ const renderItems = (items, showAsLinks) => {
   ));
 };
 
+const notEmpty = (items) => {
+  return items && items.length > 0;
+};
+
 const VocabDetails = ({ details }) => (
   <div className="container" data-testid="VocabDetails">
     <div className="row p-3">
@@ -115,7 +119,7 @@ const VocabDetails = ({ details }) => (
       </div>
     </div>
 
-    {details.subjects && (
+    {notEmpty(details.subjects) && (
       <div className="row p-3">
         <div className="col-md-12">
           <div className={styles.propertyLabel}>Sottotema</div>
@@ -127,9 +131,11 @@ const VocabDetails = ({ details }) => (
     {details.contactPoint &&
       displayNodeSummaries("Punto di contatto", [details.contactPoint])}
 
-    {details.publishers && displayNodeSummaries("Editrice", details.publishers)}
+    {notEmpty(details.publishers) &&
+      displayNodeSummaries("Editrice", details.publishers)}
 
-    {details.creators && displayNodeSummaries("Creatrice", details.creators)}
+    {notEmpty(details.creators) &&
+      displayNodeSummaries("Creatrice", details.creators)}
 
     {details.versionInfo && (
       <div className="row p-3">
@@ -151,7 +157,7 @@ const VocabDetails = ({ details }) => (
       </div>
     )}
 
-    {details.languages && (
+    {notEmpty(details.languages) && (
       <div className="row p-3">
         <div className="col-md-12">
           <div className={styles.propertyLabel}>Le lingue</div>
@@ -160,7 +166,7 @@ const VocabDetails = ({ details }) => (
       </div>
     )}
 
-    {details.temporal && (
+    {notEmpty(details.temporal) && (
       <div className="row p-3">
         <div className="col-md-12">
           <div className={styles.propertyLabel}>Temporale</div>
@@ -169,7 +175,7 @@ const VocabDetails = ({ details }) => (
       </div>
     )}
 
-    {details.conformsTo &&
+    {notEmpty(details.conformsTo) &&
       displayNodeSummaries("Conforme a", details.conformsTo)}
 
     <div className="row p-3">
