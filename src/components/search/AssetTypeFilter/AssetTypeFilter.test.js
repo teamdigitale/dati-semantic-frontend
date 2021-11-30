@@ -13,6 +13,12 @@ import userEvent from "@testing-library/user-event";
 
 const typeUpdate = jest.fn();
 
+function findCheckBoxFromLabelText(labelText) {
+  const label = screen.getByText(labelText);
+  const formCheck = label.closest("div.form-check");
+  return formCheck.querySelector("input");
+}
+
 describe("<AssetTypeFilter />", () => {
   beforeEach(() => {
     typeUpdate.mockClear();
@@ -25,45 +31,85 @@ describe("<AssetTypeFilter />", () => {
     expect(screen.getByRole("listbox")).toBeInTheDocument();
   });
 
-  test("it should display options", () => {
+  test("it should display options (including 'All')", () => {
     render(
       <AssetTypeFilter types={[AT_ONTOLOGY]} onTypesUpdate={typeUpdate} />
     );
 
     const options = screen.getAllByRole("option");
-    expect(options.length).toEqual(SUPPORTED_ASSET_TYPES.length);
+    expect(options.length).toEqual(1 + SUPPORTED_ASSET_TYPES.length);
   });
 
-  test("should propagate changes to type when toggling an unchecked option", () => {
-    render(
-      <AssetTypeFilter types={[AT_ONTOLOGY]} onTypesUpdate={typeUpdate} />
-    );
+  describe("toggling a single option", () => {
+    test("should propagate changes to type when toggling an unchecked option", () => {
+      render(
+        <AssetTypeFilter types={[AT_ONTOLOGY]} onTypesUpdate={typeUpdate} />
+      );
 
-    const label = screen.getByText(getAssetLabel(AT_VOCABULARY));
-    const formCheck = label.closest("div.form-check");
-    const checkBox = formCheck.querySelector("input");
-    expect(checkBox.checked).toBeFalsy();
+      const checkBox = findCheckBoxFromLabelText(getAssetLabel(AT_VOCABULARY));
+      expect(checkBox.checked).toBeFalsy();
 
-    userEvent.click(checkBox);
+      userEvent.click(checkBox);
 
-    expect(typeUpdate).toHaveBeenCalledWith([AT_ONTOLOGY, AT_VOCABULARY]);
+      expect(typeUpdate).toHaveBeenCalledWith([AT_ONTOLOGY, AT_VOCABULARY]);
+    });
+
+    test("should propagate changes to type when toggling a checked option", () => {
+      render(
+        <AssetTypeFilter
+          types={[AT_ONTOLOGY, AT_SCHEMA]}
+          onTypesUpdate={typeUpdate}
+        />
+      );
+
+      const checkBox = findCheckBoxFromLabelText(getAssetLabel(AT_ONTOLOGY));
+      expect(checkBox.checked).toBeTruthy();
+
+      userEvent.click(checkBox);
+
+      expect(typeUpdate).toHaveBeenCalledWith([AT_SCHEMA]);
+    });
   });
 
-  test("should propagate changes to type when toggling a checked option", () => {
-    render(
-      <AssetTypeFilter
-        types={[AT_ONTOLOGY, AT_SCHEMA]}
-        onTypesUpdate={typeUpdate}
-      />
-    );
+  describe("toggling 'All'", () => {
+    test("should propagate from some to all", () => {
+      render(
+        <AssetTypeFilter
+          types={[AT_ONTOLOGY, AT_SCHEMA]}
+          onTypesUpdate={typeUpdate}
+        />
+      );
 
-    const label = screen.getByText(getAssetLabel(AT_ONTOLOGY));
-    const formCheck = label.closest("div.form-check");
-    const checkBox = formCheck.querySelector("input");
-    expect(checkBox.checked).toBeTruthy();
+      const checkBox = findCheckBoxFromLabelText("Tutte");
 
-    userEvent.click(checkBox);
+      userEvent.click(checkBox);
 
-    expect(typeUpdate).toHaveBeenCalledWith([AT_SCHEMA]);
+      expect(typeUpdate).toHaveBeenCalledWith(SUPPORTED_ASSET_TYPES);
+    });
+
+    test("should propagate from none to all", () => {
+      render(<AssetTypeFilter types={[]} onTypesUpdate={typeUpdate} />);
+
+      const checkBox = findCheckBoxFromLabelText("Tutte");
+
+      userEvent.click(checkBox);
+
+      expect(typeUpdate).toHaveBeenCalledWith(SUPPORTED_ASSET_TYPES);
+    });
+
+    test("should propagate from all to none", () => {
+      render(
+        <AssetTypeFilter
+          types={SUPPORTED_ASSET_TYPES}
+          onTypesUpdate={typeUpdate}
+        />
+      );
+
+      const checkBox = findCheckBoxFromLabelText("Tutte");
+
+      userEvent.click(checkBox);
+
+      expect(typeUpdate).toHaveBeenCalledWith([]);
+    });
   });
 });
