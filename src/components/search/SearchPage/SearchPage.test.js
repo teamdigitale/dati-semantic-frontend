@@ -15,6 +15,7 @@ jest.mock("../SearchResults/SearchResults", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
+
 jest.mock("../FilterPanel/FilterPanel", () => ({
   __esModule: true,
   default: jest.fn(),
@@ -150,5 +151,16 @@ describe("<SearchPage />", () => {
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());
       expect(SearchResults).toHaveBeenCalledWith({ items: someVocabs }, {});
     });
+  });
+
+  test("it should show some error message if data cannot be loaded", async () => {
+    search.mockRejectedValue(new Error("An error"));
+
+    renderWithRoute(<SearchPage />, routes.search({ types: [AT_VOCABULARY] }));
+
+    await waitFor(() => screen.getByRole("alert"));
+
+    const errorAlert = screen.getByRole("alert");
+    expect(errorAlert).toBeInTheDocument();
   });
 });

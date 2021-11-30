@@ -10,7 +10,6 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
       <form
         role="search"
         onSubmit={(e) => {
-          console.log("Updating pattern", value);
           onPatternUpdate(value);
           e.preventDefault();
         }}

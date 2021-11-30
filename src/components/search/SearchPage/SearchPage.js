@@ -4,10 +4,19 @@ import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
+import Callout from "../../common/Callout/Callout";
 
-const showItems = (isLoading, items) => {
+const showItems = (isLoading, error, items) => {
   if (isLoading) {
     return <h2>Caricamento...</h2>;
+  }
+  if (error) {
+    return (
+      <Callout title="Errore di caricamento" type="danger">
+        <p>Non è possibile caricare i dati: </p>
+        <samp>{error}</samp>
+      </Callout>
+    );
   }
   return <SearchResults items={items} />;
 };
@@ -19,6 +28,7 @@ const onFilterUpdate = (navigate) => (newFilter) => {
 const SearchPage = () => {
   const [items, setItems] = useState(null);
   const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const { search: urlSearch } = useLocation();
   const navigate = useNavigate();
 
@@ -27,8 +37,12 @@ const SearchPage = () => {
   useEffect(() => {
     const doSearch = async () => {
       setLoading(true);
-      const results = await search(filter);
-      setItems(results.data);
+      try {
+        const results = await search(filter);
+        setItems(results.data);
+      } catch (e) {
+        setError(e.message);
+      }
       setLoading(false);
     };
     doSearch();
@@ -45,7 +59,7 @@ const SearchPage = () => {
             />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
-            {showItems(isLoading, items)}
+            {showItems(isLoading, error, items)}
           </div>
         </div>
       </div>
