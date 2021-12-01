@@ -4,6 +4,7 @@ import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getVocabularyUrl } from "../../../services/vocabService";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
+import AssetTypeChip from "../AssetTypeChip/AssetTypeChip";
 
 const SearchResultItem = ({ item }) => {
   const category = getCategories().find((c) => c.uri === item.themes[0]);
@@ -15,6 +16,7 @@ const SearchResultItem = ({ item }) => {
           href={getVocabularyUrl(item.assetIri)}
         >
           <div className="category-top clearfix">
+            <AssetTypeChip type={item.type} />
             <div className="category">
               <CategoryIcon
                 category={category}

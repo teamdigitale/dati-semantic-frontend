@@ -2,7 +2,7 @@ import React from "react";
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import SearchResultItem from "./SearchResultItem";
-import { AT_VOCABULARY } from "../../../services/dataConstants";
+import { AT_VOCABULARY, getAssetLabel } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 import { getVocabularyUrl } from "../../../services/vocabService";
 
@@ -25,6 +25,14 @@ describe("<SearchResultItem />", () => {
     expect(screen.getByTestId("SearchResultItem")).toBeInTheDocument();
   });
 
+  test("it should display the item's type", () => {
+    renderWithRoute(<SearchResultItem item={vocabItem} />);
+
+    let typeLabel = screen.getByText(getAssetLabel(AT_VOCABULARY));
+
+    expect(typeLabel).toBeInTheDocument();
+  });
+
   test.each(["assetIri", "title", "description"])(
     "it should display %s from the item",
     (key) => {
@@ -45,7 +53,6 @@ describe("<SearchResultItem />", () => {
       getVocabularyUrl(vocabItem.assetIri)
     );
   });
-
   test("it should display rights holder summary", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
@@ -54,7 +61,7 @@ describe("<SearchResultItem />", () => {
     expect(summary).toBeInTheDocument();
   });
 
-  test("it should display theme as icon", () => {
+  test("it should display theme description", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
     let category = screen.getByText("Istruzione, cultura e sport");
     expect(category).toBeInTheDocument();
