@@ -65,7 +65,6 @@ const MultiCheckBoxFilter = ({
   let allId = "all-" + hash(title);
   return (
     <div data-testid="MultiCheckBoxFilter">
-      <h6 className="filter-section-title">{title}</h6>
       <div className="it-list-wrapper">
         <ul className="it-list" role="listbox">
           <li key="all">
@@ -74,6 +73,9 @@ const MultiCheckBoxFilter = ({
                 type="checkbox"
                 id={allId}
                 checked={allSelected}
+                aria-checked={
+                  allSelected ? "true" : someSelected ? "mixed" : "false"
+                }
                 role="option"
                 onChange={rotateAllSelection}
                 ref={indeterminateSetter}

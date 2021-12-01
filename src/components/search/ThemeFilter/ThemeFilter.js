@@ -2,6 +2,7 @@ import React from "react";
 import MultiCheckBoxFilter from "../MultiCheckBoxFilter/MultiCheckBoxFilter";
 import PropTypes, { func } from "prop-types";
 import { getCategories } from "../../../assets/data/categories";
+import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
 
 const keysAndLabels = getCategories().map((c) => ({
   key: c.key,
@@ -10,12 +11,14 @@ const keysAndLabels = getCategories().map((c) => ({
 const categoryKeys = keysAndLabels.map((c) => c.key);
 
 const ThemeFilter = ({ themes, onThemesUpdate }) => (
-  <MultiCheckBoxFilter
-    keysAndLabels={keysAndLabels}
-    title="Categorie"
-    selection={themes}
-    onSelectionUpdate={onThemesUpdate}
-  />
+  <FilterPanelSection title="Categorie">
+    <MultiCheckBoxFilter
+      keysAndLabels={keysAndLabels}
+      title="Categorie"
+      selection={themes}
+      onSelectionUpdate={onThemesUpdate}
+    />
+  </FilterPanelSection>
 );
 
 ThemeFilter.propTypes = {

@@ -5,6 +5,7 @@ import {
   SUPPORTED_ASSET_TYPES,
 } from "../../../services/dataConstants";
 import MultiCheckBoxFilter from "../MultiCheckBoxFilter/MultiCheckBoxFilter";
+import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
 
 const keysAndLabels = AT_TO_LABEL.map((ttl) => ({
   key: ttl.type,
@@ -13,12 +14,14 @@ const keysAndLabels = AT_TO_LABEL.map((ttl) => ({
 
 const AssetTypeFilter = ({ types, onTypesUpdate }) => {
   return (
-    <MultiCheckBoxFilter
-      title="Tipologie"
-      keysAndLabels={keysAndLabels}
-      selection={types}
-      onSelectionUpdate={onTypesUpdate}
-    />
+    <FilterPanelSection title="Tipologie">
+      <MultiCheckBoxFilter
+        title="Tipologie"
+        keysAndLabels={keysAndLabels}
+        selection={types}
+        onSelectionUpdate={onTypesUpdate}
+      />
+    </FilterPanelSection>
   );
 };
 

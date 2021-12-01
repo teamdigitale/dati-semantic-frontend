@@ -13,8 +13,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.filter-section-title {
-  text-transform: uppercase;
-  margin-bottom: 1.5em;
-}
