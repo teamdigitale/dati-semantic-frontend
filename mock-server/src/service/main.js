@@ -103,6 +103,27 @@ const addService = () => {
     ],
     keyConcept: "legalStatus",
     endpointUrl: "http://localhost:8080/vocabularies/ISTAT/legalStatus",
+    keyClasses: [
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/keyClass1",
+        summary: null,
+      },
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/keyClass2",
+        summary: "keyClass2",
+      },
+    ],
+    projects: [
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/project1",
+        summary: null,
+      },
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/project2",
+        summary: "project2",
+      },
+    ],
+    prefix: "Ontology prefix",
   };
   const stubs = [
     {

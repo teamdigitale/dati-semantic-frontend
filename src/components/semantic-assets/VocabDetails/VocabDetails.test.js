@@ -77,6 +77,27 @@ beforeEach(() => {
     ],
     keyConcept: "legalStatus",
     endpointUrl: "http://localhost:8080/vocabularies/ISTAT/legalStatus",
+    keyClasses: [
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/keyClass1",
+        summary: null,
+      },
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/keyClass2",
+        summary: "keyClass2",
+      },
+    ],
+    projects: [
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/project1",
+        summary: null,
+      },
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/project2",
+        summary: "project2",
+      },
+    ],
+    prefix: "Ontology prefix",
   };
 });
 
@@ -99,6 +120,7 @@ describe("<VocabDetails />", () => {
     "keyConcept",
     "versionInfo",
     "issuedOn",
+    "prefix",
   ])("it should display %s from the item", (key) => {
     renderWithRoute(<VocabDetails details={details} />);
 
@@ -372,5 +394,82 @@ describe("<VocabDetails />", () => {
 
     const skos1Name = screen.queryByText("SKOS-1");
     expect(skos1Name).not.toBeInTheDocument();
+  });
+
+  it("should render keyClasses", () => {
+    render(<VocabDetails details={details} />);
+
+    const keyClass1 = screen.getByText(
+      "http://dati.gov.it/data/resource/Standard/keyClass1"
+    );
+    expect(keyClass1).toBeInTheDocument();
+
+    const keyClass2 = screen.getByText(
+      "http://dati.gov.it/data/resource/Standard/keyClass2"
+    );
+    expect(keyClass2).toBeInTheDocument();
+
+    const keyClass2Name = screen.getByText("keyClass2");
+    expect(keyClass2Name).toBeInTheDocument();
+  });
+
+  it("should not render keyClasses when not provided", () => {
+    details.keyClasses = null;
+    render(<VocabDetails details={details} />);
+
+    const keyClass1 = screen.queryByText(
+      "http://dati.gov.it/data/resource/Standard/keyClass1"
+    );
+    expect(keyClass1).not.toBeInTheDocument();
+
+    const keyClass2 = screen.queryByText(
+      "http://dati.gov.it/data/resource/Standard/keyClass2"
+    );
+    expect(keyClass2).not.toBeInTheDocument();
+
+    const keyClass2Name = screen.queryByText("keyClass2");
+    expect(keyClass2Name).not.toBeInTheDocument();
+  });
+
+  it("should render projects", () => {
+    render(<VocabDetails details={details} />);
+
+    const project1Iri = screen.getByText(
+      "http://dati.gov.it/data/resource/Standard/project1"
+    );
+    expect(project1Iri).toBeInTheDocument();
+
+    const project2Iri = screen.getByText(
+      "http://dati.gov.it/data/resource/Standard/project2"
+    );
+    expect(project2Iri).toBeInTheDocument();
+
+    const project2Name = screen.getByText("project2");
+    expect(project2Name).toBeInTheDocument();
+  });
+
+  it("should not render projects when not provided", () => {
+    details.projects = null;
+    render(<VocabDetails details={details} />);
+
+    const project1Iri = screen.queryByText(
+      "http://dati.gov.it/data/resource/Standard/project1"
+    );
+    expect(project1Iri).not.toBeInTheDocument();
+
+    const project2Iri = screen.queryByText(
+      "http://dati.gov.it/data/resource/Standard/project2"
+    );
+    expect(project2Iri).not.toBeInTheDocument();
+
+    const project2Name = screen.queryByText("project2");
+    expect(project2Name).not.toBeInTheDocument();
+  });
+
+  it("should not render prefix when not provided", () => {
+    details.prefix = null;
+    render(<VocabDetails details={details} />);
+    const prefix = screen.queryByText("Ontology prefix");
+    expect(prefix).not.toBeInTheDocument();
   });
 });

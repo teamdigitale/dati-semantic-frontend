@@ -178,19 +178,37 @@ const VocabDetails = ({ details }) => (
     {notEmpty(details.conformsTo) &&
       displayNodeSummaries("Conforme a", details.conformsTo)}
 
-    <div className="row p-3">
-      <div className="col-md-12">
-        <div className={styles.propertyLabel}>Concetti importanti</div>
-        <div className={styles.propertyValue}>{details.keyConcept}</div>
+    {details.keyConcept && (
+      <div className="row p-3">
+        <div className="col-md-12">
+          <div className={styles.propertyLabel}>Concetti importanti</div>
+          <div className={styles.propertyValue}>{details.keyConcept}</div>
+        </div>
       </div>
-    </div>
+    )}
 
-    <div className="row p-3">
-      <div className="col-md-12">
-        <div className={styles.propertyLabel}>URL dell&apos;endpoint</div>
-        <a href={details.endpointUrl}>{details.endpointUrl}</a>
+    {details.endpointUrl && (
+      <div className="row p-3">
+        <div className="col-md-12">
+          <div className={styles.propertyLabel}>URL dell&apos;endpoint</div>
+          <a href={details.endpointUrl}>{details.endpointUrl}</a>
+        </div>
       </div>
-    </div>
+    )}
+    {notEmpty(details.keyClasses) &&
+      displayNodeSummaries("Classi importanti", details.keyClasses)}
+
+    {notEmpty(details.projects) &&
+      displayNodeSummaries("progetti", details.projects)}
+
+    {details.prefix && (
+      <div className="row p-3">
+        <div className="col-md-12">
+          <div className={styles.propertyLabel}>Prefisso</div>
+          <div>{details.prefix}</div>
+        </div>
+      </div>
+    )}
   </div>
 );
 
@@ -237,6 +255,19 @@ VocabDetails.propTypes = {
     ),
     keyConcept: string,
     endpointUrl: string,
+    keyClasses: arrayOf(
+      shape({
+        iri: string.isRequired,
+        summary: string,
+      })
+    ),
+    prefix: string,
+    projects: arrayOf(
+      shape({
+        iri: string.isRequired,
+        summary: string,
+      })
+    ),
   }).isRequired,
 };
 
