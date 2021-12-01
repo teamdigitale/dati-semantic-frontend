@@ -2,18 +2,115 @@ const mbHelper = require("../mountebank-helper");
 const settings = require("../settings");
 
 const addService = () => {
-  const response = { message: "hello world" };
-  const orangeResponse = {
-    message: "hello orange",
+  const searchResponse = {
+    data: [
+      {
+        assetIri: "http://www.disney.com/characters",
+        type: "CONTROLLED_VOCABULARY",
+        title: "Disney characters",
+        description: "Fully comprehensive list of Disney characters",
+        themes: [
+          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+        ],
+        rightsHolder: {
+          iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
+          summary: "Eurostat",
+        },
+      },
+      {
+        assetIri: "http://www.marvel.com/characters",
+        type: "ONTOLOGY",
+        title: "Marvel characters",
+        description: "Fully comprehensive list of Marvel characters",
+        themes: [
+          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+        ],
+        rightsHolder: {
+          iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
+          summary: "Eurostat",
+        },
+      },
+    ],
   };
 
+  let detailsResponse = {
+    assetIri:
+      "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
+    title: "Vocabolario Controllato Forme Giuridiche",
+    description:
+      "Classificazione delle forme giuridiche per le organizzazioni disciplinate dal diritto pubblico e privato.",
+    type: "CONTROLLED_VOCABULARY",
+    modifiedOn: "2018-02-13",
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/ECON",
+      "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+    ],
+    rightsHolder: {
+      iri: "http://spcdata.digitpa.gov.it/browse/page/Amministrazione/ISTAT",
+      summary: "Istituto Nazionale di Statistica - ISTAT",
+    },
+    accrualPeriodicity:
+      "http://publications.europa.eu/resource/authority/frequency/IRREG",
+    distributionUrls: [
+      "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle",
+      "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_CSV",
+    ],
+    subjects: [
+      "http://eurovoc.europa.eu/100169",
+      "http://eurovoc.europa.eu/100227",
+    ],
+    contactPoint: {
+      iri: "http://dati.gov.it/data/resource/ContactPoint/voc_AgID",
+      summary: "mailto:info@dati.gov.it",
+    },
+    publishers: [
+      {
+        iri: "http://spcdata.digitpa.gov.it/browse/page/Amministrazione/agid",
+        summary: "Agenzia per l'Italia Digitale",
+      },
+      {
+        iri: "http://dati.gov.it/data/resource/Amministrazione/td_PCM",
+        summary: "Team per la Trasformazione Digitale",
+      },
+    ],
+    creators: [
+      {
+        iri: "http://dati.gov.it/data/resource/Amministrazione/td_PCM",
+        summary: "Team per la Trasformazione Digitale",
+      },
+      {
+        iri: "http://spcdata.digitpa.gov.it/browse/page/Amministrazione/agid",
+        summary: "Agenzia per l'Italia Digitale",
+      },
+    ],
+    versionInfo:
+      "E' l'attuale versione ISTAT della classificazione ufficiale sulle forme giuridiche",
+    issuedOn: "2017-02-13",
+    languages: [
+      "http://publications.europa.eu/resource/authority/language/ITA",
+      "http://publications.europa.eu/resource/authority/language/ENG",
+    ],
+    temporal: ["temporal1", "temporal2"],
+    conformsTo: [
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/SKOS",
+        summary: null,
+      },
+      {
+        iri: "http://dati.gov.it/data/resource/Standard/SKOS1",
+        summary: "SKOS-1",
+      },
+    ],
+    keyConcept: "legalStatus",
+    endpointUrl: "http://localhost:8080/vocabularies/ISTAT/legalStatus",
+  };
   const stubs = [
     {
       predicates: [
         {
           equals: {
             method: "GET",
-            path: "/",
+            path: "/semantic-assets/details",
           },
         },
       ],
@@ -22,9 +119,11 @@ const addService = () => {
           is: {
             statusCode: 200,
             headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, PUT",
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(response),
+            body: JSON.stringify(detailsResponse),
           },
         },
       ],
@@ -34,7 +133,7 @@ const addService = () => {
         {
           equals: {
             method: "GET",
-            path: "/orange",
+            path: "/semantic-assets/search",
           },
         },
       ],
@@ -43,34 +142,11 @@ const addService = () => {
           is: {
             statusCode: 200,
             headers: {
+              "Access-Control-Allow-Origin": "*",
+              "Access-Control-Allow-Methods": "GET, PUT",
               "Content-Type": "application/json",
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET, POST, PUT",
             },
-            body: JSON.stringify(orangeResponse),
-          },
-        },
-      ],
-    },
-    {
-      predicates: [
-        {
-          equals: {
-            method: "OPTIONS",
-            path: "/orange",
-          },
-        },
-      ],
-      responses: [
-        {
-          is: {
-            statusCode: 200,
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET, POST, PUT",
-              "Access-Control-Allow-Headers": "*",
-              "Access-Control-Max-Age": 86400,
-            },
+            body: JSON.stringify(searchResponse),
           },
         },
       ],

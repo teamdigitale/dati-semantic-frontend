@@ -15,6 +15,7 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
 COPY docker/update-env.sh /docker-entrypoint.d
 USER root
-RUN chgrp -R 0 /etc/nginx/html && \
-    chmod -R g=u /etc/nginx/html
+RUN chgrp -R root /etc/nginx/html && \
+    chmod -R g=u /etc/nginx/html && \
+    addgroup nginx root
 USER nginx

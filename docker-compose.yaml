@@ -2,41 +2,18 @@ version: "3.7"
 
 services:
   react-app:
-    container_name: reactapp
     build:
       context: .
       dockerfile: Dockerfile
       args:
         CUSTOM_ENV: production
     ports:
-      - 7001:8080
-    networks:
-      - ndc
+      - "7001:8080"
+    environment:
+      - CURRENT_ENV=dockerCompose
   mock-server:
-    container_name: mockserver
     build:
       context: ./mock-server
       dockerfile: Dockerfile
     ports:
-      - 7002:5001
-    networks:
-      - ndc
-  virtuoso:
-    image: tenforce/virtuoso
-    ports:
-      - 8890:8890
-    environment:
-      - DBA_PASSWORD=myDbaPassword
-      - SPARQL_UPDATE=true
-      - DEFAULT_GRAPH=http://www.ndc.com/test-graph
-    networks:
-      - ndc
-  backend:
-    image: ghcr.io/teamdigitale/dati-semantic-backend:latest
-    ports:
-      - 8080:8080
-    networks:
-      - ndc
-networks:
-  ndc:
-    driver: bridge
+      - "7002:5001"
