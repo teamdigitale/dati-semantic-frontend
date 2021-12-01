@@ -2,10 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
-import {
-  getAssetLabel,
-  SUPPORTED_ASSET_TYPES,
-} from "../../../services/dataConstants";
+import { AT_TO_LABEL } from "../../../services/dataConstants";
 import ExploreGrid from "../ExploreGrid/ExploreGrid";
 import { getCategories } from "../../../assets/data/categories";
 import ExploreSection from "../ExploreSection/ExploreSection";
@@ -19,11 +16,11 @@ const ExploreByType = () => {
 
   const category = getCategories()[2];
 
-  const typeCells = SUPPORTED_ASSET_TYPES.map((t) => ({
-    key: t,
+  const typeCells = AT_TO_LABEL.map((ttl) => ({
+    key: ttl.type,
     icon: <CategoryIcon category={category} className="mt-5" />,
-    label: getAssetLabel(t),
-    onClick: () => searchFor(t),
+    label: ttl.label,
+    onClick: () => searchFor(ttl.type),
   }));
 
   return (

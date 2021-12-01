@@ -4,6 +4,7 @@ import { arrayOf, func, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import PatternFilter from "../PatternFilter/PatternFilter";
+import ThemeFilter from "../ThemeFilter/ThemeFilter";
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 
@@ -26,9 +27,10 @@ const FilterPanel = ({ filter, onFilterUpdate }) => {
             types={types}
             onTypesUpdate={onFilterFieldUpdate("types")}
           />
-          <div>
-            Filtro per categoria: &quot;<strong>{themes}</strong>&quot;
-          </div>
+          <ThemeFilter
+            themes={themes}
+            onThemesUpdate={onFilterFieldUpdate("themes")}
+          />
         </div>
       </div>
     </div>

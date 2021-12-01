@@ -6,12 +6,17 @@ import { AT_ONTOLOGY, AT_SCHEMA } from "../../../services/dataConstants";
 import PatternFilter from "../PatternFilter/PatternFilter";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { describe } from "jest-circus";
+import ThemeFilter from "../ThemeFilter/ThemeFilter";
 
 jest.mock("../PatternFilter/PatternFilter", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
 jest.mock("../AssetTypeFilter/AssetTypeFilter", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+jest.mock("../ThemeFilter/ThemeFilter", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -24,6 +29,8 @@ describe("<FilterPanel />", () => {
     PatternFilter.mockClear();
     AssetTypeFilter.mockReturnValue(<div>Type filter</div>);
     AssetTypeFilter.mockClear();
+    ThemeFilter.mockReturnValue(<div>Theme filter</div>);
+    ThemeFilter.mockClear();
     filterUpdate.mockClear();
   });
 
@@ -77,7 +84,7 @@ describe("<FilterPanel />", () => {
   });
 
   describe("with the types filter", () => {
-    test("it should propagate pattern value to pattern filter", () => {
+    test("it should propagate type selection value to type filter", () => {
       const filter = {
         types: [AT_ONTOLOGY],
         pattern: "abc",
@@ -107,6 +114,43 @@ describe("<FilterPanel />", () => {
       expect(filterUpdate).toHaveBeenCalledWith({
         ...originalFilter,
         types: [AT_ONTOLOGY, AT_SCHEMA],
+      });
+    });
+  });
+
+  describe("with the themes filter", () => {
+    test("it should propagate theme selection to themes filter", () => {
+      const filter = {
+        types: [AT_ONTOLOGY],
+        pattern: "abc",
+        themes: ["HEAL", "TRAN"],
+      };
+      render(<FilterPanel filter={filter} onFilterUpdate={filterUpdate} />);
+
+      expect(ThemeFilter).toHaveBeenCalledWith(
+        expect.objectContaining({ themes: ["HEAL", "TRAN"] }),
+        {}
+      );
+    });
+
+    test("it should bubble up themes changes to callback", () => {
+      const originalFilter = {
+        types: [AT_ONTOLOGY],
+        pattern: "abc",
+        themes: ["HEAL", "TRAN"],
+      };
+      render(
+        <FilterPanel filter={originalFilter} onFilterUpdate={filterUpdate} />
+      );
+
+      const typeProps = ThemeFilter.mock.calls[0][0];
+      let themesUpdate = typeProps.onThemesUpdate;
+      expect(themesUpdate).toBeTruthy();
+      themesUpdate(["TRAN"]);
+
+      expect(filterUpdate).toHaveBeenCalledWith({
+        ...originalFilter,
+        themes: ["TRAN"],
       });
     });
   });
