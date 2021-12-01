@@ -82,7 +82,7 @@
         "eslint-plugin-testing-library": "5.0.0",
         "eslint-webpack-plugin": "^2.6.0",
         "jest": "27.4.2",
-        "jest-circus": "26.6.0",
+        "jest-circus": "27.4.2",
         "jest-resolve": "27.4.2",
         "jest-watch-typeahead": "1.0.0",
         "prettier": "^2.5.0",
