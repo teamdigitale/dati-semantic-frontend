@@ -17,7 +17,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
           }}
         >
           <div className="form-group mt-3 mb-1">
-            <div className="input-group col-12">
+            <div className="align-items-center input-group col-12">
               <div className="input-group-prepend">
                 <Icon icon="it-search" size="sm" />
               </div>
