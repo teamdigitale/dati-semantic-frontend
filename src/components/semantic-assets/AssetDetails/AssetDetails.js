@@ -1,6 +1,6 @@
 import React from "react";
 import { arrayOf, oneOf, shape, string } from "prop-types";
-import styles from "./VocabDetails.module.css";
+import styles from "./AssetDetails.module.css";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import {
@@ -76,8 +76,8 @@ const notEmpty = (items) => {
   return items && items.length > 0;
 };
 
-const VocabDetails = ({ details }) => (
-  <div className="container" data-testid="VocabDetails">
+const AssetDetails = ({ details }) => (
+  <div className="container" data-testid="AssetDetails">
     <div className="row p-3">
       <div className="col-12">
         <h2>{details.title}</h2>
@@ -212,7 +212,7 @@ const VocabDetails = ({ details }) => (
   </div>
 );
 
-VocabDetails.propTypes = {
+AssetDetails.propTypes = {
   details: shape({
     type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
     assetIri: string.isRequired,
@@ -271,6 +271,6 @@ VocabDetails.propTypes = {
   }).isRequired,
 };
 
-VocabDetails.defaultProps = {};
+AssetDetails.defaultProps = {};
 
-export default VocabDetails;
+export default AssetDetails;

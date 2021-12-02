@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 import SearchResultItem from "./SearchResultItem";
 import { AT_VOCABULARY, getAssetLabel } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
-import { getVocabularyUrl } from "../../../services/vocabService";
+import { getDetailsPageUrl } from "../../../services/vocabService";
 
 const vocabItem = {
   assetIri: "http://www.disney.com/characters",
@@ -50,7 +50,7 @@ describe("<SearchResultItem />", () => {
     expect(link).toBeInTheDocument();
     expect(link.closest("a")).toHaveAttribute(
       "href",
-      getVocabularyUrl(vocabItem.assetIri)
+      getDetailsPageUrl(vocabItem.assetIri)
     );
   });
   test("it should display rights holder summary", () => {

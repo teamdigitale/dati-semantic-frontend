@@ -4,10 +4,10 @@ import AssetNotFound, {
   MISSING_RESOURCE,
   MISSING_URI,
 } from "../AssetNotFound/AssetNotFound";
-import { getVocabularyByUri } from "../../../services/vocabService";
-import VocabDetails from "../VocabDetails/VocabDetails";
+import { getSemanticAssetByUri } from "../../../services/vocabService";
+import AssetDetails from "../AssetDetails/AssetDetails";
 
-const VocabPage = () => {
+const AssetDetailsPage = () => {
   let query = useQuery();
   const [isLoading, setLoading] = useState(true);
   const [vocabData, setVocabData] = useState(null);
@@ -18,7 +18,7 @@ const VocabPage = () => {
         return;
       }
       setLoading(true);
-      const loadedData = await getVocabularyByUri(query.get("uri"));
+      const loadedData = await getSemanticAssetByUri(query.get("uri"));
       setVocabData(loadedData);
       setLoading(false);
     };
@@ -46,19 +46,19 @@ const VocabPage = () => {
       return null;
     }
 
-    return <VocabDetails details={vocabData} />;
+    return <AssetDetails details={vocabData} />;
   };
 
   return (
-    <div data-testid="VocabPage">
+    <div data-testid="AssetDetailsPage">
       {showErrors()}
       {showDetails()}
     </div>
   );
 };
 
-VocabPage.propTypes = {};
+AssetDetailsPage.propTypes = {};
 
-VocabPage.defaultProps = {};
+AssetDetailsPage.defaultProps = {};
 
-export default VocabPage;
+export default AssetDetailsPage;

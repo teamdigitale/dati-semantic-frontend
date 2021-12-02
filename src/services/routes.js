@@ -1,7 +1,7 @@
 export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
-export const ASSETS_VOCABULARIES_URL_TOKEN = "vocabularies";
+export const ASSETS_URL_TOKEN = "details";
 
-export const ASSETS_VOCABULARIES_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_VOCABULARIES_URL_TOKEN}`;
+export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
 
 export const SEARCH_BASE_URL = "search";
 export const EXPLORE_BASE_URL = "explore";

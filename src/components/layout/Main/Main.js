@@ -2,10 +2,10 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import SearchPage from "../../search/SearchPage/SearchPage";
-import VocabPage from "../../semantic-assets/VocabPage/VocabPage";
+import AssetDetailsPage from "../../semantic-assets/DetailsPage/AssetDetailsPage";
 import {
   ASSETS_BASE_URL_TOKEN,
-  ASSETS_VOCABULARIES_URL_TOKEN,
+  ASSETS_URL_TOKEN,
   CONTRIBUTING_URL,
   SEARCH_BASE_URL,
   VALIDATE_URL,
@@ -21,7 +21,7 @@ const Main = () => (
         <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
         <Route path="*" element={<NotFound />} />
         <Route path={ASSETS_BASE_URL_TOKEN}>
-          <Route path={ASSETS_VOCABULARIES_URL_TOKEN} element={<VocabPage />} />
+          <Route path={ASSETS_URL_TOKEN} element={<AssetDetailsPage />} />
           <Route index path="*" element={<NotFound />} />
         </Route>
         <Route

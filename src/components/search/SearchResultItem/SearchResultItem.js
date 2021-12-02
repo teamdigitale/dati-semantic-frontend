@@ -1,7 +1,7 @@
 import React from "react";
 import { arrayOf, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
-import { getVocabularyUrl } from "../../../services/vocabService";
+import { getDetailsPageUrl } from "../../../services/vocabService";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import AssetTypeChip from "../AssetTypeChip/AssetTypeChip";
@@ -13,7 +13,7 @@ const SearchResultItem = ({ item }) => {
       <div className="card card-bg">
         <a
           className="card-body stretched-link text-decoration-none"
-          href={getVocabularyUrl(item.assetIri)}
+          href={getDetailsPageUrl(item.assetIri)}
         >
           <div className="category-top clearfix">
             <AssetTypeChip type={item.type} />

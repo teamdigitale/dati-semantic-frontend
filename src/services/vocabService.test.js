@@ -1,4 +1,4 @@
-import { getVocabularyByUri } from "./vocabService";
+import { getSemanticAssetByUri } from "./vocabService";
 
 let fetchMock;
 
@@ -15,7 +15,7 @@ afterEach(() => {
 describe("Vocab service", () => {
   test("should vocabulary, by its URI", async () => {
     const assetIri = "https://w3id.org/id";
-    const vocab = await getVocabularyByUri(assetIri);
+    const vocab = await getSemanticAssetByUri(assetIri);
 
     expect(fetchMock).toHaveBeenCalledWith(
       "/semantic-assets/details?iri=" + assetIri

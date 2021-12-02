@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import VocabDetails from "./VocabDetails";
+import AssetDetails from "./AssetDetails";
 import { renderWithRoute } from "../../../services/testUtils";
 
 let details;
@@ -101,11 +101,11 @@ beforeEach(() => {
   };
 });
 
-describe("<VocabDetails />", () => {
+describe("<AssetDetails />", () => {
   test("it should mount", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
-    const vocabDetails = screen.getByTestId("VocabDetails");
+    const vocabDetails = screen.getByTestId("AssetDetails");
 
     expect(vocabDetails).toBeInTheDocument();
   });
@@ -122,13 +122,13 @@ describe("<VocabDetails />", () => {
     "issuedOn",
     "prefix",
   ])("it should display %s from the item", (key) => {
-    renderWithRoute(<VocabDetails details={details} />);
+    renderWithRoute(<AssetDetails details={details} />);
 
     expect(screen.getByText(details[key])).toBeInTheDocument();
   });
 
   it("should render label for accrual periodicity", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const type = screen.getByText("Irregolare");
 
@@ -136,7 +136,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render type", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const type = screen.getByText("Vocabolario controllato");
 
@@ -144,7 +144,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render themes", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     //http://publications.europa.eu/resource/authority/data-theme/ECON
     const econIri = screen.getByText(
@@ -172,7 +172,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render rightsHolder", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const rightsHolderName = screen.getByText(
       "Istituto Nazionale di Statistica - ISTAT"
@@ -186,7 +186,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render distributionUrls", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const distributionUrl1 = screen.getByText(
       "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle"
@@ -200,7 +200,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render subjects", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const subject1 = screen.getByText("http://eurovoc.europa.eu/100169");
     expect(subject1).toBeInTheDocument();
@@ -211,7 +211,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render subjects when not provided", () => {
     details.subjects = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const subject1 = screen.queryByText("http://eurovoc.europa.eu/100169");
     expect(subject1).not.toBeInTheDocument();
@@ -221,7 +221,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render contactPoint", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const contactPointIri = screen.getByText(
       "http://dati.gov.it/data/resource/ContactPoint/voc_AgID"
@@ -234,7 +234,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render contactPoint when not provided", () => {
     details.contactPoint = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const contactPointIri = screen.queryByText(
       "http://dati.gov.it/data/resource/ContactPoint/voc_AgID"
@@ -246,7 +246,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render publishers and creators", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const agidIri = screen.getAllByText(
       "http://spcdata.digitpa.gov.it/browse/page/Amministrazione/agid"
@@ -274,7 +274,7 @@ describe("<VocabDetails />", () => {
   it("should not render publishers and creators when not provided", () => {
     details.publishers = null;
     details.creators = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const tdIri = screen.queryByText(
       "http://dati.gov.it/data/resource/Amministrazione/td_PCM"
@@ -295,7 +295,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render versionInfo when not provided", () => {
     details.versionInfo = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const versionInfo = screen.queryByText(
       "E' l'attuale versione ISTAT della classificazione ufficiale sulle forme giuridiche"
@@ -305,14 +305,14 @@ describe("<VocabDetails />", () => {
 
   it("should not render issuedOn when not provided", () => {
     details.issuedOn = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const versionInfo = screen.queryByText("2017-02-13");
     expect(versionInfo).not.toBeInTheDocument();
   });
 
   it("should render languages", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const italianIri = screen.getByText(
       "http://publications.europa.eu/resource/authority/language/ITA"
@@ -327,7 +327,7 @@ describe("<VocabDetails />", () => {
 
   it("should render not languages when not provided", () => {
     details.languages = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const italianIri = screen.queryByText(
       "http://publications.europa.eu/resource/authority/language/ITA"
@@ -341,7 +341,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render temporal", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const temporal1 = screen.getByText("temporal1");
     expect(temporal1).toBeInTheDocument();
@@ -352,7 +352,7 @@ describe("<VocabDetails />", () => {
 
   it("should render not temporal when not provided", () => {
     details.temporal = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const temporal1 = screen.queryByText("temporal1");
     expect(temporal1).not.toBeInTheDocument();
@@ -362,7 +362,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render conformsTo", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const skosIri = screen.getByText(
       "http://dati.gov.it/data/resource/Standard/SKOS"
@@ -380,7 +380,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render conformsTo when not provided", () => {
     details.conformsTo = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const skosIri = screen.queryByText(
       "http://dati.gov.it/data/resource/Standard/SKOS"
@@ -397,7 +397,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render keyClasses", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const keyClass1 = screen.getByText(
       "http://dati.gov.it/data/resource/Standard/keyClass1"
@@ -415,7 +415,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render keyClasses when not provided", () => {
     details.keyClasses = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const keyClass1 = screen.queryByText(
       "http://dati.gov.it/data/resource/Standard/keyClass1"
@@ -432,7 +432,7 @@ describe("<VocabDetails />", () => {
   });
 
   it("should render projects", () => {
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const project1Iri = screen.getByText(
       "http://dati.gov.it/data/resource/Standard/project1"
@@ -450,7 +450,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render projects when not provided", () => {
     details.projects = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
 
     const project1Iri = screen.queryByText(
       "http://dati.gov.it/data/resource/Standard/project1"
@@ -468,7 +468,7 @@ describe("<VocabDetails />", () => {
 
   it("should not render prefix when not provided", () => {
     details.prefix = null;
-    render(<VocabDetails details={details} />);
+    render(<AssetDetails details={details} />);
     const prefix = screen.queryByText("Ontology prefix");
     expect(prefix).not.toBeInTheDocument();
   });
