@@ -8,12 +8,9 @@ class Search {
   }
 
   async semanticAsset(searchText) {
+    await this.searchTextBox.waitForDisplayed();
     await this.searchTextBox.setValue(searchText);
     await this.btnSubmit.click();
-  }
-
-  open() {
-    browser.url(`https://ndc-dev.apps.cloudpub.testedev.istat.it/`);
   }
 }
 

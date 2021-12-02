@@ -15,6 +15,10 @@ class SemanticAsset {
     return $(".card-signature");
   }
 
+  get assetType() {
+    return $(".chip-label");
+  }
+
   async getAssetTitle() {
     await this.assetTitle.waitForDisplayed();
     return await this.assetTitle.getText();
@@ -31,6 +35,10 @@ class SemanticAsset {
 
   async getAssetRightsHolder() {
     return await this.assetRightsHolder.getText();
+  }
+
+  async getAssetType() {
+    return await this.assetType.getText();
   }
 }
 

@@ -101,7 +101,7 @@
         "build": "node scripts/build.js",
         "test": "node scripts/test.js",
         "test:coverage": "node scripts/test.js --coverage --watchAll=false",
-        "test:e2e": "wdio run wdio.conf.js",
+        "test:e2e": "wdio run ./test/config/wdio.conf.js",
         "lint": "yarn eslint ./src",
         "prepare": "husky install",
         "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
