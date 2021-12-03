@@ -37,6 +37,7 @@ const SearchPage = () => {
   useEffect(() => {
     const doSearch = async () => {
       setLoading(true);
+      setError(false);
       try {
         const results = await search(filter);
         setItems(results.data);
