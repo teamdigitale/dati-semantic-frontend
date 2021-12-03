@@ -17,32 +17,28 @@ describe("Search service", () => {
     const items = await search({});
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets/search");
+    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets");
   });
 
   test("should return all matching vocabularies when search pattern is provided", async () => {
     const items = await search({ pattern: "some-pattern" });
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets/search?term=some-pattern"
-    );
+    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets?q=some-pattern");
   });
 
   test("should search with patten with two words", async () => {
     const items = await search({ pattern: "some pattern" });
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets/search?term=some+pattern"
-    );
+    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets?q=some+pattern");
   });
 
   test("should search using given type filter", async () => {
     await search({ types: ["ONTOLOGY", "SCHEMA"] });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets/search?type=ONTOLOGY&type=SCHEMA"
+      "/semantic-assets?type=ONTOLOGY&type=SCHEMA"
     );
   });
 
@@ -56,7 +52,7 @@ describe("Search service", () => {
       "http://publications.europa.eu/resource/authority/data-theme/ECON"
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      `/semantic-assets/search?theme=${theme1}&theme=${theme2}`
+      `/semantic-assets?theme=${theme1}&theme=${theme2}`
     );
   });
 });

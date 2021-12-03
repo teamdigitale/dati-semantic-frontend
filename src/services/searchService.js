@@ -9,7 +9,7 @@ function buildSearchParams(options) {
   const { pattern, types, themes } = options;
   const searchParams = new URLSearchParams();
   if (pattern) {
-    searchParams.append("term", pattern);
+    searchParams.append("q", pattern);
   }
   types.forEach((type) => searchParams.append("type", type));
 
@@ -29,6 +29,6 @@ export function search(options = {}) {
   options = { ...defaultOptions, ...options };
 
   return fetch(
-    `${baseUrl()}/semantic-assets/search${buildSearchParams(options)}`
+    `${baseUrl()}/semantic-assets${buildSearchParams(options)}`
   ).then((response) => response.json());
 }
