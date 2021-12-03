@@ -32,7 +32,7 @@ const Main = () => (
         />
         <Route
           path={CONTRIBUTING_URL}
-          element={<StaticContentPage article="Come contribuire." />}
+          element={<StaticContentPage article="how-to-contribute" />}
         />
       </Routes>
     </div>
