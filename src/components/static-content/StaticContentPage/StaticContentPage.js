@@ -21,14 +21,17 @@ const StaticContentPage = ({ article }) => {
     (async () => {
       const response = await fetch(contents[article]);
       const text = await response.text();
-      console.log("Retrieved content ", text.substr(1, 30));
       setContent(text);
     })();
 
     setLoadState("loaded");
   });
 
-  return <ReactMarkdown>{content}</ReactMarkdown>;
+  return (
+    <div className="m-3 mt-5">
+      <ReactMarkdown>{content}</ReactMarkdown>
+    </div>
+  );
 };
 
 StaticContentPage.propTypes = {
