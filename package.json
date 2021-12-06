@@ -85,7 +85,7 @@
         "jest-circus": "27.4.2",
         "jest-resolve": "27.4.2",
         "jest-watch-typeahead": "1.0.0",
-        "prettier": "^2.5.0",
+        "prettier": "^2.5.1",
         "prop-types": "^15.7.2",
         "react-dev-utils": "^11.0.3",
         "wdio-chromedriver-service": "^7.2.2",
