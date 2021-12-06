@@ -29,6 +29,7 @@ const addService = () => {
         description: "Fully comprehensive list of Marvel characters",
         themes: [
           "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+          "http://publications.europa.eu/resource/authority/data-theme/SOCI",
         ],
         rightsHolder: {
           iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",

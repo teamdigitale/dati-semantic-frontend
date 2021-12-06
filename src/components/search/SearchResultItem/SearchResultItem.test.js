@@ -63,7 +63,27 @@ describe("<SearchResultItem />", () => {
 
   test("it should display theme description", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
-    let category = screen.getByText("Istruzione, cultura e sport");
+
+    const category = screen.getByText("Istruzione, cultura e sport");
+
     expect(category).toBeInTheDocument();
+  });
+
+  test("it should display multiple theme descriptions", () => {
+    const itemsWithMultipleThemes = {
+      ...vocabItem,
+      themes: [
+        "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+        "http://publications.europa.eu/resource/authority/data-theme/TRAN",
+      ],
+    };
+
+    renderWithRoute(<SearchResultItem item={itemsWithMultipleThemes} />);
+
+    const category1 = screen.getByText("Istruzione, cultura e sport");
+    const category2 = screen.getByText("Trasporti");
+
+    expect(category1).toBeInTheDocument();
+    expect(category2).toBeInTheDocument();
   });
 });

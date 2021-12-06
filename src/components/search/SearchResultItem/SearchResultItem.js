@@ -8,7 +8,9 @@ import styles from "./SearchResultItem.module.css";
 import { truncate } from "../../../services/stringUtils";
 
 const SearchResultItem = ({ item }) => {
-  const category = getCategories().find((c) => c.uri === item.themes[0]);
+  const categories = getCategories().filter(
+    (c) => item.themes.indexOf(c.uri) > -1
+  );
   return (
     <div className="card-wrapper card-space" data-testid="SearchResultItem">
       <div className="card card-bg my-2">
@@ -30,7 +32,11 @@ const SearchResultItem = ({ item }) => {
             </div>
           </div>
           <div className="category-top clearfix">
-            <div className="category">{category.label}</div>
+            {categories.map((c) => (
+              <div key={c.key} className="category">
+                {c.label}
+              </div>
+            ))}
           </div>
           <h4 className={"card-title primary-color " + styles.itemTitle}>
             {item.title}
