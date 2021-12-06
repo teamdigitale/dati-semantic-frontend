@@ -131,7 +131,7 @@ const addService = () => {
         {
           equals: {
             method: "GET",
-            path: "/semantic-assets/details",
+            path: "/semantic-assets/byIri",
           },
         },
       ],
@@ -154,7 +154,7 @@ const addService = () => {
         {
           equals: {
             method: "GET",
-            path: "/semantic-assets/search",
+            path: "/semantic-assets",
           },
         },
       ],
