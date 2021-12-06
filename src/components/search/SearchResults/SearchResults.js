@@ -1,7 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { arrayOf, oneOf, shape, string } from "prop-types";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
 import Callout from "../../common/Callout/Callout";
+import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 
 const SearchResults = (props) => {
   const items = props.items;
@@ -36,7 +37,20 @@ const SearchResults = (props) => {
 };
 
 SearchResults.propTypes = {
-  items: PropTypes.array.isRequired,
+  items: arrayOf(
+    shape({
+      assetIri: string,
+      type: oneOf(SUPPORTED_ASSET_TYPES),
+      title: string,
+      description: string,
+      themes: arrayOf(string),
+      rightsHolder: shape({
+        iri: string,
+        summary: string,
+      }),
+      modified: string,
+    })
+  ).isRequired,
 };
 
 SearchResults.defaultProps = {};

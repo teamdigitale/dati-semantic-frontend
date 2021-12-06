@@ -8,7 +8,11 @@ const addService = () => {
         assetIri: "http://www.disney.com/characters",
         type: "CONTROLLED_VOCABULARY",
         title: "Disney characters",
-        description: "Fully comprehensive list of Disney characters",
+        description:
+          "Fully comprehensive list of Disney characters, including Lorem ipsum dolor sit amet, consectetur adipiscing " +
+          "elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis " +
+          "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
+          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         themes: [
           "http://publications.europa.eu/resource/authority/data-theme/EDUC",
         ],
@@ -16,6 +20,7 @@ const addService = () => {
           iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
           summary: "Eurostat",
         },
+        modified: "01/01/2020",
       },
       {
         assetIri: "http://www.marvel.com/characters",
@@ -29,6 +34,7 @@ const addService = () => {
           iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
           summary: "Eurostat",
         },
+        modified: "21/12/2021",
       },
     ],
   };

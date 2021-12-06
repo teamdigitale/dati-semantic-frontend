@@ -8,3 +8,17 @@ export function hash(str) {
   }
   return hash;
 }
+
+export function truncate(str, maxLength, truncationIndicator = "...") {
+  if (!str) {
+    return str;
+  }
+
+  if (str.length <= maxLength) {
+    return str;
+  }
+
+  return (
+    str.substr(0, maxLength - truncationIndicator.length) + truncationIndicator
+  );
+}

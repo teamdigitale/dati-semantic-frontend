@@ -1,0 +1,29 @@
+.topmostHeader {
+  font-size: 14px;
+  color: #435a70;
+  margin-top: 0.8em;
+  margin-bottom: 1em;
+}
+
+.itemTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.itemDescription {
+  font-size: 16px !important;
+}
+
+.itemInfo {
+  font-size: 15px;
+  font-weight: normal;
+  line-height: 1.87;
+  margin-top: 3em;
+}
+
+.itemInfoLabel {
+  color: #455b71;
+}
+
+.itemInfoValue {
+}

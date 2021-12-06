@@ -1,10 +1,9 @@
 import React from "react";
-import styles from "./FilterPanelSection.module.css";
 import { node, string } from "prop-types";
 
 const FilterPanelSection = ({ title, children }) => (
-  <div className={styles.FilterPanelSection} data-testid="FilterPanelSection">
-    <h6 className={styles.title}>{title}</h6>
+  <div className="mb-5 mt-2" data-testid="FilterPanelSection">
+    <h6 className="mb-4 text-uppercase">{title}</h6>
     {children}
   </div>
 );

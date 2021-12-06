@@ -10,12 +10,12 @@ const ExploreGrid = ({ cells }) => (
         {c.map((cell) => (
           <div
             key={cell.key}
-            className={styles.outerSquare + " col-4 " + styles.clickable}
+            className={"col-4 " + styles.clickable}
             onClick={cell.onClick}
             role="cell"
           >
             <div className="p-2 mx-2 mt-3 mb-2 align-middle shadow-lg">
-              <div className={styles.innerSquare}>
+              <div>
                 <div className="mx-auto w-75">{cell.icon}</div>
                 <p className="font-weight-bolder clearfix m-3 text-lg-center">
                   {cell.label}
