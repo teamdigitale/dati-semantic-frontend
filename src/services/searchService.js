@@ -1,10 +1,9 @@
-import { baseUrl } from "../assets/data/env";
 import { getCategories } from "../assets/data/categories";
 import {
   DEFAULT_OFFSET,
   PAGE_SIZE,
 } from "../components/search/Pagination/Pagination";
-import { handleError } from "./fetchUtils";
+import { baseUrl, handleError } from "./fetchUtils";
 
 function getUriForTheme(theme) {
   return getCategories().find((c) => c.key === theme).uri;

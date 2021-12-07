@@ -1,4 +1,4 @@
-import { handleError } from "./fetchUtils";
+import { baseUrl, handleError } from "./fetchUtils";
 
 describe("Handle Error", () => {
   it("should throw error", () => {
@@ -19,5 +19,11 @@ describe("Handle Error", () => {
         json: () => Promise.resolve({}),
       })
     ).not.toThrowError();
+  });
+
+  it("must get baseUrl from env", () => {
+    global.window._env_ = { API_URL: "http://some:8080" };
+    expect(baseUrl()).toBe("http://some:8080");
+    global.window._env_.API_URL = undefined;
   });
 });

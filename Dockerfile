@@ -13,9 +13,11 @@ FROM nginxinc/nginx-unprivileged:stable-alpine
 COPY --from=build /app/build /etc/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx/nginx.conf /etc/nginx/conf.d
-COPY docker/update-env.sh /docker-entrypoint.d
+COPY env.sh .env /etc/nginx/html/
 USER root
 RUN chgrp -R root /etc/nginx/html && \
     chmod -R g=u /etc/nginx/html && \
+    chown -R nginx /etc/nginx/html && \
     addgroup nginx root
 USER nginx
+CMD ["/bin/sh", "-c", "cd /etc/nginx/html/ && ./env.sh && nginx -g \"daemon off;\""]

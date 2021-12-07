@@ -7,10 +7,12 @@ beforeEach(() => {
     ok: true,
     json: jest.fn().mockResolvedValue({ assetIri: "https://w3id.org/id" }),
   });
+  global.window._env_ = { API_URL: "" };
 });
 
 afterEach(() => {
   jest.restoreAllMocks();
+  global.window._env_ = {};
 });
 
 describe("Vocab service", () => {

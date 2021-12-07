@@ -8,10 +8,13 @@ describe("Search service", () => {
       ok: true,
       json: jest.fn().mockResolvedValue({ data: [{}, {}] }),
     });
+
+    global.window._env_ = { API_URL: "" };
   });
 
   afterEach(() => {
     jest.restoreAllMocks();
+    global.window._env_ = {};
   });
 
   test("should return all vocabularies when search pattern is not provided", async () => {

@@ -1,6 +1,5 @@
 import { ASSETS_FULL_URL } from "./routes";
-import { baseUrl } from "../assets/data/env";
-import { handleError } from "./fetchUtils";
+import { baseUrl, handleError } from "./fetchUtils";
 
 export function getSemanticAssetByUri(uri) {
   return fetch(`${baseUrl()}/semantic-assets/byIri?iri=${uri}`)

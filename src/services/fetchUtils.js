@@ -4,3 +4,7 @@ export function handleError(response) {
   }
   return response;
 }
+
+export function baseUrl() {
+  return window._env_.API_URL;
+}

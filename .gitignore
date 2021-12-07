@@ -26,3 +26,5 @@ yarn-debug.log*
 yarn-error.log*
 super-linter.log*
 *.log
+
+public/env-config.js
