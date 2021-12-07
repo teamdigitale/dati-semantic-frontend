@@ -17,28 +17,34 @@ describe("Search service", () => {
     const items = await search({});
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets");
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/semantic-assets?offset=0&limit=10"
+    );
   });
 
   test("should return all matching vocabularies when search pattern is provided", async () => {
     const items = await search({ pattern: "some-pattern" });
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets?q=some-pattern");
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/semantic-assets?q=some-pattern&offset=0&limit=10"
+    );
   });
 
   test("should search with patten with two words", async () => {
     const items = await search({ pattern: "some pattern" });
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets?q=some+pattern");
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/semantic-assets?q=some+pattern&offset=0&limit=10"
+    );
   });
 
   test("should search using given type filter", async () => {
     await search({ types: ["ONTOLOGY", "SCHEMA"] });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets?type=ONTOLOGY&type=SCHEMA"
+      "/semantic-assets?type=ONTOLOGY&type=SCHEMA&offset=0&limit=10"
     );
   });
 
@@ -52,19 +58,15 @@ describe("Search service", () => {
       "http://publications.europa.eu/resource/authority/data-theme/ECON"
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      `/semantic-assets?theme=${theme1}&theme=${theme2}`
+      `/semantic-assets?theme=${theme1}&theme=${theme2}&offset=0&limit=10`
     );
   });
 
   test("should paginate search with offset", async () => {
     await search({ offset: 10 });
 
-    expect(fetchMock).toHaveBeenCalledWith(`/semantic-assets?offset=10`);
-  });
-
-  test("should not send pagination params for default values", async () => {
-    await search({ offset: 0, limit: 10 });
-
-    expect(fetchMock).toHaveBeenCalledWith(`/semantic-assets`);
+    expect(fetchMock).toHaveBeenCalledWith(
+      `/semantic-assets?offset=10&limit=10`
+    );
   });
 });

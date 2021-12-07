@@ -10,7 +10,7 @@ function getUriForTheme(theme) {
 }
 
 function buildSearchParams(options) {
-  const { pattern, types, themes, limit, offset } = options;
+  const { pattern, types, themes, offset } = options;
   const searchParams = new URLSearchParams();
 
   if (pattern) {
@@ -21,12 +21,12 @@ function buildSearchParams(options) {
   themes.forEach((theme) =>
     searchParams.append("theme", getUriForTheme(theme))
   );
-  if (offset > 0) {
+  if (offset) {
     searchParams.append("offset", offset);
+  } else {
+    searchParams.append("offset", DEFAULT_OFFSET.toString());
   }
-  if (limit && limit !== 10) {
-    searchParams.append("limit", limit);
-  }
+  searchParams.append("limit", PAGE_SIZE.toString());
   return searchParams.toString().length > 0 ? `?${searchParams}` : "";
 }
 
