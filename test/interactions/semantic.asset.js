@@ -12,7 +12,7 @@ class SemanticAsset {
   }
 
   get assetRightsHolder() {
-    return $(".card-signature");
+    return $("#rights-holder-name");
   }
 
   get assetType() {

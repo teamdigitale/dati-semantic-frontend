@@ -51,7 +51,7 @@ const SearchResultItem = ({ item }) => {
             </div>
             <div>
               <span className={styles.itemInfoLabel}>Titolare:</span>{" "}
-              <span className={styles.itemInfoValue}>
+              <span className={styles.itemInfoValue} id="rights-holder-name">
                 {item.rightsHolder.summary}
               </span>
             </div>
