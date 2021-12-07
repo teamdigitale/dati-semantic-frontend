@@ -38,6 +38,8 @@ const addService = () => {
         modified: "21/12/2021",
       },
     ],
+    offset: 0,
+    limit: 10,
   };
 
   let detailsResponse = {

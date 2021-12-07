@@ -1,3 +1,8 @@
+import {
+  DEFAULT_OFFSET,
+  PAGE_SIZE,
+} from "../components/search/Pagination/Pagination";
+
 export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
 export const ASSETS_URL_TOKEN = "details";
 
@@ -16,8 +21,17 @@ export const SearchParameterNames = {
 
 class Routes {
   search(filters = {}) {
-    const defaultFilters = { types: [], themes: [], pattern: "" };
-    const { types, themes, pattern } = { ...defaultFilters, ...filters };
+    const defaultFilters = {
+      types: [],
+      themes: [],
+      pattern: "",
+      limit: PAGE_SIZE,
+      offset: DEFAULT_OFFSET,
+    };
+    const { types, themes, pattern, offset } = {
+      ...defaultFilters,
+      ...filters,
+    };
 
     const params = [];
     if (types) {
@@ -34,6 +48,10 @@ class Routes {
 
     if (pattern) {
       params.push([SearchParameterNames.pattern, pattern]);
+    }
+
+    if (offset && offset > DEFAULT_OFFSET) {
+      params.push(["offset", offset]);
     }
 
     if (params.length > 0) {
@@ -55,6 +73,9 @@ class Routes {
     }
     if (params.has("pattern")) {
       result = { ...result, pattern: params.get("pattern") };
+    }
+    if (params.has("offset")) {
+      result = { ...result, offset: params.get("offset") };
     }
     return result;
   }

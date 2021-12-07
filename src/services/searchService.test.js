@@ -55,4 +55,16 @@ describe("Search service", () => {
       `/semantic-assets?theme=${theme1}&theme=${theme2}`
     );
   });
+
+  test("should paginate search with offset", async () => {
+    await search({ offset: 10 });
+
+    expect(fetchMock).toHaveBeenCalledWith(`/semantic-assets?offset=10`);
+  });
+
+  test("should not send pagination params for default values", async () => {
+    await search({ offset: 0, limit: 10 });
+
+    expect(fetchMock).toHaveBeenCalledWith(`/semantic-assets`);
+  });
 });

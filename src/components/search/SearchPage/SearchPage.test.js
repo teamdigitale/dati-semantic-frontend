@@ -9,6 +9,7 @@ import { renderWithRoute } from "../../../services/testUtils";
 import SearchResults from "../SearchResults/SearchResults";
 import { routes } from "../../../services/routes";
 import FilterPanel from "../FilterPanel/FilterPanel";
+import Pagination from "../Pagination/Pagination";
 
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
@@ -17,6 +18,11 @@ jest.mock("../SearchResults/SearchResults", () => ({
 }));
 
 jest.mock("../FilterPanel/FilterPanel", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock("../Pagination/Pagination", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -129,10 +135,13 @@ describe("<SearchPage />", () => {
 
     let resolve;
     const simulateVocabDataLoaded = () => {
-      resolve({ data: someVocabs });
+      resolve({ data: someVocabs, offset: 0, totalCount: someVocabs.length });
     };
 
     beforeEach(() => {
+      SearchResults.mockReturnValue(<p>A paragraph</p>);
+      FilterPanel.mockReturnValue(<div>The filters</div>);
+      Pagination.mockReturnValue(<div>The pagination</div>);
       search.mockClear();
       search.mockReturnValue(
         new Promise((s) => {
@@ -150,6 +159,21 @@ describe("<SearchPage />", () => {
 
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());
       expect(SearchResults).toHaveBeenCalledWith({ items: someVocabs }, {});
+      expect(Pagination).toHaveBeenCalled();
+      expect(Pagination).toHaveBeenCalledWith(
+        {
+          page: {
+            offset: 0,
+            totalCount: 2,
+          },
+          filter: {
+            types: [AT_VOCABULARY],
+          },
+          onPageSelect: expect.any(Function),
+        },
+        {}
+      );
+      expect(screen.getByText("2 Results")).toBeInTheDocument();
     });
   });
 
@@ -162,5 +186,7 @@ describe("<SearchPage />", () => {
 
     const errorAlert = screen.getByRole("alert");
     expect(errorAlert).toBeInTheDocument();
+    expect(Pagination).not.toHaveBeenCalled();
+    expect(screen.queryByTestId("results-count").closest("h3")).toBeFalsy();
   });
 });

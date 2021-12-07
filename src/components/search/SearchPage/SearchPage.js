@@ -5,8 +5,12 @@ import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import Callout from "../../common/Callout/Callout";
+import Pagination, {
+  DEFAULT_OFFSET,
+  PAGE_SIZE,
+} from "../Pagination/Pagination";
 
-const showItems = (isLoading, error, items) => {
+const showItems = (isLoading, error, searchResult) => {
   if (isLoading) {
     return <h2>Caricamento...</h2>;
   }
@@ -18,15 +22,59 @@ const showItems = (isLoading, error, items) => {
       </Callout>
     );
   }
-  return <SearchResults items={items} />;
+  return <SearchResults items={searchResult.data} />;
 };
 
 const onFilterUpdate = (navigate) => (newFilter) => {
-  navigate(routes.search(newFilter));
+  navigate(
+    routes.search({ ...newFilter, limit: PAGE_SIZE, offset: DEFAULT_OFFSET })
+  );
 };
 
+const onPageSelect = (navigate) => (filterWithPagination) => {
+  navigate(routes.search(filterWithPagination));
+};
+
+function hasSearchResult(searchResult) {
+  return searchResult && searchResult.data && searchResult.data.length > 0;
+}
+
+function renderPagination(error, searchResult, filter, navigate) {
+  return (
+    !error &&
+    hasSearchResult(searchResult) && (
+      <div className="row mt-5">
+        <div className="col-12">
+          <Pagination
+            page={{
+              totalCount: searchResult.totalCount,
+              offset: searchResult.offset,
+            }}
+            filter={filter}
+            onPageSelect={onPageSelect(navigate)}
+          />
+        </div>
+      </div>
+    )
+  );
+}
+
+function renderResultCount(error, searchResult) {
+  return (
+    <div className="row" data-testid="results-count">
+      <div className="col-12">
+        <h3>
+          {!error && searchResult?.totalCount
+            ? `${searchResult?.totalCount} Results`
+            : ""}
+        </h3>
+      </div>
+    </div>
+  );
+}
+
 const SearchPage = () => {
-  const [items, setItems] = useState(null);
+  const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { search: urlSearch } = useLocation();
@@ -39,8 +87,8 @@ const SearchPage = () => {
       setLoading(true);
       setError(false);
       try {
-        const results = await search(filter);
-        setItems(results.data);
+        const result = await search(filter);
+        setSearchResult(result);
       } catch (e) {
         setError(e.message);
       }
@@ -50,7 +98,7 @@ const SearchPage = () => {
   }, [urlSearch]);
 
   return (
-    <div data-testid="SearchPage">
+    <div data-testid="SearchPage" className="mt-5">
       <div className="container main-container pl-4 pr-4">
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4" role="search">
@@ -60,7 +108,13 @@ const SearchPage = () => {
             />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
-            {showItems(isLoading, error, items)}
+            {renderResultCount(error, searchResult)}
+            <div className="row mt-5">
+              <div className="col-12">
+                {showItems(isLoading, error, searchResult)}
+              </div>
+            </div>
+            {renderPagination(error, searchResult, filter, navigate)}
           </div>
         </div>
       </div>

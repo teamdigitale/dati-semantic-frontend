@@ -66,6 +66,15 @@ describe("Routes object", () => {
         expect(searchRoute).toContain("pattern=something");
         expect(searchRoute).toContain("a+space");
       });
+
+      test("should return a search URL with offset", () => {
+        const searchRoute = routes.search({
+          offset: 20,
+        });
+
+        expect(searchRoute).toMatch(/\/search\?.*/);
+        expect(searchRoute).toContain("offset=20");
+      });
     });
 
     describe("parse URL", () => {
@@ -91,6 +100,12 @@ describe("Routes object", () => {
         expect(filter).toEqual({
           types: [AT_VOCABULARY, AT_ONTOLOGY],
         });
+      });
+
+      test("should return an object for offset", () => {
+        const filter = routes.searchUrlToFilter("offset=20");
+
+        expect(filter).toEqual({ offset: "20" });
       });
 
       test("should return a full object for search URL with three types of filters", () => {
