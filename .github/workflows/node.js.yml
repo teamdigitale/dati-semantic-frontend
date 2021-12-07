@@ -101,27 +101,6 @@ jobs:
           name: coverage
           path: |
             ./coverage
-  ui-test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "yarn"
-      - name: Install dependencies
-        run: yarn --frozen-lockfile
-      - name: Run ui tests
-        run: yarn run test:e2e
-      - uses: actions/upload-artifact@v2
-        if: failure()
-        with:
-          name: logs
-          path: logs           
   publish:
     runs-on: ubuntu-latest
     if: github.event_name != 'pull_request'
@@ -133,7 +112,6 @@ jobs:
       - security
       - lint
       - unit-test
-      - ui-test
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
