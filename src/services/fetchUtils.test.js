@@ -11,6 +11,15 @@ describe("Handle Error", () => {
     ).toThrowError("Not Found");
   });
 
+  it("should throw error when status text is empty", () => {
+    expect(() =>
+      handleError({
+        ok: false,
+        status: 404,
+      })
+    ).toThrowError("Error while fetching data!");
+  });
+
   it("should return response", () => {
     expect(() =>
       handleError({

@@ -1,6 +1,7 @@
 export function handleError(response) {
   if (!response.ok) {
-    throw new Error(response.statusText);
+    const errorMessage = response.statusText || "Error while fetching data!";
+    throw new Error(errorMessage);
   }
   return response;
 }
