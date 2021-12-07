@@ -91,18 +91,18 @@ describe("<Pagination/> should mount", () => {
   test("it should display pagination for center page", () => {
     render(
       <Pagination
-        page={{ offset: 20, totalCount: 50 }}
+        page={{ offset: 40, totalCount: 70 }}
         filter={{}}
         onPageSelect={onPageSelect}
       />
     );
-    const pageNumber1 = screen.getByTestId("page-2");
-    const pageNumber2 = screen.getByTestId("page-3");
-    const pageNumber3 = screen.getByTestId("page-4");
+    const pageNumberItem1 = screen.getByTestId("page-4");
+    const pageNumberItem2 = screen.getByTestId("page-5");
+    const pageNumberItem3 = screen.getByTestId("page-6");
 
-    expect(pageNumber1).toBeInTheDocument();
-    expect(pageNumber2).toBeInTheDocument();
-    expect(pageNumber3).toBeInTheDocument();
+    expect(pageNumberItem1).toBeInTheDocument();
+    expect(pageNumberItem2).toBeInTheDocument();
+    expect(pageNumberItem3).toBeInTheDocument();
   });
 
   test("it should move to previous page when click on previous button", () => {
