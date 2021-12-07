@@ -1,10 +1,11 @@
 import { ASSETS_FULL_URL } from "./routes";
 import { baseUrl } from "../assets/data/env";
+import { handleError } from "./fetchUtils";
 
 export function getSemanticAssetByUri(uri) {
-  return fetch(`${baseUrl()}/semantic-assets/byIri?iri=${uri}`).then(
-    (response) => response.json()
-  );
+  return fetch(`${baseUrl()}/semantic-assets/byIri?iri=${uri}`)
+    .then((response) => handleError(response))
+    .then((response) => response.json());
 }
 
 export function getDetailsPageUrl(uri) {

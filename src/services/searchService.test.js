@@ -5,6 +5,7 @@ describe("Search service", () => {
 
   beforeEach(() => {
     fetchMock = jest.spyOn(global, "fetch").mockResolvedValue({
+      ok: true,
       json: jest.fn().mockResolvedValue({ data: [{}, {}] }),
     });
   });

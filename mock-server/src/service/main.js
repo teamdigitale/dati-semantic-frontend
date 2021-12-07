@@ -170,7 +170,7 @@ const addService = () => {
       responses: [
         {
           is: {
-            statusCode: 200,
+            statusCode: 500,
             headers: {
               "Access-Control-Allow-Origin": "*",
               "Access-Control-Allow-Methods": "GET, PUT",

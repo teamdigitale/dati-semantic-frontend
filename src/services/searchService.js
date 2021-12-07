@@ -4,6 +4,7 @@ import {
   DEFAULT_OFFSET,
   PAGE_SIZE,
 } from "../components/search/Pagination/Pagination";
+import { handleError } from "./fetchUtils";
 
 function getUriForTheme(theme) {
   return getCategories().find((c) => c.key === theme).uri;
@@ -41,7 +42,7 @@ export function search(options = {}) {
 
   options = { ...defaultOptions, ...options };
 
-  return fetch(
-    `${baseUrl()}/semantic-assets${buildSearchParams(options)}`
-  ).then((response) => response.json());
+  return fetch(`${baseUrl()}/semantic-assets${buildSearchParams(options)}`)
+    .then((response) => handleError(response))
+    .then((response) => response.json());
 }
