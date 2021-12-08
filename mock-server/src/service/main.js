@@ -20,7 +20,7 @@ const addService = () => {
           iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
           summary: "Eurostat",
         },
-        modified: "01/01/2020",
+        modifiedOn: "01/01/2020",
       },
       {
         assetIri: "http://www.marvel.com/characters",
@@ -35,7 +35,22 @@ const addService = () => {
           iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
           summary: "Eurostat",
         },
-        modified: "21/12/2021",
+        modifiedOn: "21/12/2021",
+      },
+      {
+        assetIri: "http://www.marvel.com/schema/character",
+        type: "SCHEMA",
+        title: "Marvel characters Schema",
+        description: "Fully comprehensive Schema of Marvel characters",
+        themes: [
+          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+          "http://publications.europa.eu/resource/authority/data-theme/SOCI",
+        ],
+        rightsHolder: {
+          iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
+          summary: "Eurostat",
+        },
+        versionInfo: "1.0.0",
       },
     ],
     offset: 0,

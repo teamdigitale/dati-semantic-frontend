@@ -1,11 +1,30 @@
 import React from "react";
 import { arrayOf, oneOf, shape, string } from "prop-types";
-import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
+import {
+  AT_SCHEMA,
+  SUPPORTED_ASSET_TYPES,
+} from "../../../services/dataConstants";
 import { getDetailsPageUrl } from "../../../services/vocabService";
 import { getCategories } from "../../../assets/data/categories";
 import AssetTypeChip from "../AssetTypeChip/AssetTypeChip";
 import styles from "./SearchResultItem.module.css";
 import { truncate } from "../../../services/stringUtils";
+
+const renderVersionOrModifiedOn = (item) => {
+  let label, value;
+  if (item.type === AT_SCHEMA) {
+    label = "Version:";
+    value = item.versionInfo ?? "n/a";
+  } else {
+    label = "Modified on:";
+    value = item.modifiedOn ?? "n/a";
+  }
+  return (
+    <div>
+      {label} <strong>{value}</strong>
+    </div>
+  );
+};
 
 const SearchResultItem = ({ item }) => {
   const categories = getCategories().filter(
@@ -27,9 +46,7 @@ const SearchResultItem = ({ item }) => {
             <div>
               <AssetTypeChip type={item.type} />
             </div>
-            <div>
-              Modified on: <strong>{item.modified ?? "n/a"}</strong>
-            </div>
+            {renderVersionOrModifiedOn(item)}
           </div>
           <div className="category-top clearfix">
             {categories.map((c) => (
@@ -68,6 +85,8 @@ SearchResultItem.propTypes = {
     assetIri: string.isRequired,
     title: string.isRequired,
     description: string.isRequired,
+    modifiedOn: string,
+    versionInfo: string,
     themes: arrayOf(string).isRequired,
     rightsHolder: shape({
       summary: string.isRequired,
