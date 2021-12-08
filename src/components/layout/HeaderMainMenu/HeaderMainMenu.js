@@ -64,7 +64,7 @@ const HeaderMainMenu = () => {
                         <li className="nav-item megamenu" key={menuItem.label}>
                           <Link
                             className={
-                              "nav-link pl-0 focus-element" +
+                              "nav-link justify-content-center focus-element" +
                               (isActive(menuItem.href) ? " active" : "")
                             }
                             to={menuItem.href}
