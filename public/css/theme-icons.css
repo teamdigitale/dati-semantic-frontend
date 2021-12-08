@@ -19,12 +19,26 @@
   content: url("../theme-icons/agri.png");
 }
 
+.agri-category-icon:before {
+  content: url("../theme-icons/agri-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .agri-category-icon:hover {
   content: url("../theme-icons/agri-hover.png");
 }
 
 .econ-category-icon {
   content: url("../theme-icons/econ.png");
+}
+
+.econ-category-icon:before {
+  content: url("../theme-icons/econ-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
 }
 
 .econ-category-icon:hover {
@@ -35,12 +49,26 @@
   content: url("../theme-icons/educ.png");
 }
 
+.educ-category-icon:before {
+  content: url("../theme-icons/educ-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .educ-category-icon:hover {
   content: url("../theme-icons/educ-hover.png");
 }
 
 .ener-category-icon {
   content: url("../theme-icons/ener.png");
+}
+
+.ener-category-icon:before {
+  content: url("../theme-icons/ener-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
 }
 
 .ener-category-icon:hover {
@@ -51,12 +79,26 @@
   content: url("../theme-icons/envi.png");
 }
 
+.envi-category-icon:before {
+  content: url("../theme-icons/envi-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .envi-category-icon:hover {
   content: url("../theme-icons/envi-hover.png");
 }
 
 .gove-category-icon {
   content: url("../theme-icons/gove.png");
+}
+
+.gove-category-icon:before {
+  content: url("../theme-icons/gove-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
 }
 
 .gove-category-icon:hover {
@@ -67,12 +109,26 @@
   content: url("../theme-icons/heal.png");
 }
 
+.heal-category-icon:before {
+  content: url("../theme-icons/heal-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .heal-category-icon:hover {
   content: url("../theme-icons/heal-hover.png");
 }
 
 .intr-category-icon {
   content: url("../theme-icons/intr.png");
+}
+
+.intr-category-icon:before {
+  content: url("../theme-icons/intr-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
 }
 
 .intr-category-icon:hover {
@@ -83,12 +139,26 @@
   content: url("../theme-icons/just.png");
 }
 
+.just-category-icon:before {
+  content: url("../theme-icons/just-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .just-category-icon:hover {
   content: url("../theme-icons/just-hover.png");
 }
 
 .regi-category-icon {
   content: url("../theme-icons/regi.png");
+}
+
+.regi-category-icon:before {
+  content: url("../theme-icons/regi-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
 }
 
 .regi-category-icon:hover {
@@ -99,6 +169,13 @@
   content: url("../theme-icons/soci.png");
 }
 
+.soci-category-icon:before {
+  content: url("../theme-icons/soci-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .soci-category-icon:hover {
   content: url("../theme-icons/soci-hover.png");
 }
@@ -107,12 +184,26 @@
   content: url("../theme-icons/tech.png");
 }
 
+.tech-category-icon:before {
+  content: url("../theme-icons/tech-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
+}
+
 .tech-category-icon:hover {
   content: url("../theme-icons/tech-hover.png");
 }
 
 .tran-category-icon {
   content: url("../theme-icons/tran.png");
+}
+
+.tran-category-icon:before {
+  content: url("../theme-icons/tran-hover.png");
+  width:0;
+  height:0;
+  visibility:hidden;
 }
 
 .tran-category-icon:hover {
