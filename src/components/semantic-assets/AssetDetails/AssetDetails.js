@@ -97,21 +97,27 @@ const AssetDetails = ({ details }) => (
         <a href={details.assetIri}>{details.assetIri}</a>
       </div>
     </div>
-    <div className="row p-3">
-      <div className="col-md-12">
-        <div className={styles.propertyLabel}>Data di ultima modifica</div>
-        <div className={styles.propertyValue}>{details.modifiedOn}</div>
-      </div>
-    </div>
-    <div className="row p-3">
-      <div className="col-md-12">
-        <div className={styles.propertyLabel}>Periodicità di maturazione</div>
-        <div className={styles.propertyValue}>{details.accrualPeriodicity}</div>
-        <div className={styles.propertyValue}>
-          {getFrequencyLabel(details.accrualPeriodicity)}
+    {details.modifiedOn && (
+      <div className="row p-3">
+        <div className="col-md-12">
+          <div className={styles.propertyLabel}>Data di ultima modifica</div>
+          <div className={styles.propertyValue}>{details.modifiedOn}</div>
         </div>
       </div>
-    </div>
+    )}
+    {details.accrualPeriodicity && (
+      <div className="row p-3">
+        <div className="col-md-12">
+          <div className={styles.propertyLabel}>Periodicità di maturazione</div>
+          <div className={styles.propertyValue}>
+            {details.accrualPeriodicity}
+          </div>
+          <div className={styles.propertyValue}>
+            {getFrequencyLabel(details.accrualPeriodicity)}
+          </div>
+        </div>
+      </div>
+    )}
     <div className="row p-3">
       <div className="col-md-12">
         <div className={styles.propertyLabel}>Distribuzione</div>
@@ -218,13 +224,13 @@ AssetDetails.propTypes = {
     assetIri: string.isRequired,
     title: string.isRequired,
     description: string.isRequired,
-    modifiedOn: string.isRequired,
+    modifiedOn: string,
     themes: arrayOf(string).isRequired,
     rightsHolder: shape({
       iri: string.isRequired,
       summary: string.isRequired,
     }).isRequired,
-    accrualPeriodicity: string.isRequired,
+    accrualPeriodicity: string,
     distributionUrls: arrayOf(string).isRequired,
     subjects: arrayOf(string),
     contactPoint: shape({

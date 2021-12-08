@@ -472,4 +472,18 @@ describe("<AssetDetails />", () => {
     const prefix = screen.queryByText("Ontology prefix");
     expect(prefix).not.toBeInTheDocument();
   });
+
+  it("should not render modifiedOn when not provided", () => {
+    details.modifiedOn = null;
+    render(<AssetDetails details={details} />);
+    const modifiedOn = screen.queryByText("2018-02-13");
+    expect(modifiedOn).not.toBeInTheDocument();
+  });
+
+  it("should not render accrualPeriodicity when not provided", () => {
+    details.accrualPeriodicity = null;
+    render(<AssetDetails details={details} />);
+    const periodicity = screen.queryByText("Irregolare");
+    expect(periodicity).not.toBeInTheDocument();
+  });
 });
