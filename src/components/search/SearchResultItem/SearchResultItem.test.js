@@ -71,33 +71,30 @@ describe("<SearchResultItem />", () => {
   test("it should display modifiedOn for ControlledVocabulary", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let modifiedOn = screen.getByText(vocabItem.modifiedOn);
-    expect(modifiedOn).toBeInTheDocument();
+    let modifiedOnForVocab = screen.getByText(vocabItem.modifiedOn);
+    expect(modifiedOnForVocab).toBeInTheDocument();
 
-    let version = screen.queryByText(vocabItem.versionInfo);
-    expect(version).not.toBeInTheDocument();
+    expect(screen.queryByText(vocabItem.versionInfo)).not.toBeInTheDocument();
   });
 
   test("it should display modifiedOn for Ontology", () => {
     vocabItem.type = AT_ONTOLOGY;
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let modifiedOn = screen.getByText(vocabItem.modifiedOn);
-    expect(modifiedOn).toBeInTheDocument();
+    let modifiedOnForOntology = screen.getByText(vocabItem.modifiedOn);
+    expect(modifiedOnForOntology).toBeInTheDocument();
 
-    let version = screen.queryByText(vocabItem.versionInfo);
-    expect(version).not.toBeInTheDocument();
+    expect(screen.queryByText(vocabItem.versionInfo)).not.toBeInTheDocument();
   });
 
   test("it should display versionInfo for Schema", () => {
     vocabItem.type = AT_SCHEMA;
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let modifiedOn = screen.queryByText(vocabItem.modifiedOn);
-    expect(modifiedOn).not.toBeInTheDocument();
+    expect(screen.queryByText(vocabItem.modifiedOn)).not.toBeInTheDocument();
 
-    let version = screen.getByText(vocabItem.versionInfo);
-    expect(version).toBeInTheDocument();
+    let versionForSchema = screen.getByText(vocabItem.versionInfo);
+    expect(versionForSchema).toBeInTheDocument();
   });
 
   test("it should display theme description", () => {
