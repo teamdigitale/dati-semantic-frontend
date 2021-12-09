@@ -27,3 +27,7 @@
 
 .itemInfoValue {
 }
+
+.cardMargin:after {
+  margin-top: 1px !important;
+}
