@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
 import Main from "./components/layout/Main/Main";
 import { BrowserRouter } from "react-router-dom";
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
@@ -13,6 +14,7 @@ function App() {
       <div id="page-front">
         <Header />
         <Main />
+        <Footer />
       </div>
     </BrowserRouter>
   );
