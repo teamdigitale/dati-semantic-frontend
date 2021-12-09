@@ -31,8 +31,8 @@ const SearchResultItem = ({ item }) => {
     (c) => item.themes.indexOf(c.uri) > -1
   );
   return (
-    <div className="card-wrapper card-space" data-testid="SearchResultItem">
-      <div className="card card-bg my-2">
+    <div className="card-wrapper card-space " data-testid="SearchResultItem">
+      <div className={"card card-bg my-2 " + styles.smallerFooter}>
         <a
           className="card-body stretched-link text-decoration-none"
           href={getDetailsPageUrl(item.assetIri)}

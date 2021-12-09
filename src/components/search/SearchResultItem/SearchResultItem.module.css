@@ -27,3 +27,7 @@
 
 .itemInfoValue {
 }
+
+.smallerFooter::after {
+  margin-top: 1px !important;
+}
