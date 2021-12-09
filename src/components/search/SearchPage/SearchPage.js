@@ -39,9 +39,10 @@ function hasSearchResult(searchResult) {
   return searchResult && searchResult.data && searchResult.data.length > 0;
 }
 
-function renderPagination(error, searchResult, filter, navigate) {
+function renderPagination(isLoading, error, searchResult, filter, navigate) {
   return (
     !error &&
+    !isLoading &&
     hasSearchResult(searchResult) && (
       <div className="row mt-5">
         <div className="col-12">
@@ -59,12 +60,12 @@ function renderPagination(error, searchResult, filter, navigate) {
   );
 }
 
-function renderResultCount(error, searchResult) {
+function renderResultCount(isLoading, error, searchResult) {
   return (
     <div className="row" data-testid="results-count">
       <div className="col-12">
         <h3>
-          {!error && searchResult?.totalCount
+          {!error && !isLoading && searchResult?.totalCount
             ? `${searchResult?.totalCount} Results`
             : ""}
         </h3>
@@ -108,13 +109,13 @@ const SearchPage = () => {
             />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
-            {renderResultCount(error, searchResult)}
+            {renderResultCount(isLoading, error, searchResult)}
             <div className="row mt-5">
               <div className="col-12">
                 {showItems(isLoading, error, searchResult)}
               </div>
             </div>
-            {renderPagination(error, searchResult, filter, navigate)}
+            {renderPagination(isLoading, error, searchResult, filter, navigate)}
           </div>
         </div>
       </div>

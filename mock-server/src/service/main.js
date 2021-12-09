@@ -55,6 +55,7 @@ const addService = () => {
     ],
     offset: 0,
     limit: 10,
+    totalCount: 3,
   };
 
   let detailsResponse = {
