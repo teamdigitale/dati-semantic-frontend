@@ -3,13 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 
-const menuItems = [
-  { label: "Esplora", href: routes.explore() },
-  {
-    label: "Come contribuire",
-    href: routes.howToContribute(),
-  },
-];
+const menuItems = [{ label: "Esplora", href: routes.explore() }];
 const HeaderMainMenu = () => {
   const { pathname } = useLocation();
   const isActive = (href) => {

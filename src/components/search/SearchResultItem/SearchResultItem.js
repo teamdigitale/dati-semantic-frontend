@@ -64,11 +64,11 @@ const SearchResultItem = ({ item }) => {
           <div className={styles.itemInfo}>
             <div>
               <span className={styles.itemInfoLabel}>URI:</span>{" "}
-              <span className={styles.itemInfoValue}>{item.assetIri}</span>
+              <span className={styles.itemInfoLabel}>{item.assetIri}</span>
             </div>
             <div>
               <span className={styles.itemInfoLabel}>Titolare:</span>{" "}
-              <span className={styles.itemInfoValue} id="rights-holder-name">
+              <span className={styles.itemInfoLabel} id="rights-holder-name">
                 {item.rightsHolder.summary}
               </span>
             </div>
