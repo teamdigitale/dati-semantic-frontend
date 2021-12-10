@@ -6,10 +6,6 @@ import { routes } from "../../../services/routes";
 const menuItems = [
   { label: "Esplora", href: routes.explore() },
   {
-    label: "Valida",
-    href: routes.validate(),
-  },
-  {
     label: "Come contribuire",
     href: routes.howToContribute(),
   },

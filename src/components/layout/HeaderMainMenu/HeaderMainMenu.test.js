@@ -14,19 +14,6 @@ describe("<HeaderMainMenu />", () => {
     expect(categories).toBeInTheDocument();
   });
 
-  test("Validate should navigate to static content", () => {
-    render(
-      <BrowserRouter>
-        <HeaderMainMenu />
-      </BrowserRouter>
-    );
-
-    const ontologyNavLink = screen.getByText("Valida").closest(".nav-link");
-
-    expect(ontologyNavLink).toBeInTheDocument();
-    expect(ontologyNavLink).toHaveAttribute("href", "/validate");
-  });
-
   test("Contribute should navigate to search", () => {
     render(
       <BrowserRouter>
