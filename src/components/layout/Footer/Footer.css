@@ -15,45 +15,8 @@ footer .row {
   margin-right: -15px;
 }
 
-footer .footer_links {
-  margin-top: 5rem;
-  padding: 0;
-  border-top: 1px solid #004080;
-}
-
-footer .col-xs-12 {
-  width: 100%;
-}
-
-footer .footer_links li:first-child {
-  margin-left: 16px;
-}
-
-footer .footer_links li {
-  list-style-type: none;
-  display: inline-block;
-  margin-right: 4rem;
-  font-size: 16px;
-  line-height: 1.58;
-}
-
 footer a {
   color: #fff;
   text-decoration: none;
   background-color: transparent;
-}
-
-.footer_logo_img {
-  width: 68px;
-  height: auto;
-  margin-right: 10px;
-  padding-right: 10px;
-}
-
-.footer_logo_string {
-  font-weight: bold;
-}
-
-.pull-left {
-  float: left !important;
 }

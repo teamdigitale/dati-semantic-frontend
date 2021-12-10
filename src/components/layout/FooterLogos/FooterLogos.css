@@ -1,0 +1,14 @@
+.footer_logo_img {
+  width: 68px;
+  height: auto;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.footer_logo_string {
+  font-weight: bold;
+}
+
+.pull-left {
+  float: left !important;
+}

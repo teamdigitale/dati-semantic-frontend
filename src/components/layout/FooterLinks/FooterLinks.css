@@ -1,0 +1,21 @@
+.footer_links {
+  margin-top: 5rem;
+  padding: 0;
+  border-top: 1px solid #004080;
+}
+
+.col-xs-12 {
+  width: 100%;
+}
+
+.footer_links li:first-child {
+  margin-left: 16px;
+}
+
+.footer_links li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 4rem;
+  font-size: 16px;
+  line-height: 1.58;
+}
