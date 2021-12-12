@@ -9,6 +9,14 @@ export function hash(str) {
   return hash;
 }
 
+export const asItalianDate = (str) => {
+  return new Date(str).toLocaleDateString("it-IT", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  });
+};
+
 export function truncate(str, maxLength, truncationIndicator = "...") {
   if (!str) {
     return str;

@@ -1,11 +1,34 @@
-.VocabDetails {
+.detailsContainer {
+  background: linear-gradient(to bottom, #f0f6fc 437px, white 0);
 }
 
-.property-label {
+.detailsWrapper {
+  padding: 38px 123px 0;
+}
+
+.detailsCard {
+  height: 230px;
+}
+
+.description {
+  height: 157px;
+  color: #455b71;
+  overflow: scroll;
+}
+
+.descriptionText {
+  font-family: Lora, serif;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.metadataHeader {
   font-weight: bold;
-  font-size: large;
-}
-
-.property-value {
-  font-size: larger;
+  color: #1c2024;
+  font-size: 16px;
+  letter-spacing: 1px;
 }
