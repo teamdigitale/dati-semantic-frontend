@@ -4,6 +4,9 @@ import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 
 const menuItems = [{ label: "Esplora", href: routes.explore() }];
+const additionalMenuItems = [
+  { label: "Domande frequenti", href: routes.faq() },
+];
 const HeaderMainMenu = () => {
   const { pathname } = useLocation();
   const isActive = (href) => {
@@ -49,8 +52,23 @@ const HeaderMainMenu = () => {
                     Main Menu
                   </h2>
                   <div className="menu-wrapper">
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav float-left">
                       {menuItems.map((menuItem) => (
+                        <li className="nav-item megamenu" key={menuItem.label}>
+                          <Link
+                            className={
+                              "nav-link justify-content-center focus-element" +
+                              (isActive(menuItem.href) ? " active" : "")
+                            }
+                            to={menuItem.href}
+                          >
+                            <span>{menuItem.label}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <ul className="navbar-nav float-right">
+                      {additionalMenuItems.map((menuItem) => (
                         <li className="nav-item megamenu" key={menuItem.label}>
                           <Link
                             className={

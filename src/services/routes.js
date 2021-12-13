@@ -12,6 +12,7 @@ export const SEARCH_BASE_URL = "search";
 export const EXPLORE_BASE_URL = "explore";
 export const VALIDATE_URL = "validate";
 export const CONTRIBUTING_URL = "how-to-contribute";
+export const FAQ_URL = "faq";
 
 export const SearchParameterNames = {
   type: "type",
@@ -86,6 +87,10 @@ class Routes {
 
   howToContribute() {
     return "/" + CONTRIBUTING_URL;
+  }
+
+  faq() {
+    return "/" + FAQ_URL;
   }
 
   explore() {

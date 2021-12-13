@@ -12,4 +12,12 @@ describe("<HeaderMainMenu />", () => {
 
     expect(categories).toBeInTheDocument();
   });
+
+  test("it should render additional menu item for FAQ", () => {
+    renderWithRoute(<HeaderMainMenu />);
+
+    const categories = screen.getByText("Domande frequenti");
+
+    expect(categories).toBeInTheDocument();
+  });
 });
