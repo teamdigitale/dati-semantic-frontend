@@ -8,5 +8,8 @@ describe("<VocabularyMetadata />", () => {
 
     expect(screen.getByTestId("vocab-metadata")).toBeInTheDocument();
     expect(screen.getByTestId("common-metadata")).toBeInTheDocument();
+    expect(
+      screen.getByText("http://localhost:8080/vocabularies/ISTAT/legalStatus")
+    ).toBeInTheDocument();
   });
 });
