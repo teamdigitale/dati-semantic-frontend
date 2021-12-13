@@ -173,7 +173,7 @@ describe("<SearchPage />", () => {
         },
         {}
       );
-      expect(screen.getByText("2 Results")).toBeInTheDocument();
+      expect(screen.getByText("2 risultati")).toBeInTheDocument();
     });
   });
 

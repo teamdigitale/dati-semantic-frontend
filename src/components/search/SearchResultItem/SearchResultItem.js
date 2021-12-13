@@ -13,14 +13,14 @@ import { truncate } from "../../../services/stringUtils";
 const renderVersionOrModifiedOn = (item) => {
   let label, value;
   if (item.type === AT_SCHEMA) {
-    label = "Version:";
+    label = "Versione ";
     value = item.versionInfo ?? "n/a";
   } else {
-    label = "Modified on:";
+    label = "Ultima modifica ";
     value = item.modifiedOn ?? "n/a";
   }
   return (
-    <div>
+    <div className={styles.assetModificationHeader}>
       {label} <strong>{value}</strong>
     </div>
   );
@@ -62,12 +62,18 @@ const SearchResultItem = ({ item }) => {
             {truncate(item.description, 250)}
           </p>
           <div className={styles.itemInfo}>
+            {item.type !== AT_SCHEMA && (
+              <div>
+                <span className={"font-weight-bold " + styles.itemInfoLabel}>
+                  URI:
+                </span>{" "}
+                <span className={styles.itemInfoLabel}>{item.assetIri}</span>
+              </div>
+            )}
             <div>
-              <span className={styles.itemInfoLabel}>URI:</span>{" "}
-              <span className={styles.itemInfoLabel}>{item.assetIri}</span>
-            </div>
-            <div>
-              <span className={styles.itemInfoLabel}>Titolare:</span>{" "}
+              <span className={"font-weight-bold " + styles.itemInfoLabel}>
+                Titolare:
+              </span>{" "}
               <span className={styles.itemInfoLabel} id="rights-holder-name">
                 {item.rightsHolder.summary}
               </span>

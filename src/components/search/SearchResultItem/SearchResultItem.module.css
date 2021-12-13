@@ -28,3 +28,7 @@
 .smallerFooter::after {
   margin-top: 1px !important;
 }
+
+.assetModificationHeader {
+  font-size: 16px;
+}
