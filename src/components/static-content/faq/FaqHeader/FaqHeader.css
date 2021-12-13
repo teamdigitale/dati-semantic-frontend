@@ -1,9 +1,8 @@
 .faq-header {
-  width: 1040px;
-  height: 437px;
+  max-width: 1184px;
+  height: 500px;
   margin: 56px 0 51px;
   padding: 76px 350px 44px 123px;
-  background-color: #f0f6fc;
 }
 
 .subtext {

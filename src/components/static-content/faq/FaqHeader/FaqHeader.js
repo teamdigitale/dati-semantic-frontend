@@ -1,10 +1,13 @@
 import React from "react";
 import "./FaqHeader.css";
-import { routes } from "../../../services/routes";
+import { routes } from "../../../../services/routes";
 
 const FaqHeader = () => {
   return (
-    <div data-testid="FaqHeader" className="mt-5 faq-header">
+    <div
+      data-testid="FaqHeader"
+      className="mt-5 faq-header section section-muted"
+    >
       <div className="subtext">DOMANDE FREQUENTI</div>
       <div className="main-text">
         Esplora le risposte alle domande più frequenti

@@ -4,7 +4,7 @@ import FaqBody from "../FaqBody/FaqBody";
 
 const FaqPage = () => {
   return (
-    <div data-testid="FaqPage" className="mt-5">
+    <div data-testid="FaqPage">
       <FaqHeader />
       <FaqBody />
     </div>

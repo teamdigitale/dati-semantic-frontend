@@ -13,7 +13,7 @@ import {
 } from "../../../services/routes";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import StaticContentPage from "../../static-content/StaticContentPage/StaticContentPage";
-import FaqPage from "../../common/FaqPage/FaqPage";
+import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
 
 const Main = () => (
   <main>

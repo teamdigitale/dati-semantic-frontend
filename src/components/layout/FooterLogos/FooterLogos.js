@@ -10,7 +10,7 @@ const FooterLogos = () => {
         <div className="col-md-3 col-sm-6 col-xs-12">
           <div className="footer_logoteam">
             <div className="footer_logo_img">
-              <a href="https://teamdigitale.governo.it">
+              <a href="https://innovazione.gov.it/dipartimento/">
                 <Logo
                   className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
                   alt="Logo"
@@ -24,7 +24,7 @@ const FooterLogos = () => {
         <div className="col-md-3 col-sm-6 col-xs-12">
           <div className="footer_logogov">
             <div className="footer_logo_img">
-              <a href="https://teamdigitale.governo.it/" className="">
+              <a href="https://www.istat.it/" className="">
                 <img
                   className="istat-logo"
                   src={IstatLogo}

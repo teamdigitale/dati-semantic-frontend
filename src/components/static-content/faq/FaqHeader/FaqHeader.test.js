@@ -1,7 +1,7 @@
 import React from "react";
 import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import { renderWithRoute } from "../../../services/testUtils";
+import { renderWithRoute } from "../../../../services/testUtils";
 import FaqHeader from "./FaqHeader";
 
 describe("<FaqHeader />", () => {
