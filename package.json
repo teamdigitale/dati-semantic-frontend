@@ -81,7 +81,7 @@
         "eslint-plugin-react-hooks": "^4.3.0",
         "eslint-plugin-testing-library": "5.0.1",
         "eslint-webpack-plugin": "^2.6.0",
-        "jest": "27.4.3",
+        "jest": "27.4.4",
         "jest-circus": "27.4.4",
         "jest-resolve": "27.4.4",
         "jest-watch-typeahead": "1.0.0",
