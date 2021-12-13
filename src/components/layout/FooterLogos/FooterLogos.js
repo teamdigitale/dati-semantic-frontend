@@ -7,7 +7,7 @@ const FooterLogos = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-3 col-sm-6 col-xs-12">
+        <div className="col-12">
           <div className="footer_logoteam">
             <div className="footer_logo_img">
               <a href="https://innovazione.gov.it/dipartimento/">
@@ -17,13 +17,6 @@ const FooterLogos = () => {
                   title="Logo"
                 />
               </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-md-3 col-sm-6 col-xs-12">
-          <div className="footer_logogov">
-            <div className="footer_logo_img">
               <a href="https://www.istat.it/" className="">
                 <img
                   className="istat-logo"

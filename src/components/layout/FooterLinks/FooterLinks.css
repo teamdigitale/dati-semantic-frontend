@@ -1,24 +1,9 @@
 .footer_links {
+  height: 58px;
   margin: 50px 0 0;
-  padding: 16.2px 757.7px 0px 50.3px;
-  border-top: 1px solid #004080;
-  background: #00264d !important;
-  color: #a5abb0;
-  min-height: 10rem;
+  background-color: #01254c;
 }
 
-.col-xs-12 {
-  width: 100%;
-}
-
-.footer_links li:first-child {
-  margin-left: 16px;
-}
-
-.footer_links li {
-  list-style-type: none;
-  display: inline-block;
-  margin-right: 4rem;
-  font-size: 16px;
-  line-height: 1.58;
+.bottom_label {
+  color: white;
 }

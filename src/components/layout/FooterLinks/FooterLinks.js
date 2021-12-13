@@ -3,20 +3,24 @@ import "./FooterLinks.css";
 
 const FooterLinks = () => {
   return (
-    <div className="container">
-      <div className="row">
-        <ul className="col-xs-12 footer_links clearfix">
-          <li>
-            <a href="#" title="Note Legali">
-              Note Legali
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Privacy Policy">
-              Privacy Policy
-            </a>
-          </li>
-        </ul>
+    <div className="footer_links">
+      <div className="container">
+        <div className="row">
+          <a
+            className="nav-link bottom_label justify-content-center"
+            href="#"
+            title="Note Legali"
+          >
+            Note Legali
+          </a>
+          <a
+            className="nav-link bottom_label justify-content-center"
+            href="#"
+            title="Privacy Policy"
+          >
+            Privacy Policy
+          </a>
+        </div>
       </div>
     </div>
   );

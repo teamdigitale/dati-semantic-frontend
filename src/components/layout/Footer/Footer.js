@@ -1,11 +1,10 @@
 import React from "react";
-import "./Footer.module.css";
 import FooterLinks from "../FooterLinks/FooterLinks";
 import FooterLogos from "../FooterLogos/FooterLogos";
 
 const Footer = () => {
   return (
-    <footer className="it-footer-wrapper" id="footer">
+    <footer id="footer">
       <FooterLogos />
       <FooterLinks />
     </footer>
