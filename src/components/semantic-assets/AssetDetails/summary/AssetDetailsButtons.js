@@ -6,12 +6,13 @@ import {
 import * as PropTypes from "prop-types";
 import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
+import styles from "./AssetDetailsButtons.module.css";
 
 const renderButton = (text, url, className) => {
   return (
     <button
       type="button"
-      className={"btn " + className}
+      className={"btn " + className + " " + styles.detailsButton}
       onClick={() => window.open(url)}
     >
       {text}
@@ -22,11 +23,11 @@ const renderButton = (text, url, className) => {
 const AssetDetailsButtons = (props) => {
   return (
     <div
-      className="row d-flex justify-content-end text-center pr-1 pt-5"
+      className="py-1 row justify-content-end"
       data-testid="asset-details-buttons"
     >
       {props.type !== AT_SCHEMA && (
-        <div className="pr-5 text-center">
+        <div>
           {renderButton(
             "sparql",
             getSparqlEndpoint(),
@@ -35,7 +36,7 @@ const AssetDetailsButtons = (props) => {
         </div>
       )}
       {props.type === AT_VOCABULARY && (
-        <div className="pr-5 pl-5 text-center text-uppercase">
+        <div>
           {renderButton(
             "api",
             props.vocabUrl,
@@ -43,7 +44,7 @@ const AssetDetailsButtons = (props) => {
           )}
         </div>
       )}
-      <div className="pl-5">
+      <div>
         {renderButton("Vai al sorgente", props.accessUrl, "btn-primary")}
       </div>
     </div>

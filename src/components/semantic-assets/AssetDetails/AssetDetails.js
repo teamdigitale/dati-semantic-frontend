@@ -34,10 +34,10 @@ const AssetDetails = ({ details }) => {
               url={details.endpointUrl}
               accessUrl={details.distributionUrls.filter((u) => u).pop()}
             />
-            <div className="row pt-5 pb-5">
+            <div className="row">
               <div className="col-12">
                 <div className="card-wrapper">
-                  <div className="card card-bg my-2">
+                  <div className="card card-bg">
                     <div className="card-body px-5">
                       <div className="category-top">
                         <div className={"category " + styles.metadataHeader}>
