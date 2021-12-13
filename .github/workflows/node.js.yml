@@ -49,16 +49,7 @@ jobs:
           cache: "yarn"
       - name: Install dependencies
         run: yarn --frozen-lockfile
-      - name: Linting with Super-Linter
-        uses: github/super-linter@v4.8.1
-        env:
-          VALIDATE_MARKDOWN: false
-          VALIDATE_BASH: false
-          FILTER_REGEX_INCLUDE: '.*(src|\.github)/.*'
-          FILTER_REGEX_EXCLUDE: '.*.(min.css|ttf|woff|woff2|svg|txt|md)'
-          JAVASCRIPT_ES_CONFIG_FILE: '../../.eslintrc.json'
-          JAVASCRIPT_DEFAULT_STYLE: 'prettier'
-          CSS_FILE_NAME: '../../.stylelintrc.json'
+      - run: yarn lint
   security:
     runs-on: ubuntu-latest
     strategy:
