@@ -31,4 +31,20 @@ describe("National Data Catalog", () => {
       "Agenzia per l'Italia Digitale"
     );
   });
+
+  it("should be able to search a Schema Semantic Asset", async () => {
+    await Search.semanticAsset("the person schema");
+
+    expect(await SemanticAsset.getAssetType()).toBe("Schema");
+    expect(await SemanticAsset.getAssetTitle()).toContain("The Person schema");
+    expect(await SemanticAsset.getAssetDescription()).toContain(
+      "This Person schema is derived from the [CPV/Person]"
+    );
+    expect(await SemanticAsset.getAssetCategory()).toBe(
+      "istruzione, cultura e sport"
+    );
+    expect(await SemanticAsset.getAssetRightsHolder()).toBe(
+      "Agenzia per l'Italia Digitale"
+    );
+  });
 });
