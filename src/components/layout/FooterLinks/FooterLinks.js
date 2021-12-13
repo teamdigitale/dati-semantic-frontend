@@ -1,5 +1,5 @@
 import React from "react";
-import "./FooterLinks.css";
+import "./FooterLinks.module.css";
 
 const FooterLinks = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "./HeaderSlim.css";
+import "./HeaderSlim.module.css";
 
 const HeaderSlim = () => (
   <div className="it-header-slim-wrapper" data-testid="Header">

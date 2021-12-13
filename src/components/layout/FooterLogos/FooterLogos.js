@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../../assets/images/dt-logo.svg";
 import { ReactComponent as GovLogo } from "../../../assets/images/gov-logo.svg";
-import "./FooterLogos.css";
+import "./FooterLogos.module.css";
 
 const FooterLogos = () => {
   return (
