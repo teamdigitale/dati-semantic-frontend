@@ -1,7 +1,10 @@
 .footer_links {
-  margin-top: 5rem;
-  padding: 0;
+  margin: 50px 0 0;
+  padding: 16.2px 757.7px 0px 50.3px;
   border-top: 1px solid #004080;
+  background: #00264d !important;
+  color: #a5abb0;
+  min-height: 10rem;
 }
 
 .col-xs-12 {

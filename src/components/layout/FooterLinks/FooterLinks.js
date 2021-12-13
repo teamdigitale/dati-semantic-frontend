@@ -1,5 +1,5 @@
 import React from "react";
-import "./FooterLinks.module.css";
+import "./FooterLinks.css";
 
 const FooterLinks = () => {
   return (
@@ -14,11 +14,6 @@ const FooterLinks = () => {
           <li>
             <a href="#" title="Privacy Policy">
               Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a href="#" title="Dichiarazione di accessibilità">
-              Dichiarazione di accessibilità
             </a>
           </li>
         </ul>

@@ -7,7 +7,7 @@ describe("<FooterLogos />", () => {
   test("it should mount", () => {
     render(<FooterLogos />);
 
-    const footerText = screen.getByText("progetto di");
+    const footerText = screen.getByText("PER LA TRASFORMAZIONE DIGITALE");
     expect(footerText).toBeInTheDocument();
   });
 });
