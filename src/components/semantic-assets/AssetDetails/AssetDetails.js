@@ -55,6 +55,7 @@ const AssetDetails = ({ details }) => {
                         <SchemaMetadata
                           rightsHolder={details.rightsHolder}
                           issuedOn={details.issuedOn}
+                          keyClasses={details.keyClasses}
                         />
                       )}
                     </div>
