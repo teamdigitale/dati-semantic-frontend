@@ -36,11 +36,7 @@ const AssetDetailsSummary = (props) => {
           <div className="card-wrapper card-space d-flex justify-content-center">
             <div className="card card-bg my-2 pl-5 pr-5 pt-5">
               <div className={"row " + styles.description}>
-                <div
-                  className={
-                    "col-10 text-justify fix-height " + styles.descriptionText
-                  }
-                >
+                <div className={"col-10 fix-height " + styles.descriptionText}>
                   {props.description}
                 </div>
                 <div className="col-2 text-right">
