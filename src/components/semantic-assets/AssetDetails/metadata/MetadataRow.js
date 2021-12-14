@@ -12,7 +12,7 @@ const MetadataRow = (props) => {
         <div className="col-8 text-justify">
           <span className={styles.propertyValue}>{props.value}</span>
         </div>
-        <div className="col-1" />
+        <div className="col-1">{props.externalLink}</div>
       </div>
       <hr />
     </div>
@@ -22,6 +22,7 @@ const MetadataRow = (props) => {
 MetadataRow.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  externalLink: PropTypes.element,
 };
 
 export default MetadataRow;
