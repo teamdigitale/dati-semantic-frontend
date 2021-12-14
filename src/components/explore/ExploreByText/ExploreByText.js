@@ -29,7 +29,7 @@ const ExploreByText = () => {
             <div className="form-group col-md-3 p-2">
               <button
                 type="submit"
-                className="btn btn-primary w-75 mx-auto m-4 p-2"
+                className="btn btn-primary w-75 mx-auto"
                 role="submit"
               >
                 Cerca
