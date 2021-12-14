@@ -9,7 +9,7 @@ const introSection = () => (
       <div className="container" role="article">
         <div className="row mb-3">
           <div className="col-12">
-            <h2>Il catalogo semantico della Pubblica amministrazione</h2>
+            <h2>Il catalogo semantico della pubblica amministrazione</h2>
           </div>
         </div>
         <div className="row mb-3">
