@@ -13,7 +13,7 @@ const FaqHeader = () => {
           </div>
 
           <a
-            className="btn btn-primary w-20 m-4 p-2 project-btn"
+            className="btn btn-primary w-20 p-2 project-btn"
             href={routes.explore()}
           >
             Scopri il progetto
