@@ -14,7 +14,7 @@ const ExploreByText = () => {
 
   return (
     <ExploreSection title="Ricerca per testo">
-      <div>
+      <div className="container">
         <form onSubmit={doSubmit}>
           <div className="form-row">
             <div className="form-group col-md-9 p-2">
@@ -27,11 +27,13 @@ const ExploreByText = () => {
               />
             </div>
             <div className="form-group col-md-3 p-2">
-              <input
+              <button
                 type="submit"
-                className="btn btn-primary w-75 mx-auto"
-                value="Cerca"
-              />
+                className="btn btn-primary w-75 mx-auto m-4 p-2"
+                role="submit"
+              >
+                Cerca
+              </button>
             </div>
           </div>
         </form>

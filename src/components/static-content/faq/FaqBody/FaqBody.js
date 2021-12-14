@@ -2,7 +2,7 @@ import React from "react";
 
 const FaqBody = () => {
   return (
-    <div data-testid="FaqBody" className="mt-5">
+    <div data-testid="FaqBody" className="container">
       <div id="questionList" className="collapse-div" role="tablist">
         <div className="collapse-header" id="question1">
           <button
