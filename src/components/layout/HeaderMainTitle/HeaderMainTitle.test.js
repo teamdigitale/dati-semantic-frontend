@@ -8,9 +8,13 @@ describe("<HeaderMainTitle />", () => {
   test("it should mount and contain main title", () => {
     renderWithRoute(<HeaderMainTitle />);
 
-    expect(screen.getByRole("heading", { name: /ndc/i })).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: /national data catalog/i })
+      screen.getByRole("heading", { name: /schema/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", {
+        name: /Il catalogo nazionale della sematica dei dati/i,
+      })
     ).toBeInTheDocument();
   });
 });

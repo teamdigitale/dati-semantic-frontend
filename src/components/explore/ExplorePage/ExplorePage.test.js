@@ -37,7 +37,7 @@ describe("<ExplorePage />", () => {
     const introduction = screen.getByRole("article");
 
     expect(introduction).toBeInTheDocument();
-    expect(introduction).toContainHTML("catalogo semantico");
+    expect(introduction).toContainHTML("Ricerca e riuso di asset semantici");
   });
 
   test("it should contain the text search form", () => {

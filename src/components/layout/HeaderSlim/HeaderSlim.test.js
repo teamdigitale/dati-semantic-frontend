@@ -7,7 +7,9 @@ describe("<HeaderSlim />", () => {
   test("it should mount", () => {
     render(<HeaderSlim />);
 
-    const header = screen.getByRole("link", { name: /team digitale/i });
+    const header = screen.getByRole("link", {
+      name: /Dipartimento per la trasformazione Digitale/i,
+    });
 
     expect(header).toBeInTheDocument();
   });
@@ -16,7 +18,9 @@ describe("<HeaderSlim />", () => {
     render(<HeaderSlim />);
 
     const anchor = screen
-      .getByRole("link", { name: /team digitale/i })
+      .getByRole("link", {
+        name: /Dipartimento per la trasformazione Digitale/i,
+      })
       .closest("a");
 
     expect(anchor).toBeInTheDocument();

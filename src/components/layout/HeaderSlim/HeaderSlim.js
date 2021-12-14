@@ -1,5 +1,5 @@
 import React from "react";
-import "./HeaderSlim.module.css";
+import "./HeaderSlim.css";
 
 const HeaderSlim = () => (
   <div className="it-header-slim-wrapper" data-testid="Header">
@@ -11,7 +11,7 @@ const HeaderSlim = () => (
               className="d-none d-lg-block navbar-brand"
               href="https://teamdigitale.governo.it/"
             >
-              Team Digitale
+              Dipartimento per la trasformazione Digitale + ISTAT
             </a>
             <div className="nav-mobile">
               <nav>
