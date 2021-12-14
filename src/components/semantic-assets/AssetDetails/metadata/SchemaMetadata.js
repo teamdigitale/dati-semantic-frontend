@@ -20,7 +20,7 @@ const SchemaMetadata = (props) => {
             <span className={styles.propertyName}>Ontologie correlate</span>
           </div>
           <div className="col-8 text-justify">
-            <span className={styles.propertyValue}>
+            <span className={"text-monospace " + styles.propertyLink}>
               {props.keyClasses.map((keyClass, index) => (
                 <span key={keyClass.iri}>
                   {index > 0 && ", "}
