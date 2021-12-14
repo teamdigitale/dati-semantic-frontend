@@ -8,12 +8,18 @@ const AssetIriRow = (props) => {
     <div className="row" data-testid="asset-iri-row">
       <div className={"col-3 strong " + rowStyle.propertyName}>URI</div>
       <div className="col-8">
-        <span className={rowStyle.propertyValue}>{props.assetIri}</span>
+        <div className={"text-monospace " + rowStyle.propertyLink}>
+          <a href={props.assetIri} target="_blank" rel="noreferrer">
+            {props.assetIri}
+          </a>
+        </div>
       </div>
       <div className="col-1">
-        <div
+        <a
           className="btn btn-sm pt-0"
-          onClick={() => window.open(props.assetIri)}
+          href={props.assetIri}
+          target="_blank"
+          rel="noreferrer"
         >
           <svg
             className="icon icon-primary icon-sm"
@@ -21,7 +27,7 @@ const AssetIriRow = (props) => {
           >
             <use href={sprite + "#it-external-link"} />
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   );

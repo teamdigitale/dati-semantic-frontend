@@ -9,12 +9,25 @@ describe("<VocabularyMetadata />", () => {
     expect(screen.getByTestId("vocab-metadata")).toBeInTheDocument();
     expect(screen.getByTestId("common-metadata")).toBeInTheDocument();
     expect(screen.getByText("Indirizzo dell'endpoint")).toBeInTheDocument();
-    expect(
-      screen.getByTestId("external-link-icon-for-endpoint-url")
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText("http://localhost:8080/vocabularies/ISTAT/legalStatus")
-    ).toBeInTheDocument();
+    const endpointUrlIcon = screen.getByTestId(
+      "external-link-icon-for-endpoint-url"
+    );
+    expect(endpointUrlIcon).toBeInTheDocument();
+    expect(endpointUrlIcon.closest("a")).toHaveAttribute(
+      "href",
+      "http://localhost:8080/vocabularies/ISTAT/legalStatus"
+    );
+    expect(endpointUrlIcon.closest("a")).toHaveAttribute("target", "_blank");
+
+    const ednpointLink = screen.getByText(
+      "http://localhost:8080/vocabularies/ISTAT/legalStatus"
+    );
+    expect(ednpointLink).toBeInTheDocument();
+    expect(ednpointLink.closest("a")).toHaveAttribute(
+      "href",
+      "http://localhost:8080/vocabularies/ISTAT/legalStatus"
+    );
+    expect(ednpointLink.closest("a")).toHaveAttribute("target", "_blank");
   });
 
   test("renders without endpointUrl", () => {

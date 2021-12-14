@@ -20,7 +20,7 @@ describe("<CommonMetadataGroup />", () => {
       screen.getByText("Istituto Nazionale di Statistica - ISTAT")
     ).toBeInTheDocument();
 
-    expect(screen.getByText("Data Creazione")).toBeInTheDocument();
+    expect(screen.getByText("Data creazione")).toBeInTheDocument();
     expect(screen.getByText("13/02/2017")).toBeInTheDocument();
 
     expect(screen.getByText("Versione")).toBeInTheDocument();
@@ -61,7 +61,7 @@ describe("<CommonMetadataGroup />", () => {
     details.issuedOn = null;
     render(<CommonMetadataGroup details={details} />);
 
-    expect(screen.queryByText("Data Creazione")).not.toBeInTheDocument();
+    expect(screen.queryByText("Data creazione")).not.toBeInTheDocument();
     expect(screen.queryByText("13/02/2017")).not.toBeInTheDocument();
   });
 

@@ -7,9 +7,11 @@ const MetadataRow = (props) => {
     <div>
       <div className="row">
         <div className="col-3">
-          <span className={styles.propertyName}>{props.name}</span>
+          <div className="pr-3">
+            <span className={styles.propertyName}>{props.name}</span>
+          </div>
         </div>
-        <div className="col-8 text-justify">
+        <div className="col-8">
           <span className={styles.propertyValue}>{props.value}</span>
         </div>
         <div className="col-1">{props.externalLink}</div>

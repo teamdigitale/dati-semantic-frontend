@@ -13,17 +13,13 @@
 .description {
   height: 157px;
   color: #455b71;
-  overflow: scroll;
 }
 
 .descriptionText {
-  font-family: Lora, serif;
-  font-size: 16px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
+  font-size: 18px;
+  line-height: 21px;
+  overflow: scroll;
+  height: 157px;
 }
 
 .metadataHeader {

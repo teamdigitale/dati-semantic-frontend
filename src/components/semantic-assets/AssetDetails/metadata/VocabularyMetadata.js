@@ -1,23 +1,31 @@
 import CommonMetadataGroup from "./CommonMetadataGroup";
 import getDetailsPropTypes from "../DetailsPropTypes";
-import MetadataRow from "./MetadataRow";
 import sprite from "../../../../assets/images/sprite.svg";
 import React from "react";
+import rowStyle from "./MetadataRow.module.css";
 
 const VocabularyMetadata = ({ details }) => {
   return (
     <div data-testid="vocab-metadata">
       <CommonMetadataGroup details={details} />
       {details.endpointUrl && (
-        <MetadataRow
-          name={"Indirizzo dell'endpoint"}
-          value={details.endpointUrl}
-          externalLink={
+        <div className="row" data-testid="asset-iri-row">
+          <div className={"col-3 strong " + rowStyle.propertyName}>
+            Indirizzo dell&apos;endpoint
+          </div>
+          <div className="col-8">
+            <div className={"text-monospace " + rowStyle.propertyLink}>
+              <a href={details.endpointUrl} target="_blank" rel="noreferrer">
+                {details.endpointUrl}
+              </a>
+            </div>
+          </div>
+          <div className="col-1">
             <a
+              className="btn btn-sm pt-0"
               href={details.endpointUrl}
               target="_blank"
               rel="noreferrer"
-              className="btn btn-sm pt-0"
             >
               <svg
                 className="icon icon-primary icon-sm"
@@ -26,8 +34,8 @@ const VocabularyMetadata = ({ details }) => {
                 <use href={sprite + "#it-external-link"} />
               </svg>
             </a>
-          }
-        />
+          </div>
+        </div>
       )}
     </div>
   );

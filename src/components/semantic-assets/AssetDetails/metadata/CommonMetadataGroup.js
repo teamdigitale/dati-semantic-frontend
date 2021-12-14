@@ -30,7 +30,7 @@ const CommonMetadataGroup = (props) => {
       <MetadataRow name="Titolare" value={details.rightsHolder.summary} />
       {details.issuedOn && (
         <MetadataRow
-          name={"Data Creazione"}
+          name={"Data creazione"}
           value={asItalianDate(details.issuedOn)}
         />
       )}

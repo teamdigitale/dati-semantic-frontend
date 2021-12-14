@@ -33,11 +33,13 @@ const AssetDetailsSummary = (props) => {
       </div>
       <div className={"row " + styles.detailsCard}>
         <div className="col-12">
-          <div className="card-wrapper card-space d-flex justify-content-center">
+          <div className="card-wrapper card-space">
             <div className="card card-bg my-2 pl-5 pr-5 pt-5">
               <div className={"row " + styles.description}>
-                <div className={"col-10 fix-height " + styles.descriptionText}>
-                  {props.description}
+                <div className="col-10 fix-height">
+                  <div className={"pr-3 pt-1" + styles.descriptionText}>
+                    {props.description}
+                  </div>
                 </div>
                 <div className="col-2 text-right">
                   <span>

@@ -3,7 +3,6 @@ import React from "react";
 import { asItalianDate } from "../../../../services/stringUtils";
 import styles from "./MetadataRow.module.css";
 import { arrayOf, shape, string } from "prop-types";
-import sprite from "../../../../assets/images/sprite.svg";
 
 const SchemaMetadata = (props) => {
   return (
@@ -32,14 +31,7 @@ const SchemaMetadata = (props) => {
               ))}
             </span>
           </div>
-          <div className="col-1">
-            <svg
-              className="icon icon-primary icon-sm"
-              data-testid="external-link-icon"
-            >
-              <use href={sprite + "#it-external-link"} />
-            </svg>
-          </div>
+          <div className="col-1" />
         </div>
       )}
     </div>
