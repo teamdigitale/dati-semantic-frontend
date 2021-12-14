@@ -18,7 +18,7 @@ const AssetDetails = ({ details }) => {
       className={"row " + styles.detailsContainer}
       data-testid="asset-details-container"
     >
-      <div className="col-12 d-flex justify-content-center">
+      <div className="container">
         <div className={"row " + styles.detailsWrapper}>
           <div className="col-12">
             <AssetDetailsSummary
