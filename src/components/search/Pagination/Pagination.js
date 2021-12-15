@@ -3,7 +3,7 @@ import { Icon } from "design-react-kit";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 
-export const PAGE_SIZE = 10;
+export const PAGE_SIZE = 5;
 export const DEFAULT_OFFSET = 0;
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
