@@ -2,6 +2,7 @@ import React from "react";
 import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
 import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
+import Contribute from "../../common/Contribute/Contribute";
 
 const introSection = () => (
   <div className="section section-muted">
@@ -30,6 +31,7 @@ const ExplorePage = () => (
     <ExploreByText />
     <ExploreByType />
     <ExploreByCategory />
+    <Contribute />
   </div>
 );
 

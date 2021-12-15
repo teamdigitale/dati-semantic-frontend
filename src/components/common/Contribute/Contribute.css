@@ -1,0 +1,19 @@
+.contribute {
+  height: 500px;
+  margin-top: 0px;
+  margin-bottom: 56px;
+}
+
+.header {
+  padding-left: 123px;
+}
+
+.contribute .main-text {
+  height: 0;
+}
+
+.contribute-btn {
+  width: 186px;
+  height: 48px;
+  color: #fff !important;
+}

@@ -1,14 +1,14 @@
 .propertyName {
-    font-weight: bold;
-    font-size: 16px;
-    color: #036;
+  font-weight: bold;
+  font-size: 16px;
+  color: #036;
 }
 
 .propertyValue {
-    font-size: 16px;
-    color: #5a6772;
+  font-size: 16px;
+  color: #5a6772;
 }
 
 .propertyLink {
-    font-size: 14px;
+  font-size: 14px;
 }

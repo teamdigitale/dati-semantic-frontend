@@ -5,6 +5,7 @@ import FaqPage from "./FaqPage";
 import { renderWithRoute } from "../../../../services/testUtils";
 import FaqBody from "../FaqBody/FaqBody";
 import FaqHeader from "../FaqHeader/FaqHeader";
+import Contribute from "../../../common/Contribute/Contribute";
 
 jest.mock("../FaqHeader/FaqHeader", () => ({
   __esModule: true,
@@ -16,12 +17,19 @@ jest.mock("../FaqBody/FaqBody", () => ({
   default: jest.fn(),
 }));
 
+jest.mock("../../../common/Contribute/Contribute", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
 describe("<FaqPage />", () => {
   beforeEach(() => {
     FaqHeader.mockClear();
     FaqHeader.mockReturnValue(<div>Faq header</div>);
     FaqBody.mockClear();
     FaqBody.mockReturnValue(<div>Faq Body</div>);
+    Contribute.mockClear();
+    Contribute.mockReturnValue(<div>Contribute</div>);
   });
 
   test("it should mount", async () => {
@@ -38,5 +46,10 @@ describe("<FaqPage />", () => {
   test("it should render content for FAQ", async () => {
     renderWithRoute(<FaqPage />);
     expect(FaqBody).toHaveBeenCalled();
+  });
+
+  test("it should render contribute", async () => {
+    renderWithRoute(<FaqPage />);
+    expect(Contribute).toHaveBeenCalled();
   });
 });
