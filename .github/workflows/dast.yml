@@ -2,7 +2,7 @@ name: Security tests
 
 on:
   schedule:
-    - cron: "30 * * * *"
+    - cron: "5 * * * *"
 
 jobs:
   zap_scan:

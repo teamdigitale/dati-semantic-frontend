@@ -2,7 +2,7 @@ name: E2E tests
 
 on:
   schedule:
-    - cron: "30 * * * *"
+    - cron: "5 * * * *"
 jobs:
   ui-test:
     runs-on: ubuntu-latest

@@ -55,8 +55,8 @@ exports.config = {
       maxInstances: 5,
       //
       browserName: "chrome",
-      "wdio:devtoolsOptions": {
-        headless: true,
+      "goog:chromeOptions": {
+        args: ["--headless", "--disable-gpu", "--window-size=1440,735"],
       },
       acceptInsecureCerts: true,
       // If outputDir is provided WebdriverIO can capture driver session logs
@@ -112,7 +112,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  // services: ["chromedriver"],
+  services: ["chromedriver"],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
