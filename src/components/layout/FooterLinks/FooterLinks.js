@@ -20,6 +20,13 @@ const FooterLinks = () => {
           >
             Privacy Policy
           </a>
+          <a
+            className="nav-link bottom_label justify-content-center"
+            href="#"
+            title="Dichiarazione di Accessibilità"
+          >
+            Dichiarazione di Accessibilità
+          </a>
         </div>
       </div>
     </div>
