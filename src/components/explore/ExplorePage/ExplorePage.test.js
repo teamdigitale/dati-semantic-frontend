@@ -42,7 +42,7 @@ describe("<ExplorePage />", () => {
   test("it should mount with an introduction text", () => {
     render(<ExplorePage />);
 
-    const introduction = screen.getByRole("article");
+    const introduction = screen.getByTestId("ExplorePage");
 
     expect(introduction).toBeInTheDocument();
     expect(introduction).toContainHTML("Ricerca e riuso di asset semantici");

@@ -4,10 +4,10 @@ import "@testing-library/jest-dom/extend-expect";
 import FaqPage from "./FaqPage";
 import { renderWithRoute } from "../../../../services/testUtils";
 import FaqBody from "../FaqBody/FaqBody";
-import FaqHeader from "../FaqHeader/FaqHeader";
+import IntroSection from "../../../common/IntroSection/IntroSection";
 import Contribute from "../../../common/Contribute/Contribute";
 
-jest.mock("../FaqHeader/FaqHeader", () => ({
+jest.mock("../../../common/IntroSection/IntroSection", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -24,8 +24,8 @@ jest.mock("../../../common/Contribute/Contribute", () => ({
 
 describe("<FaqPage />", () => {
   beforeEach(() => {
-    FaqHeader.mockClear();
-    FaqHeader.mockReturnValue(<div>Faq header</div>);
+    IntroSection.mockClear();
+    IntroSection.mockReturnValue(<div>Faq header</div>);
     FaqBody.mockClear();
     FaqBody.mockReturnValue(<div>Faq Body</div>);
     Contribute.mockClear();
@@ -40,7 +40,7 @@ describe("<FaqPage />", () => {
 
   test("it should render header for FAQ", async () => {
     renderWithRoute(<FaqPage />);
-    expect(FaqHeader).toHaveBeenCalled();
+    expect(IntroSection).toHaveBeenCalled();
   });
 
   test("it should render content for FAQ", async () => {

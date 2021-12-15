@@ -1,0 +1,35 @@
+.header {
+  padding-left: 123px;
+}
+  
+.title {
+  width: 494px;
+  height: 24px;
+  margin-bottom: 0px;
+  font-size: 16px;
+  letter-spacing: 1.1px;
+  color: #455b71;
+}
+  
+.subtitle {
+  width: 500px;
+  height: 96px;
+  margin-bottom: 20px;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: #000;
+}
+  
+.description {
+  width: 578px;
+  height: 81px;
+  font-size: 18px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #555;
+}
+  
