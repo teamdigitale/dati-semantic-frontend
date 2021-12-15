@@ -6,25 +6,6 @@
   padding: 38px 123px 0;
 }
 
-.detailsCard {
-  height: 230px;
-}
-
-.description {
-  height: 170px;
-  color: #455b71;
-}
-
-.scrollable {
-  height: 170px;
-  overflow-y: scroll;
-}
-
-.descriptionText {
-  font-size: 18px;
-  line-height: 21px;
-}
-
 .metadataHeader {
   font-weight: bold;
   color: #1c2024;

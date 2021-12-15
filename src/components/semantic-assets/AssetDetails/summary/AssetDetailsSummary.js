@@ -1,8 +1,7 @@
 import AssetTypeChip from "../../../search/AssetTypeChip/AssetTypeChip";
-import styles from "../AssetDetails.module.css";
-import * as PropTypes from "prop-types";
-import { oneOf } from "prop-types";
+import styles from "./AssetDetailsSummary.module.css";
 import { getCategories } from "../../../../assets/data/categories";
+import PropTypes, { oneOf } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../../services/dataConstants";
 import { asItalianDate } from "../../../../services/stringUtils";
 
@@ -14,7 +13,7 @@ const AssetDetailsSummary = (props) => {
     <div data-testid="asset-details-summary">
       <div className="row pt-3 pb-3">
         <div className="col-6 text-uppercase font-weight-bold">
-          <div className="category-top clearfix">
+          <div className="category-top pt-1">
             {categories.map((c) => (
               <div key={c.key} className="category">
                 {c.label}
@@ -23,12 +22,12 @@ const AssetDetailsSummary = (props) => {
           </div>
         </div>
         <div className="col-6 text-right">
-          <AssetTypeChip type={props.type} />
+          <AssetTypeChip type={props.type} bgColor={"blue"} />
         </div>
       </div>
       <div className="row pt-3 pb-3">
         <div className="col-12">
-          <h3>{props.title}</h3>
+          <h2>{props.title}</h2>
         </div>
       </div>
       <div className={"row " + styles.detailsCard}>

@@ -6,9 +6,13 @@ import {
   SUPPORTED_ASSET_TYPES,
 } from "../../../services/dataConstants";
 
-const AssetTypeChip = ({ type }) => (
+const AssetTypeChip = ({ type, bgColor }) => (
   <div
-    className={styles.container + " chip chip-simple chip-lg"}
+    className={
+      bgColor === "blue"
+        ? "bg-primary chip chip-simple chip-lg"
+        : "bg-800 chip chip-simple chip-lg"
+    }
     data-testid="AssetTypeChip"
   >
     <span className={styles.label + " chip-label"}>{getAssetLabel(type)}</span>
@@ -17,6 +21,7 @@ const AssetTypeChip = ({ type }) => (
 
 AssetTypeChip.propTypes = {
   type: oneOf(SUPPORTED_ASSET_TYPES),
+  bgColor: oneOf(["blue", "black"]),
 };
 
 AssetTypeChip.defaultProps = {};

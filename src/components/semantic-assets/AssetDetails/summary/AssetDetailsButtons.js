@@ -23,7 +23,7 @@ const renderButton = (text, url, className) => {
 const AssetDetailsButtons = (props) => {
   return (
     <div
-      className="py-1 row justify-content-end"
+      className="row justify-content-end"
       data-testid="asset-details-buttons"
     >
       {props.type !== AT_SCHEMA && (

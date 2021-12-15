@@ -1,0 +1,23 @@
+.detailsCard {
+  height: 291px;
+}
+
+.description {
+  height: 170px;
+  color: #455b71;
+}
+
+.scrollable {
+  height: 170px;
+  overflow: hidden;
+}
+
+.scrollable:hover {
+  height: 170px;
+  overflow-y: scroll;
+}
+
+.descriptionText {
+  font-size: 18px;
+  line-height: 21px;
+}
