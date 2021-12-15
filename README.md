@@ -5,26 +5,29 @@
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
 [![18app on forum.italia.it](https://img.shields.io/badge/Forum-18app-blue.svg)](https://forum.italia.it/c/18app-carta-docente)
 
-# Dati Semantic Frontend
+# Frontend for the National Data Catalog (NDC) for Semantic Interoperability
 
-> Frontend application created using React 
+This is the frontend for the National Data Catalog (NDC) for Semantic Interoperability, a component of the PDND (Piattaforma Digitale Nazionale Dati) project.
 
-*Read this in other languages: [English](README.EN.md).*
+PDND is composed of:
+* a system to streamline the signing of "interoperability agreements" between API producers and consumers, by standardizing the process and authenticating participants
+* a centralized API catalog, which enables the discovery and usage of eServices
+* a centralized system which enables controlled and authorized access by consumers to the APIs, along with logging of the operations
+* the National Data Catalog (NDC) for Semantic Interoperability, whose purpose is to store and index the semantic material (ontologies and controlled vocabularies) to be used as metadata with which to describe the APIs and the data they exchange
 
-## Immagini e GIF
+The frontend is composed of a website which enables anyone to browse and search the semantic material stored in the National Data Catalog backend.
 
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
+# Index
 
-# Indice
+- [How to start](#how-to-start)
+- [How to contribute](#how-to-contribute)
+- [Maintenance](#maintenance)
+- [License](#license)
 
-- [Come iniziare](#come-iniziare)
-- [Come contribuire](#come-contribuire)
-- [Manutenzione](#manutenzione)
-- [Licenza](#licenza)
 
-# Come iniziare
+# How to start
 
-## Come installare
+## Install
 
 Steps for fresh install of app
 - `yarn install`
@@ -60,9 +63,9 @@ To check for lint and checkstyle issues
 ### `yarn prepare`
 To install the husky pre commit hooks
 
-## Documentazione
+## Documentation
 
-# Come contribuire
+# How to contribute
 
 ## Community
 
@@ -72,12 +75,9 @@ To install the husky pre commit hooks
 
 ### Segnalazione bug e richieste di aiuto
 
-# Manutenzione 
+# Maintenance 
 
-# Licenza 
+# License 
 
-## Licenza generale 
+This work is licensed under the GNU Affero General Public License (AGPL), version 3 or later. You can find a copy of the license in the `LICENSE` file
 
-## Autori e Copyright
-
-## Licenze software dei componenti di terze parti
