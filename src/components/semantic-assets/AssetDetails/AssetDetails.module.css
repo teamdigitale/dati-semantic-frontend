@@ -11,15 +11,18 @@
 }
 
 .description {
-  height: 157px;
+  height: 170px;
   color: #455b71;
+}
+
+.scrollable {
+  height: 170px;
+  overflow-y: scroll;
 }
 
 .descriptionText {
   font-size: 18px;
   line-height: 21px;
-  overflow: scroll;
-  height: 157px;
 }
 
 .metadataHeader {
