@@ -5,6 +5,7 @@ import { routes } from "../../../services/routes";
 
 const menuItems = [{ label: "Esplora", href: routes.explore() }];
 const additionalMenuItems = [
+  { label: "Il progetto", href: routes.project() },
   { label: "Domande frequenti", href: routes.faq() },
 ];
 const HeaderMainMenu = () => {

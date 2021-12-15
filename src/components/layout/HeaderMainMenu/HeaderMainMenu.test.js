@@ -17,7 +17,13 @@ describe("<HeaderMainMenu />", () => {
     renderWithRoute(<HeaderMainMenu />);
 
     const categories = screen.getByText("Domande frequenti");
+    expect(categories).toBeInTheDocument();
+  });
 
+  test("it should render additional menu item for project", () => {
+    renderWithRoute(<HeaderMainMenu />);
+
+    const categories = screen.getByText("Il progetto");
     expect(categories).toBeInTheDocument();
   });
 });

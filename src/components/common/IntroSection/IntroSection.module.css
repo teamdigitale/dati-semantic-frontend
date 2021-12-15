@@ -5,7 +5,7 @@ div:empty {
 a:empty {
   display: none;
 }
-  
+
 .title {
   width: 494px;
   height: 24px;
@@ -14,7 +14,7 @@ a:empty {
   letter-spacing: 1.1px;
   color: #455b71;
 }
-  
+
 .subtitle {
   width: 500px;
   height: 96px;
@@ -24,7 +24,7 @@ a:empty {
   color: #000;
   padding-top: 14px;
 }
-  
+
 .description {
   width: 578px;
   height: 81px;
@@ -38,7 +38,6 @@ a:empty {
   padding-top: 20px;
 }
 
-.buttonSection{
+.buttonSection {
   padding-top: 24px;
 }
-  
