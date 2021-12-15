@@ -89,7 +89,7 @@
         "prop-types": "^15.7.2",
         "react-dev-utils": "^11.0.3",
         "wdio-chromedriver-service": "^7.2.2",
-        "webdriverio": "^7.16.10",
+        "webdriverio": "^7.16.11",
         "webpack": "4.46.0",
         "webpack-dev-server": "3.11.1",
         "webpack-manifest-plugin": "2.2.0",
