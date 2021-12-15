@@ -2,7 +2,6 @@ import React from "react";
 import FaqBody from "../FaqBody/FaqBody";
 import IntroSection from "../../../common/IntroSection/IntroSection";
 import { routes } from "../../../../services/routes";
-import Contribute from "../../../common/Contribute/Contribute";
 
 const FaqPage = () => {
   return (
@@ -16,7 +15,6 @@ const FaqPage = () => {
         secondaryButtonLink={routes.explore()}
       />
       <FaqBody />
-      <Contribute />
     </div>
   );
 };

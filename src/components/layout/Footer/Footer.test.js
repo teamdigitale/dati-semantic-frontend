@@ -5,6 +5,7 @@ import { renderWithRoute } from "../../../services/testUtils";
 import FooterLogos from "../FooterLogos/FooterLogos";
 import FooterLinks from "../FooterLinks/FooterLinks";
 import CookiePanel from "../CookiePanel/CookiePanel";
+import Contribute from "../../common/Contribute/Contribute";
 
 jest.mock("../FooterLogos/FooterLogos", () => ({
   __esModule: true,
@@ -18,6 +19,10 @@ jest.mock("../CookiePanel/CookiePanel", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
+jest.mock("../../common/Contribute/Contribute", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
 
 describe("<Footer />", () => {
   beforeEach(() => {
@@ -27,6 +32,8 @@ describe("<Footer />", () => {
     FooterLinks.mockReturnValue(<div>Footer Links</div>);
     CookiePanel.mockClear();
     CookiePanel.mockReturnValue(<div>Footer Links</div>);
+    Contribute.mockClear();
+    Contribute.mockReturnValue(<div>types</div>);
   });
 
   test("it should have the footer logos", () => {
@@ -42,5 +49,11 @@ describe("<Footer />", () => {
   test("it should have the cookie panel", () => {
     renderWithRoute(<Footer />);
     expect(CookiePanel).toHaveBeenCalled();
+  });
+
+  test("it should contain the Contribute section", () => {
+    renderWithRoute(<Footer />);
+
+    expect(Contribute).toHaveBeenCalled();
   });
 });

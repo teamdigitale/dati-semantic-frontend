@@ -5,7 +5,6 @@ import ExplorePage from "./ExplorePage";
 import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
 import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
-import Contribute from "../../common/Contribute/Contribute";
 
 jest.mock("../ExploreByCategory/ExploreByCategory", () => ({
   __esModule: true,
@@ -22,11 +21,6 @@ jest.mock("../ExploreByText/ExploreByText", () => ({
   default: jest.fn(),
 }));
 
-jest.mock("../../common/Contribute/Contribute", () => ({
-  __esModule: true,
-  default: jest.fn(),
-}));
-
 describe("<ExplorePage />", () => {
   beforeEach(() => {
     ExploreByText.mockReturnValue(<div>text search</div>);
@@ -35,8 +29,6 @@ describe("<ExplorePage />", () => {
     ExploreByCategory.mockClear();
     ExploreByType.mockReturnValue(<div>types</div>);
     ExploreByType.mockClear();
-    Contribute.mockReturnValue(<div>types</div>);
-    Contribute.mockClear();
   });
 
   test("it should mount with an introduction text", () => {
@@ -64,11 +56,5 @@ describe("<ExplorePage />", () => {
     render(<ExplorePage />);
 
     expect(ExploreByType).toHaveBeenCalled();
-  });
-
-  test("it should contain the Contribute section", () => {
-    render(<ExplorePage />);
-
-    expect(Contribute).toHaveBeenCalled();
   });
 });

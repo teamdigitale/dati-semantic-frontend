@@ -4,7 +4,6 @@ import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
 import { routes } from "../../../services/routes";
 import IntroSection from "../../common/IntroSection/IntroSection";
-import Contribute from "../../common/Contribute/Contribute";
 
 const ExplorePage = () => (
   <div data-testid="ExplorePage">
@@ -22,7 +21,6 @@ const ExplorePage = () => (
     <ExploreByText />
     <ExploreByType />
     <ExploreByCategory />
-    <Contribute />
   </div>
 );
 
