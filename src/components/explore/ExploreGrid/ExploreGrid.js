@@ -6,7 +6,11 @@ import { chunk } from "../../../services/arrayUtils";
 const ExploreGrid = ({ cells, optionalClass }) => (
   <div data-testid="ExploreGrid" role="list">
     {chunk(cells, 3).map((c, index) => (
-      <div key={"gridRow" + index} className="row" role="row">
+      <div
+        key={"gridRow" + index}
+        className="row pt-3 ml-4 pl-5 pr-3"
+        role="row"
+      >
         {c.map((cell) => (
           <div
             key={cell.key}

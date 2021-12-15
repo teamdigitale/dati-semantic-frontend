@@ -14,7 +14,7 @@ const IntroSection = ({
   return (
     <div data-testid="Header" className="section section-muted">
       <div className="container">
-        <div className={styles.header}>
+        <div className="pl-5 ml-5">
           <div className={"text-uppercase font-weight-bold " + styles.title}>
             {title}
           </div>

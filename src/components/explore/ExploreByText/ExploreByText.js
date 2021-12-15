@@ -14,10 +14,10 @@ const ExploreByText = () => {
 
   return (
     <ExploreSection title="Ricerca per testo">
-      <div className="container">
+      <div className="pt-3 ml-4 pl-5">
         <form onSubmit={doSubmit}>
           <div className="form-row">
-            <div className="form-group col-md-9 p-2">
+            <div className="form-group col-md-7 p-2">
               <input
                 type="text"
                 className="form-control"

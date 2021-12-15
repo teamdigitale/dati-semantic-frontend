@@ -1,7 +1,3 @@
-.header {
-  padding-left: 123px;
-}
-
 div:empty {
   display: none;
 }
