@@ -22,7 +22,7 @@ const AssetDetails = ({ details }) => {
         data-testid="asset-details-container"
       >
         <div className="container">
-          <div className={"row " + styles.detailsWrapper}>
+          <div className="row ml-5 p-5 mr-5 ">
             <div className="col-12">
               <AssetDetailsSummary
                 themes={details.themes}
