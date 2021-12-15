@@ -38,6 +38,7 @@ class SemanticAsset {
   }
 
   async getAssetType() {
+    await this.assetType.waitForDisplayed();
     return await this.assetType.getText();
   }
 }

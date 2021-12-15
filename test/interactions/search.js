@@ -4,7 +4,7 @@ class Search {
   }
 
   get btnSubmit() {
-    return $("//input[@type='submit']");
+    return $("//button[@type='submit']");
   }
 
   async semanticAsset(searchText) {
