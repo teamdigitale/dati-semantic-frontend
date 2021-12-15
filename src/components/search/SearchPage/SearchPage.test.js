@@ -10,6 +10,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import { routes } from "../../../services/routes";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import Pagination from "../Pagination/Pagination";
+import IntroSection from "../../common/IntroSection/IntroSection";
 
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
@@ -49,6 +50,7 @@ describe("<SearchPage />", () => {
     const vocabs = await screen.findByTestId("SearchPage");
 
     expect(vocabs).toBeInTheDocument();
+    expect(screen.getByText("CONTRIBUISCI")).toBeInTheDocument();
   });
 
   test("it should search with appropriate filters", async () => {

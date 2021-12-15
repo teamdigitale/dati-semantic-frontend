@@ -9,6 +9,7 @@ import Pagination, {
   DEFAULT_OFFSET,
   PAGE_SIZE,
 } from "../Pagination/Pagination";
+import IntroSection from "../../common/IntroSection/IntroSection";
 
 const showItems = (isLoading, error, searchResult) => {
   if (isLoading) {
@@ -119,6 +120,14 @@ const SearchPage = () => {
           </div>
         </div>
       </div>
+      <IntroSection
+        title="CONTRIBUISCI"
+        subtitle="Scopri come contribuire"
+        primaryButtonText="Maggiori informazioni"
+        primaryButtonLink={routes.explore()}
+        secondaryButtonText="Vai alle Linee Guida"
+        secondaryButtonLink={routes.explore()}
+      />
     </div>
   );
 };

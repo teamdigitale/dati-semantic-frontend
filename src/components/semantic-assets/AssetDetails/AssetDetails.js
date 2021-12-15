@@ -11,53 +11,57 @@ import SchemaMetadata from "./metadata/SchemaMetadata";
 import VocabularyMetadata from "./metadata/VocabularyMetadata";
 import getDetailsPropTypes from "./DetailsPropTypes";
 import OntologyMetadata from "./metadata/OntologyMetadata";
+import IntroSection from "../../common/IntroSection/IntroSection";
+import { routes } from "../../../services/routes";
 
 const AssetDetails = ({ details }) => {
   return (
-    <div
-      className={"row " + styles.detailsContainer}
-      data-testid="asset-details-container"
-    >
-      <div className="container">
-        <div className={"row " + styles.detailsWrapper}>
-          <div className="col-12">
-            <AssetDetailsSummary
-              themes={details.themes}
-              type={details.type}
-              title={details.title}
-              description={details.description}
-              modifiedOn={details.modifiedOn}
-            />
-            <div className="row pb-5" />
-            <AssetDetailsButtons
-              type={details.type}
-              vocabUrl={details.endpointUrl}
-              accessUrl={details.distributionUrls.filter((u) => u).pop()}
-            />
-            <div className="row">
-              <div className="col-12">
-                <div className="card-wrapper">
-                  <div className="card card-bg">
-                    <div className="card-body px-5">
-                      <div className="category-top">
-                        <div className={"category " + styles.metadataHeader}>
-                          dettagli
+    <div>
+      <div
+        className={"row " + styles.detailsContainer}
+        data-testid="asset-details-container"
+      >
+        <div className="container">
+          <div className={"row " + styles.detailsWrapper}>
+            <div className="col-12">
+              <AssetDetailsSummary
+                themes={details.themes}
+                type={details.type}
+                title={details.title}
+                description={details.description}
+                modifiedOn={details.modifiedOn}
+              />
+              <div className="row pb-5" />
+              <AssetDetailsButtons
+                type={details.type}
+                vocabUrl={details.endpointUrl}
+                accessUrl={details.distributionUrls.filter((u) => u).pop()}
+              />
+              <div className="row">
+                <div className="col-12">
+                  <div className="card-wrapper">
+                    <div className="card card-bg">
+                      <div className="card-body px-5">
+                        <div className="category-top">
+                          <div className={"category " + styles.metadataHeader}>
+                            dettagli
+                          </div>
                         </div>
+                        <hr className="border-black" />
+                        {details.type === AT_VOCABULARY && (
+                          <VocabularyMetadata details={details} />
+                        )}
+                        {details.type === AT_ONTOLOGY && (
+                          <OntologyMetadata details={details} />
+                        )}
+                        {details.type === AT_SCHEMA && (
+                          <SchemaMetadata
+                            rightsHolder={details.rightsHolder}
+                            issuedOn={details.issuedOn}
+                            keyClasses={details.keyClasses}
+                          />
+                        )}
                       </div>
-                      <hr className="border-black" />
-                      {details.type === AT_VOCABULARY && (
-                        <VocabularyMetadata details={details} />
-                      )}
-                      {details.type === AT_ONTOLOGY && (
-                        <OntologyMetadata details={details} />
-                      )}
-                      {details.type === AT_SCHEMA && (
-                        <SchemaMetadata
-                          rightsHolder={details.rightsHolder}
-                          issuedOn={details.issuedOn}
-                          keyClasses={details.keyClasses}
-                        />
-                      )}
                     </div>
                   </div>
                 </div>
@@ -66,6 +70,14 @@ const AssetDetails = ({ details }) => {
           </div>
         </div>
       </div>
+      <IntroSection
+        title="CONTRIBUISCI"
+        subtitle="Scopri come contribuire"
+        primaryButtonText="Maggiori informazioni"
+        primaryButtonLink={routes.explore()}
+        secondaryButtonText="Vai alle Linee Guida"
+        secondaryButtonLink={routes.explore()}
+      />
     </div>
   );
 };

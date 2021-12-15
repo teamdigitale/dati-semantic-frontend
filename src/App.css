@@ -37,28 +37,3 @@
     transform: rotate(360deg);
   }
 }
-
-.subtext {
-  width: 494px;
-  height: 24px;
-  margin: 0 73px 14px 0;
-  font-size: 16px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: 1.1px;
-  color: #455b71;
-}
-
-.main-text {
-  width: 567px;
-  margin: 14px 0 135px;
-  font-size: 40px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  color: #000;
-}

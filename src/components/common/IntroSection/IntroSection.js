@@ -22,7 +22,7 @@ const IntroSection = ({
             {subtitle}
           </div>
           <div className={styles.description}>{description}</div>
-          <div className="mt-4">
+          <div className={"mt-4 " + styles.buttonSection}>
             <a className={"btn btn-primary mr-4"} href={primaryButtonLink}>
               {primaryButtonText}
             </a>
@@ -41,9 +41,9 @@ IntroSection.propTypes = {
   subtitle: string.isRequired,
   description: string,
   primaryButtonText: string.isRequired,
-  secondaryButtonText: string.isRequired,
+  secondaryButtonText: string,
   primaryButtonLink: string.isRequired,
-  secondaryButtonLink: string.isRequired,
+  secondaryButtonLink: string,
 };
 
 IntroSection.defaultProps = {};

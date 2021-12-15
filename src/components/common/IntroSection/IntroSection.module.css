@@ -1,6 +1,14 @@
 .header {
   padding-left: 123px;
 }
+
+div:empty {
+  display: none;
+}
+
+a:empty {
+  display: none;
+}
   
 .title {
   width: 494px;
@@ -14,11 +22,11 @@
 .subtitle {
   width: 500px;
   height: 96px;
-  margin-bottom: 20px;
   font-size: 40px;
   line-height: 1.2;
   letter-spacing: -1px;
   color: #000;
+  padding-top: 14px;
 }
   
 .description {
@@ -31,5 +39,10 @@
   line-height: normal;
   letter-spacing: normal;
   color: #555;
+  padding-top: 20px;
+}
+
+.buttonSection{
+  padding-top: 24px;
 }
   

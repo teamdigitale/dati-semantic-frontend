@@ -15,6 +15,12 @@ const FaqPage = () => {
         secondaryButtonLink={routes.explore()}
       />
       <FaqBody />
+      <IntroSection
+        title="CONTRIBUISCI"
+        subtitle="Scopri come contribuire"
+        primaryButtonText="Vai alle Linee Guida"
+        primaryButtonLink={routes.explore()}
+      />
     </div>
   );
 };

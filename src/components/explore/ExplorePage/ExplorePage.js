@@ -21,6 +21,12 @@ const ExplorePage = () => (
     <ExploreByText />
     <ExploreByType />
     <ExploreByCategory />
+    <IntroSection
+      title="CONTRIBUISCI"
+      subtitle="Scopri come contribuire"
+      primaryButtonText="Maggiori informazioni"
+      primaryButtonLink={routes.explore()}
+    />
   </div>
 );
 
