@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../../assets/images/dipartimento.svg";
-import IstatLogo from "../../../assets/images/istat-logo.gif";
+import { ReactComponent as IstatLogo } from "../../../assets/images/istat-logo.svg";
 import "./FooterLogos.css";
 
 const FooterLogos = () => {
@@ -18,9 +18,8 @@ const FooterLogos = () => {
                 />
               </a>
               <a href="https://www.istat.it/" className="">
-                <img
+                <IstatLogo
                   className="istat-logo"
-                  src={IstatLogo}
                   alt="ISTAT Logo"
                   title="ISTAT Logo"
                 />

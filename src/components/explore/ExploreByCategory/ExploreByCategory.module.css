@@ -1,0 +1,13 @@
+.item {
+  height: 240px;
+  width: 280px !important;
+  cursor: pointer;
+}
+
+.itemIcon {
+  margin-left: 90px;
+}
+
+.itemLabel {
+  font-size: 20px;
+}

@@ -3,8 +3,9 @@ import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import ExploreGrid from "../ExploreGrid/ExploreGrid";
 import ExploreSection from "../ExploreSection/ExploreSection";
+import { chunk } from "../../../services/arrayUtils";
+import styles from "./ExploreByCategory.module.css";
 
 const categoryData = getCategories();
 
@@ -24,7 +25,37 @@ const ExploreByCategory = () => {
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
-      <ExploreGrid cells={categoryCells} />
+      <div className="ml-4 pl-5 mt-4" role="list">
+        {chunk(categoryCells, 3).map((row, rowIndex) => {
+          return (
+            <div key={"row-" + rowIndex} className="row ml-1 mb-5 pb-4">
+              {row.map((item) => {
+                return (
+                  <div key={item.key} className={"col-4"}>
+                    <div
+                      className={"shadow-lg category-tile " + styles.item}
+                      onClick={item.onClick}
+                      data-testid={item.key}
+                    >
+                      <div className={"pt-4 " + styles.itemIcon}>
+                        <CategoryIcon category={item} />
+                      </div>
+                      <div
+                        className={
+                          "text-center font-weight-bold px-5 pt-3 " +
+                          styles.itemLabel
+                        }
+                      >
+                        {item.label}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </ExploreSection>
   );
 };

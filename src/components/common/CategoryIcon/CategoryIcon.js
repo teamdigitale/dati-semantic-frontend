@@ -1,20 +1,13 @@
 import React from "react";
-import { oneOf, shape, string } from "prop-types";
+import { shape, string } from "prop-types";
+import sprite from "../../../assets/images/category_sprite.svg";
+import styles from "./CategoryIcon.module.css";
 
-const CategoryIcon = ({ category, className = null, size }) => {
-  let sizeClazz = "category-icon-" + size;
-  let clazz = `${category.key.toLowerCase()}-category-icon category-icon ${sizeClazz}`;
-  if (className && className.trim().length > 0) {
-    clazz += " " + className;
-  }
-
+const CategoryIcon = ({ category }) => {
   return (
-    <img
-      className={clazz}
-      title={category.label}
-      alt={category.key}
-      data-testid="CategoryIcon"
-    />
+    <svg data-testid="CategoryIcon" className={styles.categoryIcon}>
+      <use href={sprite + `#${category.key.toLowerCase()}`} />
+    </svg>
   );
 };
 
@@ -23,13 +16,8 @@ CategoryIcon.propTypes = {
     key: string.isRequired,
     label: string,
   }).isRequired,
-  size: oneOf(["tiny", "small", "large"]),
-  className: string,
 };
 
-CategoryIcon.defaultProps = {
-  className: null,
-  size: "large",
-};
+CategoryIcon.defaultProps = {};
 
 export default CategoryIcon;
