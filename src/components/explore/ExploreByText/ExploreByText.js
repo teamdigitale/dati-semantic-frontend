@@ -3,6 +3,7 @@ import ExploreSection from "../ExploreSection/ExploreSection";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import { Icon } from "design-react-kit";
+import "./ExploreByText.css";
 
 const ExploreByText = () => {
   const [pattern, setPattern] = useState("");
@@ -19,7 +20,7 @@ const ExploreByText = () => {
         <form onSubmit={doSubmit}>
           <div className="form-row">
             <div className="form-group col-md-7 p-2">
-              <div className="input-group">
+              <div className="search-group input-group">
                 <span className="input-group-append">
                   <div className="input-group-text bg-transparent">
                     <Icon icon="it-search" size="sm" />
@@ -27,7 +28,7 @@ const ExploreByText = () => {
                 </span>
                 <input
                   type="text"
-                  className="form-control"
+                  className="form-control search-bar"
                   placeholder="Inserisci il testo da ricercare nel titolo, descrizione o parole chiave"
                   value={pattern}
                   onChange={(e) => setPattern(e.target.value)}
