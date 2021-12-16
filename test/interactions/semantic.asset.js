@@ -19,6 +19,10 @@ class SemanticAsset {
     return $(".chip-label");
   }
 
+  get allAssetTypes() {
+    return $$(".chip-label");
+  }
+
   async getAssetTitle() {
     await this.assetTitle.waitForDisplayed();
     return await this.assetTitle.getText();
@@ -40,6 +44,11 @@ class SemanticAsset {
   async getAssetType() {
     await this.assetType.waitForDisplayed();
     return await this.assetType.getText();
+  }
+
+  async getAllAssetTypes() {
+    await this.assetType.waitForDisplayed();
+    return await this.allAssetTypes;
   }
 }
 
