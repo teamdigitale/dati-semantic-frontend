@@ -7,7 +7,7 @@ describe("<CookiePanel />", () => {
   test("it should mount", () => {
     render(<CookiePanel />);
 
-    const cookieText = screen.getByText("cookies");
+    const cookieText = screen.getByText("i cookies");
     expect(cookieText).toBeInTheDocument();
   });
 });
