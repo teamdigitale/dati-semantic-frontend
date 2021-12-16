@@ -28,7 +28,7 @@ const ExploreByCategory = () => {
       <div className="ml-4 pl-5 mt-4" role="list">
         {chunk(categoryCells, 3).map((row, rowIndex) => {
           return (
-            <div key={"row-" + rowIndex} className="row ml-1 mb-5 pb-4">
+            <div key={"row-" + rowIndex} className="row ml-0 mb-4 pb-4">
               {row.map((item) => {
                 return (
                   <div key={item.key} className={"col-4"}>
@@ -37,12 +37,15 @@ const ExploreByCategory = () => {
                       onClick={item.onClick}
                       data-testid={item.key}
                     >
-                      <div className={"pt-4 " + styles.itemIcon}>
+                      <div
+                        className={"pt-4 " + styles.itemIcon}
+                        alt={item.label}
+                      >
                         <CategoryIcon category={item} />
                       </div>
                       <div
                         className={
-                          "text-center font-weight-bold px-5 pt-3 " +
+                          "text-center font-weight-bold px-5 pt-5 " +
                           styles.itemLabel
                         }
                       >

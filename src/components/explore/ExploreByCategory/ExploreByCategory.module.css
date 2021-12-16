@@ -1,11 +1,11 @@
 .item {
-  height: 240px;
-  width: 280px !important;
+  height: 300px;
+  width: 320px !important;
   cursor: pointer;
 }
 
 .itemIcon {
-  margin-left: 90px;
+  margin-left: 110px;
 }
 
 .itemLabel {
