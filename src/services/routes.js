@@ -9,8 +9,6 @@ export const ASSETS_URL_TOKEN = "details";
 export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
 
 export const SEARCH_BASE_URL = "search";
-export const EXPLORE_BASE_URL = "explore";
-export const VALIDATE_URL = "validate";
 export const FAQ_URL = "faq";
 export const PROJECT_URL = "project";
 
@@ -79,10 +77,6 @@ class Routes {
       result = { ...result, offset: params.get("offset") };
     }
     return result;
-  }
-
-  validate() {
-    return "/" + VALIDATE_URL;
   }
 
   faq() {
