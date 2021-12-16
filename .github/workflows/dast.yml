@@ -20,4 +20,4 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://ndc-dev.apps.cloudpub.testedev.istat.it/'
           rules_file_name: '.zap/rules.tsv'
-          cmd_options: '-a'
+          cmd_options: '-aj'
