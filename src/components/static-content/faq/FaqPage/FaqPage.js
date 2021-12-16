@@ -10,7 +10,7 @@ const FaqPage = () => {
         title="DOMANDE FREQUENTI"
         subtitle="Esplora le risposte alle domande più frequenti"
         primaryButtonText="Scopri il progetto"
-        primaryButtonLink={routes.explore()}
+        primaryButtonLink={routes.project()}
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
       />

@@ -14,7 +14,7 @@ const ExplorePage = () => (
       vocabolari controllati per supportare lo sviluppo di API
       semanticamente e sintatticamente interoperabili"
       primaryButtonText="Scopri il progetto"
-      primaryButtonLink={routes.explore()}
+      primaryButtonLink={routes.project()}
       secondaryButtonText="Domande frequenti"
       secondaryButtonLink={routes.faq()}
     />
