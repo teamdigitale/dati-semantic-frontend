@@ -59,7 +59,7 @@
         "web-vitals": "^2.1.2"
     },
     "devDependencies": {
-        "@babel/register": "^7.16.0",
+        "@babel/register": "^7.16.5",
         "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
         "@svgr/webpack": "5.5.0",
         "@wdio/cli": "^7.16.11",
