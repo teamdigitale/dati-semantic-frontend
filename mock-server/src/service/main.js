@@ -156,7 +156,7 @@ const addService = () => {
         {
           equals: {
             method: "GET",
-            path: "/semantic-assets/byIri",
+            path: "/semantic-assets/by-iri",
           },
         },
       ],

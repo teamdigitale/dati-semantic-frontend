@@ -21,7 +21,7 @@ describe("Vocab service", () => {
     const vocab = await getSemanticAssetByUri(assetIri);
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets/byIri?iri=" + assetIri
+      "/semantic-assets/by-iri?iri=" + assetIri
     );
     expect(vocab).toBeTruthy();
     expect(vocab.assetIri).toBe(assetIri);
