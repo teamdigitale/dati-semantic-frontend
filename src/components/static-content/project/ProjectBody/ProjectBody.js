@@ -66,7 +66,7 @@ const ProjectBody = () => {
           semantica nazionale, potranno pubblicare dei nuovi contenuti sui
           repository ufficiali e quindi sul catalogo.
         </p>
-        <p>
+        <div>
           La piattaforma quindi cataloga, rendendoli ricercabili e riusabili:
           <ul>
             <li>gli schemi dati più rilevanti creati dagli enti</li>
@@ -82,7 +82,7 @@ const ProjectBody = () => {
               ad esempio il vocabolario dei livelli di studio, dei comuni, etc..
             </li>
           </ul>
-        </p>
+        </div>
       </div>
 
       <div className="mt-4 mb-5">
