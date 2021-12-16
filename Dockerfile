@@ -20,4 +20,4 @@ RUN chgrp -R root /etc/nginx/html && \
     chown -R nginx /etc/nginx/html && \
     addgroup nginx root
 USER nginx
-CMD ["/bin/sh", "-c", "cd /etc/nginx/html/ && ./env.sh && nginx -g \"daemon off;\""]
+CMD ["/bin/sh", "-c", "cd /etc/nginx/html/ && ./env.sh && rm -rf env.sh .evn && nginx -g \"daemon off;\""]
