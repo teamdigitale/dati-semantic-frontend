@@ -13,13 +13,6 @@ const HeaderSlim = () => (
             >
               Dipartimento per la trasformazione Digitale + ISTAT
             </a>
-            <div className="nav-mobile">
-              <nav>
-                <div className="link-list-wrapper collapse" id="menu2">
-                  <ul className="link-list" />
-                </div>
-              </nav>
-            </div>
           </div>
         </div>
       </div>
