@@ -54,7 +54,7 @@ it:
     pagopa: false
     spid: false
   riuso:
-    codiceIPA: c_h501
+    codiceIPA: pcm
 legal:
   license: AGPL-3.0-or-later
   mainCopyrightOwner: Dipartimento per la Trasformazione Digitale
