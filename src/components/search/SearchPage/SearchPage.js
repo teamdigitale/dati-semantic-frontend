@@ -3,7 +3,7 @@ import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
-import { routes } from "../../../services/routes";
+import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 import Callout from "../../common/Callout/Callout";
 import Pagination, {
   DEFAULT_OFFSET,
@@ -124,9 +124,7 @@ const SearchPage = () => {
         title="CONTRIBUISCI"
         subtitle="Scopri come contribuire"
         primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={routes.explore()}
-        secondaryButtonText="Vai alle Linee Guida"
-        secondaryButtonLink={routes.explore()}
+        primaryButtonLink={DIGITALE_DOCS_URL}
       />
     </div>
   );

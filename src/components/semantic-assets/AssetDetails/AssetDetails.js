@@ -12,7 +12,7 @@ import VocabularyMetadata from "./metadata/VocabularyMetadata";
 import getDetailsPropTypes from "./DetailsPropTypes";
 import OntologyMetadata from "./metadata/OntologyMetadata";
 import IntroSection from "../../common/IntroSection/IntroSection";
-import { routes } from "../../../services/routes";
+import { DIGITALE_DOCS_URL } from "../../../services/routes";
 
 const AssetDetails = ({ details }) => {
   return (
@@ -74,9 +74,7 @@ const AssetDetails = ({ details }) => {
         title="CONTRIBUISCI"
         subtitle="Scopri come contribuire"
         primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={routes.explore()}
-        secondaryButtonText="Vai alle Linee Guida"
-        secondaryButtonLink={routes.explore()}
+        primaryButtonLink={DIGITALE_DOCS_URL}
       />
     </div>
   );

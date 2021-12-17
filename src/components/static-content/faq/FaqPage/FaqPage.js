@@ -1,7 +1,7 @@
 import React from "react";
 import FaqBody from "../FaqBody/FaqBody";
 import IntroSection from "../../../common/IntroSection/IntroSection";
-import { routes } from "../../../../services/routes";
+import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
 
 const FaqPage = () => {
   return (
@@ -18,8 +18,8 @@ const FaqPage = () => {
       <IntroSection
         title="CONTRIBUISCI"
         subtitle="Scopri come contribuire"
-        primaryButtonText="Vai alle Linee Guida"
-        primaryButtonLink={routes.explore()}
+        primaryButtonText="Maggiori informazioni"
+        primaryButtonLink={DIGITALE_DOCS_URL}
       />
     </div>
   );

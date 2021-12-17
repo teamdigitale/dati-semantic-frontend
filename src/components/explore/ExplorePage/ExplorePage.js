@@ -2,7 +2,7 @@ import React from "react";
 import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
 import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
-import { routes } from "../../../services/routes";
+import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 import IntroSection from "../../common/IntroSection/IntroSection";
 
 const ExplorePage = () => (
@@ -25,7 +25,7 @@ const ExplorePage = () => (
       title="CONTRIBUISCI"
       subtitle="Scopri come contribuire"
       primaryButtonText="Maggiori informazioni"
-      primaryButtonLink={routes.explore()}
+      primaryButtonLink={DIGITALE_DOCS_URL}
     />
   </div>
 );

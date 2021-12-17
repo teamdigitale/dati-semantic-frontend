@@ -11,6 +11,8 @@ export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
 export const SEARCH_BASE_URL = "search";
 export const FAQ_URL = "faq";
 export const PROJECT_URL = "project";
+export const DIGITALE_DOCS_URL =
+  "https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/";
 
 export const SearchParameterNames = {
   type: "type",
