@@ -1,4 +1,4 @@
-name: Nuclei - DAST Scan
+name: DAST Scan
 
 on:
     schedule:
