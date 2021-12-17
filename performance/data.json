@@ -1,0 +1,34 @@
+{
+    "IRI": [
+        "https://w3id.org/italia/onto/CPV",
+        "https://w3id.org/italia/controlled-vocabulary/classifications-for-documents/government-documents-types",
+        "https://w3id.org/italia/onto/AtlasOfPaths",
+        "https://w3id.org/italia/controlled-vocabulary/classifications-for-her/fields-of-research-development"
+    ],
+    "label": [
+        "evento+di+business",
+			"evento",
+			"public+service",
+			"life+event",
+			"business+event",
+			"evento+della+vita",
+			"servizio+pubblico",
+			"event",
+            "Titolo+di+studio",
+			"Education",
+			"Education+Level",
+			"Grado+Istruzione",
+			"Istruzione",
+            "Settori+ricerca+e+sviluppo",
+			"Research+&+Development",
+			"FORD+Classification"
+    ],
+    "cv": [
+        "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/government-documents-types",
+        "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/municipal-notice-board",
+        "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/authentication-type",
+        "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/public-services-subject-matters",
+        "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/unesco/fields-of-research-development",
+        "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/ISTAT/cofog-2009"
+    ]
+}
