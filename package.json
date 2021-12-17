@@ -96,9 +96,9 @@
         "workbox-webpack-plugin": "6.4.2"
     },
     "scripts": {
-        "start": "./env.sh && mv env-config.js ./public/ && node scripts/start.js",
+        "start": "./env.sh && mv env-config.js ./public/ && INLINE_RUNTIME_CHUNK=false node scripts/start.js",
         "start-mock-server": "node mock-server/src/index.js",
-        "build": "node scripts/build.js",
+        "build": "INLINE_RUNTIME_CHUNK=false node scripts/build.js",
         "test": "node scripts/test.js",
         "test:coverage": "node scripts/test.js --coverage --watchAll=false",
         "test:e2e": "wdio run ./test/config/wdio.conf.js",
