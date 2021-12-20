@@ -24,6 +24,9 @@ describe("<HeaderSlim />", () => {
       .closest("a");
 
     expect(anchor).toBeInTheDocument();
-    expect(anchor).toHaveAttribute("href", "https://teamdigitale.governo.it/");
+    expect(anchor).toHaveAttribute(
+      "href",
+      "https://innovazione.gov.it/dipartimento/"
+    );
   });
 });
