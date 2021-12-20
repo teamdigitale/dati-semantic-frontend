@@ -3,7 +3,11 @@ import React from "react";
 const FaqBody = () => {
   return (
     <div data-testid="FaqBody" className="container">
-      <div id="questionList" className="collapse-div ml-4 pl-5" role="tablist">
+      <div
+        id="questionList"
+        className="collapse-div ml-5 pl-5 pt-5"
+        role="tablist"
+      >
         <div className="collapse-header" id="question1">
           <button
             data-toggle="collapse"
