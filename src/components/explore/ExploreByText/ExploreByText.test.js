@@ -8,7 +8,7 @@ describe("<ExploreByText />", () => {
   test("it should mount", () => {
     renderWithRoute(<ExploreByText />);
 
-    const exploreByText = screen.getByText("Ricerca per testo");
+    const exploreByText = screen.getByText("Ricerca all'interno del catalogo");
 
     expect(exploreByText).toBeInTheDocument();
   });
