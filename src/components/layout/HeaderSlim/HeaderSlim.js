@@ -8,11 +8,11 @@ const HeaderSlim = () => (
         <div className="col-12">
           <div className="it-header-slim-wrapper-content">
             <p className="d-none d-lg-block navbar-brand">
-              <a href="https://teamdigitale.governo.it/">
+              <a href="https://innovazione.gov.it/dipartimento/">
                 Dipartimento per la trasformazione Digitale
               </a>
               <span> + </span>
-              <a href="https://teamdigitale.governo.it/">ISTAT</a>
+              <a href="https://www.istat.it/">ISTAT</a>
             </p>
           </div>
         </div>
