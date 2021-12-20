@@ -6,33 +6,13 @@ on:
     workflow_dispatch:
 
 jobs:
-  SemanticAsset:
-    name: Semantic Assets
+  load-test:
+    name: Load Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Semantic Assets
+      - name: Load Tests
         uses: k6io/action@v0.2.0
         with:
-          filename: ./performance/semantic-assets.js
-  IRIs:
-    name: IRIs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: IRIs
-        uses: k6io/action@v0.2.0
-        with:
-          filename: ./performance/byIRI.js 
-  CVs:
-    name: CVs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: CVs
-        uses: k6io/action@v0.2.0
-        with:
-          filename: ./performance/cv.js                    
+          filename: ./performance/script.js                   

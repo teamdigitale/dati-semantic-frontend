@@ -1,29 +1,29 @@
 {
+    "LABEL": [
+        "evento+di+business",
+		"evento",
+		"public+service",
+		"life+event",
+		"business+event",
+		"evento+della+vita",
+		"servizio+pubblico",
+		"event",
+        "Titolo+di+studio",
+		"Education",
+		"Education+Level",
+		"Grado+Istruzione",
+		"Istruzione",
+        "Settori+ricerca+e+sviluppo",
+		"Research+&+Development",
+		"FORD+Classification"
+    ],
     "IRI": [
         "https://w3id.org/italia/onto/CPV",
         "https://w3id.org/italia/controlled-vocabulary/classifications-for-documents/government-documents-types",
         "https://w3id.org/italia/onto/AtlasOfPaths",
         "https://w3id.org/italia/controlled-vocabulary/classifications-for-her/fields-of-research-development"
     ],
-    "label": [
-        "evento+di+business",
-			"evento",
-			"public+service",
-			"life+event",
-			"business+event",
-			"evento+della+vita",
-			"servizio+pubblico",
-			"event",
-            "Titolo+di+studio",
-			"Education",
-			"Education+Level",
-			"Grado+Istruzione",
-			"Istruzione",
-            "Settori+ricerca+e+sviluppo",
-			"Research+&+Development",
-			"FORD+Classification"
-    ],
-    "cv": [
+    "CV": [
         "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/government-documents-types",
         "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/municipal-notice-board",
         "https://ndc-dev.apps.cloudpub.testedev.istat.it/api/vocabularies/agid/authentication-type",
