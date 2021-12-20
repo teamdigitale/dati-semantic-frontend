@@ -7,10 +7,6 @@ describe("<ScrollToTop/>", () => {
 
     renderWithRoute(<ScrollToTop />);
 
-    expect(global.window.scrollTo).toHaveBeenCalledWith({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
+    expect(global.window.scrollTo).toHaveBeenCalledWith(0, 0);
   });
 });
