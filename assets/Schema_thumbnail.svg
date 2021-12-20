@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="544px" height="354px" viewBox="0 0 544 354" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <circle id="path-1" cx="272" cy="175" r="113"></circle>
+        <filter x="-2.7%" y="-2.7%" width="108.0%" height="108.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="3" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Schema_icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <polygon id="Rectangle" fill="#004D99" points="0 0 544 0 544 306.560467 496.956802 353 0 353"></polygon>
+            <polygon id="Triangle" fill="#004080" transform="translate(508.797651, 318.083088) rotate(-45.000000) translate(-508.797651, -318.083088) " points="508.842631 301.338991 541.837194 334.827184 475.758107 334.423515"></polygon>
+            <g id="Oval">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+            <circle id="Oval" fill="#0066CC" cx="224" cy="153" r="11"></circle>
+            <text id="S" font-family="TitilliumWeb-Bold, Titillium Web" font-size="150" font-weight="bold" letter-spacing="-3.75" fill="#0066CC">
+                <tspan x="244" y="232">S</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
