@@ -1,0 +1,15 @@
+.footerLinks {
+  height: 58px;
+  margin: 50px 0 0;
+  background-color: #01254c;
+}
+
+.bottomLabel {
+  color: #0bd9d2;
+  font-size: 15px;
+  padding-right: 15px;
+}
+
+a:hover {
+  color: white !important;
+}

@@ -1,32 +1,26 @@
 import React from "react";
-import "./FooterLinks.css";
+import styles from "./FooterLinks.module.css";
 
 const FooterLinks = () => {
   return (
-    <div className="footer_links">
+    <div className={styles.footerLinks}>
       <div className="container">
         <div className="row">
-          <a
-            className="nav-link bottom_label justify-content-center"
-            href="#"
-            title="Note Legali"
-          >
-            Note Legali
-          </a>
-          <a
-            className="nav-link bottom_label justify-content-center"
-            href="#"
-            title="Privacy Policy"
-          >
-            Privacy Policy
-          </a>
-          <a
-            className="nav-link bottom_label justify-content-center"
-            href="#"
-            title="Dichiarazione di Accessibilità"
-          >
-            Dichiarazione di Accessibilità
-          </a>
+          <p className="justify-content-center pt-3 pr-3">
+            <a className={styles.bottomLabel} href="#">
+              Note Legali
+            </a>
+          </p>
+          <p className="justify-content-center pt-3 pr-3">
+            <a className={styles.bottomLabel} href="#">
+              Privacy Policy
+            </a>
+          </p>
+          <p className="justify-content-center pt-3 pr-3">
+            <a className={styles.bottomLabel} href="#">
+              Dichiarazione di Accessibilità
+            </a>
+          </p>
         </div>
       </div>
     </div>
