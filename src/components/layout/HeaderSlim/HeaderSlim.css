@@ -1,4 +1,5 @@
-.it-header-slim-wrapper-content {
-  font-size: 25px;
+.it-header-slim-wrapper-content .navbar-brand {
+  font-size: 14px !important;
+  margin-top: 16px;
   font-family: "Titillium Web Semi Bold";
 }

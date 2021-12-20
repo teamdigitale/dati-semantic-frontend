@@ -7,12 +7,12 @@ const HeaderSlim = () => (
       <div className="row">
         <div className="col-12">
           <div className="it-header-slim-wrapper-content">
-            <a
-              className="d-none d-lg-block navbar-brand"
-              href="https://teamdigitale.governo.it/"
-            >
-              Dipartimento per la trasformazione Digitale + ISTAT
-            </a>
+            <p className="d-none d-lg-block navbar-brand">
+              <a href="https://teamdigitale.governo.it/">
+                Dipartimento per la trasformazione Digitale +
+              </a>
+              <a href="https://teamdigitale.governo.it/"> ISTAT</a>
+            </p>
           </div>
         </div>
       </div>
