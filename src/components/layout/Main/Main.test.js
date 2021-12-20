@@ -18,6 +18,7 @@ jest.mock("../NotFound/NotFound", () => ({
 
 describe("<Main />", () => {
   beforeEach(() => {
+    global.window.scrollTo = jest.fn();
     ExplorePage.mockClear();
     ExplorePage.mockReturnValue(<div>Categories</div>);
     NotFound.mockClear();

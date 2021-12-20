@@ -13,9 +13,11 @@ import {
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
 import ProjectPage from "../../static-content/project/ProjectPage/ProjectPage";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 const Main = () => (
   <main>
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<ExplorePage />} />
       <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
