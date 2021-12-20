@@ -64,11 +64,6 @@ export const options = {
 };
 
 export function semanticAssets() {
-  console.log(
-    `https://ndc-dev.apps.cloudpub.testedev.istat.it/api/semantic-assets?q=${
-      labelData[Math.floor(Math.random() * labelData.length)]
-    }&offset=0&limit=5`
-  );
   const res = http.get(
     `https://ndc-dev.apps.cloudpub.testedev.istat.it/api/semantic-assets?q=${
       labelData[Math.floor(Math.random() * labelData.length)]
@@ -80,11 +75,6 @@ export function semanticAssets() {
 }
 
 export function byIRI() {
-  console.log(
-    `https://ndc-dev.apps.cloudpub.testedev.istat.it/api/semantic-assets/by-iri?iri=${
-      iriData[Math.floor(Math.random() * iriData.length)]
-    }`
-  );
   const res = http.get(
     `https://ndc-dev.apps.cloudpub.testedev.istat.it/api/semantic-assets/by-iri?iri=${
       iriData[Math.floor(Math.random() * iriData.length)]
@@ -99,7 +89,6 @@ export function byIRI() {
 }
 
 export function controlledVocabulary() {
-  console.log(cvData[Math.floor(Math.random() * cvData.length)]);
   const res = http.get(cvData[Math.floor(Math.random() * cvData.length)]);
   cvTrend.add(res.timings.duration);
   check(res, { "status was 200": (r) => r.status == 200 });
