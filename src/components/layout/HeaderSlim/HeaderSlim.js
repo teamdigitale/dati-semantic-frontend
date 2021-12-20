@@ -9,9 +9,10 @@ const HeaderSlim = () => (
           <div className="it-header-slim-wrapper-content">
             <p className="d-none d-lg-block navbar-brand">
               <a href="https://teamdigitale.governo.it/">
-                Dipartimento per la trasformazione Digitale +
+                Dipartimento per la trasformazione Digitale
               </a>
-              <a href="https://teamdigitale.governo.it/"> ISTAT</a>
+              <span> + </span>
+              <a href="https://teamdigitale.governo.it/">ISTAT</a>
             </p>
           </div>
         </div>
