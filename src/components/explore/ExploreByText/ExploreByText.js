@@ -29,7 +29,7 @@ const ExploreByText = () => {
                 <input
                   type="text"
                   className="form-control search-bar"
-                  placeholder="Inserisci il testo da ricercare nel titolo, descrizione o parole chiave"
+                  placeholder="es. persona, economia, attività"
                   value={pattern}
                   onChange={(e) => setPattern(e.target.value)}
                 />
