@@ -22,7 +22,7 @@
         "dotenv-expand": "5.1.0",
         "file-loader": "6.2.0",
         "fs-extra": "^9.0.1",
-        "history": "^5.1.0",
+        "history": "^5.2.0",
         "html-webpack-plugin": "4.5.0",
         "husky": "7.0.4",
         "identity-obj-proxy": "3.0.0",
