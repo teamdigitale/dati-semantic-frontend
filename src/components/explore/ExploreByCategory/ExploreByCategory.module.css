@@ -4,6 +4,10 @@
   cursor: pointer;
 }
 
+.item:hover {
+  background-color: #f2f7fc;
+}
+
 .itemIcon {
   margin-left: 110px;
 }

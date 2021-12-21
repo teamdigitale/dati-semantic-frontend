@@ -41,3 +41,7 @@ a:empty {
 .buttonSection {
   padding-top: 24px;
 }
+
+.btnSecondary:hover {
+  color: #084d91 !important;
+}
