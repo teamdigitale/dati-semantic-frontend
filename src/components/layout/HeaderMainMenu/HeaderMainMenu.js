@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
+import "./HeaderMainMenu.css";
 
 const menuItems = [{ label: "Esplora", href: routes.explore() }];
 const additionalMenuItems = [
