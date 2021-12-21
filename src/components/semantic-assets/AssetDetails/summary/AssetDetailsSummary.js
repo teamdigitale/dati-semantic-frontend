@@ -3,7 +3,7 @@ import styles from "./AssetDetailsSummary.module.css";
 import { getCategories } from "../../../../assets/data/categories";
 import PropTypes, { oneOf } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../../services/dataConstants";
-import { asItalianDate } from "../../../../services/stringUtils";
+import ModifiedOnOrVersion from "../../../common/ModifiedOnOrVersion/ModifiedOnOrVersion";
 
 const AssetDetailsSummary = (props) => {
   const categories = getCategories().filter(
@@ -41,15 +41,12 @@ const AssetDetailsSummary = (props) => {
                   </div>
                 </div>
                 <div className="col-2 text-right">
-                  <span>
-                    Ultima modifica
-                    <br />
-                    <strong>
-                      {props.modifiedOn
-                        ? asItalianDate(props.modifiedOn)
-                        : "n/a"}
-                    </strong>
-                  </span>
+                  <ModifiedOnOrVersion
+                    type={props.type}
+                    modifiedOn={props.modifiedOn}
+                    versionInfo={props.versionInfo}
+                    size={"large"}
+                  />
                 </div>
               </div>
             </div>
@@ -66,6 +63,7 @@ AssetDetailsSummary.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   modifiedOn: PropTypes.string,
+  versionInfo: PropTypes.string,
 };
 
 export default AssetDetailsSummary;

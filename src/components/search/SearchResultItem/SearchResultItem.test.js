@@ -71,7 +71,7 @@ describe("<SearchResultItem />", () => {
   test("it should display modifiedOn for ControlledVocabulary", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let modifiedOnForVocab = screen.getByText(vocabItem.modifiedOn);
+    let modifiedOnForVocab = screen.getByText("01/04/2020");
     expect(modifiedOnForVocab).toBeInTheDocument();
 
     expect(screen.queryByText(vocabItem.versionInfo)).not.toBeInTheDocument();
@@ -81,7 +81,7 @@ describe("<SearchResultItem />", () => {
     vocabItem.type = AT_ONTOLOGY;
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let modifiedOnForOntology = screen.getByText(vocabItem.modifiedOn);
+    let modifiedOnForOntology = screen.getByText("01/04/2020");
     expect(modifiedOnForOntology).toBeInTheDocument();
 
     expect(screen.queryByText(vocabItem.versionInfo)).not.toBeInTheDocument();

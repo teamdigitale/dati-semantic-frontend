@@ -9,22 +9,7 @@ import { getCategories } from "../../../assets/data/categories";
 import AssetTypeChip from "../AssetTypeChip/AssetTypeChip";
 import styles from "./SearchResultItem.module.css";
 import { truncate } from "../../../services/stringUtils";
-
-const renderVersionOrModifiedOn = (item) => {
-  let label, value;
-  if (item.type === AT_SCHEMA) {
-    label = "Versione ";
-    value = item.versionInfo ?? "n/a";
-  } else {
-    label = "Ultima modifica ";
-    value = item.modifiedOn ?? "n/a";
-  }
-  return (
-    <div className={styles.assetModificationHeader}>
-      {label} <strong>{value}</strong>
-    </div>
-  );
-};
+import ModifiedOnOrVersion from "../../common/ModifiedOnOrVersion/ModifiedOnOrVersion";
 
 const SearchResultItem = ({ item }) => {
   const categories = getCategories().filter(
@@ -46,7 +31,12 @@ const SearchResultItem = ({ item }) => {
             <div>
               <AssetTypeChip type={item.type} />
             </div>
-            {renderVersionOrModifiedOn(item)}
+            <ModifiedOnOrVersion
+              type={item.type}
+              versionInfo={item.versionInfo}
+              modifiedOn={item.modifiedOn}
+              size={"small"}
+            />
           </div>
           <div className="category-top clearfix">
             {categories.map((c) => (
