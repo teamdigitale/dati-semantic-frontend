@@ -13,7 +13,7 @@ describe("<HeaderMainTitle />", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByRole("heading", {
-        name: /Il catalogo nazionale della sematica dei dati/i,
+        name: /Il catalogo nazionale della semantica dei dati/i,
       })
     ).toBeInTheDocument();
   });

@@ -9,7 +9,7 @@ describe("<HeaderNavigation />", () => {
     renderWithRoute(<HeaderNavigation />);
 
     const navigation = screen.getByRole("heading", {
-      name: /Il catalogo nazionale della sematica dei dati/i,
+      name: /Il catalogo nazionale della semantica dei dati/i,
     });
 
     expect(navigation).toBeInTheDocument();

@@ -7,7 +7,7 @@ const ProjectPage = () => {
     <div data-testid="ProjectPage">
       <IntroSection
         title="IL PROGETTO"
-        subtitle="Il catalogo nazionale della sematica dei dati"
+        subtitle="Il catalogo nazionale della semantica dei dati"
         description="Ricerca e riuso di asset semantici, tra cui ontologie, schemi dati e vocabolari controllati per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili"
         primaryButtonText="Vai alle domande frequenti"
         primaryButtonLink={routes.faq()}

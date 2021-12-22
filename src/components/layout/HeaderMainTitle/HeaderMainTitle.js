@@ -3,7 +3,7 @@ import { ReactComponent as Logo } from "../../../assets/images/dt-logo.svg";
 import { Link } from "react-router-dom";
 
 const siteTitle = "Schema";
-const siteTagLine = "Il catalogo nazionale della sematica dei dati";
+const siteTagLine = "Il catalogo nazionale della semantica dei dati";
 
 const HeaderMainTitle = () => (
   <div className="it-header-center-wrapper">

@@ -9,7 +9,7 @@ const ExplorePage = () => (
   <div data-testid="ExplorePage">
     <IntroSection
       title="esplora il catalogo"
-      subtitle="Il catalogo nazionale della sematica dei dati"
+      subtitle="Il catalogo nazionale della semantica dei dati"
       description="Ricerca e riuso di asset semantici, tra cui ontologie, schemi dati e
       vocabolari controllati per supportare lo sviluppo di API
       semanticamente e sintatticamente interoperabili"
