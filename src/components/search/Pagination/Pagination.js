@@ -2,6 +2,7 @@ import PropTypes, { arrayOf, oneOf, shape, string } from "prop-types";
 import { Icon } from "design-react-kit";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
+import rowStyle from "../../semantic-assets/AssetDetails/metadata/MetadataRow.module.css";
 
 export const PAGE_SIZE = 5;
 export const DEFAULT_OFFSET = 0;
@@ -62,7 +63,7 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             >
               <a
                 aria-current={pageNumber === currentPageNumber ? "page" : null}
-                className="page-link"
+                className={"page-link " + rowStyle.assetLink}
                 href="#"
                 onClick={(e) => {
                   onPageSelection((pageNumber - 1) * PAGE_SIZE);
