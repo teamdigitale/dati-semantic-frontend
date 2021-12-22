@@ -1,0 +1,19 @@
+.NoResults h2 {
+  font-size: 40px;
+}
+
+.abstract {
+  margin-top: 4px;
+  margin-bottom: 13px;
+  font-size: 18px;
+}
+
+.errorIcon {
+  width: auto;
+  height: 356px;
+  max-width: 560px;
+  max-height: 356px;
+  min-width: 56px;
+  min-height: 36px;
+  background-image: url("./noresults.svg");
+}

@@ -10,6 +10,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import { routes } from "../../../services/routes";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import Pagination from "../Pagination/Pagination";
+import NoResults from "../NoResults/NoResults";
 
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
@@ -27,6 +28,11 @@ jest.mock("../Pagination/Pagination", () => ({
   default: jest.fn(),
 }));
 
+jest.mock("../NoResults/NoResults", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
 const mockNavigation = jest.fn();
 
 jest.mock("react-router-dom", () => ({
@@ -37,10 +43,12 @@ jest.mock("react-router-dom", () => ({
 describe("<SearchPage />", () => {
   beforeEach(() => {
     SearchResults.mockReturnValue(<p>A paragraph</p>);
-    FilterPanel.mockReturnValue(<div>The filters</div>);
     FilterPanel.mockClear();
+    FilterPanel.mockReturnValue(<div>The filters</div>);
     search.mockClear();
     search.mockResolvedValue([]);
+    NoResults.mockClear();
+    NoResults.mockReturnValue(<div>Sorry, no results</div>);
   });
 
   test("it should mount", async () => {
@@ -160,6 +168,7 @@ describe("<SearchPage />", () => {
 
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());
       expect(SearchResults).toHaveBeenCalledWith({ items: someVocabs }, {});
+      expect(NoResults).not.toHaveBeenCalled();
       expect(Pagination).toHaveBeenCalled();
       expect(Pagination).toHaveBeenCalledWith(
         {
@@ -187,7 +196,22 @@ describe("<SearchPage />", () => {
 
     const errorAlert = screen.getByRole("alert");
     expect(errorAlert).toBeInTheDocument();
+
     expect(Pagination).not.toHaveBeenCalled();
+    expect(NoResults).not.toHaveBeenCalled();
+    expect(SearchResults).not.toHaveBeenCalled();
     expect(screen.queryByTestId("results-count").closest("h3")).toBeFalsy();
+  });
+
+  test("it should show an empty result component when no data is available", async () => {
+    search.mockClear();
+    search.mockResolvedValue({ data: [], offset: 0, totalCount: 0 });
+
+    renderWithRoute(<SearchPage />, routes.search({ types: [AT_VOCABULARY] }));
+
+    await waitFor(() => expect(NoResults).toHaveBeenCalled());
+
+    expect(NoResults).toHaveBeenCalled();
+    expect(SearchResults).not.toHaveBeenCalled();
   });
 });

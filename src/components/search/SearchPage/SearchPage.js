@@ -10,6 +10,7 @@ import Pagination, {
   PAGE_SIZE,
 } from "../Pagination/Pagination";
 import IntroSection from "../../common/IntroSection/IntroSection";
+import NoResults from "../NoResults/NoResults";
 
 const showItems = (isLoading, error, searchResult) => {
   if (isLoading) {
@@ -23,7 +24,17 @@ const showItems = (isLoading, error, searchResult) => {
       </Callout>
     );
   }
-  return <SearchResults items={searchResult.data} />;
+  if (searchResult.data && searchResult.data.length) {
+    return (
+      <div className="row mt-5">
+        <div className="col-12">
+          <SearchResults items={searchResult.data} />{" "}
+        </div>
+      </div>
+    );
+  } else {
+    return <NoResults />;
+  }
 };
 
 const onFilterUpdate = (navigate) => (newFilter) => {
@@ -111,11 +122,7 @@ const SearchPage = () => {
           </div>
           <div className="col-12 col-lg-8 col-md-8">
             {renderResultCount(isLoading, error, searchResult)}
-            <div className="row mt-5">
-              <div className="col-12">
-                {showItems(isLoading, error, searchResult)}
-              </div>
-            </div>
+            {showItems(isLoading, error, searchResult)}
             {renderPagination(isLoading, error, searchResult, filter, navigate)}
           </div>
         </div>

@@ -16,53 +16,34 @@ describe("<SearchResults />", () => {
     SearchResultItem.mockReturnValue(<div>The item</div>);
   });
 
-  test("it should mount with empty results", () => {
-    render(<SearchResults items={[]} />);
+  describe("with some vocabularies", () => {
+    const someVocabs = [
+      {
+        type: AT_VOCABULARY,
+        assetIri: "http://www.disney.com/characters/",
+        title: "Disney characters",
+        description: "Some description",
+      },
+      {
+        type: AT_VOCABULARY,
+        assetIri: "http://www.atptour.com/court-types",
+        title: "Tennis court types",
+        description: "Some other description",
+      },
+    ];
 
-    const searchResults = screen.getByTestId("SearchResults");
+    test("it should not show empty results message for valid items", () => {
+      render(<SearchResults items={someVocabs} />);
 
-    expect(searchResults).toBeInTheDocument();
-  });
+      const emptyMessage = screen.queryByTestId("EmptySearchResults");
 
-  describe("when empty", () => {
-    test("it should show empty results message", () => {
-      render(<SearchResults items={[]} />);
-
-      const emptyMessage = screen.getByRole("alert");
-
-      expect(emptyMessage).toBeInTheDocument();
-      expect(emptyMessage).toContainHTML("nessun elemento");
+      expect(emptyMessage).toBeFalsy();
     });
 
-    describe("with some vocabularies", () => {
-      const someVocabs = [
-        {
-          type: AT_VOCABULARY,
-          assetIri: "http://www.disney.com/characters/",
-          title: "Disney characters",
-          description: "Some description",
-        },
-        {
-          type: AT_VOCABULARY,
-          assetIri: "http://www.atptour.com/court-types",
-          title: "Tennis court types",
-          description: "Some other description",
-        },
-      ];
+    test("it should show as many items as in result", () => {
+      render(<SearchResults items={someVocabs} />);
 
-      test("it should not show empty results message for valid items", () => {
-        render(<SearchResults items={someVocabs} />);
-
-        const emptyMessage = screen.queryByTestId("EmptySearchResults");
-
-        expect(emptyMessage).toBeFalsy();
-      });
-
-      test("it should show as many items as in result", () => {
-        render(<SearchResults items={someVocabs} />);
-
-        expect(SearchResultItem).toHaveBeenCalledTimes(someVocabs.length);
-      });
+      expect(SearchResultItem).toHaveBeenCalledTimes(someVocabs.length);
     });
   });
 });
