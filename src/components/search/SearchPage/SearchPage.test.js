@@ -10,7 +10,7 @@ import SearchResults from "../SearchResults/SearchResults";
 import { routes } from "../../../services/routes";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import Pagination from "../Pagination/Pagination";
-import NoResults from "../NoResults/NoResults";
+import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
@@ -28,7 +28,7 @@ jest.mock("../Pagination/Pagination", () => ({
   default: jest.fn(),
 }));
 
-jest.mock("../NoResults/NoResults", () => ({
+jest.mock("../SearchResultAlert/SearchResultAlert", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -47,8 +47,8 @@ describe("<SearchPage />", () => {
     FilterPanel.mockReturnValue(<div>The filters</div>);
     search.mockClear();
     search.mockResolvedValue([]);
-    NoResults.mockClear();
-    NoResults.mockReturnValue(<div>Sorry, no results</div>);
+    SearchResultAlert.mockClear();
+    SearchResultAlert.mockReturnValue(<div>Sorry, no results</div>);
   });
 
   test("it should mount", async () => {
@@ -168,7 +168,7 @@ describe("<SearchPage />", () => {
 
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());
       expect(SearchResults).toHaveBeenCalledWith({ items: someVocabs }, {});
-      expect(NoResults).not.toHaveBeenCalled();
+      expect(SearchResultAlert).not.toHaveBeenCalled();
       expect(Pagination).toHaveBeenCalled();
       expect(Pagination).toHaveBeenCalledWith(
         {
@@ -192,15 +192,16 @@ describe("<SearchPage />", () => {
 
     renderWithRoute(<SearchPage />, routes.search({ types: [AT_VOCABULARY] }));
 
-    await waitFor(() => screen.getByRole("alert"));
+    await waitFor(() => expect(SearchResultAlert).toHaveBeenCalled());
 
-    const errorAlert = screen.getByRole("alert");
-    expect(errorAlert).toBeInTheDocument();
+    expect(SearchResultAlert).toHaveBeenCalledWith(
+      expect.objectContaining({ title: "Errore di caricamento" }),
+      {}
+    );
 
+    expect(SearchResultAlert).toHaveBeenCalled();
     expect(Pagination).not.toHaveBeenCalled();
-    expect(NoResults).not.toHaveBeenCalled();
     expect(SearchResults).not.toHaveBeenCalled();
-    expect(screen.queryByTestId("results-count").closest("h3")).toBeFalsy();
   });
 
   test("it should show an empty result component when no data is available", async () => {
@@ -209,9 +210,15 @@ describe("<SearchPage />", () => {
 
     renderWithRoute(<SearchPage />, routes.search({ types: [AT_VOCABULARY] }));
 
-    await waitFor(() => expect(NoResults).toHaveBeenCalled());
+    await waitFor(() => expect(SearchResultAlert).toHaveBeenCalled());
 
-    expect(NoResults).toHaveBeenCalled();
+    expect(SearchResultAlert).toHaveBeenCalledWith(
+      expect.objectContaining({ title: "Nessun risultato trovato" }),
+      {}
+    );
+
+    expect(SearchResultAlert).toHaveBeenCalled();
+    expect(Pagination).not.toHaveBeenCalled();
     expect(SearchResults).not.toHaveBeenCalled();
   });
 });

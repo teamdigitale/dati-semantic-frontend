@@ -4,13 +4,12 @@ import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
 import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
-import Callout from "../../common/Callout/Callout";
 import Pagination, {
   DEFAULT_OFFSET,
   PAGE_SIZE,
 } from "../Pagination/Pagination";
 import IntroSection from "../../common/IntroSection/IntroSection";
-import NoResults from "../NoResults/NoResults";
+import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 
 const showItems = (isLoading, error, searchResult) => {
   if (isLoading) {
@@ -18,23 +17,28 @@ const showItems = (isLoading, error, searchResult) => {
   }
   if (error) {
     return (
-      <Callout title="Errore di caricamento" type="danger">
-        <p>Non è possibile caricare i dati: </p>
-        <samp>{error}</samp>
-      </Callout>
+      <SearchResultAlert
+        title="Errore di caricamento"
+        message="Impossibile caricare i risultati, prova di nuovo."
+      />
     );
   }
-  if (searchResult.data && searchResult.data.length) {
+  if (!(searchResult.data && searchResult.data.length)) {
     return (
-      <div className="row mt-5">
-        <div className="col-12">
-          <SearchResults items={searchResult.data} />{" "}
-        </div>
-      </div>
+      <SearchResultAlert
+        title="Nessun risultato trovato"
+        message="La ricerca non ha prodotto nessun risultato, modifica i filtri o prova un'altra chiave di ricerca."
+      />
     );
-  } else {
-    return <NoResults />;
   }
+
+  return (
+    <div className="row mt-5">
+      <div className="col-12">
+        <SearchResults items={searchResult.data} />{" "}
+      </div>
+    </div>
+  );
 };
 
 const onFilterUpdate = (navigate) => (newFilter) => {

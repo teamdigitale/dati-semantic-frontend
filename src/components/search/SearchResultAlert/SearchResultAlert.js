@@ -1,21 +1,22 @@
 import React from "react";
-import styles from "./NoResults.module.css";
+import styles from "./SearchResultAlert.module.css";
+import { string } from "prop-types";
 
-const NoResults = () => (
+const SearchResultAlert = ({ title, message }) => (
   <div className={styles.NoResults} data-testid="NoResults">
-    <h2>Nessun risultato trovato</h2>
+    <h2>{title}</h2>
 
-    <div className={styles.abstract}>
-      La ricerca non ha prodotto nessun risultato, modifica i filtri o prova
-      un&apos;altra chiave di ricerca.
-    </div>
+    <div className={styles.abstract}>{message}</div>
 
     <div className={styles.errorIcon}> </div>
   </div>
 );
 
-NoResults.propTypes = {};
+SearchResultAlert.propTypes = {
+  title: string.isRequired,
+  message: string.isRequired,
+};
 
-NoResults.defaultProps = {};
+SearchResultAlert.defaultProps = {};
 
-export default NoResults;
+export default SearchResultAlert;
