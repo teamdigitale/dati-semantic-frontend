@@ -13,4 +13,12 @@ describe("laguages", () => {
       )
     ).toBe("Inglese");
   });
+
+  test("should return last segment of iri when language is unknown", () => {
+    expect(
+      getLanguageLabel(
+        "http://publications.europa.eu/resource/authority/language/HIN"
+      )
+    ).toBe("HIN");
+  });
 });

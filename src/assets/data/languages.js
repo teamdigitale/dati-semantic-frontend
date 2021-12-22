@@ -14,8 +14,14 @@ const data = [
     label_en: "German",
     label_it: "Tedesco",
   },
+  {
+    iri: "http://publications.europa.eu/resource/authority/language/FRA",
+    label_en: "French",
+    label_it: "Francese",
+  },
 ];
 
 export const getLanguageLabel = (iri) => {
-  return data.find((f) => f.iri === iri).label_it;
+  const lang = data.find((f) => f.iri === iri);
+  return lang ? lang.label_it : iri.split("/").pop();
 };
