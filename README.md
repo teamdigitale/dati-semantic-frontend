@@ -27,6 +27,12 @@ The frontend is composed of a website which enables anyone to browse and search 
 
 # How to start
 
+This application is built using React with APIs served from [dati-semantic-backend](https://github.com/teamdigitale/dati-semantic-backend).
+
+To just fix the UI of the application use `yarn start` and run the application to see your changes.
+
+If you also need to fix UI on searching and details page either bring the backend service up or start the mock server using `docker compose up mock-server`
+
 ## Install
 
 Steps for fresh install of app
@@ -62,6 +68,13 @@ To check for lint and checkstyle issues
 
 ### `yarn prepare`
 To install the husky pre commit hooks
+
+For every commit, build will be triggered using Github Actions. See file `node.js.yml` for details.
+
+On successful build - tests, lint etc passing - image will be published to GHCR - Github Container Registry
+and automatically deployed to the dev env.
+
+Dev env can be viewed [here](https://ndc-dev.apps.cloudpub.testedev.istat.it/).
 
 ## Documentation
 
