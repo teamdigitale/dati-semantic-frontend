@@ -12,3 +12,7 @@
 .propertyLink {
   font-size: 14px;
 }
+
+.assetLink:hover {
+  color: #084d91 !important;
+}

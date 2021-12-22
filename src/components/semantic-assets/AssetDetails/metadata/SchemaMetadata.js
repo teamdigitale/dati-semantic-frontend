@@ -24,7 +24,12 @@ const SchemaMetadata = (props) => {
               {props.keyClasses.map((keyClass, index) => (
                 <span key={keyClass.iri}>
                   {index > 0 && ", "}
-                  <a href={keyClass.iri} target="_blank" rel="noreferrer">
+                  <a
+                    href={keyClass.iri}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.assetLink}
+                  >
                     {keyClass.summary}
                   </a>
                 </span>

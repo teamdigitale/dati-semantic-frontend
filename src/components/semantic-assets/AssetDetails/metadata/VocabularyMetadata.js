@@ -15,7 +15,12 @@ const VocabularyMetadata = ({ details }) => {
           </div>
           <div className="col-8">
             <div className={"text-monospace " + rowStyle.propertyLink}>
-              <a href={details.endpointUrl} target="_blank" rel="noreferrer">
+              <a
+                href={details.endpointUrl}
+                target="_blank"
+                rel="noreferrer"
+                className={rowStyle.assetLink}
+              >
                 {details.endpointUrl}
               </a>
             </div>

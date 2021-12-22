@@ -9,7 +9,12 @@ const AssetIriRow = (props) => {
       <div className={"col-3 strong " + rowStyle.propertyName}>URI</div>
       <div className="col-8">
         <div className={"text-monospace " + rowStyle.propertyLink}>
-          <a href={props.assetIri} target="_blank" rel="noreferrer">
+          <a
+            href={props.assetIri}
+            target="_blank"
+            rel="noreferrer"
+            className={rowStyle.assetLink}
+          >
             {props.assetIri}
           </a>
         </div>
