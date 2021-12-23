@@ -77,6 +77,7 @@ and automatically deployed to the dev env.
 Dev env can be viewed [here](https://ndc-dev.apps.cloudpub.testedev.istat.it/).
 
 ## Documentation
+Documentation can be found here [Wiki](https://github.com/teamdigitale/dati-semantic-frontend/wiki)
 
 # How to contribute
 
@@ -92,5 +93,6 @@ Dev env can be viewed [here](https://ndc-dev.apps.cloudpub.testedev.istat.it/).
 
 # License 
 
-This work is licensed under the GNU Affero General Public License (AGPL), version 3 or later. You can find a copy of the license in the `LICENSE` file
+This work is licensed under the GNU Affero General Public License (AGPL), version 3 or later. You can find a copy of
+the license in the [LICENSE](https://github.com/teamdigitale/dati-semantic-frontend/blob/main/LICENSE) file
 
