@@ -14,7 +14,7 @@ const keysAndLabels = AT_TO_LABEL.map((ttl) => ({
 
 const AssetTypeFilter = ({ types, onTypesUpdate }) => {
   return (
-    <FilterPanelSection title="Tipologie">
+    <FilterPanelSection title="Filtra per Tipologie">
       <MultiCheckBoxFilter
         title="Tipologie"
         keysAndLabels={keysAndLabels}

@@ -7,7 +7,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
   const [value, setValue] = useState(pattern);
 
   return (
-    <FilterPanelSection title="Cerca per nome">
+    <FilterPanelSection title="Ricerca nel Catalogo">
       <div className="form-row" data-testid="PatternFilter">
         <form
           role="search"

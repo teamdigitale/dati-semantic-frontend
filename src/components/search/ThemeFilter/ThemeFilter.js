@@ -11,7 +11,7 @@ const keysAndLabels = getCategories().map((c) => ({
 const categoryKeys = keysAndLabels.map((c) => c.key);
 
 const ThemeFilter = ({ themes, onThemesUpdate }) => (
-  <FilterPanelSection title="Categorie">
+  <FilterPanelSection title="Filtra per Categorie">
     <MultiCheckBoxFilter
       keysAndLabels={keysAndLabels}
       title="Categorie"
