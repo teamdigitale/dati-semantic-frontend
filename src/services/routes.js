@@ -93,6 +93,10 @@ class Routes {
   explore() {
     return "/";
   }
+
+  apiDocs() {
+    return "/" + API_DOCS_URL;
+  }
 }
 
 export const routes = new Routes();
