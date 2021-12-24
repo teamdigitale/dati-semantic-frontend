@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import {
@@ -18,11 +18,13 @@ const ExploreByType = () => {
   };
 
   const renderType = (type) => {
+    const onTypeClick = useCallback(() => searchFor(type), [type]);
+
     return (
       <div className={"col-4"}>
         <button
           className={"btn btn-primary " + styles.typeButton}
-          onClick={() => searchFor(type)}
+          onClick={onTypeClick}
         >
           {getAssetPluralLabel(type)}
         </button>

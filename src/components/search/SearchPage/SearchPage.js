@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
@@ -38,12 +38,6 @@ const showItems = (isLoading, error, searchResult) => {
         <SearchResults items={searchResult.data} />{" "}
       </div>
     </div>
-  );
-};
-
-const onFilterUpdate = (navigate) => (newFilter) => {
-  navigate(
-    routes.search({ ...newFilter, limit: PAGE_SIZE, offset: DEFAULT_OFFSET })
   );
 };
 
@@ -114,15 +108,18 @@ const SearchPage = () => {
     doSearch();
   }, [urlSearch]);
 
+  const onFilterUpdate = useCallback((newFilter) => {
+    navigate(
+      routes.search({ ...newFilter, limit: PAGE_SIZE, offset: DEFAULT_OFFSET })
+    );
+  }, []);
+
   return (
     <div data-testid="SearchPage" className="mt-5">
       <div className="container main-container pl-4 pr-4">
         <div className="row">
           <div className="col-12 col-lg-4 col-md-4" role="search">
-            <FilterPanel
-              filter={filter}
-              onFilterUpdate={onFilterUpdate(navigate)}
-            />
+            <FilterPanel filter={filter} onFilterUpdate={onFilterUpdate} />
           </div>
           <div className="col-12 col-lg-8 col-md-8">
             {renderResultCount(isLoading, error, searchResult)}

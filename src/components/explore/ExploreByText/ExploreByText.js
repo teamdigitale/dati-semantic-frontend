@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
@@ -9,10 +9,15 @@ const ExploreByText = () => {
   const [pattern, setPattern] = useState("");
   const navigate = useNavigate();
 
-  const doSubmit = (e) => {
-    navigate(routes.search({ pattern: pattern }));
-    e.preventDefault();
-  };
+  const doSubmit = useCallback(
+    (e) => {
+      navigate(routes.search({ pattern: pattern }));
+      e.preventDefault();
+    },
+    [pattern]
+  );
+
+  const onPatternChange = useCallback((e) => setPattern(e.target.value), []);
 
   return (
     <ExploreSection title="Ricerca all'interno del catalogo">
@@ -31,7 +36,7 @@ const ExploreByText = () => {
                   className="form-control search-bar"
                   placeholder="es. persona, economia, attività"
                   value={pattern}
-                  onChange={(e) => setPattern(e.target.value)}
+                  onChange={onPatternChange}
                 />
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { getCategories } from "../../../assets/data/categories";
 import CategoryIcon from "../../common/CategoryIcon/CategoryIcon";
 import { useNavigate } from "react-router-dom";
@@ -16,12 +16,15 @@ const ExploreByCategory = () => {
     navigate(routes.search({ themes: [key] }));
   };
 
-  const categoryCells = categoryData.map((c) => ({
-    key: c.key,
-    icon: <CategoryIcon category={c} className="mt-5" />,
-    label: c.label,
-    onClick: () => searchFor(c.key),
-  }));
+  const categoryCells = categoryData.map((c) => {
+    const onCategoryClick = useCallback(() => searchFor(c.key), [c.key]);
+    return {
+      key: c.key,
+      icon: <CategoryIcon category={c} className="mt-5" />,
+      label: c.label,
+      onClick: onCategoryClick,
+    };
+  });
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">

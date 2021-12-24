@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import { arrayOf, func, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
@@ -15,22 +15,17 @@ const FilterPanel = ({ filter, onFilterUpdate }) => {
     onFilterUpdate({ ...filter, [field]: newValue });
   };
 
+  const onPatternUpdate = useCallback(onFilterFieldUpdate("pattern"), [filter]);
+  const onTypesUpdate = useCallback(onFilterFieldUpdate("types"), [filter]);
+  const onThemesUpdate = useCallback(onFilterFieldUpdate("themes"), [filter]);
+
   return (
     <div id="filter-panel" data-testid="FilterPanel">
       <div className="row d-flex justify-content-center p-3">
         <div className="col">
-          <PatternFilter
-            pattern={pattern}
-            onPatternUpdate={onFilterFieldUpdate("pattern")}
-          />
-          <AssetTypeFilter
-            types={types}
-            onTypesUpdate={onFilterFieldUpdate("types")}
-          />
-          <ThemeFilter
-            themes={themes}
-            onThemesUpdate={onFilterFieldUpdate("themes")}
-          />
+          <PatternFilter pattern={pattern} onPatternUpdate={onPatternUpdate} />
+          <AssetTypeFilter types={types} onTypesUpdate={onTypesUpdate} />
+          <ThemeFilter themes={themes} onThemesUpdate={onThemesUpdate} />
         </div>
       </div>
     </div>
