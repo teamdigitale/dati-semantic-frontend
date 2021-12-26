@@ -1,71 +1,20 @@
 const mbHelper = require("../mountebank-helper");
 const settings = require("../settings");
 
-const addService = () => {
-  const searchResponse = {
-    data: [
-      {
-        assetIri: "http://www.disney.com/characters",
-        type: "CONTROLLED_VOCABULARY",
-        title: "Disney characters",
-        description:
-          "Fully comprehensive list of Disney characters, including Lorem ipsum dolor sit amet, consectetur adipiscing " +
-          "elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis " +
-          "nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
-          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-        themes: [
-          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-        ],
-        rightsHolder: {
-          iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
-          summary: "Eurostat",
-        },
-        modifiedOn: "01/01/2020",
-      },
-      {
-        assetIri: "http://www.marvel.com/characters",
-        type: "ONTOLOGY",
-        title: "Marvel characters",
-        description: "Fully comprehensive list of Marvel characters",
-        themes: [
-          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-          "http://publications.europa.eu/resource/authority/data-theme/SOCI",
-        ],
-        rightsHolder: {
-          iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
-          summary: "Eurostat",
-        },
-        modifiedOn: "21/12/2021",
-      },
-      {
-        assetIri: "http://www.marvel.com/schema/character",
-        type: "SCHEMA",
-        title: "Marvel characters Schema",
-        description: "Fully comprehensive Schema of Marvel characters",
-        themes: [
-          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-          "http://publications.europa.eu/resource/authority/data-theme/SOCI",
-        ],
-        rightsHolder: {
-          iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
-          summary: "Eurostat",
-        },
-        versionInfo: "1.0.0",
-      },
-    ],
-    offset: 0,
-    limit: 10,
-    totalCount: 3,
-  };
+const buildData = (iri, summary, extraDetails) => {
+  const result = { iri };
+  result.summary = { assetIri: iri, ...summary };
+  result.details = { ...result.summary, ...extraDetails };
+  return result;
+};
 
-  let detailsResponse = {
-    assetIri:
-      "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
+const cvData = buildData(
+  "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
+  {
+    type: "CONTROLLED_VOCABULARY",
     title: "Vocabolario Controllato Forme Giuridiche",
     description:
       "Classificazione delle forme giuridiche per le organizzazioni disciplinate dal diritto pubblico e privato.",
-    type: "CONTROLLED_VOCABULARY",
-    modifiedOn: "2018-02-13",
     themes: [
       "http://publications.europa.eu/resource/authority/data-theme/ECON",
       "http://publications.europa.eu/resource/authority/data-theme/GOVE",
@@ -74,6 +23,9 @@ const addService = () => {
       iri: "http://spcdata.digitpa.gov.it/browse/page/Amministrazione/ISTAT",
       summary: "Istituto Nazionale di Statistica - ISTAT",
     },
+    modifiedOn: "2018-02-13",
+  },
+  {
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     distributionUrls: [
@@ -149,14 +101,145 @@ const addService = () => {
       },
     ],
     prefix: "Ontology prefix",
-  };
-  const stubs = [
-    {
+  }
+);
+
+const ontoData = buildData(
+  "https://w3id.org/italia/onto/IoT",
+  {
+    type: "ONTOLOGY",
+    title: "Ontologia Eventi IoT - Profilo applicativo italiano",
+    description:
+      "Questa è l'ontologia di eventi IoT. Essa può essere utilizzata per esempio per rappresentare serie temporali e misure di sensoristica di vario tipo. Attualmente l'ontologia include classi specializzate per la modellazione di flussi di traffico.",
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/TECH",
+      "http://publications.europa.eu/resource/authority/data-theme/TRAN",
+    ],
+    modifiedOn: "2017-11-26",
+    rightsHolder: {
+      iri: "http://spcdata.digitpa.gov.it/Amministrazione/agid",
+      summary: "Agenzia per l'Italia Digitale",
+    },
+  },
+  {
+    versionInfo:
+      "Versione 0.10 - 26 Novembre 2017 - rifattorizzazione tenendo in considerazione nuove proprietà di L0 e di TI-AP_IT (TIme - Italian Application Profile) e usando CLV-AP_IT (Core Location Vocabulary - Profilo Applicativo Italiano)",
+    accrualPeriodicity:
+      "http://publications.europa.eu/resource/authority/frequency/IRREG",
+    distributionUrls: [
+      "https://raw.githubusercontent.com/italia/daf-ontologie-vocabolari-controllati/master/Ontologie/IoT/latest",
+    ],
+    subjects: [],
+    contactPoint: {
+      iri: "https://w3id.org/italia/data/contact-point/onto-agid",
+      summary: "mailto:info@dati.gov.it",
+    },
+    publishers: [
+      {
+        iri: "http://spcdata.digitpa.gov.it/Amministrazione/agid",
+        summary: "Agenzia per l'Italia Digitale",
+      },
+    ],
+    creators: [
+      {
+        iri: "http://spcdata.digitpa.gov.it/Amministrazione/agid",
+        summary: "Agenzia per l'Italia Digitale",
+      },
+      {
+        iri: "https://w3id.org/italia/data/organization/support-unit/cnr-Z6HZEH/stlab",
+        summary:
+          "Istituto di Scienze e Tecnologie della Cognizione del CNR - Semantic Technology Lab (STLab)",
+      },
+    ],
+    issuedOn: "2017-05-15",
+    languages: [
+      "http://publications.europa.eu/resource/authority/language/ENG",
+      "http://publications.europa.eu/resource/authority/language/ITA",
+    ],
+    temporal: null,
+    conformsTo: [],
+    agencyId: null,
+    keyConcept: null,
+    endpointUrl: null,
+    keyClasses: [
+      {
+        iri: "https://w3id.org/italia/onto/IoT/Observation",
+        summary: "Osservazione",
+      },
+      {
+        iri: "https://w3id.org/italia/onto/IoT/Actuator",
+        summary: "Attuatore",
+      },
+      { iri: "https://w3id.org/italia/onto/IoT/Sensor", summary: "Sensore" },
+    ],
+    prefix: "iotapit",
+    projects: [
+      {
+        iri: "https://w3id.org/italia/data/project/DAF",
+        summary: null,
+      },
+      {
+        iri: "https://w3id.org/italia/data/project/OntoPiA",
+        summary:
+          "OntoPiA - la rete di ontologie della pubblica amministrazione italiana",
+      },
+    ],
+  }
+);
+
+const schemaData = buildData(
+  "https://w3id.org/italia/schema/person/v202108.01/person.oas3.yaml",
+  {
+    type: "SCHEMA",
+    title: "The Person schema",
+    description:
+      "This Person schema is derived from the [CPV/Person](https://w3id.org/italia/onto/CPV/Person) ontology.\n\nThis description field can be rendered in markdown or in text-only in catalogues\nand other interfaces.",
+    themes: [
+      "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+    ],
+    rightsHolder: {
+      iri: "http://spcdata.digitpa.gov.it/Amministrazione/agid",
+      summary: "Agenzia per l'Italia Digitale",
+    },
+    versionInfo: "202108.01.00",
+  },
+  {
+    modifiedOn: "2021-12-06",
+    distributionUrls: [
+      "https://github.com/ioggstream/json-semantic-playground/tree/master/assets/schemas/person/v202108.01",
+    ],
+    conformsTo: [{ iri: "https://w3id.org/italia/onto/CPV", summary: null }],
+    keyClasses: [
+      {
+        iri: "https://w3id.org/italia/onto/CPV/Person",
+        summary: "Person",
+      },
+      {
+        iri: "https://w3id.org/italia/onto/CPV/PersonTitle",
+        summary: "Person Title",
+      },
+    ],
+  }
+);
+
+const data = [cvData, ontoData, schemaData];
+
+const searchResponse = {
+  data: data.map((d) => d.summary),
+  offset: 0,
+  limit: 10,
+  totalCount: 3,
+};
+
+const addService = () => {
+  let stubs = data.map((d) => {
+    return {
       predicates: [
         {
           equals: {
             method: "GET",
             path: "/semantic-assets/by-iri",
+            query: { iri: d.iri },
           },
         },
       ],
@@ -169,35 +252,35 @@ const addService = () => {
               "Access-Control-Allow-Methods": "GET, PUT",
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(detailsResponse),
+            body: JSON.stringify(d.details),
           },
         },
       ],
-    },
-    {
-      predicates: [
-        {
-          equals: {
-            method: "GET",
-            path: "/semantic-assets",
-          },
+    };
+  });
+  stubs.push({
+    predicates: [
+      {
+        equals: {
+          method: "GET",
+          path: "/semantic-assets",
         },
-      ],
-      responses: [
-        {
-          is: {
-            statusCode: 200,
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-              "Access-Control-Allow-Methods": "GET, PUT",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(searchResponse),
+      },
+    ],
+    responses: [
+      {
+        is: {
+          statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "GET, PUT",
+            "Content-Type": "application/json",
           },
+          body: JSON.stringify(searchResponse),
         },
-      ],
-    },
-  ];
+      },
+    ],
+  });
 
   const imposter = {
     port: settings.main_service_port,
