@@ -1,6 +1,7 @@
 import { routes } from "../../../../services/routes";
 import "./ProjectBody.css";
 import { node, string } from "prop-types";
+import Anchor from "../../../common/Anchor/Anchor";
 
 const ProjectBodySection = ({ title, children }) => {
   return (
@@ -120,7 +121,7 @@ const ProjectBody = () => {
             semantici tramite uno SPARQL endpoint.
             <br />
             Puoi consultare le specifiche OAS3 in{" "}
-            <a href={routes.apiDocs()}>questa pagina</a>.
+            <Anchor href={routes.apiDocs()}>questa pagina</Anchor>.
           </p>
           <p>
             <br />

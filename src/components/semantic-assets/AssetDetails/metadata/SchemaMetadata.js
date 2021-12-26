@@ -3,6 +3,7 @@ import React from "react";
 import { asItalianDate } from "../../../../services/stringUtils";
 import styles from "./MetadataRow.module.css";
 import { arrayOf, shape, string } from "prop-types";
+import Anchor from "../../../common/Anchor/Anchor";
 
 const SchemaMetadata = (props) => {
   return (
@@ -24,14 +25,9 @@ const SchemaMetadata = (props) => {
               {props.keyClasses.map((keyClass, index) => (
                 <span key={keyClass.iri}>
                   {index > 0 && ", "}
-                  <a
-                    href={keyClass.iri}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={styles.assetLink}
-                  >
+                  <Anchor href={keyClass.iri} target="_blank" rel="noreferrer">
                     {keyClass.summary}
-                  </a>
+                  </Anchor>
                 </span>
               ))}
             </span>
