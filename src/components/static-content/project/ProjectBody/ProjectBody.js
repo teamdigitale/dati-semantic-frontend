@@ -1,37 +1,22 @@
 import { routes } from "../../../../services/routes";
 import "./ProjectBody.css";
-import { node, string } from "prop-types";
 import Anchor from "../../../common/Anchor/Anchor";
-
-const ProjectBodySection = ({ title, children }) => {
-  return (
-    <>
-      <h4>{title}</h4>
-      <div className="content pb-3">{children}</div>
-    </>
-  );
-};
-
-ProjectBodySection.propTypes = {
-  title: string.isRequired,
-  children: node,
-};
-ProjectBodySection.defaultPropTypes = {};
+import ContentParagraph from "../../../common/ContentParagraph/ContentParagraph";
 
 const ProjectBody = () => {
   return (
     <div data-testid="ProjectBody" className="project-body container">
       <div className="ml-5 pl-5 pt-5">
-        <ProjectBodySection title="Introduzione">
+        <ContentParagraph title="Introduzione">
           Schema è catalogo nazionale della semantica dei dati, nasce dalla
           collaborazione tra la Presidenza del Consiglio dei Ministri,
           l&apos;ISTAT, Agid, ISTC-CNR e PagoPa. Il catalogo consentirà di
           facilitare la ricerca e il riuso di asset semantici (includendo
           ontologie, schemi dati e vocabolari controllati), e di supportare lo
           sviluppo di API semanticamente e sintatticamente interoperabili.
-        </ProjectBodySection>
+        </ContentParagraph>
 
-        <ProjectBodySection title="Enti attuatori">
+        <ContentParagraph title="Enti attuatori">
           Nell’ambito dei progetti del Piano Nazionale di Ripresa e Resilienza,
           il Dipartimento per la Trasformazione Digitale come soggetto titolare
           della misura ha affidato la realizzazione del catalogo ad ISTAT. ISTAT
@@ -41,9 +26,9 @@ const ProjectBody = () => {
           per la Trasformazione Digitale, Istat, L&apos;istituto di Scienze e
           Tecnologie della Cognizione del Consiglio Nazionale delle Ricerche e
           AGID.
-        </ProjectBodySection>
+        </ContentParagraph>
 
-        <ProjectBodySection title="Quadro normativo">
+        <ContentParagraph title="Quadro normativo">
           <p>
             Da un punto di vista normativo, la necessità di garantire
             l’interoperabilità semantica nella pubblica amministrazione trova
@@ -66,9 +51,9 @@ const ProjectBody = () => {
             l’uniformità dei dati trasversali (ad es. persone, organizzazioni,
             servizi e luoghi).
           </p>
-        </ProjectBodySection>
+        </ContentParagraph>
 
-        <ProjectBodySection title="Vantaggi del progetto">
+        <ContentParagraph title="Vantaggi del progetto">
           <p>
             Il catalogo deve permettere di ricercare e utilizzare asset
             semantici condivisi, semplificando la condivisione di dati tra enti
@@ -98,9 +83,9 @@ const ProjectBody = () => {
               </li>
             </ul>
           </div>
-        </ProjectBodySection>
+        </ContentParagraph>
 
-        <ProjectBodySection title="Come utilizzare il catalogo?">
+        <ContentParagraph title="Come utilizzare il catalogo?">
           <p>
             Il catalogo serve a ricercare, consultare e riutilizzare ontologie,
             vocabolari controllati e schemi dati. In particolare è rivolto a
@@ -135,7 +120,7 @@ const ProjectBody = () => {
             Inoltre, a partire da Giugno 2022 gli sviluppatori di API potranno
             validare la semantica delle proprie API.
           </p>
-        </ProjectBodySection>
+        </ContentParagraph>
 
         <div className="mt-4 mb-5">
           <a className="btn btn-primary mr-4" href={routes.explore()}>
