@@ -78,6 +78,7 @@ const cvData = buildData(
         summary: "SKOS-1",
       },
     ],
+    agencyId: "ISTAT",
     keyConcept: "legalStatus",
     endpointUrl: "http://localhost:8080/vocabularies/ISTAT/legalStatus",
     keyClasses: [

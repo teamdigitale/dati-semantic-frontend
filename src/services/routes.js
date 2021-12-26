@@ -94,8 +94,14 @@ class Routes {
     return "/";
   }
 
-  apiDocs() {
-    return "/" + API_DOCS_URL;
+  apiDocs(vocabIri = null) {
+    if (!vocabIri) {
+      return "/" + API_DOCS_URL;
+    }
+    const paramString = new URLSearchParams([
+      ["vocabIri", vocabIri],
+    ]).toString();
+    return `/${API_DOCS_URL}?${paramString}`;
   }
 }
 

@@ -121,4 +121,22 @@ describe("Routes object", () => {
       });
     });
   });
+
+  describe("for swagger", () => {
+    describe("create URL", () => {
+      test("should return a simple swagger URL", () => {
+        const swaggerRoute = routes.apiDocs();
+
+        expect(swaggerRoute).toBe("/api-docs");
+      });
+
+      test("should return a search URL with an IRI", () => {
+        let iri = "http://www.vocabs.org/myvocab";
+        const swaggerRoute = routes.apiDocs(iri);
+
+        expect(swaggerRoute).toMatch(/\/api-docs\?.*/);
+        expect(swaggerRoute).toContain(encodeURIComponent(iri));
+      });
+    });
+  });
 });

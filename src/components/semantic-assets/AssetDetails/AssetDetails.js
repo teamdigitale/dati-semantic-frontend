@@ -12,7 +12,7 @@ import VocabularyMetadata from "./metadata/VocabularyMetadata";
 import getDetailsPropTypes from "./DetailsPropTypes";
 import OntologyMetadata from "./metadata/OntologyMetadata";
 import IntroSection from "../../common/IntroSection/IntroSection";
-import { DIGITALE_DOCS_URL } from "../../../services/routes";
+import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 
 const AssetDetails = ({ details }) => {
   return (
@@ -35,7 +35,7 @@ const AssetDetails = ({ details }) => {
               <div className="row pb-5" />
               <AssetDetailsButtons
                 type={details.type}
-                vocabUrl={details.endpointUrl}
+                vocabUrl={routes.apiDocs(details.assetIri)}
                 accessUrl={details.distributionUrls.filter((u) => u).pop()}
               />
               <div className="row">
