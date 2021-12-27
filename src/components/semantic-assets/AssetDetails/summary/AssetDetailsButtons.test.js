@@ -18,6 +18,7 @@ describe("<AssetDetailsButtons/>", () => {
     render(
       <AssetDetailsButtons
         type={AT_VOCABULARY}
+        assetIri={"CvIri"}
         vocabUrl={"CvUrl"}
         accessUrl={"gitUrl"}
       />
@@ -32,6 +33,7 @@ describe("<AssetDetailsButtons/>", () => {
     render(
       <AssetDetailsButtons
         type={AT_VOCABULARY}
+        assetIri={"CvIri"}
         vocabUrl={"CvUrl"}
         accessUrl={"gitUrl"}
       />
@@ -40,7 +42,9 @@ describe("<AssetDetailsButtons/>", () => {
     const sparqlButton = screen.getByText("sparql");
     expect(sparqlButton).toBeInTheDocument();
     fireEvent.click(sparqlButton);
-    expect(openSpy).toHaveBeenCalledWith("http://sparql.example.com");
+    expect(openSpy).toHaveBeenCalledWith(
+      "http://sparql.example.com?qtxt=select distinct ?prop ?value where { <CvIri> ?prop ?value}"
+    );
     openSpy.mockClear();
 
     const apiBtn = screen.getByText("api");

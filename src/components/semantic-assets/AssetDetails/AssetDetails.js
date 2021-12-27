@@ -35,6 +35,7 @@ const AssetDetails = ({ details }) => {
               <div className="row pb-5" />
               <AssetDetailsButtons
                 type={details.type}
+                assetIri={details.assetIri}
                 vocabUrl={routes.apiDocs(details.assetIri)}
                 accessUrl={details.distributionUrls.filter((u) => u).pop()}
               />

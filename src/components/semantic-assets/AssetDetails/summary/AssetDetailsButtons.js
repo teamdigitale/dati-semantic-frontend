@@ -20,7 +20,17 @@ const renderButton = (text, url, className) => {
   );
 };
 
+const SPARQL_QUERY_PARAM = "qtxt";
+
 const AssetDetailsButtons = (props) => {
+  const getAssetSparqlQuery = () => {
+    return (
+      "select distinct ?prop ?value where { <" +
+      props.assetIri +
+      "> ?prop ?value}"
+    );
+  };
+
   return (
     <div
       className="row justify-content-end"
@@ -30,7 +40,11 @@ const AssetDetailsButtons = (props) => {
         <div>
           {renderButton(
             "sparql",
-            getSparqlEndpoint(),
+            getSparqlEndpoint() +
+              "?" +
+              SPARQL_QUERY_PARAM +
+              "=" +
+              getAssetSparqlQuery(),
             "btn-outline-primary text-uppercase"
           )}
         </div>
@@ -53,6 +67,7 @@ const AssetDetailsButtons = (props) => {
 
 AssetDetailsButtons.propTypes = {
   type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
+  assetIri: PropTypes.string,
   vocabUrl: PropTypes.string,
   accessUrl: PropTypes.string.isRequired,
 };
