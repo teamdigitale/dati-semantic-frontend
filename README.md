@@ -31,7 +31,7 @@ This application is built using React with APIs served from [dati-semantic-backe
 
 To just fix the UI of the application use `yarn start` and run the application to see your changes.
 
-If you also need to fix UI on searching and details page either bring the backend service up or start the mock server using `docker compose up mock-server`
+If you also need to fix UI on searching and details page either bring the backend service up or start the mock server using `scripts/start-mock-server.sh`
 
 ## Install
 
