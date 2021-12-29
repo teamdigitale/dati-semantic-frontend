@@ -44,6 +44,9 @@ describe("<AssetDetails />", () => {
 
     const schemaMetadata = screen.queryByTestId("schema-metadata");
     expect(schemaMetadata).not.toBeInTheDocument();
+
+    const schemaDetails = screen.queryByTestId("schema-details");
+    expect(schemaDetails).not.toBeInTheDocument();
   });
 
   test("it should render all components for Schema", () => {
@@ -58,5 +61,8 @@ describe("<AssetDetails />", () => {
 
     const schemaMetadata = screen.getByTestId("schema-metadata");
     expect(schemaMetadata).toBeInTheDocument();
+
+    const schemaDetails = screen.getByTestId("schema-details");
+    expect(schemaDetails).toBeInTheDocument();
   });
 });

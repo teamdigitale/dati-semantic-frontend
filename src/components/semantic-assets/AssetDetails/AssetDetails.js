@@ -13,8 +13,11 @@ import getDetailsPropTypes from "./DetailsPropTypes";
 import OntologyMetadata from "./metadata/OntologyMetadata";
 import IntroSection from "../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
+import SwaggerUI from "swagger-ui-react";
 
 const AssetDetails = ({ details }) => {
+  const accessUrl = details.distributions.map((u) => u.accessUrl).pop();
+  const downloadUrl = details.distributions.map((u) => u.downloadUrl).pop();
   return (
     <div>
       <div
@@ -37,10 +40,7 @@ const AssetDetails = ({ details }) => {
                 type={details.type}
                 assetIri={details.assetIri}
                 vocabUrl={routes.apiDocs(details.assetIri)}
-                accessUrl={details.distributions
-                  .filter((u) => u)
-                  .map((u) => u.accessUrl)
-                  .pop()}
+                accessUrl={accessUrl}
               />
               <div className="row">
                 <div className="col-12">
@@ -60,11 +60,29 @@ const AssetDetails = ({ details }) => {
                           <OntologyMetadata details={details} />
                         )}
                         {details.type === AT_SCHEMA && (
-                          <SchemaMetadata
-                            rightsHolder={details.rightsHolder}
-                            issuedOn={details.issuedOn}
-                            keyClasses={details.keyClasses}
-                          />
+                          <div>
+                            <SchemaMetadata
+                              rightsHolder={details.rightsHolder}
+                              issuedOn={details.issuedOn}
+                              keyClasses={details.keyClasses}
+                            />
+                            <div
+                              className={"mt-5"}
+                              data-testid="schema-details"
+                            >
+                              <div className="category-top">
+                                <div
+                                  className={
+                                    "category " + styles.metadataHeader
+                                  }
+                                >
+                                  schema
+                                </div>
+                              </div>
+                              <hr className="border-black" />
+                              <SwaggerUI url={downloadUrl} />
+                            </div>
+                          </div>
                         )}
                       </div>
                     </div>

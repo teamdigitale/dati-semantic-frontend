@@ -17,10 +17,10 @@ const getDetailsPropTypes = () => {
       accrualPeriodicity: string,
       distributions: arrayOf(
         shape({
-          accessUrl: string.isRequired,
-          downloadUrl: string,
+          accessUrl: string,
+          downloadUrl: string.isRequired,
         })
-      ),
+      ).isRequired,
       subjects: arrayOf(string),
       contactPoint: shape({
         iri: string.isRequired,

@@ -29,10 +29,14 @@ export function assetDetails() {
       {
         accessUrl:
           "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle",
+        downloadUrl:
+          "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle",
       },
       {
         accessUrl:
           "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_CSV",
+        downloadUrl:
+          "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle",
       },
     ],
     subjects: [
