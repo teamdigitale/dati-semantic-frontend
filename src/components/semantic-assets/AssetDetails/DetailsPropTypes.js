@@ -15,7 +15,12 @@ const getDetailsPropTypes = () => {
         summary: string.isRequired,
       }).isRequired,
       accrualPeriodicity: string,
-      distributionUrls: arrayOf(string).isRequired,
+      distributions: arrayOf(
+        shape({
+          accessUrl: string.isRequired,
+          downloadUrl: string,
+        })
+      ),
       subjects: arrayOf(string),
       contactPoint: shape({
         iri: string.isRequired,

@@ -37,7 +37,10 @@ const AssetDetails = ({ details }) => {
                 type={details.type}
                 assetIri={details.assetIri}
                 vocabUrl={routes.apiDocs(details.assetIri)}
-                accessUrl={details.distributionUrls.filter((u) => u).pop()}
+                accessUrl={details.distributions
+                  .filter((u) => u)
+                  .map((u) => u.accessUrl)
+                  .pop()}
               />
               <div className="row">
                 <div className="col-12">

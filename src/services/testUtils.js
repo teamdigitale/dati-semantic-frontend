@@ -25,9 +25,15 @@ export function assetDetails() {
     },
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
-    distributionUrls: [
-      "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle",
-      "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_CSV",
+    distributions: [
+      {
+        accessUrl:
+          "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_RDF_Turtle",
+      },
+      {
+        accessUrl:
+          "http://dati.gov.it/data/resource/Distribution/OrgLegalStatus_CSV",
+      },
     ],
     subjects: [
       "http://eurovoc.europa.eu/100169",
