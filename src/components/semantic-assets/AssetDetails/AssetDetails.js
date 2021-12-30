@@ -40,7 +40,7 @@ const AssetDetails = ({ details }) => {
                 type={details.type}
                 assetIri={details.assetIri}
                 vocabUrl={routes.apiDocs(details.assetIri)}
-                accessUrl={accessUrl}
+                accessUrl={accessUrl ?? downloadUrl}
               />
               <div className="row">
                 <div className="col-12">
