@@ -83,8 +83,8 @@ const Swagger = () => {
           {!vocabDetails && (
             <ContentParagraph title="Come utilizzare le API per i vocabolari">
               <p>
-                Qui di seguito &egrav; visualizzata la specifica delle API REST
-                messe a disposizione dal Catalogo.
+                Qui di seguito è visualizzata la specifica delle API REST messe
+                a disposizione dal Catalogo.
               </p>
               {vocabExplanation(loading, vocabDetails, error)}
             </ContentParagraph>
