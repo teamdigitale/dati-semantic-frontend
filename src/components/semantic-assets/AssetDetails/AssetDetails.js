@@ -14,6 +14,7 @@ import OntologyMetadata from "./metadata/OntologyMetadata";
 import IntroSection from "../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 import SwaggerUI from "swagger-ui-react";
+import SchemaOnlyLayoutPlugin from "./SchemaUI";
 
 const AssetDetails = ({ details }) => {
   const accessUrl = details.distributions.map((u) => u.accessUrl).pop();
@@ -80,7 +81,11 @@ const AssetDetails = ({ details }) => {
                                 </div>
                               </div>
                               <hr className="border-black" />
-                              <SwaggerUI url={downloadUrl} />
+                              <SwaggerUI
+                                url={downloadUrl}
+                                plugins={[SchemaOnlyLayoutPlugin]}
+                                layout="SchemaOnlyLayout"
+                              />
                             </div>
                           </div>
                         )}
