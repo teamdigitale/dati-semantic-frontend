@@ -7,9 +7,15 @@ import Swagger from "./Swagger";
 import { screen } from "@testing-library/react";
 import SwaggerUI from "swagger-ui-react";
 import "@testing-library/jest-dom";
+import IntroSection from "../common/IntroSection/IntroSection";
 
 jest.mock("../../services/vocabService");
 jest.mock("swagger-ui-react", () => ({
+  __esModule: true,
+  default: jest.fn(),
+}));
+
+jest.mock("../common/IntroSection/IntroSection", () => ({
   __esModule: true,
   default: jest.fn(),
 }));
@@ -19,6 +25,8 @@ describe("<Swagger />", () => {
     getSemanticAssetByUri.mockClear();
     SwaggerUI.mockClear();
     SwaggerUI.mockReturnValue(<div>The UI</div>);
+    IntroSection.mockClear();
+    IntroSection.mockReturnValue(<div>Contribute section</div>);
     window._env_ = { API_URL: "abc" };
   });
 
@@ -40,6 +48,13 @@ describe("<Swagger />", () => {
         const error = screen.getByRole("alert");
         expect(error.textContent).toContain("Impossibile caricare");
       });
+    });
+  });
+
+  describe("when loaded", () => {
+    test("it should show a contribute section", () => {
+      renderWithRoute(<Swagger />, routes.apiDocs());
+      expect(IntroSection).toHaveBeenCalled();
     });
   });
 

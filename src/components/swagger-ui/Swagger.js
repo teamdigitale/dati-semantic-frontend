@@ -3,12 +3,13 @@ import { baseUrl } from "../../services/fetchUtils";
 import "swagger-ui-react/swagger-ui.css";
 import ContentParagraph from "../common/ContentParagraph/ContentParagraph";
 import Anchor from "../common/Anchor/Anchor";
-import { routes } from "../../services/routes";
+import { DIGITALE_DOCS_URL, routes } from "../../services/routes";
 import { AT_VOCABULARY } from "../../services/dataConstants";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "../../hooks/useQuery";
 import Callout from "../common/Callout/Callout";
 import { getSemanticAssetByUri } from "../../services/vocabService";
+import IntroSection from "../common/IntroSection/IntroSection";
 
 const genericVocabExplanation = () => (
   <p>
@@ -111,9 +112,15 @@ const Swagger = () => {
               </p>
             </ContentParagraph>
           )}
+          <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
         </div>
       </div>
-      <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
+      <IntroSection
+        title="CONTRIBUISCI"
+        subtitle="Scopri come contribuire"
+        primaryButtonText="Maggiori informazioni"
+        primaryButtonLink={DIGITALE_DOCS_URL}
+      />
     </div>
   );
 };
