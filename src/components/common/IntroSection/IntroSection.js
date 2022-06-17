@@ -26,12 +26,16 @@ const IntroSection = ({
             <a className={"btn btn-primary mr-4"} href={primaryButtonLink}>
               {primaryButtonText}
             </a>
-            <a
-              className={"btn btn-outline-primary " + styles.btnSecondary}
-              href={secondaryButtonLink}
-            >
-              {secondaryButtonText}
-            </a>
+            {secondaryButtonLink ? (
+              <a
+                className={"btn btn-outline-primary " + styles.btnSecondary}
+                href={secondaryButtonLink}
+              >
+                {secondaryButtonText}
+              </a>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

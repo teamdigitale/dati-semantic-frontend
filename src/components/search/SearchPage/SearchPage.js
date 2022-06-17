@@ -74,11 +74,11 @@ function renderResultCount(isLoading, error, searchResult) {
   return (
     <div className="row" data-testid="results-count">
       <div className="col-12">
-        <h2>
-          {!error && !isLoading && searchResult?.totalCount
-            ? `${searchResult?.totalCount} risultati`
-            : ""}
-        </h2>
+        {!error && !isLoading && searchResult?.totalCount ? (
+          <h2>{searchResult?.totalCount} risultati</h2>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
