@@ -32,6 +32,7 @@ const ExploreByText = () => {
                   </div>
                 </span>
                 <input
+                  aria-label="catalogo"
                   type="text"
                   className="form-control search-bar"
                   placeholder="es. persona, economia, attività"
@@ -41,11 +42,7 @@ const ExploreByText = () => {
               </div>
             </div>
             <div className="form-group col-md-3 p-2">
-              <button
-                type="submit"
-                className="btn btn-primary w-75 mx-auto"
-                role="submit"
-              >
+              <button type="submit" className="btn btn-primary w-75 mx-auto">
                 Cerca
               </button>
             </div>

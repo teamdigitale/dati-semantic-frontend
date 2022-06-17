@@ -10,14 +10,20 @@ const FooterLogos = () => {
         <div className="col-12">
           <div className="footer_logoteam">
             <div className="footer_logo_img">
-              <a href="https://innovazione.gov.it/dipartimento/">
+              <a
+                aria-label="Vai al sito del Dipartimento per la trasformazione digitale"
+                href="https://innovazione.gov.it/dipartimento/"
+              >
                 <Logo
                   className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
                   alt="Logo"
                   title="Logo"
                 />
               </a>
-              <a href="https://www.istat.it/" className="">
+              <a
+                aria-label="Vai al sito dell'ISTAT"
+                href="https://www.istat.it/"
+              >
                 <IstatLogo
                   className="istat-logo"
                   alt="ISTAT Logo"
