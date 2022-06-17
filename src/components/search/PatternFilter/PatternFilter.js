@@ -35,7 +35,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
               <button
                 type="submit"
                 className="btn btn-primary w-75 mx-auto m-4 p-2"
-                role="submit"
+                data-testid="submit"
               >
                 Cerca
               </button>

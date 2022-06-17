@@ -21,7 +21,7 @@ const ExploreByType = () => {
     const onTypeClick = useCallback(() => searchFor(type), [type]);
 
     return (
-      <div className={"col-4"}>
+      <div className={"col-4"} role="listitem">
         <button
           className={"btn btn-primary " + styles.typeButton}
           onClick={onTypeClick}

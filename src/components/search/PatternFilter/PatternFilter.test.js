@@ -50,7 +50,7 @@ describe("<PatternFilter />", () => {
     render(<PatternFilter pattern="abc" onPatternUpdate={patternUpdate} />);
 
     const searchBox = screen.getByRole("searchbox");
-    const searchBtn = screen.getByRole("submit");
+    const searchBtn = screen.getByTestId("submit");
 
     userEvent.type(searchBox, "{selectall}books");
     userEvent.click(searchBtn);

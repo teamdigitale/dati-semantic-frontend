@@ -28,7 +28,7 @@ describe("<AssetTypeFilter />", () => {
       <AssetTypeFilter types={[AT_ONTOLOGY]} onTypesUpdate={typeUpdate} />
     );
 
-    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    expect(screen.getByTestId("listbox")).toBeInTheDocument();
   });
 
   test("it should display options (including 'All')", () => {
@@ -36,7 +36,7 @@ describe("<AssetTypeFilter />", () => {
       <AssetTypeFilter types={[AT_ONTOLOGY]} onTypesUpdate={typeUpdate} />
     );
 
-    const options = screen.getAllByRole("option");
+    const options = screen.getAllByTestId("option");
     expect(options.length).toEqual(1 + SUPPORTED_ASSET_TYPES.length);
   });
 

@@ -31,7 +31,11 @@ const ExploreByCategory = () => {
       <div className="ml-4 pl-5 mt-4" role="list">
         {chunk(categoryCells, 3).map((row, rowIndex) => {
           return (
-            <div key={"row-" + rowIndex} className="row ml-0 mb-4 pb-4">
+            <div
+              key={"row-" + rowIndex}
+              role="listitem"
+              className="row ml-0 mb-4 pb-4"
+            >
               {row.map((item) => {
                 return (
                   <div key={item.key} className={"col-4"}>

@@ -10,6 +10,7 @@ const FaqBody = () => {
       >
         <div className="collapse-header" id="question1">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer1"
             aria-expanded="true"
@@ -34,6 +35,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question2">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer2"
             aria-expanded="true"
@@ -61,6 +63,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question3">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer3"
             aria-expanded="false"
@@ -86,6 +89,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question4">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer4"
             aria-expanded="false"
@@ -121,6 +125,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question5">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer5"
             aria-expanded="false"
@@ -159,6 +164,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question6">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer6"
             aria-expanded="false"
@@ -186,6 +192,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question7">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer7"
             aria-expanded="false"
@@ -213,6 +220,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question8">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer8"
             aria-expanded="false"
@@ -239,6 +247,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question9">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer9"
             aria-expanded="false"
@@ -267,6 +276,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question10">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer10"
             aria-expanded="false"
@@ -294,6 +304,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question11">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer11"
             aria-expanded="false"
@@ -321,6 +332,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question12">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer12"
             aria-expanded="false"
@@ -345,6 +357,7 @@ const FaqBody = () => {
 
         <div className="collapse-header" id="question13">
           <button
+            role="tab"
             data-toggle="collapse"
             data-target="#accordionAnswer13"
             aria-expanded="false"
