@@ -108,6 +108,10 @@ const SearchPage = () => {
     doSearch();
   }, [urlSearch]);
 
+  useEffect(() => {
+    document.title = "Search - Team Digitale - National Data Catalog";
+  });
+
   const onFilterUpdate = useCallback((newFilter) => {
     navigate(
       routes.search({ ...newFilter, limit: PAGE_SIZE, offset: DEFAULT_OFFSET })

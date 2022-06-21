@@ -1,8 +1,13 @@
 import IntroSection from "../../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
 import ProjectBody from "../ProjectBody/ProjectBody";
+import { useEffect } from "react";
 
 const ProjectPage = () => {
+  useEffect(() => {
+    document.title = "Il progetto - Team Digitale - National Data Catalog";
+  });
+
   return (
     <div data-testid="ProjectPage">
       <IntroSection

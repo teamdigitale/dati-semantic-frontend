@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import FaqBody from "../FaqBody/FaqBody";
 import IntroSection from "../../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
 
 const FaqPage = () => {
+  useEffect(() => {
+    document.title = "FAQ - Team Digitale - National Data Catalog";
+  });
+
   return (
     <div data-testid="FaqPage">
       <IntroSection
