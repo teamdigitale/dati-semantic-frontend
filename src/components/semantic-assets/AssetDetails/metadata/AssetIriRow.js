@@ -21,6 +21,7 @@ const AssetIriRow = (props) => {
       </div>
       <div className="col-1">
         <a
+          aria-label="Vai all'URI dell'asset (si apre in un'altra scheda)"
           className="btn btn-sm pt-0"
           href={props.assetIri}
           target="_blank"
