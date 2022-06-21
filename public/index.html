@@ -16,22 +16,19 @@
   <script src="%PUBLIC_URL%/env-config.js"></script>
   <!-- Matomo -->
   <script>
+    var idSite = 34;
+    var matomoTrackingApiUrl = 'https://analytics.istat.it/matomo.php';
+
     var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['setTrackerUrl', matomoTrackingApiUrl]);
+    _paq.push(['setSiteId', idSite]);
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.www.schema.gov.it"]);
+    _paq.push(["setCookieDomain", "*.%PUBLIC_URL%"]);
     _paq.push(['setSecureCookie', true]);
-    _paq.push(["setDomains", ["*.www.schema.gov.it", "*.www.schema.gov.it"]]);
     _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function () {
-      var u = "https://analytics.istat.it/";
-      _paq.push(['setTrackerUrl', u + 'matomo.php']);
-      _paq.push(['setSiteId', '34']);
-      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
-      g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
-    })();
+    _paq.push(['enableLinkTracking']);   
   </script>
+  <script src="https://analytics.istat.it/matomo.js" async defer></script>
   <noscript>
     <p><img src="https://analytics.istat.it/matomo.php?idsite=33&amp;rec=1" style="border:0;" alt="" /></p>
   </noscript>
