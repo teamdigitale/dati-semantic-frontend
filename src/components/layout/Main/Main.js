@@ -16,9 +16,10 @@ import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
 import ProjectPage from "../../static-content/project/ProjectPage/ProjectPage";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Swagger from "../../swagger-ui/Swagger";
+import PropTypes from "prop-types";
 
-const Main = () => (
-  <main>
+const Main = ({ childRef }) => (
+  <main id="main" ref={childRef} tabIndex={-1}>
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<ExplorePage />} />
@@ -35,7 +36,9 @@ const Main = () => (
   </main>
 );
 
-Main.propTypes = {};
+Main.propTypes = {
+  childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+};
 
 Main.defaultProps = {};
 
