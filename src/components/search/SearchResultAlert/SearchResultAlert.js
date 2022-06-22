@@ -4,7 +4,7 @@ import { string } from "prop-types";
 
 const SearchResultAlert = ({ title, message }) => (
   <div className={styles.NoResults} data-testid="NoResults">
-    <h2>{title}</h2>
+    <h2 role="status">{title}</h2>
 
     <div className={styles.abstract}>{message}</div>
 
