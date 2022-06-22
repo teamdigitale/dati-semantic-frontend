@@ -3,7 +3,9 @@ import { node, string } from "prop-types";
 
 const FilterPanelSection = ({ title, children }) => (
   <div className="mb-5 mt-2" data-testid="FilterPanelSection">
-    <h6 className="mb-4 text-uppercase">{title}</h6>
+    <h6 className="mb-4 text-uppercase" id={title.split(" ").join("_")}>
+      {title}
+    </h6>
     {children}
   </div>
 );

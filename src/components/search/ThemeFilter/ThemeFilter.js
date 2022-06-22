@@ -15,6 +15,7 @@ const ThemeFilter = ({ themes, onThemesUpdate }) => (
     <MultiCheckBoxFilter
       keysAndLabels={keysAndLabels}
       title="Categorie"
+      labbledById="Filtra_per_Categorie"
       selection={themes}
       onSelectionUpdate={onThemesUpdate}
     />

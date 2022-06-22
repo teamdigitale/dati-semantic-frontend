@@ -36,7 +36,7 @@ const Pagination = ({ page, filter, onPageSelect }) => {
   return (
     <nav
       className="pagination-wrapper justify-content-center"
-      aria-label="Esempio di navigazione della pagina"
+      aria-label="Sfoglia pagine dei risultati"
       data-testid="pagination"
     >
       <ul className="pagination">

@@ -14,6 +14,7 @@ const AssetTypeChip = ({ type, bgColor }) => (
         : "bg-800 chip chip-simple chip-lg"
     }
     data-testid="AssetTypeChip"
+    aria-label={"Tipologia:" + getAssetLabel(type)}
   >
     <span className={styles.label + " chip-label"}>{getAssetLabel(type)}</span>
   </div>

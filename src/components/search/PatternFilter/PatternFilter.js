@@ -11,6 +11,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
       <div className="form-row" data-testid="PatternFilter">
         <form
           role="search"
+          aria-labelledby="Ricerca_nel_Catalogo"
           onSubmit={(e) => {
             onPatternUpdate(value);
             e.preventDefault();

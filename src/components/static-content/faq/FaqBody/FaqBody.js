@@ -14,7 +14,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer1"
             aria-expanded="true"
-            aria-controls="accordionQuestion1"
+            aria-controls="question1"
           >
             Cos’è l’interoperabilità semantica?
           </button>
@@ -39,7 +39,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer2"
             aria-expanded="true"
-            aria-controls="accordionQuestion2"
+            aria-controls="question2"
           >
             Che cos’è il catalogo nazionale per l’interoperabilità semantica?
           </button>
@@ -67,7 +67,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer3"
             aria-expanded="false"
-            aria-controls="accordionQuestion3"
+            aria-controls="question3"
           >
             A chi è rivolto il catalogo?
           </button>
@@ -93,7 +93,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer4"
             aria-expanded="false"
-            aria-controls="accordionQuestion4"
+            aria-controls="question4"
           >
             A cosa serve e quali sono le sue funzionalità?
           </button>
@@ -129,7 +129,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer5"
             aria-expanded="false"
-            aria-controls="accordionQuestion5"
+            aria-controls="question5"
           >
             Quali problemi risolve il catalogo?
           </button>
@@ -168,7 +168,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer6"
             aria-expanded="false"
-            aria-controls="accordionQuestion6"
+            aria-controls="question6"
           >
             Qual è un caso d’uso di esempio?
           </button>
@@ -196,7 +196,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer7"
             aria-expanded="false"
-            aria-controls="accordionQuestion7"
+            aria-controls="question7"
           >
             Chi pubblica i contenuti? I dati provengono da fonti ufficiali?
           </button>
@@ -224,7 +224,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer8"
             aria-expanded="false"
-            aria-controls="accordionQuestion8"
+            aria-controls="question8"
           >
             I dati contenuti rispettano le norme vigenti sulla privacy?
           </button>
@@ -251,7 +251,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer9"
             aria-expanded="false"
-            aria-controls="accordionQuestion9"
+            aria-controls="question9"
           >
             Il catalogo nazionale è open source? Come posso contribuire al suo
             sviluppo?
@@ -280,7 +280,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer10"
             aria-expanded="false"
-            aria-controls="accordionQuestion10"
+            aria-controls="question10"
           >
             Come faccio ad utilizzare il catalogo?
           </button>
@@ -308,7 +308,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer11"
             aria-expanded="false"
-            aria-controls="accordionQuestion11"
+            aria-controls="question11"
           >
             Come posso contribuire alla pubblicazione di nuovi asset semantici?
           </button>
@@ -336,7 +336,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer12"
             aria-expanded="false"
-            aria-controls="accordionQuestion12"
+            aria-controls="question12"
           >
             Chi gestisce il catalogo?
           </button>
@@ -361,7 +361,7 @@ const FaqBody = () => {
             data-toggle="collapse"
             data-target="#accordionAnswer13"
             aria-expanded="false"
-            aria-controls="accordionQuestion13"
+            aria-controls="question13"
           >
             Chi gestisce e governa la pubblicazione di asset semantici?
           </button>
