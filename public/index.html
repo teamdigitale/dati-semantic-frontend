@@ -22,7 +22,7 @@
     _paq.push(['setTrackerUrl', matomoTrackingApiUrl]);
     _paq.push(['setSiteId', idSite]);
     _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-    _paq.push(["setCookieDomain", "*.%PUBLIC_URL%"]);
+    _paq.push(["setCookieDomain", "*."+document.domain]);
     _paq.push(['setSecureCookie', true]);
     _paq.push(['trackPageView']);
     _paq.push(['enableLinkTracking']);   
