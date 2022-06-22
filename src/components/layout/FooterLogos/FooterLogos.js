@@ -16,19 +16,15 @@ const FooterLogos = () => {
               >
                 <Logo
                   className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
-                  alt="Logo"
-                  title="Logo"
+                  alt=""
+                  title="Dipartimento per la trasformazione digitale"
                 />
               </a>
               <a
                 aria-label="Vai al sito dell'ISTAT"
                 href="https://www.istat.it/"
               >
-                <IstatLogo
-                  className="istat-logo"
-                  alt="ISTAT Logo"
-                  title="ISTAT Logo"
-                />
+                <IstatLogo className="istat-logo" alt="" title="Istat" />
               </a>
             </div>
           </div>

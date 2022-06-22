@@ -28,7 +28,7 @@ const ExploreByText = () => {
               <div className="search-group input-group">
                 <span className="input-group-append">
                   <div className="input-group-text bg-transparent">
-                    <Icon icon="it-search" size="sm" />
+                    <Icon icon="it-search" size="sm" alt="" />
                   </div>
                 </span>
                 <input

@@ -15,8 +15,8 @@ const HeaderMainTitle = () => (
               <Link to="/" className="focus-element" aria-label="Vai alla home">
                 <Logo
                   className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
-                  alt="Logo"
-                  title="Logo"
+                  alt=""
+                  title="Home"
                   width="78"
                   height="78"
                 />
