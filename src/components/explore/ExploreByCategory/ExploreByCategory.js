@@ -38,7 +38,7 @@ const ExploreByCategory = () => {
             >
               {row.map((item) => {
                 return (
-                  <div key={item.key} className={"col-4"}>
+                  <div key={item.key} className={"col-sm"}>
                     <div
                       className={"shadow-lg category-tile " + styles.item}
                       onClick={item.onClick}
