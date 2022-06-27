@@ -8,7 +8,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
 
   return (
     <FilterPanelSection title="Ricerca nel Catalogo">
-      <div className="form-row" data-testid="PatternFilter">
+      <div className="form-row" data-testid="PatternFilter" role="form">
         <form
           role="search"
           aria-labelledby="Ricerca_nel_Catalogo"

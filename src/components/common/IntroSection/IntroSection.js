@@ -12,7 +12,11 @@ const IntroSection = ({
   secondaryButtonLink,
 }) => {
   return (
-    <div data-testid="Header" className="section section-muted">
+    <div
+      data-testid="Header"
+      className="section section-muted"
+      role="complementary"
+    >
       <div className="container">
         <div className="pl-5 ml-5 col-md-8">
           <div className={"text-uppercase font-weight-bold " + styles.title}>

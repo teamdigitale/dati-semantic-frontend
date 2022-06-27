@@ -21,7 +21,7 @@ const ExploreByText = () => {
 
   return (
     <ExploreSection title="Ricerca all'interno del catalogo">
-      <div className="pt-3 ml-4 pl-5">
+      <div className="pt-3 ml-4 pl-5" role="form">
         <form role="search" onSubmit={doSubmit}>
           <div className="form-row">
             <div className="form-group col-md-7 p-2">

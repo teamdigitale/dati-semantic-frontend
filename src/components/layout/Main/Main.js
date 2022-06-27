@@ -19,7 +19,7 @@ import Swagger from "../../swagger-ui/Swagger";
 import PropTypes from "prop-types";
 
 const Main = ({ childRef }) => (
-  <main id="main" ref={childRef} tabIndex={-1}>
+  <main id="main" ref={childRef} tabIndex={-1} role="main">
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<ExplorePage />} />

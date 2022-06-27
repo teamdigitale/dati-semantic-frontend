@@ -3,7 +3,7 @@ import styles from "./FooterLinks.module.css";
 
 const FooterLinks = () => {
   return (
-    <div className={styles.footerLinks}>
+    <div className={styles.footerLinks} role="contentinfo">
       <div className="container">
         <div className="row">
           <p className="justify-content-center pt-3 pr-3">
