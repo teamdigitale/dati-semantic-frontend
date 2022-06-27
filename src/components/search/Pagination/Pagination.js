@@ -51,7 +51,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             }}
           >
             <Icon icon="it-chevron-left" />
-            <span className="sr-only">Pagina precedente</span>
+            <span className="sr-only" style={{ color: "black" }}>
+              Pagina precedente
+            </span>
           </a>
         </li>
         {getPageSlidingWindow(currentPageNumber, totalPages).map(
@@ -89,7 +91,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <span className="sr-only">Pagina successiva</span>
+            <span className="sr-only" style={{ color: "black" }}>
+              Pagina successiva
+            </span>
             <Icon icon="it-chevron-right" />
           </a>
         </li>

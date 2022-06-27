@@ -9,7 +9,7 @@
 
 .scrollable {
   height: 170px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .scrollable:hover {

@@ -21,7 +21,6 @@ const SearchResultItem = ({ item }) => {
         <a
           className="card-body stretched-link text-decoration-none"
           href={getDetailsPageUrl(item.assetIri)}
-          aria-label={item.title}
         >
           <div
             className={

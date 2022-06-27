@@ -54,35 +54,45 @@ const HeaderMainMenu = () => {
                     Main Menu
                   </h2>
                   <div className="menu-wrapper">
-                    <ul className="navbar-nav float-left">
-                      {menuItems.map((menuItem) => (
-                        <li className="nav-item megamenu" key={menuItem.label}>
-                          <Link
-                            className={
-                              "nav-link justify-content-center focus-element" +
-                              (isActive(menuItem.href) ? " active" : "")
-                            }
-                            to={menuItem.href}
+                    <ul className="navbar-nav container" role="list">
+                      <div className="container_left">
+                        {menuItems.map((menuItem) => (
+                          <li
+                            className="nav-item megamenu"
+                            key={menuItem.label}
+                            role="listitem"
                           >
-                            <span>{menuItem.label}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="navbar-nav float-right">
-                      {additionalMenuItems.map((menuItem) => (
-                        <li className="nav-item megamenu" key={menuItem.label}>
-                          <Link
-                            className={
-                              "nav-link justify-content-center focus-element" +
-                              (isActive(menuItem.href) ? " active" : "")
-                            }
-                            to={menuItem.href}
+                            <Link
+                              className={
+                                "nav-link justify-content-center focus-element" +
+                                (isActive(menuItem.href) ? " active" : "")
+                              }
+                              to={menuItem.href}
+                            >
+                              <span>{menuItem.label}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </div>
+                      <div className="container_right">
+                        {additionalMenuItems.map((menuItem) => (
+                          <li
+                            className="nav-item megamenu"
+                            key={menuItem.label}
+                            role="listitem"
                           >
-                            <span>{menuItem.label}</span>
-                          </Link>
-                        </li>
-                      ))}
+                            <Link
+                              className={
+                                "nav-link justify-content-center focus-element" +
+                                (isActive(menuItem.href) ? " active" : "")
+                              }
+                              to={menuItem.href}
+                            >
+                              <span>{menuItem.label}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </div>
                     </ul>
                   </div>
                 </div>

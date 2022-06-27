@@ -12,7 +12,11 @@ const HeaderMainTitle = () => (
         <div className="col-12">
           <div className="it-header-center-content-wrapper">
             <div className="it-brand-wrapper">
-              <Link to="/" className="focus-element" aria-label="Vai alla home">
+              <Link
+                to="/"
+                className="focus-element"
+                aria-label="(s schema il catalogo nazionale della semantica dei dati) - Vai alla home"
+              >
                 <Logo
                   className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
                   alt=""

@@ -2,3 +2,19 @@
   font-size: 18px;
   font-family: "Titillium Web Semi Bold";
 }
+
+.container {
+  margin: 0;
+}
+
+.container_left {
+  /* Sticks to the left */
+  margin-right: auto;
+  display: flex;
+}
+
+.container_right {
+  /* Sticks to the right */
+  margin-left: auto;
+  display: flex;
+}
