@@ -5,11 +5,13 @@ div:empty {
 a:empty {
   display: none;
 }
+
 @media (max-width: 768px) {
   [class*="col-"] {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 }
+
 .title {
   margin-bottom: 0px;
   font-size: 16px;
@@ -23,6 +25,7 @@ a:empty {
   letter-spacing: -1px;
   color: #000;
   padding-top: 14px;
+  margin-bottom: 0px;
 }
 
 .description {

@@ -22,9 +22,7 @@ const IntroSection = ({
           <div className={"text-uppercase font-weight-bold " + styles.title}>
             {title}
           </div>
-          <div className={styles.subtitle + " font-weight-bold"}>
-            {subtitle}
-          </div>
+          <h3 className={styles.subtitle + " font-weight-bold"}>{subtitle}</h3>
           <div className={styles.description}>{description}</div>
           <div className={"mt-4 " + styles.buttonSection}>
             <a className={"btn btn-primary mr-4"} href={primaryButtonLink}>

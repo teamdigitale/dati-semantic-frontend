@@ -1,6 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../../assets/images/dt-logo.svg";
 import { Link } from "react-router-dom";
+import "./HeaderMainTitle.css";
 
 const siteTitle = "Schema";
 const siteTagLine = "Il catalogo nazionale della semantica dei dati";
@@ -25,8 +26,8 @@ const HeaderMainTitle = () => (
                   height="78"
                 />
                 <div className="it-brand-text">
-                  <h2 className="no_toc">{siteTitle}</h2>
-                  <h3 className="no_toc d-none d-md-block">{siteTagLine}</h3>
+                  <h1 className="main-heading">{siteTitle}</h1>
+                  <h2 className="sub-heading">{siteTagLine}</h2>
                 </div>
               </Link>
             </div>
