@@ -18,7 +18,7 @@ const IntroSection = ({
       role="complementary"
     >
       <div className="container">
-        <div className="pl-5 ml-5 col-md-8">
+        <div className="offset-lg-1 col-lg-6 col-md-8 mb-0 mb-lg-4">
           <div className={"text-uppercase font-weight-bold " + styles.title}>
             {title}
           </div>
