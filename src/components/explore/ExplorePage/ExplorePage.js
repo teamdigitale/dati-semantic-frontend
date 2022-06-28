@@ -7,7 +7,7 @@ import IntroSection from "../../common/IntroSection/IntroSection";
 
 const ExplorePage = () => {
   useEffect(() => {
-    document.title = "Team Digitale - National Data Catalog";
+    document.title = "Catalogo Nazionale Dati";
   });
 
   return (

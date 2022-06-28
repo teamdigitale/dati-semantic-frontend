@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 const ProjectPage = () => {
   useEffect(() => {
-    document.title = "Il progetto - Team Digitale - National Data Catalog";
+    document.title = "Il progetto - Catalogo Nazionale Dati";
   });
 
   return (

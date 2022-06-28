@@ -109,7 +109,7 @@ const SearchPage = () => {
   }, [urlSearch]);
 
   useEffect(() => {
-    document.title = "Search - Team Digitale - National Data Catalog";
+    document.title = "Search - Catalogo Nazionale Dati";
   });
 
   const onFilterUpdate = useCallback((newFilter) => {

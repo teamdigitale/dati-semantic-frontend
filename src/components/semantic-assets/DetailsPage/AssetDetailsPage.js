@@ -26,7 +26,7 @@ const AssetDetailsPage = () => {
   }, [query]);
 
   useEffect(() => {
-    document.title = "Asset - Team Digitale - National Data Catalog";
+    document.title = "Asset - Catalogo Nazionale Dati";
   });
 
   const showErrors = () => {

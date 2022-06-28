@@ -4,8 +4,7 @@ import Callout from "../../common/Callout/Callout";
 
 const NotFound = () => {
   useEffect(() => {
-    document.title =
-      "Pagina non trovata - Team Digitale - National Data Catalog";
+    document.title = "Pagina non trovata - Catalogo Nazionale Dati";
   });
 
   return (

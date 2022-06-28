@@ -5,7 +5,7 @@ import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
 
 const FaqPage = () => {
   useEffect(() => {
-    document.title = "FAQ - Team Digitale - National Data Catalog";
+    document.title = "FAQ - Catalogo Nazionale Dati";
   });
 
   return (
