@@ -55,7 +55,7 @@ const HeaderMainMenu = () => {
                   </h2>
                   <div className="menu-wrapper">
                     <ul className="navbar-nav container" role="list">
-                      <div className="container_left">
+                      <div className="mainmenu_left">
                         {menuItems.map((menuItem) => (
                           <li
                             className="nav-item megamenu"
@@ -74,7 +74,7 @@ const HeaderMainMenu = () => {
                           </li>
                         ))}
                       </div>
-                      <div className="container_right">
+                      <div className="mainmenu_right">
                         {additionalMenuItems.map((menuItem) => (
                           <li
                             className="nav-item megamenu"
