@@ -15,7 +15,7 @@
   <script src="%PUBLIC_URL%/env-config.js"></script>
   <!-- Matomo -->
   <script>
-    var idSite = 35;
+    var idSite = Number(window._env_ && window._env_.MATOMO_SITE_ID || 35);
     var matomoTrackingApiUrl = 'https://analytics.istat.it/matomo.php';
 
     var _paq = window._paq = window._paq || [];
@@ -30,7 +30,7 @@
   </script>
   <script src="https://analytics.istat.it/matomo.js" async defer></script>
   <noscript>
-    <p><img src="https://analytics.istat.it/matomo.php?idsite=35&amp;rec=1" style="border:0;" alt="" /></p>
+    <p><img src="https://analytics.istat.it/matomo.php?idsite=33&amp;rec=1" style="border:0;" alt="" /></p>
   </noscript>
   <!-- End Matomo Code -->
 </head>
