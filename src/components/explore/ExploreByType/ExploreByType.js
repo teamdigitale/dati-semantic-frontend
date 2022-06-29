@@ -21,7 +21,7 @@ const ExploreByType = () => {
     const onTypeClick = useCallback(() => searchFor(type), [type]);
 
     return (
-      <div className={"col-sm"} role="listitem">
+      <div className={"col-sm d-flex justify-content-center"} role="listitem">
         <button
           className={"btn btn-primary " + styles.typeButton}
           onClick={onTypeClick}
@@ -34,7 +34,7 @@ const ExploreByType = () => {
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per tipo">
-      <div className={"row ml-4 pl-5 mt-4 mb-5 pb-3"} role="list">
+      <div className={"row mt-4 mb-5 pb-3"} role="list">
         {renderType(AT_ONTOLOGY)}
         {renderType(AT_VOCABULARY)}
         {renderType(AT_SCHEMA)}

@@ -21,9 +21,9 @@ const ExploreByText = () => {
 
   return (
     <ExploreSection title="Ricerca all'interno del catalogo">
-      <div className="pt-3 ml-4 pl-5" role="form">
+      <div className="pt-3 ml-4" role="form">
         <form role="search" onSubmit={doSubmit}>
-          <div className="form-row">
+          <div className="form-row pr-4">
             <div className="form-group col-md-7 p-2">
               <div className="search-group input-group">
                 <span className="input-group-append">
@@ -41,7 +41,7 @@ const ExploreByText = () => {
                 />
               </div>
             </div>
-            <div className="form-group col-md-3 p-2">
+            <div className="form-group col-md-3 p-2 d-flex justify-content-center">
               <button type="submit" className="btn btn-primary w-75 mx-auto">
                 Cerca
               </button>

@@ -28,17 +28,17 @@ const ExploreByCategory = () => {
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
-      <div className="ml-4 pl-5 mt-4" role="list">
+      <div className="mt-4" role="list">
         {chunk(categoryCells, 3).map((row, rowIndex) => {
           return (
             <div
               key={"row-" + rowIndex}
               role="listitem"
-              className="row ml-0 mb-4 pb-4"
+              className="row ml-0 justify-content-around"
             >
               {row.map((item) => {
                 return (
-                  <div key={item.key} className={"col-sm"}>
+                  <div key={item.key} className={"d-flex mb-4"}>
                     <div
                       className={"shadow-lg category-tile " + styles.item}
                       onClick={item.onClick}

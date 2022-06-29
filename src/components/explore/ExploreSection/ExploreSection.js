@@ -5,7 +5,7 @@ import "./ExploreSection.css";
 const ExploreSection = ({ title, children }) => (
   <div className="container">
     <div data-testid="ExploreSection">
-      <div className="pt-3 ml-4 pl-5">
+      <div className="pt-3 ml-4">
         <h3 className="p-2 second-sub-heading">{title}</h3>
       </div>
       {children}
