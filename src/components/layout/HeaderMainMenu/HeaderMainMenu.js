@@ -28,7 +28,7 @@ const HeaderMainMenu = () => {
               <nav
                 role="navigation"
                 aria-labelledby="main-menu"
-                className="navbar navbar-expand-lg has-megamenu"
+                className="navbar navbar-expand-lg has-megamenu theme-dark-mobile"
               >
                 <button
                   className="custom-navbar-toggler"
