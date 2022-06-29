@@ -25,7 +25,11 @@ const IntroSection = ({
           <h3 className={styles.subtitle + " font-weight-bold"}>{subtitle}</h3>
           <div className={styles.description}>{description}</div>
           <div className={`mt-4 ${styles.buttonSection} row`}>
-            <div className="col-sm-4">
+            <div
+              className={
+                primaryButtonText.length > 20 ? "col-sm-6" : "col-sm-4"
+              }
+            >
               <a className={"btn btn-primary"} href={primaryButtonLink}>
                 {primaryButtonText}
               </a>
