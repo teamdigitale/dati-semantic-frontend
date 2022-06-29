@@ -24,17 +24,21 @@ const IntroSection = ({
           </div>
           <h3 className={styles.subtitle + " font-weight-bold"}>{subtitle}</h3>
           <div className={styles.description}>{description}</div>
-          <div className={"mt-4 " + styles.buttonSection}>
-            <a className={"btn btn-primary mr-4"} href={primaryButtonLink}>
-              {primaryButtonText}
-            </a>
-            {secondaryButtonLink ? (
-              <a
-                className={"btn btn-outline-primary " + styles.btnSecondary}
-                href={secondaryButtonLink}
-              >
-                {secondaryButtonText}
+          <div className={`mt-4 ${styles.buttonSection} row`}>
+            <div className="col-sm-4">
+              <a className={"btn btn-primary"} href={primaryButtonLink}>
+                {primaryButtonText}
               </a>
+            </div>
+            {secondaryButtonLink ? (
+              <div className="col-sm-5">
+                <a
+                  className={"btn btn-outline-primary " + styles.btnSecondary}
+                  href={secondaryButtonLink}
+                >
+                  {secondaryButtonText}
+                </a>
+              </div>
             ) : (
               ""
             )}
