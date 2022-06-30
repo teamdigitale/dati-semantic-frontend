@@ -295,10 +295,10 @@ const FaqBody = () => {
           <div className="collapse-body">
             La consultazione del catalogo non necessita di autenticazione:
             chiunque voglia consultare degli asset semantici lo può fare tramite
-            web UI all&apos;indirizzo schema.gov.it. Inoltre, chiunque voglia
-            scaricare i dati in modalità machine to machine potrà usare le API
-            REST (per quanto riguarda i vocabolari controllati) oppure lo SPARQL
-            endpoint (per interrogare le ontologie).
+            web UI all&apos;indirizzo www.schema.gov.it. Inoltre, chiunque
+            voglia scaricare i dati in modalità machine to machine potrà usare
+            le API REST (per quanto riguarda i vocabolari controllati) oppure lo
+            SPARQL endpoint (per interrogare le ontologie).
           </div>
         </div>
 
