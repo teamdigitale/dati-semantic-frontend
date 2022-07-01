@@ -9,12 +9,7 @@
 
 .scrollable {
   height: 170px;
-  overflow: visible;
-}
-
-.scrollable:hover {
-  height: 170px;
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 .descriptionText {
