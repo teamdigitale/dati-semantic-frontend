@@ -116,10 +116,6 @@ const ProjectBody = () => {
             formato e il significato condiviso a livello nazionale, o per
             implementare nuove API.
           </p>
-          <p>
-            Inoltre, a partire da Giugno 2022 gli sviluppatori di API potranno
-            validare la semantica delle proprie API.
-          </p>
         </ContentParagraph>
 
         <div className="mt-4 mb-5">
