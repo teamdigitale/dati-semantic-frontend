@@ -12,7 +12,7 @@ class SemanticAsset {
   }
 
   get assetRightsHolder() {
-    return $("#rights-holder-name");
+    return $(".rights-holder-name");
   }
 
   get assetType() {

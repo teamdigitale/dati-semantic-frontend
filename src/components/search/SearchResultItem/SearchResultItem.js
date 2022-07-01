@@ -64,10 +64,7 @@ const SearchResultItem = ({ item }) => {
               <span className={"font-weight-bold " + styles.itemInfoLabel}>
                 Titolare:
               </span>{" "}
-              <span
-                className={styles.itemInfoLabel}
-                id={"rights-holder-name-" + new Date().getTime()}
-              >
+              <span className={styles.itemInfoLabel + " rights-holder-name"}>
                 {item.rightsHolder.summary}
               </span>
             </div>
