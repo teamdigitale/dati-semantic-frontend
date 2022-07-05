@@ -1,4 +1,5 @@
 import React from "react";
+import { routes } from "../../../services/routes";
 import styles from "./FooterLinks.module.css";
 
 const FooterLinks = () => {
@@ -12,7 +13,7 @@ const FooterLinks = () => {
             </a>
           </p>
           <p className="justify-content-center pt-3 pr-3">
-            <a className={styles.bottomLabel} href="#">
+            <a className={styles.bottomLabel} href={routes.privacyPolicy()}>
               Privacy Policy
             </a>
           </p>

@@ -8,12 +8,14 @@ import {
   ASSETS_BASE_URL_TOKEN,
   ASSETS_URL_TOKEN,
   FAQ_URL,
+  PRIVACY_POLICY,
   PROJECT_URL,
   SEARCH_BASE_URL,
 } from "../../../services/routes";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
 import ProjectPage from "../../static-content/project/ProjectPage/ProjectPage";
+import PrivacyPolicyPage from "../../static-content/privacy-policy/PrivacyPolicyPage/PrivacyPolicyPage";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Swagger from "../../swagger-ui/Swagger";
 import PropTypes from "prop-types";
@@ -32,6 +34,7 @@ const Main = ({ childRef }) => (
         <Route index path="*" element={<NotFound />} />
       </Route>
       <Route path={API_DOCS_URL} element={<Swagger />} />
+      <Route path={PRIVACY_POLICY} element={<PrivacyPolicyPage />} />
     </Routes>
   </main>
 );
