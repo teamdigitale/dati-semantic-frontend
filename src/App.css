@@ -37,3 +37,6 @@
     transform: rotate(360deg);
   }
 }
+span.opblock-summary-path:hover{
+  color: #3b4151 !important;
+}

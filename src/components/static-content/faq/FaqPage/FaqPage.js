@@ -11,8 +11,8 @@ const FaqPage = () => {
   return (
     <div data-testid="FaqPage">
       <IntroSection
-        title="DOMANDE FREQUENTI"
-        subtitle="Esplora le risposte alle domande più frequenti"
+        title="Hai bisogno di chiarimenti o supporto?"
+        subtitle="Consulta le le domande frequenti"
         primaryButtonText="Scopri il progetto"
         primaryButtonLink={routes.project()}
         secondaryButtonText="Esplora il catalogo"
