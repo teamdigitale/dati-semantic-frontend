@@ -17,3 +17,13 @@
   min-height: 36px;
   background-image: url("./alert.svg");
 }
+.generalErrorIcon {
+  width: auto;
+  height: 356px;
+  max-width: 560px;
+  max-height: 356px;
+  min-width: 56px;
+  min-height: 36px;
+  background-image: url("./errorPage.svg");
+  background-repeat: no-repeat;
+}

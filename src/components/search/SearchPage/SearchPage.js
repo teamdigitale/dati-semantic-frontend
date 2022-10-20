@@ -16,10 +16,12 @@ const showItems = (isLoading, error, searchResult) => {
     return <h2>Caricamento...</h2>;
   }
   if (error) {
+    console.log("error :>> ", error);
     return (
       <SearchResultAlert
-        title="Errore di caricamento"
-        message="Impossibile caricare i risultati, prova di nuovo."
+        title="Errore imprevisto del server"
+        message="Ci scusiamo per il disagio, riprovare fra qualche minuto"
+        type={"general"}
       />
     );
   }
