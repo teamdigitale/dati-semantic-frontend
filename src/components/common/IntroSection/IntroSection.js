@@ -60,7 +60,7 @@ const IntroSection = ({
             </div>
             {type ? (
               <div className="col-lg-6 mt-5 d-flex justify-content-center">
-                <p>{window.location.href}</p>
+                {/* <p>{window.location.href}</p> */}
               </div>
             ) : null}
           </div>
