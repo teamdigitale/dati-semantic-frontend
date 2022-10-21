@@ -1,0 +1,16 @@
+.noFuondIcon {
+  width: auto;
+  height: 356px;
+  max-width: 560px;
+  max-height: 125px;
+  min-width: 256px;
+  min-height: 36px;
+  background-image: url("./error-page-not-found.svg");
+  background-repeat: no-repeat;
+
+}
+.myTest {
+  width: 5rem;
+  height: 5rem;
+  background-color: blue;
+}
