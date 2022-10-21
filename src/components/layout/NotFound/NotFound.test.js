@@ -11,6 +11,5 @@ describe("<NotFound />", () => {
     const notFound = screen.getByRole("alert");
 
     expect(notFound).toBeInTheDocument();
-    expect(notFound).toContainHTML("non è disponibile");
   });
 });

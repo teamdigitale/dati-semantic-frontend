@@ -6,7 +6,7 @@ const ErrorPage = () => {
   });
   const goToHome = useNavigate();
   return (
-    <div className="container mt-5 mb-5" data-testid="ERRORPAGE">
+    <div className="container mt-5 mb-5" id="ERRORPAGE">
       <div className="row mx-0 my-1 justify-content-center">
         <div className="col-md-6 d-flex justify-content-center my-5">
           <svg

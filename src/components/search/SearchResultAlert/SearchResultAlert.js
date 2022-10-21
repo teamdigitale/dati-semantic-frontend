@@ -28,7 +28,6 @@ const SearchResultAlert = ({ title, message }) => (
 SearchResultAlert.propTypes = {
   title: string.isRequired,
   message: string.isRequired,
-  type: string,
 };
 
 SearchResultAlert.defaultProps = {};

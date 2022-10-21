@@ -7,7 +7,7 @@ const NotFound = () => {
 
   const goToHome = useNavigate();
   return (
-    <div className="container mt-5 mb-5">
+    <div className="container mt-5 mb-5" role={"alert"}>
       <div className="row mx-0 my-2 justify-content-center">
         <div className="col-md-6 d-flex justify-content-center my-5">
           <svg

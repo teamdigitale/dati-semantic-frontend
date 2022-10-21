@@ -21,14 +21,14 @@ const showItems = (isLoading, error, searchResult) => {
   }
   if (error) {
     console.log("error :>> ", error);
-    /* return (
+
+    goToError();
+    return (
       <SearchResultAlert
         title="Errore imprevisto del server"
         message="Ci scusiamo per il disagio, riprovare fra qualche minuto"
       />
-    ); */
-    goToError();
-    return <div></div>;
+    );
   }
   if (!(searchResult.data && searchResult.data.length)) {
     return (
