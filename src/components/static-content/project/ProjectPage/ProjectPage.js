@@ -18,6 +18,7 @@ const ProjectPage = () => {
         primaryButtonLink={routes.faq()}
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
+        type="HEADER"
       />
       <ProjectBody />
       <IntroSection

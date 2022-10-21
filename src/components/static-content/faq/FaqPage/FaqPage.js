@@ -17,6 +17,7 @@ const FaqPage = () => {
         primaryButtonLink={routes.project()}
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
+        type="HEADER"
       />
       <FaqBody />
       <IntroSection

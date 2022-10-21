@@ -28,7 +28,7 @@ const showItems = (isLoading, error, searchResult) => {
       />
     ); */
     goToError();
-    return;
+    return <div></div>;
   }
   if (!(searchResult.data && searchResult.data.length)) {
     return (

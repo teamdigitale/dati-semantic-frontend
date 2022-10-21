@@ -49,3 +49,6 @@ a.nostyle:hover{
 .text-primary-title{
   color:#06c
 }
+a.link:hover{
+  color:#004080 !important;
+}
