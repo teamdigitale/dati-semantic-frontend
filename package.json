@@ -70,7 +70,7 @@
         "@wdio/spec-reporter": "^7.16.11",
         "babel-eslint": "^10.1.0",
         "babel-jest": "27.4.5",
-        "chromedriver": "^96.0.0",
+        "chromedriver": "^106.0.1",
         "eslint": "^7.11.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-config-react-app": "^6.0.0",
