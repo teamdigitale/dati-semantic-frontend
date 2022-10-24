@@ -16,8 +16,8 @@ import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 import SwaggerUI from "swagger-ui-react";
 
 const AssetDetails = ({ details }) => {
-  const accessUrl = details.distributions.map((u) => u.accessUrl).pop();
-  const downloadUrl = details.distributions.map((u) => u.downloadUrl).pop();
+  const accessUrl = details.distributions?.map((u) => u.accessUrl).pop();
+  const downloadUrl = details.distributions?.map((u) => u.downloadUrl).pop();
   return (
     <div>
       <div

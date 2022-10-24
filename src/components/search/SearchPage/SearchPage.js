@@ -12,14 +12,21 @@ import IntroSection from "../../common/IntroSection/IntroSection";
 import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 
 const showItems = (isLoading, error, searchResult) => {
+  const routNav = useNavigate();
+  function goToError() {
+    routNav("/errore");
+  }
   if (isLoading) {
     return <h2>Caricamento...</h2>;
   }
   if (error) {
+    console.log("error :>> ", error);
+
+    goToError();
     return (
       <SearchResultAlert
-        title="Errore di caricamento"
-        message="Impossibile caricare i risultati, prova di nuovo."
+        title="Errore imprevisto del server"
+        message="Ci scusiamo per il disagio, riprovare fra qualche minuto"
       />
     );
   }

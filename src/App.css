@@ -37,3 +37,18 @@
     transform: rotate(360deg);
   }
 }
+.opblock-summary-path:hover{
+  color: #3b4151 !important;
+}
+.swagger-ui .opblock-tag:hover{
+  color: #3b4151 !important;
+}
+a.nostyle:hover{
+  color : #3b4151 !important;
+}
+.text-primary-title{
+  color:#06c
+}
+a.link:hover{
+  color:#004080 !important;
+}
