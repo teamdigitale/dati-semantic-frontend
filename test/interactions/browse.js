@@ -21,8 +21,6 @@ class Browse {
   }
 
   async byVocabolariControllati() {
-    await this.cookieBanner.waitForDisplayed();
-    this.cookieBanner.click();
     await this.vocabolariControllati.waitForDisplayed();
     this.vocabolariControllati.click();
   }
