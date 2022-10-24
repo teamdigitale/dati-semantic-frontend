@@ -13,11 +13,12 @@ const ProjectPage = () => {
       <IntroSection
         title="IL PROGETTO"
         subtitle="Il catalogo nazionale della semantica dei dati"
-        description="Ricerca e riuso di asset semantici, tra cui ontologie, schemi dati e vocabolari controllati per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili"
+        description="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
         primaryButtonText="Vai alle domande frequenti"
         primaryButtonLink={routes.faq()}
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
+        type="HEADER"
       />
       <ProjectBody />
       <IntroSection

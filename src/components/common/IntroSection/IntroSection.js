@@ -10,46 +10,63 @@ const IntroSection = ({
   secondaryButtonText,
   primaryButtonLink,
   secondaryButtonLink,
+  type,
 }) => {
   return (
-    <div
-      data-testid="Header"
-      className="section section-muted"
-      role="complementary"
-    >
-      <div className="container">
-        <div className="offset-lg-1 col-lg-6 col-md-8 mb-0 mb-lg-4">
-          <div className={"text-uppercase font-weight-bold " + styles.title}>
-            {title}
-          </div>
-          <h3 className={styles.subtitle + " font-weight-bold"}>{subtitle}</h3>
-          <div className={styles.description}>{description}</div>
-          <div className={`mt-4 ${styles.buttonSection} row`}>
-            <div
-              className={
-                primaryButtonText.length > 20 ? "col-sm-6" : "col-sm-4"
-              }
-            >
-              <a className={"btn btn-primary"} href={primaryButtonLink}>
-                {primaryButtonText}
-              </a>
-            </div>
-            {secondaryButtonLink ? (
-              <div className="col-sm-5">
-                <a
-                  className={"btn btn-outline-primary " + styles.btnSecondary}
-                  href={secondaryButtonLink}
-                >
-                  {secondaryButtonText}
-                </a>
+    <React.Fragment>
+      <div
+        data-testid="Header"
+        className="section section-muted"
+        role="complementary"
+      >
+        <div className="container">
+          <div className="row mx-0">
+            <div className=" col-lg-6  mb-0 mb-lg-4">
+              {/* offset-lg-1 */}
+              <div
+                className={"text-uppercase font-weight-bold " + styles.title}
+              >
+                {title}
               </div>
-            ) : (
-              ""
-            )}
+              <h3 className={styles.subtitle + " font-weight-bold"}>
+                {subtitle}
+              </h3>
+              <div className={styles.description}>{description}</div>
+              <div className={`mt-4 ${styles.buttonSection} row`}>
+                <div
+                  className={
+                    primaryButtonText.length > 20 ? "col-sm-6" : "col-sm-4"
+                  }
+                >
+                  <a className={"btn btn-primary"} href={primaryButtonLink}>
+                    {primaryButtonText}
+                  </a>
+                </div>
+                {secondaryButtonLink ? (
+                  <div className="col-sm-5">
+                    <a
+                      className={
+                        "btn btn-outline-primary " + styles.btnSecondary
+                      }
+                      href={secondaryButtonLink}
+                    >
+                      {secondaryButtonText}
+                    </a>
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+            </div>
+            {type ? (
+              <div className="col-lg-6 mt-5 d-flex justify-content-center">
+                {/* <p>{window.location.href}</p> */}
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 
@@ -61,6 +78,7 @@ IntroSection.propTypes = {
   secondaryButtonText: string,
   primaryButtonLink: string.isRequired,
   secondaryButtonLink: string,
+  type: string,
 };
 
 IntroSection.defaultProps = {};

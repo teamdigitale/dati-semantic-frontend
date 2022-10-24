@@ -9,11 +9,13 @@
 }
 
 .errorIcon {
-  width: auto;
+  width: 256px;
   height: 356px;
   max-width: 560px;
   max-height: 356px;
   min-width: 56px;
   min-height: 36px;
   background-image: url("./alert.svg");
+  background-repeat: no-repeat;
 }
+

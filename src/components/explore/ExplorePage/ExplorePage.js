@@ -22,6 +22,7 @@ const ExplorePage = () => {
         primaryButtonLink={routes.project()}
         secondaryButtonText="Domande frequenti"
         secondaryButtonLink={routes.faq()}
+        type="HEADER"
       />
       <ExploreByText />
       <ExploreByType />
