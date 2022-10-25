@@ -22,7 +22,6 @@ const IntroSection = ({
         <div className="container">
           <div className="row mx-0">
             <div className=" col-lg-6  mb-0 mb-lg-4">
-              {/* offset-lg-1 */}
               <div
                 className={"text-uppercase font-weight-bold " + styles.title}
               >
@@ -59,9 +58,7 @@ const IntroSection = ({
               </div>
             </div>
             {type ? (
-              <div className="col-lg-6 mt-5 d-flex justify-content-center">
-                {/* <p>{window.location.href}</p> */}
-              </div>
+              <div className="col-lg-6 mt-5 d-flex justify-content-center"></div>
             ) : null}
           </div>
         </div>
