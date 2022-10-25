@@ -92,6 +92,18 @@ jobs:
           name: coverage
           path: |
             ./coverage
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: write
+    needs:
+      - build
+      - security
+      - lint
+      - unit-test
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Log in to the Github Container registry
@@ -102,9 +114,49 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract branch name
         shell: bash
-        run: echo running on branch ${GITHUB_REF##*/}
+        run: echo "branch=${GITHUB_REF##*/}"
         id: extract_branch
-  try:
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          labels: |
+            maintainer=Team Digitale
+            org.opencontainers.image.source.branch=${{ steps.extract_branch.outputs.branch }}
+          tags: |
+            type=raw,value={{date 'YYYYMMDD'}}-${{github.run_number}}-{{sha}}
+            type=raw, value=latest
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: write
+    needs:
+      - publish
     steps:
-      - name: Domenico test
-        run: ${{extract_branch}}
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: build image
+        id: extractImage
+        run: |
+          IMAGE="$REGISTRY/$IMAGE_NAME"
+          TAG="$(date +'%Y%m%d')-${{github.run_number}}-$(git rev-parse --short HEAD)"
+          echo "imageName=${IMAGE}:${TAG}"
+      - uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: teamdigitale
+          repo: dati-semantic-kubernetes
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          workflow_file_name: update-config.yaml
+          ref: dev
+          wait_interval: 20
+          inputs: '{"serviceName": "dati-semantic-frontend", "imageWithNewTag": "${{ steps.extractImage.outputs.imageName }}"}'
