@@ -30,7 +30,7 @@ jobs:
         run: yarn --frozen-lockfile
       - run: yarn build
       - name: Upload production artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3.1.1
         with:
           name: Static Build folder
           path: |
@@ -87,7 +87,7 @@ jobs:
         run: yarn test:coverage
       - run: yarn build
       - name: Upload test artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3.1.1
         with:
           name: coverage
           path: |
