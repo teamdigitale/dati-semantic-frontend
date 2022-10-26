@@ -1,22 +1,36 @@
-import React from "react";
-const ProjectIndex = () => {
-  const selectSectionPage = (idSection, event) => {
-    event.preventDefault();
-    console.log(idSection);
+import React, { useState } from "react";
+const ProjectIndex = (props) => {
+  const [progress, setProgress] = useState(25);
+  const selectSectionPage = (idSection, progrssBar) => {
+    setProgress(progrssBar);
+    props.changeSection(idSection.toUpperCase());
   };
   return (
     <React.Fragment>
-      <div className="sidebar-wrapper it-line-right-side">
+      <div className="sidebar-wrapper it-line-right-side sticky-top">
         <div className="sidebar-linklist-wrapper">
           <div className="link-list-wrapper">
+            <div className="container pr-4 mb-4">
+              <div className="progress">
+                <div
+                  className="progress-bar"
+                  role="progressbar"
+                  aria-valuenow={progress}
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: progress + "%" }}
+                ></div>
+              </div>
+            </div>
+
             <ul className="link-list">
               <li>
-                <h3>Il progetto</h3>
+                <h3>INDICE DELLA PAGINA</h3>
               </li>
               <li>
                 <button
                   className="btn lineUnder"
-                  onClick={($event) => selectSectionPage("ciao", $event)}
+                  onClick={() => selectSectionPage("Introduzione", 25)}
                 >
                   <span className="text-primary-title">Introduzione</span>
                 </button>
@@ -24,7 +38,7 @@ const ProjectIndex = () => {
               <li>
                 <button
                   className="btn lineUnder"
-                  onClick={($event) => selectSectionPage("e", $event)}
+                  onClick={() => selectSectionPage("utilizzare", 50)}
                 >
                   <span className="text-primary-title">
                     Come utilizzare il catalogo
@@ -34,7 +48,7 @@ const ProjectIndex = () => {
               <li>
                 <button
                   className="btn lineUnder"
-                  onClick={($event) => selectSectionPage("e", $event)}
+                  onClick={() => selectSectionPage("attuatori", 75)}
                 >
                   <span className="text-primary-title">Enti attuatori</span>
                 </button>
@@ -42,7 +56,7 @@ const ProjectIndex = () => {
               <li>
                 <button
                   className="btn lineUnder"
-                  onClick={($event) => selectSectionPage("papà", $event)}
+                  onClick={() => selectSectionPage("normativo", 100)}
                 >
                   <span className="text-primary-title">Quadro normativo</span>
                 </button>
@@ -54,5 +68,6 @@ const ProjectIndex = () => {
     </React.Fragment>
   );
 };
-
+ProjectIndex.propTypes = { changeSection: () => {} };
+ProjectIndex.defaultPropTypes = {};
 export default ProjectIndex;

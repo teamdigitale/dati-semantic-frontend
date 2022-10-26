@@ -5,16 +5,21 @@ import ContentParagraph from "../../../common/ContentParagraph/ContentParagraph"
 import ProjectIndex from "../ProjectIndex/ProjectIndex";
 
 const ProjectBody = () => {
+  const handleChangeSection = (id) => {
+    document
+      .getElementById(id)
+      .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+  };
   return (
     <div data-testid="ProjectBody" className="project-body container">
       <div className="row mx-0">
         <div className="col-lg-5 mt-5">
-          <ProjectIndex />
+          <ProjectIndex changeSection={(ev) => handleChangeSection(ev)} />
         </div>
         <div className="col-lg-7 mt-5 pt-2">
           <div className="">
             <ContentParagraph title="Introduzione">
-              <p>
+              <p id="INTRODUZIONE">
                 Schema è il catalogo nazionale della semantica dei dati. Il
                 catalogo facilita la ricerca e il riuso di asset semantici, come
                 ontologie, schemi dati e vocabolari controllati, e li mette a
@@ -57,7 +62,7 @@ const ProjectBody = () => {
             </ContentParagraph>
 
             <ContentParagraph title="Come utilizzare il catalogo?">
-              <p>
+              <p id="UTILIZZARE">
                 Il catalogo serve a ricercare, consultare e riutilizzare
                 ontologie, vocabolari controllati e schemi dati. È rivolto in
                 particolare a tutti gli enti che creano servizi digitali basati
@@ -99,19 +104,20 @@ const ProjectBody = () => {
             </ContentParagraph>
 
             <ContentParagraph title="Enti attuatori">
-              Il progetto nasce dalla collaborazione fra Dipartimento per la
-              trasformazione digitale, ISTAT, Istituto di Scienze e Tecnologie
-              della Cognizione del Consiglio Nazionale delle Ricerche e AGID.
-              Nell’ambito dei progetti del Piano Nazionale di Ripresa e
-              Resilienza (PNNR), il Dipartimento per la trasformazione digitale,
-              in quanto titolare della misura, ha affidato la realizzazione,
-              gestione e manutenzione del catalogo ad ISTAT, mentre gli enti
-              esperti di dominio sono responsabili e titolari dei contenuti
-              pubblicati.
+              <p id="ATTUATORI">
+                Il progetto nasce dalla collaborazione fra Dipartimento per la
+                trasformazione digitale, ISTAT, Istituto di Scienze e Tecnologie
+                della Cognizione del Consiglio Nazionale delle Ricerche e AGID.
+                Nell’ambito dei progetti del Piano Nazionale di Ripresa e
+                Resilienza (PNNR), il Dipartimento per la trasformazione
+                digitale, in quanto titolare della misura, ha affidato la
+                realizzazione, gestione e manutenzione del catalogo ad ISTAT,
+                mentre gli enti esperti di dominio sono responsabili e titolari
+                dei contenuti pubblicati.
+              </p>
             </ContentParagraph>
-
             <ContentParagraph title="Quadro normativo">
-              <p>
+              <p id="NORMATIVO">
                 Da un punto di vista normativo, la necessità di garantire
                 l’interoperabilità semantica nella pubblica amministrazione
                 trova riscontro sia nel contesto europeo che nazionale. A

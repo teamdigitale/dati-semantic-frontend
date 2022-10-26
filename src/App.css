@@ -66,4 +66,6 @@ a.link:hover {
   display: flex;
   justify-content: flex-start;
 }
-
+div.progress-bar:empty {
+  display: flex;
+}
