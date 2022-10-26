@@ -114,7 +114,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract branch name
         shell: bash
-        run: echo "branch=${GITHUB_REF##*/}"
+        run: echo "branch=${GITHUB_REF##*/}" >> $GITHUB_OUTPUT
         id: extract_branch
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -150,7 +150,7 @@ jobs:
         run: |
           IMAGE="$REGISTRY/$IMAGE_NAME"
           TAG="$(date +'%Y%m%d')-${{github.run_number}}-$(git rev-parse --short HEAD)"
-          echo "imageName=${IMAGE}:${TAG}"
+          echo "imageName=${IMAGE}:${TAG}" >> $GITHUB_OUTPUT
       - uses: convictional/trigger-workflow-and-wait@v1.3.0
         with:
           owner: teamdigitale
