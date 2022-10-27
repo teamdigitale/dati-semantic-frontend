@@ -69,3 +69,6 @@ a.link:hover {
 div.progress-bar:empty {
   display: flex;
 }
+.text-primary-title.active {
+  text-decoration: underline;
+}

@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 const ProjectIndex = (props) => {
   const [progress, setProgress] = useState(25);
+  const [section, setSection] = useState("Introduzione");
   const selectSectionPage = (idSection, progrssBar) => {
+    setSection(idSection);
     setProgress(progrssBar);
     props.changeSection(idSection.toUpperCase());
   };
   return (
     <React.Fragment>
-      <div className="sidebar-wrapper it-line-right-side sticky-top">
+      <div
+        className="sidebar-wrapper it-line-right-side sticky-top"
+        data-testid="ProjectIndex"
+      >
         <div className="sidebar-linklist-wrapper">
           <div className="link-list-wrapper">
-            <div className="container pr-4 mb-4">
+            <div className="container pl-4 pr-4 mb-4">
               <div className="progress">
                 <div
                   className="progress-bar"
@@ -32,7 +37,14 @@ const ProjectIndex = (props) => {
                   className="btn lineUnder"
                   onClick={() => selectSectionPage("Introduzione", 25)}
                 >
-                  <span className="text-primary-title">Introduzione</span>
+                  <span
+                    className={
+                      "text-primary-title " +
+                      (section == "Introduzione" ? "active" : "deactive")
+                    }
+                  >
+                    Introduzione
+                  </span>
                 </button>
               </li>
               <li>
@@ -40,7 +52,12 @@ const ProjectIndex = (props) => {
                   className="btn lineUnder"
                   onClick={() => selectSectionPage("utilizzare", 50)}
                 >
-                  <span className="text-primary-title">
+                  <span
+                    className={
+                      "text-primary-title " +
+                      (section == "utilizzare" ? "active" : "deactive")
+                    }
+                  >
                     Come utilizzare il catalogo
                   </span>
                 </button>
@@ -50,7 +67,14 @@ const ProjectIndex = (props) => {
                   className="btn lineUnder"
                   onClick={() => selectSectionPage("attuatori", 75)}
                 >
-                  <span className="text-primary-title">Enti attuatori</span>
+                  <span
+                    className={
+                      "text-primary-title " +
+                      (section == "attuatori" ? "active" : "deactive")
+                    }
+                  >
+                    Enti attuatori
+                  </span>
                 </button>
               </li>
               <li>
@@ -58,7 +82,14 @@ const ProjectIndex = (props) => {
                   className="btn lineUnder"
                   onClick={() => selectSectionPage("normativo", 100)}
                 >
-                  <span className="text-primary-title">Quadro normativo</span>
+                  <span
+                    className={
+                      "text-primary-title " +
+                      (section == "normativo" ? "active" : "deactive")
+                    }
+                  >
+                    Quadro normativo
+                  </span>
                 </button>
               </li>
             </ul>
