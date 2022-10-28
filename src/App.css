@@ -37,18 +37,38 @@
     transform: rotate(360deg);
   }
 }
-.opblock-summary-path:hover{
+.opblock-summary-path:hover {
   color: #3b4151 !important;
 }
-.swagger-ui .opblock-tag:hover{
+.swagger-ui .opblock-tag:hover {
   color: #3b4151 !important;
 }
-a.nostyle:hover{
-  color : #3b4151 !important;
+a.nostyle:hover {
+  color: #3b4151 !important;
 }
-.text-primary-title{
-  color:#06c
+.text-primary-title {
+  color: #06c;
 }
-a.link:hover{
-  color:#004080 !important;
+a.link:hover {
+  color: #004080 !important;
+}
+.lineUnder {
+  text-decoration: none;
+}
+.lineUnder :hover {
+  text-decoration: underline;
+}
+.lineUnder.active {
+  text-decoration: underline;
+}
+.btn.lineUnder {
+  width: 100% !important;
+  display: flex;
+  justify-content: flex-start;
+}
+div.progress-bar:empty {
+  display: flex;
+}
+.text-primary-title.active {
+  text-decoration: underline;
 }
