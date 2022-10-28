@@ -4,7 +4,7 @@ import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
 import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 import IntroSection from "../../common/IntroSection/IntroSection";
-
+import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 const ExplorePage = () => {
   useEffect(() => {
     document.title = "Catalogo Nazionale Dati";
@@ -23,7 +23,9 @@ const ExplorePage = () => {
         secondaryButtonText="Domande frequenti"
         secondaryButtonLink={routes.faq()}
         type="HEADER"
+        arrayBread={BREADCRUMBS.ESPLORA}
       />
+      {console.log("BREADCRUMBS.ESPLORA :>> ", BREADCRUMBS.ESPLORA)}
       <ExploreByText />
       <ExploreByType />
       <ExploreByCategory />

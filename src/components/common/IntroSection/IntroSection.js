@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./IntroSection.module.css";
-import { string } from "prop-types";
+import { array, string } from "prop-types";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 const IntroSection = ({
   title,
@@ -11,9 +12,17 @@ const IntroSection = ({
   primaryButtonLink,
   secondaryButtonLink,
   type,
+  arrayBread,
 }) => {
   return (
     <React.Fragment>
+      {type && arrayBread ? (
+        <div className="row mx-0 px-0 introSectionBread">
+          <div className="col-lg-12 pl-5">
+            <BreadCrumbs arrayBread={arrayBread} />
+          </div>
+        </div>
+      ) : null}
       <div
         data-testid="Header"
         className="section section-muted"
@@ -76,6 +85,7 @@ IntroSection.propTypes = {
   primaryButtonLink: string.isRequired,
   secondaryButtonLink: string,
   type: string,
+  arrayBread: array,
 };
 
 IntroSection.defaultProps = {};

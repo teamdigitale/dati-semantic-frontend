@@ -4,6 +4,8 @@ import "./PrivacyPolicyPage.css";
 import Anchor from "../../../common/Anchor/Anchor";
 import ContentParagraph from "../../../common/ContentParagraph/ContentParagraph";
 import { useEffect } from "react";
+import BreadCrumbs from "../../../common/BreadCrumbs/BreadCrumbs";
+import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 
 const PrivacyPolicyPage = () => {
   useEffect(() => {
@@ -12,6 +14,11 @@ const PrivacyPolicyPage = () => {
 
   return (
     <div data-testid="PrivacyPolicyPage">
+      <div className="row mx-0 px-0">
+        <div className="col-lg-12 pl-5">
+          <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACY} />
+        </div>
+      </div>
       <div data-testid="PrivacyPolicyBody" className="policy-body container">
         <div className="ml-5 pl-5 pt-5">
           <div className="text-center text-sm-left pb-4">

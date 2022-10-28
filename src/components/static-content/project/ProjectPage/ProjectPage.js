@@ -2,7 +2,7 @@ import IntroSection from "../../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
 import ProjectBody from "../ProjectBody/ProjectBody";
 import { useEffect } from "react";
-
+import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 const ProjectPage = () => {
   useEffect(() => {
     document.title = "Il progetto - Catalogo Nazionale Dati";
@@ -19,6 +19,7 @@ const ProjectPage = () => {
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
         type="HEADER"
+        arrayBread={BREADCRUMBS.PROGETTO}
       />
       <ProjectBody />
       <IntroSection

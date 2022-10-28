@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import FaqBody from "../FaqBody/FaqBody";
 import IntroSection from "../../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
+import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 
 const FaqPage = () => {
   useEffect(() => {
@@ -18,6 +19,7 @@ const FaqPage = () => {
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
         type="HEADER"
+        arrayBread={BREADCRUMBS.FAQ}
       />
       <FaqBody />
       <IntroSection
