@@ -22,8 +22,6 @@ const showItems = (isLoading, error, searchResult) => {
     return <h2>Caricamento...</h2>;
   }
   if (error) {
-    console.log("error :>> ", error);
-
     goToError();
     return (
       <SearchResultAlert

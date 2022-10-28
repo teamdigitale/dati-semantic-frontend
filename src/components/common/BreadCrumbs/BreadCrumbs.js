@@ -1,6 +1,7 @@
 import React from "react";
 
-export const BreadCrumbs = (arrayBread) => {
+import { arrayOf, string, number, shape } from "prop-types";
+export const BreadCrumbs = (props) => {
   return (
     <React.Fragment>
       <nav
@@ -8,22 +9,22 @@ export const BreadCrumbs = (arrayBread) => {
         aria-label="Percorso di navigazione"
       >
         <ol className="breadcrumb">
-          {arrayBread.arrayBread?.map((bread, i) => {
-            return bread.link != "" && bread.link != "back" ? (
-              <li className="breadcrumb-item" key={bread.id + "key" + i}>
-                <a className="link" href={bread.link} title={bread.label}>
-                  {bread.label}
+          {props?.arrayBread?.map((bread, i) => {
+            return bread?.link != "" && bread?.link != "back" ? (
+              <li className="breadcrumb-item" key={bread?.id + "key" + i}>
+                <a className="link" href={bread?.link} title={bread?.label}>
+                  {bread?.label}
                 </a>
                 <span className="separator">/</span>
               </li>
-            ) : bread.link == "back" ? (
+            ) : bread?.link == "back" ? (
               <li
                 className="breadcrumb-item"
-                key={bread.id + "keyBack" + i}
+                key={bread?.id + "keyBack" + i}
                 onClick={() => history.back()}
               >
-                <a className="link" href="#" title={bread.label}>
-                  {bread.label}
+                <a className="link" href="#" title={bread?.label}>
+                  {bread?.label}
                 </a>
                 <span className="separator">/</span>
               </li>
@@ -31,10 +32,10 @@ export const BreadCrumbs = (arrayBread) => {
               <li
                 className="breadcrumb-item active"
                 aria-current="page"
-                key={bread.id + "Skey" + i}
-                title={bread.label}
+                key={bread?.id + "Skey" + i}
+                title={bread?.label}
               >
-                <strong>{bread.label}</strong>
+                <strong>{bread?.label}</strong>
               </li>
             );
           })}
@@ -43,5 +44,14 @@ export const BreadCrumbs = (arrayBread) => {
     </React.Fragment>
   );
 };
-
+BreadCrumbs.propTypes = {
+  arrayBread: arrayOf(
+    shape({
+      label: string.isRequired,
+      link: string,
+      id: number.isRequired,
+    })
+  ).isRequired,
+};
+BreadCrumbs.defaultProps = {};
 export default BreadCrumbs;

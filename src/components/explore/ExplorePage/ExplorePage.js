@@ -25,7 +25,6 @@ const ExplorePage = () => {
         type="HEADER"
         arrayBread={BREADCRUMBS.ESPLORA}
       />
-      {console.log("BREADCRUMBS.ESPLORA :>> ", BREADCRUMBS.ESPLORA)}
       <ExploreByText />
       <ExploreByType />
       <ExploreByCategory />
