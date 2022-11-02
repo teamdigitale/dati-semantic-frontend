@@ -100,7 +100,7 @@
         "workbox-webpack-plugin": "6.4.2"
     },
     "scripts": {
-        "start": "./env.sh && mv env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
+        "start": "./env.sh && mv env-config.js ./public/ && INLINE_RUNTIME_CHUNK=false node scripts/start.js",
         "start-mock-server": "node mock-server/src/index.js",
         "build": "INLINE_RUNTIME_CHUNK=false node scripts/build.js",
         "test": "node scripts/test.js",
