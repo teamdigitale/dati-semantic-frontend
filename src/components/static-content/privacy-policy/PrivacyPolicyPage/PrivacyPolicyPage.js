@@ -16,7 +16,7 @@ const PrivacyPolicyPage = () => {
     <div data-testid="PrivacyPolicyPage">
       <div className="row mx-0 px-0">
         <div className="col-lg-12 pl-5">
-          <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACY} />
+          <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACYPAGE} />
         </div>
       </div>
       <div data-testid="PrivacyPolicyBody" className="policy-body container">

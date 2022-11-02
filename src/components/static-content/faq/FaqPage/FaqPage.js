@@ -19,7 +19,7 @@ const FaqPage = () => {
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
         type="HEADER"
-        arrayBread={BREADCRUMBS.FAQ}
+        arrayBread={BREADCRUMBS.FAQPAGE}
       />
       <FaqBody />
       <IntroSection

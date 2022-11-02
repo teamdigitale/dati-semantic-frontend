@@ -23,7 +23,7 @@ const ExplorePage = () => {
         secondaryButtonText="Domande frequenti"
         secondaryButtonLink={routes.faq()}
         type="HEADER"
-        arrayBread={BREADCRUMBS.ESPLORA}
+        arrayBread={BREADCRUMBS.EXPLOREPAGE}
       />
       <ExploreByText />
       <ExploreByType />

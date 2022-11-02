@@ -129,7 +129,7 @@ const SearchPage = () => {
     <React.Fragment>
       <div className="row mx-0 px-0 my-1">
         <div className="col-lg-12 pl-5">
-          <BreadCrumbs arrayBread={BREADCRUMBS.RICERCA} />
+          <BreadCrumbs arrayBread={BREADCRUMBS.SEARCHPAGE} />
         </div>
       </div>
       <div data-testid="SearchPage" className="mt-5">

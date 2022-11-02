@@ -28,7 +28,7 @@ const AssetDetails = ({ details }) => {
       >
         <div className="row mx-0 ">
           <div className="col-lg-12 pl-5">
-            <BreadCrumbs arrayBread={BREADCRUMBS.RICERCADETTAGLIO} />
+            <BreadCrumbs arrayBread={BREADCRUMBS.DETAILSPAGE} />
           </div>
         </div>
         <div className="container">

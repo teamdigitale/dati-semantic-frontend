@@ -19,7 +19,7 @@ const ProjectPage = () => {
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
         type="HEADER"
-        arrayBread={BREADCRUMBS.PROGETTO}
+        arrayBread={BREADCRUMBS.PROJECTPAGE}
       />
       <ProjectBody />
       <IntroSection
