@@ -8,7 +8,7 @@ describe("Handle Error", () => {
         status: 404,
         statusText: "Not Found",
       })
-    ).toThrowError("Not Found");
+    ).toThrow("Not Found");
   });
 
   it("should throw error when status text is empty", () => {
@@ -17,7 +17,7 @@ describe("Handle Error", () => {
         ok: false,
         status: 404,
       })
-    ).toThrowError("Error while fetching data!");
+    ).toThrow("Error while fetching data!");
   });
 
   it("should return response", () => {
@@ -27,7 +27,7 @@ describe("Handle Error", () => {
         status: 200,
         json: () => Promise.resolve({}),
       })
-    ).not.toThrowError();
+    ).not.toThrow();
   });
 
   it("must get baseUrl from env", () => {
