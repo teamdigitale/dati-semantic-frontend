@@ -8,18 +8,18 @@ const FooterLinks = () => {
       <div className="container">
         <div className="row">
           <p className="justify-content-center pt-3 pr-3">
-            <a className={styles.bottomLabel} href="#">
+            <a className={styles.bottomFooter} href="#">
               Note Legali
             </a>
           </p>
           <p className="justify-content-center pt-3 pr-3">
-            <a className={styles.bottomLabel} href={routes.privacyPolicy()}>
+            <a className={styles.bottomFooter} href={routes.privacyPolicy()}>
               Informativa privacy
             </a>
           </p>
           <p className="justify-content-center pt-3 pr-3">
             <a
-              className={styles.bottomLabel}
+              className={styles.bottomFooter}
               href="https://form.agid.gov.it/view/eb6c03ab-525a-42f7-bb41-e828d89f5b82"
             >
               Dichiarazione di accessibilità
