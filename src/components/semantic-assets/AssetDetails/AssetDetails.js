@@ -14,16 +14,26 @@ import OntologyMetadata from "./metadata/OntologyMetadata";
 import IntroSection from "../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
 import SwaggerUI from "swagger-ui-react";
+import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
+import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 
 const AssetDetails = ({ details }) => {
   const accessUrl = details.distributions?.map((u) => u.accessUrl).pop();
   const downloadUrl = details.distributions?.map((u) => u.downloadUrl).pop();
+  let breadC = Array.from(BREADCRUMBS.DETAILSPAGE);
+  breadC[2].label = "";
+  breadC[2].label = "dettaglio asset :" + " " + details?.title;
   return (
     <div>
       <div
-        className={"row " + styles.detailsContainer}
+        className={"row " + styles.detailsContainer + " mx-0"}
         data-testid="asset-details-container"
       >
+        <div className="row mx-0 ">
+          <div className="col-lg-12 pl-5">
+            <BreadCrumbs arrayBread={breadC} />
+          </div>
+        </div>
         <div className="container">
           <div className="row ml-5 p-5 mr-5 ">
             <div className="col-12">

@@ -2,16 +2,16 @@ import IntroSection from "../../../common/IntroSection/IntroSection";
 import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
 import ProjectBody from "../ProjectBody/ProjectBody";
 import { useEffect } from "react";
-
+import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 const ProjectPage = () => {
   useEffect(() => {
-    document.title = "Il progetto - Catalogo Nazionale Dati";
+    document.title = "L’ iniziativa - Catalogo Nazionale Dati";
   });
 
   return (
     <div data-testid="ProjectPage">
       <IntroSection
-        title="IL PROGETTO"
+        title="L’ iniziativa"
         subtitle="Il catalogo nazionale della semantica dei dati"
         description="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
         primaryButtonText="Vai alle domande frequenti"
@@ -19,6 +19,7 @@ const ProjectPage = () => {
         secondaryButtonText="Esplora il catalogo"
         secondaryButtonLink={routes.explore()}
         type="HEADER"
+        arrayBread={BREADCRUMBS.PROJECTPAGE}
       />
       <ProjectBody />
       <IntroSection

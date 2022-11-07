@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./IntroSection.module.css";
-import { string } from "prop-types";
+import { array, string } from "prop-types";
+import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
+import { getHeroSpace } from "../../../services/imgHeroSpace";
 const IntroSection = ({
   title,
   subtitle,
@@ -11,9 +13,21 @@ const IntroSection = ({
   primaryButtonLink,
   secondaryButtonLink,
   type,
+  arrayBread,
 }) => {
+  let heroSpace = "";
+  if (type) {
+    heroSpace = getHeroSpace(location?.href);
+  }
   return (
     <React.Fragment>
+      {type && arrayBread ? (
+        <div className="row mx-0 px-0 introSectionBread">
+          <div className="col-lg-12 pl-5">
+            <BreadCrumbs arrayBread={arrayBread} />
+          </div>
+        </div>
+      ) : null}
       <div
         data-testid="Header"
         className="section section-muted"
@@ -57,8 +71,16 @@ const IntroSection = ({
                 )}
               </div>
             </div>
-            {type ? (
-              <div className="col-lg-6 mt-5 d-flex justify-content-center"></div>
+            {type && heroSpace && heroSpace?.url ? (
+              <div className="col-lg-6 mt-5 d-flex justify-content-center">
+                <img
+                  width={"300px"}
+                  height={"200px"}
+                  src={heroSpace?.url}
+                  alt={heroSpace?.alt}
+                  title={heroSpace?.alt}
+                ></img>
+              </div>
             ) : null}
           </div>
         </div>
@@ -76,6 +98,7 @@ IntroSection.propTypes = {
   primaryButtonLink: string.isRequired,
   secondaryButtonLink: string,
   type: string,
+  arrayBread: array,
 };
 
 IntroSection.defaultProps = {};
