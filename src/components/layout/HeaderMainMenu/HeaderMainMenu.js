@@ -4,9 +4,9 @@ import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 import "./HeaderMainMenu.css";
 
-const menuItems = [{ label: "Esplora", href: routes.explore() }];
+const menuItems = [{ label: "Catalogo", href: routes.search() }];
 const additionalMenuItems = [
-  { label: "Il progetto", href: routes.project() },
+  { label: "L’ iniziativa", href: routes.project() },
   { label: "Domande frequenti", href: routes.faq() },
 ];
 const HeaderMainMenu = () => {
@@ -63,6 +63,8 @@ const HeaderMainMenu = () => {
                             role="listitem"
                           >
                             <Link
+                              title={menuItem.label}
+                              aria-label={menuItem.label}
                               className={
                                 "nav-link justify-content-center focus-element" +
                                 (isActive(menuItem.href) ? " active" : "")
@@ -82,6 +84,8 @@ const HeaderMainMenu = () => {
                             role="listitem"
                           >
                             <Link
+                              title={menuItem.label}
+                              aria-label={menuItem.label}
                               className={
                                 "nav-link justify-content-center focus-element" +
                                 (isActive(menuItem.href) ? " active" : "")

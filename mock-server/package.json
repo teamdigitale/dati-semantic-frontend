@@ -11,6 +11,6 @@
     "mountebank-helper": "^1.2.1"
   },
   "dependencies": {
-    "node-fetch": "^3.0.0"
+    "node-fetch": "^3.2.10"
   }
 }

@@ -5,7 +5,7 @@ export const BreadCrumbs = (props) => {
   return (
     <React.Fragment>
       <nav
-        className="breadcrumb-container"
+        className="breadcrumb-container mt-3"
         aria-label="Percorso di navigazione"
       >
         <ol className="breadcrumb">
@@ -21,7 +21,7 @@ export const BreadCrumbs = (props) => {
               <li
                 className="breadcrumb-item"
                 key={bread?.id + "keyBack" + i}
-                onClick={() => history.back()}
+                onClick={() => history?.back()}
               >
                 <a className="link" href="#" title={bread?.label}>
                   {bread?.label}

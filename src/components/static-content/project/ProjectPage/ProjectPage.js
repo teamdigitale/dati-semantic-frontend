@@ -5,13 +5,13 @@ import { useEffect } from "react";
 import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 const ProjectPage = () => {
   useEffect(() => {
-    document.title = "Il progetto - Catalogo Nazionale Dati";
+    document.title = "L’ iniziativa - Catalogo Nazionale Dati";
   });
 
   return (
     <div data-testid="ProjectPage">
       <IntroSection
-        title="IL PROGETTO"
+        title="L’ iniziativa"
         subtitle="Il catalogo nazionale della semantica dei dati"
         description="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
         primaryButtonText="Vai alle domande frequenti"
