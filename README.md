@@ -97,3 +97,9 @@ This work is licensed under the GNU Affero General Public License (AGPL), versio
 the license in the [LICENSE](https://github.com/teamdigitale/dati-semantic-frontend/blob/main/LICENSE) file
 
 "start": "./env.sh && mv env-config.js ./public/ && INLINE_RUNTIME_CHUNK=false node scripts/start.js",
+"transformIgnorePatterns": [
+            
+"[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts)$",
+            "^.+\\.module\\.(css|sass|scss)$"
+            
+        ],

@@ -20,6 +20,9 @@ import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 const AssetDetails = ({ details }) => {
   const accessUrl = details.distributions?.map((u) => u.accessUrl).pop();
   const downloadUrl = details.distributions?.map((u) => u.downloadUrl).pop();
+  let breadC = Array.from(BREADCRUMBS.DETAILSPAGE);
+  breadC[2].label = "";
+  breadC[2].label = "dettaglio asset :" + " " + details?.title;
   return (
     <div>
       <div
@@ -28,7 +31,7 @@ const AssetDetails = ({ details }) => {
       >
         <div className="row mx-0 ">
           <div className="col-lg-12 pl-5">
-            <BreadCrumbs arrayBread={BREADCRUMBS.DETAILSPAGE} />
+            <BreadCrumbs arrayBread={breadC} />
           </div>
         </div>
         <div className="container">

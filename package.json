@@ -17,7 +17,7 @@
         "camelcase": "^6.2.1",
         "case-sensitive-paths-webpack-plugin": "2.4.0",
         "css-loader": "5.2.7",
-        "design-react-kit": "^3.3.3",
+        "design-react-kit": "^4.0.2",
         "dotenv": "10.0.0",
         "dotenv-expand": "5.1.0",
         "file-loader": "6.2.0",
@@ -29,7 +29,7 @@
         "jquery": "^3.6.0",
         "mini-css-extract-plugin": "0.11.3",
         "mkdirp": "^1.0.4",
-        "node-fetch": "^3.2.6",
+        "node-fetch": "^3.2.10",
         "optimize-css-assets-webpack-plugin": "6.0.1",
         "owl.carousel": "^2.3.4",
         "pnp-webpack-plugin": "1.7.0",
@@ -44,7 +44,7 @@
         "react-app-polyfill": "^3.0.0",
         "react-dom": "^17.0.2",
         "react-refresh": "^0.9.0",
-        "react-router-dom": "^6.1.1",
+        "react-router-dom": "^6.4.3",
         "readline": "^1.3.0",
         "resolve": "1.20.0",
         "resolve-url-loader": "^4.0.0",
@@ -60,7 +60,7 @@
         "web-vitals": "^2.1.2"
     },
     "devDependencies": {
-        "@babel/register": "^7.16.5",
+        "@babel/register": "^7.18.9",
         "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
         "@svgr/webpack": "5.5.0",
         "@types/k6": "^0.35.2",
@@ -76,10 +76,10 @@
         "eslint-config-react-app": "^6.0.0",
         "eslint-plugin-flowtype": "^5.2.0",
         "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-jest": "^25.3.0",
+        "eslint-plugin-jest": "^27.1.3",
         "eslint-plugin-jsx-a11y": "^6.3.1",
         "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.27.1",
+        "eslint-plugin-react": "^7.31.10",
         "eslint-plugin-react-hooks": "^4.3.0",
         "eslint-plugin-testing-library": "5.0.1",
         "eslint-webpack-plugin": "^2.6.0",
@@ -156,14 +156,16 @@
         ],
         "testEnvironment": "jsdom",
         "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
+        "testPathIgnorePatterns":["/node_modules/"],
         "transform": {
             "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
             "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
-            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+            
             "^.+\\.module\\.(css|sass|scss)$"
+            
         ],
         "modulePaths": [],
         "moduleNameMapper": {
