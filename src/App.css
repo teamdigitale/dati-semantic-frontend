@@ -62,16 +62,19 @@ a.link:hover {
   text-decoration: underline;
 }
 .btn.lineUnder {
-  width: 100% !important;
+  width: 90% !important;
   display: flex;
   justify-content: flex-start;
 }
+
 div.progress-bar:empty {
   display: flex;
 }
 .text-primary-title.active {
   text-decoration: underline;
 }
-.introSectionBread{
+
+.introSectionBread {
   background: #f2f7fc;
 }
+

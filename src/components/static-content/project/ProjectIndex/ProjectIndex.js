@@ -27,15 +27,15 @@ const ProjectIndex = (props) => {
                   <h3>INDICE DELLA PAGINA</h3>
                 </li>
                 <li>
-                  <div className="container pl-4 pr-4">
+                  <div className="container pl-4 pr-4 mb-2">
                     <div className="progress">
                       <div
                         className="progress-bar"
                         role="progressbar"
-                        aria-valuenow={progress ? progress : 0}
+                        aria-valuenow={progress}
                         aria-valuemin="0"
-                        aria-valuemax="100"
-                        style={{ width: progress ? progress : 0 + "%" }}
+                        aria-valuemax="10"
+                        style={{ width: progress + "%" }}
                       ></div>
                     </div>
                   </div>
