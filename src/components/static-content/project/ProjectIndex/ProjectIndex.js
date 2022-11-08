@@ -27,9 +27,7 @@ const ProjectIndex = (props) => {
                   <h3>INDICE DELLA PAGINA</h3>
                 </li>
                 <li>
-
                   <div className="container pl-4 pr-4 mb-2">
-
                     <div className="progress">
                       <div
                         className="progress-bar"
