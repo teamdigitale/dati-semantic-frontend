@@ -75,7 +75,7 @@ const IntroSection = ({
               <div className="col-lg-6 mt-5 d-flex justify-content-center">
                 <img
                   width={"300px"}
-                  height={"200px"}
+                  height={"159px"}
                   src={heroSpace?.url}
                   alt={heroSpace?.alt}
                   title={heroSpace?.alt}
