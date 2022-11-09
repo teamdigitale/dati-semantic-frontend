@@ -77,4 +77,9 @@ div.progress-bar:empty {
 .introSectionBread {
   background: #f2f7fc;
 }
-
+.explorePageBkg {
+  background-color: #f0f6fc !important;
+}
+.notUnderline {
+  text-decoration: none !important;
+}
