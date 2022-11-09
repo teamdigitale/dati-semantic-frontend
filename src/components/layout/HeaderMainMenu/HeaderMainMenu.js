@@ -21,14 +21,14 @@ const HeaderMainMenu = () => {
 
   return (
     <div className="it-header-navbar-wrapper">
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-12">
             <div id="it-region-header-nav" className="region header_nav">
               <nav
                 role="navigation"
                 aria-labelledby="main-menu"
-                className="navbar navbar-expand-lg has-megamenu theme-dark-mobile"
+                className="navbar navbar-expand-lg has-megamenu theme-dark-mobile px-2"
               >
                 <button
                   className="custom-navbar-toggler"
@@ -54,7 +54,7 @@ const HeaderMainMenu = () => {
                     Main Menu
                   </h2>
                   <div className="menu-wrapper">
-                    <ul className="navbar-nav container" role="list">
+                    <ul className="navbar-nav container-fluid" role="list">
                       <div className="mainmenu_left">
                         {menuItems.map((menuItem) => (
                           <li

@@ -3,9 +3,9 @@ import "./HeaderSlim.css";
 
 const HeaderSlim = () => (
   <header className="it-header-slim-wrapper" data-testid="Header">
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
-        <div className="col-12 mb-0">
+        <div className="col-12 mb-0 px-3">
           <div className="it-header-slim-wrapper-content">
             <div className="d-lg-block navbar-brand">
               <a
