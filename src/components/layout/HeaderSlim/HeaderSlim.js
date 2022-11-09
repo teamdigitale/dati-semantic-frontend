@@ -14,12 +14,12 @@ const HeaderSlim = () => (
               >
                 <u>Dipartimento per la trasformazione digitale</u>
               </a>
-              <span> &#38; </span>
+              <span> e </span>
               <a
                 aria-label="Vai al sito dell'Istat"
                 href="https://www.istat.it/"
               >
-                <u>Istat</u>
+                <u>ISTAT</u>
               </a>
             </div>
           </div>
