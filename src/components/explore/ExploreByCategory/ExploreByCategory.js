@@ -43,22 +43,18 @@ const ExploreByCategory = () => {
                         data-testid={item.key}
                       >
                         <a href="#" className="link notUnderline">
-                          <div className="card-wrapper card-space">
-                            <div className="card card-bg">
-                              <div className="card-body">
-                                {/* <h3 className="card-title h5 ">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor…
-                              </h3> */}
-                                <div className="row mx-0 px-1">
-                                  <div className="col-lg-4 d-flex align-items-end">
-                                    <CategoryIcon category={item} />
-                                  </div>
-                                  <div className="col-lg-8 text-center d-flex align-items-center">
-                                    <p className="h5">
-                                      <strong>{item.label}</strong>
-                                    </p>
-                                  </div>
+                          <div className="card card-teaser rounded shadow">
+                            <div className="card-body">
+                              <div className="row mx-0 px-1">
+                                <div className="col-lg-4 d-flex align-items-end">
+                                  <CategoryIcon category={item} />
+                                </div>
+                                <div className="col-lg-8 d-flex justify-content-center align-items-center">
+                                  <p className="h5">
+                                    <strong className="text-center">
+                                      {item.label}
+                                    </strong>
+                                  </p>
                                 </div>
                               </div>
                             </div>
