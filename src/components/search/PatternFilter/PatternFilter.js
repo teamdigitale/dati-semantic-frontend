@@ -19,18 +19,20 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
         >
           <div className="form-group mt-3 mb-1">
             <div className="align-items-center input-group col-12">
-              <div className="input-group-prepend">
-                <Icon icon="it-search" size="sm" />
-              </div>
               <label htmlFor="pattern-input">Inserisci la parola</label>
               <input
-                type="text"
+                type="search"
                 className="form-control"
                 id="pattern-input"
                 role="searchbox"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
+              <span className="autocomplete-icon" aria-hidden="true">
+                <div className="input-group-prepend">
+                  <Icon icon="it-search" size="sm" />
+                </div>
+              </span>
             </div>
             <div className="col-12">
               <button

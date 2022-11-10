@@ -3,15 +3,16 @@ import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
+import { routes } from "../../../services/routes";
 import Pagination, {
   DEFAULT_OFFSET,
   PAGE_SIZE,
 } from "../Pagination/Pagination";
-import IntroSection from "../../common/IntroSection/IntroSection";
+
 import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
+import EndSection from "../../common/EndSection/EndSection";
 
 const showItems = (isLoading, error, searchResult) => {
   const routNav = useNavigate();
@@ -151,12 +152,7 @@ const SearchPage = () => {
             </div>
           </div>
         </div>
-        <IntroSection
-          title="CONTRIBUISCI"
-          subtitle="Scopri come contribuire"
-          primaryButtonText="Maggiori informazioni"
-          primaryButtonLink={DIGITALE_DOCS_URL}
-        />
+        <EndSection type={1} />
       </div>
     </React.Fragment>
   );

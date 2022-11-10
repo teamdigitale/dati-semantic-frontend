@@ -57,7 +57,6 @@ describe("<SearchPage />", () => {
     const vocabs = await screen.findByTestId("SearchPage");
 
     expect(vocabs).toBeInTheDocument();
-    expect(screen.getByText("CONTRIBUISCI")).toBeInTheDocument();
   });
 
   test("it should search with appropriate filters", async () => {
