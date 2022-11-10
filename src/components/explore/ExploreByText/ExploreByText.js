@@ -26,19 +26,24 @@ const ExploreByText = () => {
           <div className="form-row pr-4">
             <div className="form-group col-md-7 p-2">
               <div className="search-group input-group">
-                <span className="input-group-append">
+                {/* <span className="input-group-append">
                   <div className="input-group-text bg-transparent">
                     <Icon icon="it-search" size="sm" alt="" />
                   </div>
-                </span>
+                </span> */}
                 <input
                   aria-label="catalogo"
-                  type="text"
-                  className="form-control search-bar"
+                  type="search"
+                  className="form-control"
                   placeholder="es. persona, economia, attività"
                   value={pattern}
                   onChange={onPatternChange}
                 />
+                <span className="autocomplete-icon" aria-hidden="true">
+                  <div className="input-group-prepend">
+                    <Icon icon="it-search" size="sm" />
+                  </div>
+                </span>
               </div>
             </div>
             <div className="form-group col-md-3 p-2 d-flex justify-content-center">

@@ -8,7 +8,7 @@ export const EndSection = (props) => {
       <div className="endSectionBkg container-fluid">
         {props.type && props.type == 1 ? (
           <div className="row mx-0 mt-2 py-5" data-testid="endSection_1">
-            <div className="col-lg-4">
+            <div className="col-lg-6">
               <div className="row mx-0">
                 <h2 className="txtWhite">
                   Non hai trovato quello che cercavi? Contribuisci al catalogo
@@ -19,7 +19,8 @@ export const EndSection = (props) => {
                 <div className="col-lg-12">
                   <p className="txtWhite">
                     Scopri come contribuire al catalogo con un contenuto
-                    <br /> semantico, leggi la guida su docs italia
+                    semantico,
+                    <br /> leggi la guida su docs italia
                   </p>
                 </div>
               </div>
