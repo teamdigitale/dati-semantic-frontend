@@ -22,7 +22,7 @@ const AssetDetails = ({ details }) => {
   const downloadUrl = details.distributions?.map((u) => u.downloadUrl).pop();
   let breadC = Array.from(BREADCRUMBS.DETAILSPAGE);
   breadC[2].label = "";
-  breadC[2].label = "dettaglio asset :" + " " + details?.title;
+  breadC[2].label = details?.title;
   return (
     <div>
       <div

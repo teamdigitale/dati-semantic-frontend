@@ -26,7 +26,9 @@ const ExplorePage = () => {
       />
       <ExploreByText />
       <ExploreByType />
-      <ExploreByCategory />
+      <div className="explorePageBkg">
+        <ExploreByCategory />
+      </div>
       <IntroSection
         title="CONTRIBUISCI"
         subtitle="Scopri come contribuire"

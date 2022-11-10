@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import { chunk } from "../../../services/arrayUtils";
-import styles from "./ExploreByCategory.module.css";
+/* import styles from "./ExploreByCategory.module.css"; */
 
 const categoryData = getCategories();
 
@@ -29,42 +29,45 @@ const ExploreByCategory = () => {
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
       <div className="mt-4" role="list">
-        {chunk(categoryCells, 3).map((row, rowIndex) => {
-          return (
-            <div
-              key={"row-" + rowIndex}
-              role="listitem"
-              className="row ml-0 justify-content-around"
-            >
-              {row.map((item) => {
-                return (
-                  <div key={item.key} className={"d-flex mb-4"}>
-                    <div
-                      className={"shadow-lg category-tile " + styles.item}
-                      onClick={item.onClick}
-                      data-testid={item.key}
-                    >
+        <div className="row">
+          <div className="col-12 d-flex justify-content-start">
+            {chunk(categoryCells, categoryCells.length).map((row, rowIndex) => {
+              return (
+                <div role="listitem" className="row" key={"row" + rowIndex}>
+                  {row.map((item) => {
+                    return (
                       <div
-                        className={"pt-4 " + styles.itemIcon}
-                        alt={item.label}
+                        className="col-lg-4 px-2 my-4 pointer"
+                        key={item.key}
+                        onClick={item.onClick}
+                        data-testid={item.key}
                       >
-                        <CategoryIcon category={item} />
+                        <a href="#" className="link notUnderline">
+                          <div className="card card-teaser rounded shadow">
+                            <div className="card-body">
+                              <div className="row mx-0 px-1">
+                                <div className="col-lg-4 d-flex align-items-end">
+                                  <CategoryIcon category={item} />
+                                </div>
+                                <div className="col-lg-8 d-flex justify-content-center align-items-center">
+                                  <p className="h5">
+                                    <strong className="text-center">
+                                      {item.label}
+                                    </strong>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
                       </div>
-                      <div
-                        className={
-                          "text-center font-weight-bold px-5 pt-5 " +
-                          styles.itemLabel
-                        }
-                      >
-                        {item.label}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          );
-        })}
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </ExploreSection>
   );
