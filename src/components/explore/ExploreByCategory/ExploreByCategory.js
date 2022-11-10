@@ -30,14 +30,14 @@ const ExploreByCategory = () => {
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
       <div className="mt-4" role="list">
         <div className="row">
-          <div className="col-12 d-flex justify-content-start">
+          <div className="col-xl-12 d-flex justify-content-start">
             {chunk(categoryCells, categoryCells.length).map((row, rowIndex) => {
               return (
                 <div role="listitem" className="row" key={"row" + rowIndex}>
                   {row.map((item) => {
                     return (
                       <div
-                        className="col-lg-4 px-2 my-4 pointer"
+                        className="col-xl-4 col-lg-6 px-2 my-4 pointer"
                         key={item.key}
                         onClick={item.onClick}
                         data-testid={item.key}

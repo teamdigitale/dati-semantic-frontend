@@ -7,7 +7,8 @@ export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
 export const ASSETS_URL_TOKEN = "details";
 
 export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
-
+export const GITHUB_SCHEMA =
+  "https://github.com/teamdigitale/dati-semantic-frontend";
 export const SEARCH_BASE_URL = "search";
 export const FAQ_URL = "faq";
 export const PROJECT_URL = "iniziativa";

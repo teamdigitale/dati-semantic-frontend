@@ -83,4 +83,16 @@ div.progress-bar:empty {
 .notUnderline {
   text-decoration: none !important;
 }
-
+.endSectionBkg {
+  background-color: #0066cc !important;
+}
+.txtWhite {
+  color: white !important;
+}
+.endSectionBkg p.txtWhite {
+  font-size: 24px;
+}
+a.btn.endSection {
+  background-color: white;
+  color: #0066cc;
+}

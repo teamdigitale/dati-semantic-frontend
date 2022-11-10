@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
 import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
-import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
+import { routes } from "../../../services/routes";
 import IntroSection from "../../common/IntroSection/IntroSection";
+import EndSection from "../../common/EndSection/EndSection";
 
 const ExplorePage = () => {
   useEffect(() => {
@@ -29,12 +30,7 @@ const ExplorePage = () => {
       <div className="explorePageBkg">
         <ExploreByCategory />
       </div>
-      <IntroSection
-        title="CONTRIBUISCI"
-        subtitle="Scopri come contribuire"
-        primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={DIGITALE_DOCS_URL}
-      />
+      <EndSection type={2} />
     </div>
   );
 };

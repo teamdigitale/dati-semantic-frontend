@@ -8,8 +8,8 @@ import "./FooterLogos.css";
 
 const FooterLogos = () => {
   return (
-    <div className="container">
-      <div className="row pl-4 footer_logoteam">
+    <div className="container-fluid">
+      <div className="row footer_logoteam">
         <div className="footer_logo_img">
           <a
             aria-label="Vai al sito del pnrr"

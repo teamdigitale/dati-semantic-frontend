@@ -1,11 +1,10 @@
-import IntroSection from "../../../common/IntroSection/IntroSection";
-import { DIGITALE_DOCS_URL } from "../../../../services/routes";
 import "./PrivacyPolicyPage.css";
 import Anchor from "../../../common/Anchor/Anchor";
 import ContentParagraph from "../../../common/ContentParagraph/ContentParagraph";
 import { useEffect } from "react";
 import BreadCrumbs from "../../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
+import EndSection from "../../../common/EndSection/EndSection";
 
 const PrivacyPolicyPage = () => {
   useEffect(() => {
@@ -187,12 +186,7 @@ const PrivacyPolicyPage = () => {
           </ContentParagraph>
         </div>
       </div>
-      <IntroSection
-        title="CONTRIBUISCI"
-        subtitle="Scopri come contribuire"
-        primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={DIGITALE_DOCS_URL}
-      />
+      <EndSection type={2} />
     </div>
   );
 };

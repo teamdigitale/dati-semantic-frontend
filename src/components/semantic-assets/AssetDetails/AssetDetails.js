@@ -11,11 +11,11 @@ import SchemaMetadata from "./metadata/SchemaMetadata";
 import VocabularyMetadata from "./metadata/VocabularyMetadata";
 import getDetailsPropTypes from "./DetailsPropTypes";
 import OntologyMetadata from "./metadata/OntologyMetadata";
-import IntroSection from "../../common/IntroSection/IntroSection";
-import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
+import { routes } from "../../../services/routes";
 import SwaggerUI from "swagger-ui-react";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
+import EndSection from "../../common/EndSection/EndSection";
 
 const AssetDetails = ({ details }) => {
   const accessUrl = details.distributions?.map((u) => u.accessUrl).pop();
@@ -103,12 +103,7 @@ const AssetDetails = ({ details }) => {
           </div>
         </div>
       </div>
-      <IntroSection
-        title="CONTRIBUISCI"
-        subtitle="Scopri come contribuire"
-        primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={DIGITALE_DOCS_URL}
-      />
+      <EndSection type={1} />
     </div>
   );
 };
