@@ -82,7 +82,7 @@
         "eslint-plugin-react": "^7.31.10",
         "eslint-plugin-react-hooks": "^4.3.0",
         "eslint-plugin-testing-library": "5.0.1",
-        "eslint-webpack-plugin": "^2.6.0",
+        "eslint-webpack-plugin": "^2.7.0",
         "jest": "27.4.5",
         "jest-circus": "27.4.5",
         "jest-resolve": "27.4.5",
