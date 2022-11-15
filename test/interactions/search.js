@@ -1,10 +1,10 @@
 class Search {
   get searchTextBox() {
-    return $("//input[@type='search']");
+    return $('//input[@type="search"]');
   }
 
   get btnSubmit() {
-    return $("//button[@type='submit']");
+    return $('//button[@type="submit"]');
   }
 
   async semanticAsset(searchText) {
