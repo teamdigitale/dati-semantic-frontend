@@ -1,6 +1,6 @@
 class Search {
   get searchTextBox() {
-    return $("//input[@type='text']");
+    return $("//input[@type='search']");
   }
 
   get btnSubmit() {
