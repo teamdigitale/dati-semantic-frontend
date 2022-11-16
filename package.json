@@ -104,7 +104,7 @@
     "scripts": {
         "start": "./env.sh && mv env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
         "start-mock-server": "node mock-server/src/index.js",
-        "build": "set INLINE_RUNTIME_CHUNK=false && node scripts/build.js",
+        "build": "INLINE_RUNTIME_CHUNK=false node scripts/build.js",
         "test": "node scripts/test.js",
         "test:coverage": "node scripts/test.js --coverage --watchAll=false",
         "test:e2e": "wdio run ./test/config/wdio.conf.js",
