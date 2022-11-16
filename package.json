@@ -58,10 +58,12 @@
         "terser-webpack-plugin": "4.2.3",
         "ts-pnp": "1.2.0",
         "url-loader": "4.1.1",
-        "web-vitals": "^2.1.2"
+        "web-vitals": "^2.1.2",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "29.3.1",
+        "@babel/register": "^7.18.9"
     },
     "devDependencies": {
-        "@babel/register": "^7.18.9",
         "@pmmmwh/react-refresh-webpack-plugin": "0.5.3",
         "@svgr/webpack": "5.5.0",
         "@types/k6": "^0.41.0",
@@ -69,8 +71,6 @@
         "@wdio/jasmine-framework": "^7.16.11",
         "@wdio/local-runner": "^7.16.12",
         "@wdio/spec-reporter": "^7.16.11",
-        "babel-eslint": "^10.1.0",
-        "babel-jest": "29.3.1",
         "chromedriver": "^106.0.1",
         "eslint": "^7.11.0",
         "eslint-config-prettier": "^8.3.0",
@@ -99,13 +99,12 @@
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "4.11.1",
         "webpack-manifest-plugin": "5.0.0",
-
         "workbox-webpack-plugin": "6.5.4"
     },
     "scripts": {
         "start": "./env.sh && mv env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
         "start-mock-server": "node mock-server/src/index.js",
-        "build": "INLINE_RUNTIME_CHUNK=false node scripts/build.js",
+        "build": "set INLINE_RUNTIME_CHUNK=false && node scripts/build.js",
         "test": "node scripts/test.js",
         "test:coverage": "node scripts/test.js --coverage --watchAll=false",
         "test:e2e": "wdio run ./test/config/wdio.conf.js",
