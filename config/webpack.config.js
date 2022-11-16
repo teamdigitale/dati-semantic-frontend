@@ -408,12 +408,8 @@ module.exports = function (webpackEnv) {
                   'babel-preset-react-app/webpack-overrides'
                 ),
                 presets: [
-                  [
-                    require.resolve('babel-preset-react-app'),
-                    {
-                      runtime: hasJsxRuntime ? 'automatic' : 'classic',
-                    },
-                  ],
+                  '@babel/preset-env',
+                  ['@babel/preset-react', { runtime: 'automatic' }],
                 ],
 
                 plugins: [
@@ -452,10 +448,8 @@ module.exports = function (webpackEnv) {
                 configFile: false,
                 compact: false,
                 presets: [
-                  [
-                    require.resolve('babel-preset-react-app/dependencies'),
-                    { helpers: true },
-                  ],
+                  '@babel/preset-env',
+                  ['@babel/preset-react', { runtime: 'automatic' }],
                 ],
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
