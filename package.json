@@ -63,7 +63,7 @@
     "devDependencies": {
         "@babel/register": "^7.18.9",
         "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
-        "@svgr/webpack": "5.5.0",
+        "@svgr/webpack": "6.5.1",
         "@types/k6": "^0.41.0",
         "@wdio/cli": "^7.25.4",
         "@wdio/jasmine-framework": "^7.16.11",
