@@ -8,7 +8,7 @@ const siteTagLine = "Il catalogo nazionale della semantica dei dati";
 
 const HeaderMainTitle = () => (
   <div className="it-header-center-wrapper">
-    <div className="container-fluid">
+    <div className="container-fluid px-lg-2">
       <div className="row">
         <div className="col-12">
           <div className="it-header-center-content-wrapper">

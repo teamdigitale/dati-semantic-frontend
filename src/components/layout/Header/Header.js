@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div className="it-header-wrapper" tabIndex={-1}>
       <HeaderSlim />
+
       <HeaderNavigation />
     </div>
   );

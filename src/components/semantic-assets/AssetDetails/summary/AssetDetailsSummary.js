@@ -27,7 +27,7 @@ const AssetDetailsSummary = (props) => {
       </div>
       <div className="row pt-3 pb-3">
         <div className="col-12">
-          <h2>{props.title}</h2>
+          <h1 className="h2">{props.title}</h1>
         </div>
       </div>
       <div className={"row " + styles.detailsCard}>

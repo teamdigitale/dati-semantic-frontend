@@ -2,7 +2,7 @@ import { routes } from "../services/routes";
 export const EXPLOREPAGE = [{ label: "Home", link: "", id: 1 }];
 export const PROJECTPAGE = [
   { label: "Home", link: routes.explore(), id: 2 },
-  { label: "L’ iniziativa", link: "", id: 3 },
+  { label: "Scopri l’iniziativa", link: "", id: 3 },
 ];
 export const FAQPAGE = [
   { label: "Home", link: routes.explore(), id: 4 },

@@ -1,19 +1,19 @@
 import React from "react";
 import styles from "./IntroSection.module.css";
-import { array, string } from "prop-types";
+import { array, bool, string } from "prop-types";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 import { getHeroSpace } from "../../../services/imgHeroSpace";
 const IntroSection = ({
   title,
   subtitle,
-  description,
   primaryButtonText,
   secondaryButtonText,
   primaryButtonLink,
   secondaryButtonLink,
   type,
   arrayBread,
+  isSearch,
 }) => {
   let heroSpace = "";
   if (type) {
@@ -22,7 +22,7 @@ const IntroSection = ({
   return (
     <React.Fragment>
       {type && arrayBread ? (
-        <div className="row mx-0 px-0 introSectionBread">
+        <div className="row mx-0 px-0 pl-3 introSectionBread">
           <div className="col-lg-12 pl-5">
             <BreadCrumbs arrayBread={arrayBread} />
           </div>
@@ -30,31 +30,31 @@ const IntroSection = ({
       ) : null}
       <div
         data-testid="Header"
-        className="section section-muted"
+        className={!isSearch ? styles.bkgIntro : ""}
         role="complementary"
       >
-        <div className="container">
-          <div className="row mx-0">
-            <div className=" col-lg-6  mb-0 mb-lg-4">
-              <div
-                className={"text-uppercase font-weight-bold " + styles.title}
-              >
-                {title}
+        <div className="container-fluid schemaPadding py-5">
+          <div className="row mx-0 ">
+            <div className=" col-lg-6  mb-0 mb-lg-4 pl-lg-5">
+              <div className={"font-weight-bold " + styles.title}>
+                <h1>{title}</h1>
               </div>
-              <h3 className={styles.subtitle + " font-weight-bold"}>
-                {subtitle}
-              </h3>
-              <div className={styles.description}>{description}</div>
+              <p className={styles.subtitle}>{subtitle}</p>
               <div className={`mt-4 ${styles.buttonSection} row`}>
-                <div
-                  className={
-                    primaryButtonText.length > 20 ? "col-sm-6" : "col-sm-4"
-                  }
-                >
-                  <a className={"btn btn-primary"} href={primaryButtonLink}>
-                    {primaryButtonText}
-                  </a>
-                </div>
+                {primaryButtonLink && primaryButtonText ? (
+                  <div
+                    className={
+                      primaryButtonText.length > 20 ? "col-sm-6" : "col-sm-4"
+                    }
+                  >
+                    <a className={"btn btn-primary"} href={primaryButtonLink}>
+                      {primaryButtonText}
+                    </a>
+                  </div>
+                ) : (
+                  ""
+                )}
+
                 {secondaryButtonLink ? (
                   <div className="col-sm-5">
                     <a
@@ -72,10 +72,10 @@ const IntroSection = ({
               </div>
             </div>
             {type && heroSpace && heroSpace?.url ? (
-              <div className="col-lg-6 mt-5 d-flex justify-content-center">
+              <div className="col-lg-6 mt-5 d-flex justify-content-end">
                 <img
-                  width={"300px"}
-                  height={"159px"}
+                  width={heroSpace?.w}
+                  height={heroSpace?.h}
                   src={heroSpace?.url}
                   alt={heroSpace?.alt}
                   title={heroSpace?.alt}
@@ -92,13 +92,13 @@ const IntroSection = ({
 IntroSection.propTypes = {
   title: string.isRequired,
   subtitle: string.isRequired,
-  description: string,
-  primaryButtonText: string.isRequired,
+  primaryButtonText: string,
   secondaryButtonText: string,
-  primaryButtonLink: string.isRequired,
+  primaryButtonLink: string,
   secondaryButtonLink: string,
   type: string,
   arrayBread: array,
+  isSearch: bool,
 };
 
 IntroSection.defaultProps = {};

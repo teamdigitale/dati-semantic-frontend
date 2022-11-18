@@ -73,7 +73,6 @@ div.progress-bar:empty {
 .text-primary-title.active {
   text-decoration: underline;
 }
-
 .introSectionBread {
   background: #f2f7fc;
 }
@@ -95,4 +94,27 @@ div.progress-bar:empty {
 a.btn.endSection {
   background-color: white;
   color: #0066cc;
+}
+.container-fluid.schemaPadding {
+  padding-left: 8.7rem !important;
+  padding-right: 8.7rem !important;
+}
+
+@media (max-width: 960px) {
+  .container-fluid.schemaPadding {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .container-fluid.schemaPadding {
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+  }
+}
+@media (max-width: 540px) {
+  .container-fluid.schemaPadding {
+    padding-left: auto !important;
+    padding-right: auto !important;
+  }
 }

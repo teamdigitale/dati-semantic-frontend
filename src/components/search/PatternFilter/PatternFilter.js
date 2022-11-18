@@ -19,10 +19,10 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
         >
           <div className="form-group mt-3 mb-1">
             <div className="align-items-center input-group col-12">
-              <label htmlFor="pattern-input">Inserisci la parola</label>
               <input
                 type="search"
                 className="form-control"
+                placeholder="es. persona, economia, attività"
                 id="pattern-input"
                 role="searchbox"
                 value={value}

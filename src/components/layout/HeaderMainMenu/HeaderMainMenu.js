@@ -4,9 +4,11 @@ import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 import "./HeaderMainMenu.css";
 
-const menuItems = [{ label: "Catalogo", href: routes.search() }];
+const menuItems = [
+  { label: "Catalogo", href: routes.search() },
+  { label: "Scopri l’iniziativa", href: routes.project() },
+];
 const additionalMenuItems = [
-  { label: "L’ iniziativa", href: routes.project() },
   { label: "Domande frequenti", href: routes.faq() },
 ];
 const HeaderMainMenu = () => {
@@ -21,7 +23,7 @@ const HeaderMainMenu = () => {
 
   return (
     <div className="it-header-navbar-wrapper">
-      <div className="container-fluid">
+      <div className="container-fluid px-lg-4">
         <div className="row">
           <div className="col-12">
             <div id="it-region-header-nav" className="region header_nav">
@@ -71,7 +73,7 @@ const HeaderMainMenu = () => {
                               }
                               to={menuItem.href}
                             >
-                              <span>{menuItem.label}</span>
+                              <span className="pr-lg-5">{menuItem.label}</span>
                             </Link>
                           </li>
                         ))}
@@ -92,7 +94,7 @@ const HeaderMainMenu = () => {
                               }
                               to={menuItem.href}
                             >
-                              <span>{menuItem.label}</span>
+                              <span className="pr-lg-1">{menuItem.label}</span>
                             </Link>
                           </li>
                         ))}

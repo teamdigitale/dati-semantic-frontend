@@ -29,13 +29,13 @@ const AssetDetails = ({ details }) => {
         className={"row " + styles.detailsContainer + " mx-0"}
         data-testid="asset-details-container"
       >
-        <div className="row mx-0 ">
+        <div className="row mx-0 pl-3">
           <div className="col-lg-12 pl-5">
             <BreadCrumbs arrayBread={breadC} />
           </div>
         </div>
-        <div className="container">
-          <div className="row ml-5 p-5 mr-5 ">
+        <div className="container-fluid schemaPadding">
+          <div className="row py-5">
             <div className="col-12">
               <AssetDetailsSummary
                 themes={details.themes}
@@ -59,7 +59,7 @@ const AssetDetails = ({ details }) => {
                       <div className="card-body px-5">
                         <div className="category-top">
                           <div className={"category " + styles.metadataHeader}>
-                            dettagli
+                            <h2>dettagli</h2>
                           </div>
                         </div>
                         <hr className="border-black" />

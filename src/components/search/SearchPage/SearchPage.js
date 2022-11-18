@@ -13,7 +13,7 @@ import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
-
+import IntroSection from "../../common/IntroSection/IntroSection";
 const showItems = (isLoading, error, searchResult) => {
   const routNav = useNavigate();
   function goToError() {
@@ -83,7 +83,9 @@ function renderResultCount(isLoading, error, searchResult) {
     <div className="row" data-testid="results-count">
       <div className="col-12">
         {!error && !isLoading && searchResult?.totalCount ? (
-          <h2 role="status">{searchResult?.totalCount} risultati</h2>
+          <p className="h2" role="status">
+            {searchResult?.totalCount} risultati
+          </p>
         ) : (
           ""
         )}
@@ -128,15 +130,22 @@ const SearchPage = () => {
 
   return (
     <React.Fragment>
-      <div className="row mx-0 px-0 my-1">
+      <div className="row mx-0 px-0 pl-3">
         <div className="col-lg-12 pl-5">
           <BreadCrumbs arrayBread={BREADCRUMBS.SEARCHPAGE} />
         </div>
       </div>
+      <IntroSection
+        title="Cerca nel catalogo nazionale 
+        della sematica dei dati"
+        subtitle="Cerca e utilizza tra decine di asset semantici. Puoi cercare per parola chiave, filtrare i risultati per categoria o strumento semantico, o titolare."
+        type=""
+        isSearch={true}
+      />
       <div data-testid="SearchPage" className="mt-5">
-        <div className="container main-container pl-4 pr-4">
-          <div className="row">
-            <div className="col-12 col-lg-4 col-md-4" role="search">
+        <div className="container-fluid schemaPadding">
+          <div className="row mx-0">
+            <div className="col-12 col-lg-4 pl-lg-4 col-md-4" role="search">
               <FilterPanel filter={filter} onFilterUpdate={onFilterUpdate} />
             </div>
             <div className="col-12 col-lg-8 col-md-8">

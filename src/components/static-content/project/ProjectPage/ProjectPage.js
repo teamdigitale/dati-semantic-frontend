@@ -6,21 +6,20 @@ import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 import EndSection from "../../../common/EndSection/EndSection";
 const ProjectPage = () => {
   useEffect(() => {
-    document.title = "L’ iniziativa - Catalogo Nazionale Dati";
+    document.title = "Scopri l’iniziativa - Catalogo Nazionale Dati";
   });
 
   return (
     <div data-testid="ProjectPage">
       <IntroSection
-        title="L’ iniziativa"
-        subtitle="Il catalogo nazionale della semantica dei dati"
-        description="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
-        primaryButtonText="Vai alle domande frequenti"
-        primaryButtonLink={routes.faq()}
-        secondaryButtonText="Esplora il catalogo"
-        secondaryButtonLink={routes.explore()}
+        title="Scopri il catalogo nazionale 
+        della semantica dei dati"
+        subtitle="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
+        primaryButtonText="Esplora il catalogo"
+        primaryButtonLink={routes.explore()}
         type="HEADER"
         arrayBread={BREADCRUMBS.PROJECTPAGE}
+        isSearch={false}
       />
       <ProjectBody />
       <EndSection type={2} />
