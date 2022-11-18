@@ -20,12 +20,7 @@ a:empty {
 }
 
 .subtitle {
-  font-size: 40px;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  color: #000;
-  padding-top: 14px;
-  margin-bottom: 0px;
+  font-size: 24px;
 }
 
 .description {
@@ -45,4 +40,7 @@ a:empty {
 
 .btnSecondary:hover {
   color: #084d91 !important;
+}
+.bkgIntro {
+  background-color: #f2f7fc;
 }

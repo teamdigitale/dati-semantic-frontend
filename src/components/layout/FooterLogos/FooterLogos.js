@@ -8,7 +8,7 @@ import "./FooterLogos.css";
 
 const FooterLogos = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid px-5">
       <div className="row footer_logoteam">
         <div className="footer_logo_img">
           <a

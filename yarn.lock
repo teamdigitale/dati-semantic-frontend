@@ -1818,7 +1818,7 @@
   resolved "https://registry.npmjs.org/@pmmmwh/react-refresh-webpack-plugin/-/react-refresh-webpack-plugin-0.4.3.tgz"
   integrity sha512-br5Qwvh8D2OQqSXpd1g/xqXKnK0r+Jz6qVKBbWmpUcrbGOxUrf39V5oZ1876084CGn18uMdR5uvPqBv9UqtBjQ==
   dependencies:
-    ansi-html "^0.0.7"
+    ansi-html "^0.0.8"
     error-stack-parser "^2.0.6"
     html-entities "^1.2.1"
     native-url "^0.2.6"
@@ -2002,7 +2002,7 @@
     "@svgr/core" "^5.5.0"
     "@svgr/plugin-jsx" "^5.5.0"
     "@svgr/plugin-svgo" "^5.5.0"
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
 
 "@szmarczak/http-timer@^4.0.5":
   version "4.0.6"
@@ -3210,7 +3210,7 @@ adjust-sourcemap-loader@^4.0.0:
   resolved "https://registry.yarnpkg.com/adjust-sourcemap-loader/-/adjust-sourcemap-loader-4.0.0.tgz#fc4a0fd080f7d10471f30a7320f25560ade28c99"
   integrity sha512-OXwN5b9pCUXNQHJpwwD2qP40byEmSgzj8B4ydSN0uMNYWiFmJ6x6KwUllMmfk8Rwu/HJDFR7U8ubsWBoN0Xp0A==
   dependencies:
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     regex-parser "^2.2.11"
 
 agent-base@6:
@@ -3665,7 +3665,7 @@ babel-loader@8.3.0:
   integrity sha512-H8SvsMF+m9t15HNLMipppzkC+Y2Yq+v3SonZyU70RBL/h1gxPkH08Ot8pEE9Z4Kd+czyWJClmFS8qzIP9OZ04Q==
   dependencies:
     find-cache-dir "^3.3.1"
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     make-dir "^3.1.0"
     schema-utils "^2.6.5"
 
@@ -4426,7 +4426,7 @@ chokidar@^2.1.8:
     anymatch "^2.0.0"
     async-each "^1.0.1"
     braces "^2.3.2"
-    glob-parent "^3.1.0"
+    glob-parent "^5.1.2"
     inherits "^2.0.3"
     is-binary-path "^1.0.0"
     is-glob "^4.0.0"
@@ -4994,7 +4994,7 @@ css-loader@5.2.7:
   integrity sha512-Q7mOvpBNBG7YrVGMxRxcBJZFL75o+cH2abNASdibkj/fffYD8qWbInZrD0S9ccI6vZclF3DsHE7njGlLtaHbhg==
   dependencies:
     icss-utils "^5.1.0"
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     postcss "^8.2.15"
     postcss-modules-extract-imports "^3.0.0"
     postcss-modules-local-by-default "^4.0.0"
@@ -5024,7 +5024,7 @@ css-select@^2.0.0:
     boolbase "^1.0.0"
     css-what "^3.2.1"
     domutils "^1.7.0"
-    nth-check "^1.0.2"
+    nth-check "^2.0.1"
 
 css-select@^4.1.3:
   version "4.1.3"
@@ -6025,7 +6025,7 @@ eslint-plugin-jsx-a11y@^6.3.1:
     has "^1.0.3"
     jsx-ast-utils "^3.2.1"
     language-tags "^1.0.5"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
 
 eslint-plugin-prettier@^4.0.0:
   version "4.0.0"
@@ -6162,7 +6162,7 @@ eslint@^7.11.0:
     json-stable-stringify-without-jsonify "^1.0.1"
     levn "^0.4.1"
     lodash.merge "^4.6.2"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
     natural-compare "^1.4.0"
     optionator "^0.9.1"
     progress "^2.0.0"
@@ -6517,7 +6517,7 @@ file-loader@6.2.0:
   resolved "https://registry.npmjs.org/file-loader/-/file-loader-6.2.0.tgz"
   integrity sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==
   dependencies:
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     schema-utils "^3.0.0"
 
 file-uri-to-path@1.0.0:
@@ -6657,7 +6657,7 @@ fork-ts-checker-webpack-plugin@4.1.6:
     "@babel/code-frame" "^7.5.5"
     chalk "^2.4.1"
     micromatch "^3.1.10"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
     semver "^5.6.0"
     tapable "^1.0.0"
     worker-rpc "^0.1.0"
@@ -6926,7 +6926,7 @@ glob@^7.1.1, glob@^7.1.2, glob@^7.1.4, glob@^7.1.6:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
     inherits "2"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -6961,7 +6961,7 @@ glob@~7.1.1:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
     inherits "2"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -7029,7 +7029,7 @@ globule@^1.0.0:
   dependencies:
     glob "~7.1.1"
     lodash "~4.17.10"
-    minimatch "~3.0.2"
+    minimatch "~3.0.5"
 
 got@^11.0.2, got@^11.8.1:
   version "11.8.5"
@@ -7317,7 +7317,7 @@ html-webpack-plugin@4.5.0:
     "@types/tapable" "^1.0.5"
     "@types/webpack" "^4.41.8"
     html-minifier-terser "^5.0.1"
-    loader-utils "^1.2.3"
+    loader-utils "^1.4.2"
     lodash "^4.17.15"
     pretty-error "^2.1.1"
     tapable "^1.1.3"
@@ -8135,7 +8135,7 @@ jake@^10.8.5:
     async "^3.2.3"
     chalk "^4.0.2"
     filelist "^1.0.1"
-    minimatch "^3.0.4"
+    minimatch "^3.0.5"
 
 jasmine-core@~3.10.0:
   version "3.10.1"
@@ -8973,15 +8973,6 @@ loader-utils@^2.0.0:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
-loader-utils@^2.0.3:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-2.0.4.tgz#8b5cb38b5c34a9a018ee1fc0e6a066d1dfcc528c"
-  integrity sha512-xXqpXoINfFhgua9xiqD8fPFHgkoq1mmmpE92WlDbm9rNRd/EbRb+Gqf908T2DMfuHjjJlksiK2RbHVOdD/MqSw==
-  dependencies:
-    big.js "^5.2.2"
-    emojis-list "^3.0.0"
-    json5 "^2.1.2"
-
 locate-path@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/locate-path/-/locate-path-3.0.0.tgz"
@@ -9420,7 +9411,7 @@ mini-css-extract-plugin@1.0.0:
   resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-1.0.0.tgz#4afb39f3d97b1b92eacb1ac45025416089f831bd"
   integrity sha512-IsmrPv1nkdSUtFCDrAsuv5kg0k/27sLxfXqSz8vLjnbRKrNgoRdQrUNA4MppawvD+GHLkNP6L1P93Bw50ALkbg==
   dependencies:
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     normalize-url "1.9.1"
     schema-utils "^3.0.0"
     webpack-sources "^1.1.0"
@@ -10623,7 +10614,7 @@ postcss-loader@3.0.0:
   resolved "https://registry.npmjs.org/postcss-loader/-/postcss-loader-3.0.0.tgz"
   integrity sha512-cLWoDEY5OwHcAjDnkyRQzAXfs2jrKjXpO/HQFcc5b5u/r7aa471wdmChmwfnv7x2u840iat/wi0lQ5nbRgSkUA==
   dependencies:
-    loader-utils "^1.1.0"
+    loader-utils "^1.4.2"
     postcss "^7.0.0"
     postcss-load-config "^2.0.0"
     schema-utils "^1.0.0"
@@ -11405,7 +11396,7 @@ react-dev-utils@^11.0.3:
   dependencies:
     "@babel/code-frame" "7.10.4"
     address "1.1.2"
-    browserslist "4.14.2"
+    browserslist "4.16.5"
     chalk "2.4.2"
     cross-spawn "7.0.3"
     detect-port-alt "1.1.6"
@@ -11416,15 +11407,15 @@ react-dev-utils@^11.0.3:
     global-modules "2.0.0"
     globby "11.0.1"
     gzip-size "5.1.1"
-    immer "8.0.1"
+    immer "9.0.6"
     is-root "2.1.0"
-    loader-utils "2.0.0"
+    loader-utils "2.0.4"
     open "^7.0.2"
     pkg-up "3.1.0"
     prompts "2.4.0"
     react-error-overlay "^6.0.9"
     recursive-readdir "2.2.2"
-    shell-quote "1.7.2"
+    shell-quote "1.7.3"
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
@@ -11558,7 +11549,7 @@ react-syntax-highlighter@^15.4.5:
     "@babel/runtime" "^7.3.1"
     highlight.js "^10.4.1"
     lowlight "^1.17.0"
-    prismjs "^1.25.0"
+    prismjs "^1.27.0"
     refractor "^3.2.0"
 
 react-toastify@^7.0.4:
@@ -11720,7 +11711,7 @@ recursive-readdir@2.2.2, recursive-readdir@^2.2.2:
   resolved "https://registry.npmjs.org/recursive-readdir/-/recursive-readdir-2.2.2.tgz"
   integrity sha512-nRCcW9Sj7NuZwa2XvH9co8NPeXUBhZP7CRKJtU+cS6PW9FpCIFoI5ib0NT1ZrbNuPoRy0ylyCaUL8Gih4LSyFg==
   dependencies:
-    minimatch "3.0.4"
+    minimatch "3.0.5"
 
 redent@^3.0.0:
   version "3.0.0"
@@ -11749,7 +11740,7 @@ refractor@^3.2.0:
   dependencies:
     hastscript "^6.0.0"
     parse-entities "^2.0.0"
-    prismjs "~1.25.0"
+    prismjs "~1.27.0"
 
 regenerate-unicode-properties@^9.0.0:
   version "9.0.0"
@@ -11932,7 +11923,7 @@ resolve-url-loader@^5.0.0:
   dependencies:
     adjust-sourcemap-loader "^4.0.0"
     convert-source-map "^1.7.0"
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     postcss "^8.2.14"
     source-map "0.6.1"
 
@@ -12043,7 +12034,7 @@ rollup-plugin-terser@^7.0.0:
     "@babel/code-frame" "^7.10.4"
     jest-worker "^26.2.1"
     serialize-javascript "^4.0.0"
-    terser "^5.0.0"
+    terser "^5.14.2"
 
 rollup@^2.43.1:
   version "2.60.2"
@@ -12127,7 +12118,7 @@ sass-loader@^10.0.5:
   integrity sha512-kUceLzC1gIHz0zNJPpqRsJyisWatGYNFRmv2CKZK2/ngMJgLqxTbXwe/hJ85luyvZkgqU3VlJ33UVF2T/0g6mw==
   dependencies:
     klona "^2.0.4"
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     neo-async "^2.6.2"
     schema-utils "^3.0.0"
     semver "^7.3.2"
@@ -12857,7 +12848,7 @@ style-loader@2.0.0:
   resolved "https://registry.npmjs.org/style-loader/-/style-loader-2.0.0.tgz"
   integrity sha512-Z0gYUJmzZ6ZdRUqpg1r8GsaFKypE+3xAzuFeMuoHgjc9KZv3wMyCRjQIWEbhoFSq7+7yoHXySDJyyWQaPajeiQ==
   dependencies:
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     schema-utils "^3.0.0"
 
 style-search@^0.1.0:
@@ -13079,7 +13070,7 @@ swagger-ui-react@^4.1.3:
   integrity sha512-o1AoXUTNH40cxWus0QOeWQ8x9tSIEmrLBrOgAOHDnvWJ1qyjT8PjgHjPbUVjMbja18coyuaAAeUdyLKvLGmlDA==
   dependencies:
     "@babel/runtime-corejs3" "^7.16.3"
-    "@braintree/sanitize-url" "^5.0.2"
+    "@braintree/sanitize-url" "^6.0.0"
     base64-js "^1.5.1"
     classnames "^2.3.1"
     css.escape "1.5.1"
@@ -13700,7 +13691,7 @@ url-loader@4.1.1:
   resolved "https://registry.npmjs.org/url-loader/-/url-loader-4.1.1.tgz"
   integrity sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==
   dependencies:
-    loader-utils "^2.0.0"
+    loader-utils "^2.0.4"
     mime-types "^2.1.27"
     schema-utils "^3.0.0"
 
@@ -14102,7 +14093,7 @@ webpack@4.46.0:
     eslint-scope "^4.0.3"
     json-parse-better-errors "^1.0.2"
     loader-runner "^2.4.0"
-    loader-utils "^1.2.3"
+    loader-utils "^1.4.2"
     memory-fs "^0.4.1"
     micromatch "^3.1.10"
     mkdirp "^0.5.3"

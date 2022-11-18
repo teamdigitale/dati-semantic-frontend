@@ -20,10 +20,10 @@ const ExploreByText = () => {
   const onPatternChange = useCallback((e) => setPattern(e.target.value), []);
 
   return (
-    <ExploreSection title="Ricerca all'interno del catalogo">
-      <div className="pt-3 ml-4" role="form">
+    <ExploreSection title="Cerca nel catalogo per parola chiave">
+      <div className="pt-3 container-fluid schemaPadding" role="form">
         <form role="search" onSubmit={doSubmit}>
-          <div className="form-row pr-4">
+          <div className="form-row ml-md-4 pr-md-4 ml-1 pr-2">
             <div className="form-group col-md-7 p-2">
               <div className="search-group input-group">
                 {/* <span className="input-group-append">

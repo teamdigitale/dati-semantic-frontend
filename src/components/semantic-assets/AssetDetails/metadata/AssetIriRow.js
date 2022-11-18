@@ -6,7 +6,9 @@ import rowStyle from "../metadata/MetadataRow.module.css";
 const AssetIriRow = (props) => {
   return (
     <div className="row" data-testid="asset-iri-row">
-      <div className={"col-3 strong " + rowStyle.propertyName}>URI</div>
+      <div className={"col-3 strong "}>
+        <h3 className={"strong " + rowStyle.propertyName}>URI</h3>
+      </div>
       <div className="col-8">
         <div className={"text-monospace " + rowStyle.propertyLink}>
           <a

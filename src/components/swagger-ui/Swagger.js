@@ -120,6 +120,7 @@ const Swagger = () => {
         subtitle="Scopri come contribuire"
         primaryButtonText="Maggiori informazioni"
         primaryButtonLink={DIGITALE_DOCS_URL}
+        isSearch={false}
       />
     </div>
   );

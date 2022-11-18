@@ -14,16 +14,14 @@ const ExplorePage = () => {
   return (
     <div data-testid="ExplorePage">
       <IntroSection
-        title="esplora il catalogo"
-        subtitle="Il catalogo nazionale della semantica dei dati"
-        description="Ricerca e riuso di asset semantici, tra cui ontologie, schemi dati e
-        vocabolari controllati per supportare lo sviluppo di API
-        semanticamente e sintatticamente interoperabili"
-        primaryButtonText="Scopri il progetto"
-        primaryButtonLink={routes.project()}
-        secondaryButtonText="Domande frequenti"
-        secondaryButtonLink={routes.faq()}
+        title="Il catalogo nazionale per lo scambio di dati e informazioni tra pubbliche amministrazioni"
+        subtitle="Schema è il catalogo in continua evoluzione, che armonizza e standardizza i modelli di dati condivisi e garantisce che formato e significato delle informazioni scambiate siano preservati e compresi durante gli scambi."
+        primaryButtonText="Esplora il catalogo"
+        primaryButtonLink={routes.search()}
+        secondaryButtonText="Scopri l’iniziativa"
+        secondaryButtonLink={routes.project()}
         type="HEADER"
+        isSearch={false}
       />
       <ExploreByText />
       <ExploreByType />

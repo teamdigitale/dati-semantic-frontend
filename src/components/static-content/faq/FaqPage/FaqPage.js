@@ -15,12 +15,11 @@ const FaqPage = () => {
       <IntroSection
         title="Hai bisogno di chiarimenti o supporto?"
         subtitle="Consulta le le domande frequenti"
-        primaryButtonText="Scopri il progetto"
-        primaryButtonLink={routes.project()}
-        secondaryButtonText="Esplora il catalogo"
-        secondaryButtonLink={routes.explore()}
+        primaryButtonText="Esplora il catalogo"
+        primaryButtonLink={routes.explore()}
         type="HEADER"
         arrayBread={BREADCRUMBS.FAQPAGE}
+        isSearch={false}
       />
       <FaqBody />
       <EndSection type={2} />

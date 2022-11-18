@@ -33,8 +33,8 @@ const ExploreByType = () => {
   };
 
   return (
-    <ExploreSection title="Esplora gli strumenti semantici per tipo">
-      <div className={"row mt-4 mb-5 pb-3"} role="list">
+    <ExploreSection title="Esplora per strumenti semantici">
+      <div className={"row mx-0 mt-4 mb-5 pb-3"} role="list">
         {renderType(AT_ONTOLOGY)}
         {renderType(AT_VOCABULARY)}
         {renderType(AT_SCHEMA)}

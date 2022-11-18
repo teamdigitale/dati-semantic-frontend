@@ -28,12 +28,16 @@ const ExploreByCategory = () => {
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
-      <div className="mt-4" role="list">
-        <div className="row">
+      <div className="mt-4 container-fluid px-5 pb-5" role="list">
+        <div className="row mx-0">
           <div className="col-xl-12 d-flex justify-content-start">
             {chunk(categoryCells, categoryCells.length).map((row, rowIndex) => {
               return (
-                <div role="listitem" className="row" key={"row" + rowIndex}>
+                <div
+                  role="listitem"
+                  className="row mx-0 px-3"
+                  key={"row" + rowIndex}
+                >
                   {row.map((item) => {
                     return (
                       <div
@@ -46,10 +50,10 @@ const ExploreByCategory = () => {
                           <div className="card card-teaser rounded shadow">
                             <div className="card-body">
                               <div className="row mx-0 px-1">
-                                <div className="col-lg-4 d-flex align-items-end">
+                                <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center align-items-end">
                                   <CategoryIcon category={item} />
                                 </div>
-                                <div className="col-lg-8 d-flex justify-content-center align-items-center">
+                                <div className="col-lg-8 d-flex justify-content-lg-start justify-content-center align-items-center">
                                   <p className="h5">
                                     <strong className="text-center">
                                       {item.label}
