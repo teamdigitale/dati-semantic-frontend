@@ -27,7 +27,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
       - name: Install dependencies
-        run: yarn --frozen-lockfile
+        run: yarn install --frozen-lockfile
       - run: yarn lint --fix
       - run: yarn build
       - name: Upload production artifacts
