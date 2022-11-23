@@ -7,12 +7,13 @@ import EndSection from "../../../common/EndSection/EndSection";
 const ProjectPage = () => {
   useEffect(() => {
     document.title = "Scopri l’iniziativa - Catalogo Nazionale Dati";
+    console.log(window._env_);
   });
 
   return (
     <div data-testid="ProjectPage">
       <IntroSection
-        title="Scopri il catalogo nazionale 
+        title="Scopri il catalogo nazionale  
         della semantica dei dati"
         subtitle="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
         primaryButtonText="Esplora il catalogo"

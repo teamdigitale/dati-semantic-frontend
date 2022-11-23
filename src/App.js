@@ -9,6 +9,7 @@ import "./global-bootstrap-italia";
 import "owl.carousel";
 import "bootstrap-italia";
 import React, { useRef } from "react";
+import getAlertMessage from "./services/alertService";
 
 function App() {
   const mainRef = useRef(null);
@@ -18,14 +19,14 @@ function App() {
       <SkipToContent mainRef={mainRef} footerRef={footerRef} />
       <div id="page-front">
         <Header />
-        <div className="container-fluid schemaPadding py-1">
-          <div className="alert alert-warning m-0" role="alert">
-            <strong>Avviso di manutenzione</strong> - Il giorno 16 novembre
-            2022, dalle 9 alle 13, i servizi del portale potrebbero presentare
-            rallentamenti o malfunzionamenti temporanei per gli interventi
-            tecnici in corso. Ci scusiamo per il disagio.
+        {getAlertMessage ? (
+          <div className="container-fluid schemaPadding py-1">
+            <div className="alert alert-warning m-0" role="alert">
+              <strong>Avviso di manutenzione</strong> - {getAlertMessage}
+            </div>
           </div>
-        </div>
+        ) : null}
+
         <Main childRef={mainRef} />
         <Footer childRef={footerRef} />
       </div>
