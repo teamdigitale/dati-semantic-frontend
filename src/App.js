@@ -9,6 +9,7 @@ import "./global-bootstrap-italia";
 import "owl.carousel";
 import "bootstrap-italia";
 import React, { useRef } from "react";
+import getAlertMessage from "./services/alertService";
 
 function App() {
   const mainRef = useRef(null);
@@ -18,11 +19,10 @@ function App() {
       <SkipToContent mainRef={mainRef} footerRef={footerRef} />
       <div id="page-front">
         <Header />
-        {window._env_.MAINTENANCEALERTS ? (
+        {getAlertMessage ? (
           <div className="container-fluid schemaPadding py-1">
             <div className="alert alert-warning m-0" role="alert">
-              <strong>Avviso di manutenzione</strong> -{" "}
-              {window._env_.MAINTENANCEALERTS}
+              <strong>Avviso di manutenzione</strong> - {getAlertMessage}
             </div>
           </div>
         ) : null}
