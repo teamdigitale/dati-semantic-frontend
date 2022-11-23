@@ -27,7 +27,7 @@
         "html-webpack-plugin": "5.5.0",
         "husky": "7.0.4",
         "identity-obj-proxy": "3.0.0",
-        "jquery": "^3.6.0",
+        "jquery": "^3.6.1",
         "mini-css-extract-plugin": "2.7.0",
         "mkdirp": "^1.0.4",
         "node-fetch": "^3.2.10",
