@@ -3,7 +3,7 @@ import { element, string } from "prop-types";
 import "./ExploreSection.css";
 
 const ExploreSection = ({ title, children }) => (
-  <div className="container-fluid mx-0">
+  <div className="container-fluid">
     <div data-testid="ExploreSection">
       <div className="pt-3 ml-4">
         <div className="container-fluid schemaPadding">

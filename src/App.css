@@ -82,8 +82,17 @@ div.progress-bar:empty {
 .notUnderline {
   text-decoration: none !important;
 }
+.searchForCategoryLink {
+  color: #0066cc;
+  text-decoration: none;
+}
+.searchForCategoryLink :hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
 .endSectionBkg {
   background-color: #0066cc !important;
+  min-height: 26.56rem !important;
 }
 .txtWhite {
   color: white !important;
@@ -95,11 +104,29 @@ a.btn.endSection {
   background-color: white;
   color: #0066cc;
 }
+.container-fluid {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.breadcrumb-container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
 .container-fluid.schemaPadding {
   padding-left: 8.7rem !important;
   padding-right: 8.7rem !important;
 }
-
+.mantainenceAllert{
+  width: 100%;
+  background-color: #0059b3;
+}
+.mantainenceAllertWhite{
+  width: 100%;
+  background-color: white;
+}
+.alert{
+  background-color: white;
+}
 @media (max-width: 960px) {
   .container-fluid.schemaPadding {
     padding-left: 3rem !important;

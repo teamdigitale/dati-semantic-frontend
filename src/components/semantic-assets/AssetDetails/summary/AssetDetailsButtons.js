@@ -70,7 +70,7 @@ AssetDetailsButtons.propTypes = {
   type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
   assetIri: PropTypes.string,
   vocabUrl: PropTypes.string,
-  accessUrl: PropTypes.string.isRequired,
+  accessUrl: PropTypes.string,
 };
 
 export default AssetDetailsButtons;

@@ -7,7 +7,6 @@ import EndSection from "../../../common/EndSection/EndSection";
 const ProjectPage = () => {
   useEffect(() => {
     document.title = "Scopri l’iniziativa - Catalogo Nazionale Dati";
-    console.log(window._env_);
   });
 
   return (

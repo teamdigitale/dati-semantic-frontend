@@ -46,7 +46,7 @@ const ExploreByCategory = () => {
                         onClick={item.onClick}
                         data-testid={item.key}
                       >
-                        <a href="#" className="link notUnderline">
+                        <a href="#" className="searchForCategoryLink">
                           <div className="card card-teaser rounded shadow">
                             <div className="card-body">
                               <div className="row mx-0 px-1">

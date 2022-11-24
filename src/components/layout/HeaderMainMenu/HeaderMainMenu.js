@@ -68,12 +68,12 @@ const HeaderMainMenu = () => {
                               title={menuItem.label}
                               aria-label={menuItem.label}
                               className={
-                                "nav-link justify-content-center focus-element" +
+                                "nav-link justify-content-center focus-element mr-3" +
                                 (isActive(menuItem.href) ? " active" : "")
                               }
                               to={menuItem.href}
                             >
-                              <span className="pr-lg-5">{menuItem.label}</span>
+                              <span className="">{menuItem.label}</span>
                             </Link>
                           </li>
                         ))}
@@ -94,7 +94,7 @@ const HeaderMainMenu = () => {
                               }
                               to={menuItem.href}
                             >
-                              <span className="pr-lg-1">{menuItem.label}</span>
+                              <span className="">{menuItem.label}</span>
                             </Link>
                           </li>
                         ))}
