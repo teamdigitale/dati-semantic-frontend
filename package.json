@@ -30,7 +30,7 @@
         "jquery": "^3.6.0",
         "mini-css-extract-plugin": "2.7.0",
         "mkdirp": "^1.0.4",
-        "node-fetch": "^3.2.10",
+        "node-fetch": "^3.3.0",
         "optimize-css-assets-webpack-plugin": "6.0.1",
         "owl.carousel": "^2.3.4",
         "pnp-webpack-plugin": "1.7.0",
