@@ -34,10 +34,12 @@ const ExploreByType = () => {
 
   return (
     <ExploreSection title="Esplora per strumenti semantici">
-      <div className={"row mx-0 mt-4 mb-5 pb-3"} role="list">
-        {renderType(AT_ONTOLOGY)}
-        {renderType(AT_VOCABULARY)}
-        {renderType(AT_SCHEMA)}
+      <div className="container-fluid schemaPadding">
+        <div className={"row mx-0 mt-4 mb-5 pb-3"} role="list">
+          {renderType(AT_ONTOLOGY)}
+          {renderType(AT_VOCABULARY)}
+          {renderType(AT_SCHEMA)}
+        </div>
       </div>
     </ExploreSection>
   );

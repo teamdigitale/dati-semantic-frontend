@@ -14,15 +14,20 @@ import getAlertMessage from "./services/alertService";
 function App() {
   const mainRef = useRef(null);
   const footerRef = useRef(null);
+  const alertMess = getAlertMessage();
+  console.log(window.history);
+  let bkgAlert = "mantainenceAllert";
   return (
     <BrowserRouter>
       <SkipToContent mainRef={mainRef} footerRef={footerRef} />
       <div id="page-front">
         <Header />
-        {getAlertMessage ? (
-          <div className="container-fluid schemaPadding py-1">
-            <div className="alert alert-warning m-0" role="alert">
-              <strong>Avviso di manutenzione</strong> - {getAlertMessage}
+        {alertMess && alertMess != "" ? (
+          <div className={bkgAlert}>
+            <div className="container-fluid schemaPadding py-3">
+              <div className="alert alert-warning m-0" role="alert">
+                <strong>Avviso di manutenzione</strong> - {alertMess}
+              </div>
             </div>
           </div>
         ) : null}

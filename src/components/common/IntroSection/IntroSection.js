@@ -44,7 +44,9 @@ const IntroSection = ({
                 {primaryButtonLink && primaryButtonText ? (
                   <div
                     className={
-                      primaryButtonText.length > 20 ? "col-sm-6" : "col-sm-4"
+                      "col-lg-6 mb-2 mb-lg-0" + primaryButtonText.length > 20
+                        ? "col-lg-6"
+                        : "col-lg-5"
                     }
                   >
                     <a className={"btn btn-primary"} href={primaryButtonLink}>
@@ -56,7 +58,7 @@ const IntroSection = ({
                 )}
 
                 {secondaryButtonLink ? (
-                  <div className="col-sm-5">
+                  <div className="col-lg-6 d-flex justify-content-start">
                     <a
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary
@@ -72,7 +74,7 @@ const IntroSection = ({
               </div>
             </div>
             {type && heroSpace && heroSpace?.url ? (
-              <div className="col-lg-6 mt-5 d-flex justify-content-end">
+              <div className="col-lg-6 mt-5 d-flex justify-content-center">
                 <img
                   width={heroSpace?.w}
                   height={heroSpace?.h}

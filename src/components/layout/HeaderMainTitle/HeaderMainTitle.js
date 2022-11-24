@@ -26,8 +26,8 @@ const HeaderMainTitle = () => (
                   height="78"
                 />
                 <div className="it-brand-text">
-                  <h1 className="main-heading">{siteTitle}</h1>
-                  <h2 className="sub-heading">{siteTagLine}</h2>
+                  <h2 className="main-heading">{siteTitle}</h2>
+                  <h3 className="sub-heading">{siteTagLine}</h3>
                 </div>
               </Link>
             </div>

@@ -13,10 +13,10 @@ const ProjectBody = () => {
   return (
     <div data-testid="ProjectBody" className="project-body container-fluid">
       <div className="row mx-0">
-        <div className="col-lg-3 mt-5">
+        <div className="col-lg-3 mt-5 px-xl-3">
           <ProjectIndex changeSection={(ev) => handleChangeSection(ev)} />
         </div>
-        <div className="col-lg-5  mt-5 pt-2">
+        <div className="col-lg-5 mt-5 pt-2">
           <div className="">
             <ContentParagraph title="Introduzione">
               <p id="INTRODUZIONE">
@@ -98,8 +98,8 @@ const ProjectBody = () => {
                 contenuti sui repository ufficiali e quindi sul catalogo.
               </p>
               <p>
-                Inoltre, a partire da giugno 2022, gli sviluppatori di API
-                potranno validare la semantica delle proprie API.
+                Inoltre stiamo lavorando sarà possibile per gli sviluppatori di
+                API validare la semantica delle proprie API.
               </p>
             </ContentParagraph>
 

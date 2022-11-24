@@ -53,13 +53,12 @@ export const EndSection = (props) => {
                     <p className="txtWhite">
                       Se trovi errori o bug apri una issue si github.
                       <br /> Se vuoi contribuire al catalogo con un contenuto{" "}
-                      <br />
                       leggi la guida su docs italia
                     </p>
                   </div>
                 </div>
                 <div className="row mx-0 mt-2">
-                  <div className="col-xl-5 col-lg-6">
+                  <div className="col-xl-5">
                     <a
                       className="btn btn-primary endSection link font-weight-bold"
                       href={GITHUB_SCHEMA}
@@ -76,9 +75,9 @@ export const EndSection = (props) => {
                       />
                     </a>
                   </div>
-                  <div className="col-xl-6 col-lg-6 mt-2 mt-lg-0">
+                  <div className="col-xl-6 mt-2 mt-lg-0 d-flex justify-content-start justify-content-xl-end">
                     <a
-                      className="btn btn-outline-light font-weight-bold"
+                      className="btn btn-outline-light font-weight-bold ml-0 ml-xl-3 mt-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
                       role="button"
                       aria-label="vai alla pagina di docs italia"
