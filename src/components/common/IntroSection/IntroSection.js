@@ -46,7 +46,7 @@ const IntroSection = ({
               : "introSectionBreadWhite"
           }
         >
-          <div className="col-lg-12 pl-5">
+          <div className="col-xl-12 pl-5">
             <BreadCrumbs arrayBread={arrayBread} />
           </div>
         </div>
@@ -58,7 +58,7 @@ const IntroSection = ({
       >
         <div className="container-fluid schemaPadding py-5">
           <div className="row mx-0 ">
-            <div className=" col-lg-6  mb-0 mb-lg-4 pl-lg-5">
+            <div className=" col-xl-6  mb-0 mb-xl-4 pl-xl-5">
               <div className={"font-weight-bold " + styles.title}>
                 <h1>{title}</h1>
               </div>
@@ -67,9 +67,9 @@ const IntroSection = ({
                 {primaryButtonLink && primaryButtonText ? (
                   <div
                     className={
-                      "col-lg-6 mb-2 mb-lg-0" + primaryButtonText.length > 20
-                        ? "col-lg-6"
-                        : "col-lg-5"
+                      primaryButtonText.length > 20
+                        ? "col-xl-5 mb-2 mb-xl-0 mx-0 px-0"
+                        : "col-xl-4 mb-2 mb-xl-0 mx-0 px-0"
                     }
                   >
                     <a className={"btn btn-primary"} href={primaryButtonLink}>
@@ -81,7 +81,7 @@ const IntroSection = ({
                 )}
 
                 {secondaryButtonLink ? (
-                  <div className="col-lg-6 d-flex justify-content-start">
+                  <div className="col-xl-6 d-flex justify-content-xl-start  mx-0 ml-xl-4 px-0 pl-xl-1">
                     <a
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary
