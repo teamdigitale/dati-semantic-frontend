@@ -79,7 +79,6 @@ const IntroSection = ({
                 ) : (
                   ""
                 )}
-
                 {secondaryButtonLink ? (
                   <div className="col-xl-6 d-flex justify-content-xl-start  mx-0 ml-xl-4 px-0 pl-xl-1">
                     <a
