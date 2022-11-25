@@ -10,7 +10,6 @@ import Pagination, {
 } from "../Pagination/Pagination";
 
 import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
-import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
 import IntroSection from "../../common/IntroSection/IntroSection";
@@ -130,17 +129,13 @@ const SearchPage = () => {
 
   return (
     <React.Fragment>
-      <div className="row mx-0 px-0 pl-3">
-        <div className="col-lg-12 pl-5">
-          <BreadCrumbs arrayBread={BREADCRUMBS.SEARCHPAGE} />
-        </div>
-      </div>
       <IntroSection
         title="Cerca nel catalogo nazionale 
         della sematica dei dati"
         subtitle="Cerca e utilizza tra decine di asset semantici. Puoi cercare per parola chiave, filtrare i risultati per categoria o strumento semantico, o titolare."
         type=""
         isSearch={true}
+        arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">

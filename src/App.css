@@ -76,6 +76,9 @@ div.progress-bar:empty {
 .introSectionBread {
   background: #f2f7fc;
 }
+.introSectionBreadWhite {
+  background: white;
+}
 .explorePageBkg {
   background-color: #f0f6fc !important;
 }
@@ -116,17 +119,24 @@ a.btn.endSection {
   padding-left: 8.7rem !important;
   padding-right: 8.7rem !important;
 }
-.mantainenceAllert{
+.mantainenceAllert {
   width: 100%;
-  background-color: #0059b3;
+  background-color: #f0f6fc;
 }
-.mantainenceAllertWhite{
+.mantainenceAllertWhite {
   width: 100%;
   background-color: white;
 }
-.alert{
+.alert {
   background-color: white;
 }
+.it-header-center-wrapper {
+  height: auto !important;
+}
+.normal-breack-text {
+  word-break: break-all;
+}
+
 @media (max-width: 960px) {
   .container-fluid.schemaPadding {
     padding-left: 3rem !important;

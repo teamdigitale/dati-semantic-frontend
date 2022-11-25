@@ -1,21 +1,16 @@
-import home from "../assets/images/Schema_img_home.png";
-import faq from "../assets/images/Schema_img_faq.png";
+import homeLogo from "../assets/images/home.svg";
+import faqLogo from "../assets/images/faq.svg";
 export function getHeroSpace(url) {
-  let res = { url: home, alt: "logo home", w: "474px", h: "250px" };
+  let res = homeLogo;
   if (url && url != null && url != "") {
     if (url.includes("faq")) {
-      res = {
-        url: faq,
-        alt: "logo domande frequenti",
-        w: "300px",
-        h: "204px",
-      };
+      res = faqLogo;
     }
     if (url.includes("iniziativa")) {
-      res = { url: "", alt: "", w: "1px", h: "1px" };
+      res = homeLogo;
     }
   } else {
-    res = { url: "", alt: "", w: "1px", h: "1px" };
+    res = undefined;
   }
   return res;
 }

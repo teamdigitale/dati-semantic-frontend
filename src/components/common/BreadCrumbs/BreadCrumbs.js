@@ -5,10 +5,10 @@ export const BreadCrumbs = (props) => {
   return (
     <React.Fragment>
       <nav
-        className="breadcrumb-container mt-3"
+        className="breadcrumb-container pt-3"
         aria-label="Percorso di navigazione"
       >
-        <ol className="breadcrumb">
+        <ol className="breadcrumb mb-0 pb-2">
           {props?.arrayBread?.map((bread, i) => {
             return bread?.link != "" && bread?.link != "back" ? (
               <li className="breadcrumb-item" key={bread?.id + "key" + i}>

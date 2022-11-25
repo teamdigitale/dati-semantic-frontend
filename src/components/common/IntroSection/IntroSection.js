@@ -4,6 +4,8 @@ import { array, bool, string } from "prop-types";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 import { getHeroSpace } from "../../../services/imgHeroSpace";
+import getAlertMessage from "../../../services/alertService";
+
 const IntroSection = ({
   title,
   subtitle,
@@ -19,11 +21,32 @@ const IntroSection = ({
   if (type) {
     heroSpace = getHeroSpace(location?.href);
   }
+  const alertMess = getAlertMessage();
   return (
     <React.Fragment>
+      {alertMess && alertMess != "" ? (
+        <div
+          className={!isSearch ? "mantainenceAllert" : "mantainenceAllertWhite"}
+        >
+          <div
+            className="container-fluid schemaPadding py-3"
+            data-testid="messageAlert"
+          >
+            <div className="alert alert-warning m-0" role="alert">
+              <strong>Avviso di manutenzione</strong> - {alertMess}
+            </div>
+          </div>
+        </div>
+      ) : null}
       {type && arrayBread ? (
-        <div className="row mx-0 px-0 pl-3 introSectionBread">
-          <div className="col-lg-12 pl-5">
+        <div
+          className={
+            "row mx-0 px-0 my-0 py-0 pl-3" + !isSearch
+              ? "introSectionBread"
+              : "introSectionBreadWhite"
+          }
+        >
+          <div className="col-xl-12 pl-5">
             <BreadCrumbs arrayBread={arrayBread} />
           </div>
         </div>
@@ -35,7 +58,7 @@ const IntroSection = ({
       >
         <div className="container-fluid schemaPadding py-5">
           <div className="row mx-0 ">
-            <div className=" col-lg-6  mb-0 mb-lg-4 pl-lg-5">
+            <div className=" col-xl-6  mb-0 mb-xl-4 pl-xl-5">
               <div className={"font-weight-bold " + styles.title}>
                 <h1>{title}</h1>
               </div>
@@ -44,9 +67,9 @@ const IntroSection = ({
                 {primaryButtonLink && primaryButtonText ? (
                   <div
                     className={
-                      "col-lg-6 mb-2 mb-lg-0" + primaryButtonText.length > 20
-                        ? "col-lg-6"
-                        : "col-lg-5"
+                      primaryButtonText.length > 20
+                        ? "col-xl-5 mb-2 mb-xl-0 mx-0 px-0"
+                        : "col-xl-4 mb-2 mb-xl-0 mx-0 px-0"
                     }
                   >
                     <a className={"btn btn-primary"} href={primaryButtonLink}>
@@ -58,7 +81,7 @@ const IntroSection = ({
                 )}
 
                 {secondaryButtonLink ? (
-                  <div className="col-lg-6 d-flex justify-content-start">
+                  <div className="col-xl-6 d-flex justify-content-xl-start  mx-0 ml-xl-4 px-0 pl-xl-1">
                     <a
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary
@@ -73,15 +96,9 @@ const IntroSection = ({
                 )}
               </div>
             </div>
-            {type && heroSpace && heroSpace?.url ? (
-              <div className="col-lg-6 mt-5 d-flex justify-content-center">
-                <img
-                  width={heroSpace?.w}
-                  height={heroSpace?.h}
-                  src={heroSpace?.url}
-                  alt={heroSpace?.alt}
-                  title={heroSpace?.alt}
-                ></img>
+            {type && heroSpace ? (
+              <div className="col-xl-6 mt-5 d-flex justify-content-center">
+                <img src={heroSpace} className={"img-fluid"} />
               </div>
             ) : null}
           </div>

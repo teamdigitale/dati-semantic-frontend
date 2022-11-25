@@ -5,14 +5,24 @@ import { useEffect } from "react";
 import BreadCrumbs from "../../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 import EndSection from "../../../common/EndSection/EndSection";
+import getAlertMessage from "../../../../services/alertService";
 
 const PrivacyPolicyPage = () => {
   useEffect(() => {
     document.title = "Privacy Policy - Catalogo Nazionale Dati";
   });
-
+  const alertMess = getAlertMessage();
   return (
     <div data-testid="PrivacyPolicyPage">
+      {alertMess && alertMess != "" ? (
+        <div className={"mantainenceAllertWhite"}>
+          <div className="container-fluid schemaPadding py-3">
+            <div className="alert alert-warning m-0" role="alert">
+              <strong>Avviso di manutenzione</strong> - {alertMess}
+            </div>
+          </div>
+        </div>
+      ) : null}
       <div className="row mx-0 px-0">
         <div className="col-lg-12 pl-5">
           <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACYPAGE} />

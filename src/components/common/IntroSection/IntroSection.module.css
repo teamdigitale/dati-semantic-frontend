@@ -44,3 +44,7 @@ a:empty {
 .bkgIntro {
   background-color: #f2f7fc;
 }
+.IntroSectionIcon {
+  height: 100%;
+  width: 100%;
+}

@@ -16,10 +16,12 @@ import SwaggerUI from "swagger-ui-react";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
+import getAlertMessage from "../../../services/alertService";
 
 const AssetDetails = ({ details }) => {
   const accessUrl = details.distributions?.map((u) => u.accessUrl).pop();
   const downloadUrl = details.distributions?.map((u) => u.downloadUrl).pop();
+  const alertMess = getAlertMessage();
   let breadC = Array.from(BREADCRUMBS.DETAILSPAGE);
   breadC[2].label = "";
   breadC[2].label = details?.title;
@@ -29,6 +31,15 @@ const AssetDetails = ({ details }) => {
         className={"row " + styles.detailsContainer + " mx-0"}
         data-testid="asset-details-container"
       >
+        {alertMess && alertMess != "" ? (
+          <div className={"mantainenceAllert"}>
+            <div className="container-fluid schemaPadding py-3">
+              <div className="alert alert-warning m-0" role="alert">
+                <strong>Avviso di manutenzione</strong> - {alertMess}
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="row mx-0 pl-3">
           <div className="col-lg-12 pl-5">
             <BreadCrumbs arrayBread={breadC} />

@@ -51,7 +51,7 @@ export const EndSection = (props) => {
                 <div className="row mx-0">
                   <div className="col-lg-12">
                     <p className="txtWhite">
-                      Se trovi errori o bug apri una issue si github.
+                      Se trovi errori o bug apri una issue su github.
                       <br /> Se vuoi contribuire al catalogo con un contenuto{" "}
                       leggi la guida su docs italia
                     </p>
@@ -77,7 +77,7 @@ export const EndSection = (props) => {
                   </div>
                   <div className="col-xl-6 mt-2 mt-lg-0 d-flex justify-content-start justify-content-xl-end">
                     <a
-                      className="btn btn-outline-light font-weight-bold ml-0 ml-xl-3 mt-2 mt-xl-0"
+                      className="btn btn-outline-light font-weight-bold ml-0 ml-xl-2 mt-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
                       role="button"
                       aria-label="vai alla pagina di docs italia"
