@@ -9,29 +9,16 @@ import "./global-bootstrap-italia";
 import "owl.carousel";
 import "bootstrap-italia";
 import React, { useRef } from "react";
-import getAlertMessage from "./services/alertService";
 
 function App() {
   const mainRef = useRef(null);
   const footerRef = useRef(null);
-  const alertMess = getAlertMessage();
-  console.log(window.history);
-  let bkgAlert = "mantainenceAllert";
+
   return (
     <BrowserRouter>
       <SkipToContent mainRef={mainRef} footerRef={footerRef} />
       <div id="page-front">
         <Header />
-        {alertMess && alertMess != "" ? (
-          <div className={bkgAlert}>
-            <div className="container-fluid schemaPadding py-3">
-              <div className="alert alert-warning m-0" role="alert">
-                <strong>Avviso di manutenzione</strong> - {alertMess}
-              </div>
-            </div>
-          </div>
-        ) : null}
-
         <Main childRef={mainRef} />
         <Footer childRef={footerRef} />
       </div>

@@ -51,7 +51,7 @@ export const EndSection = (props) => {
                 <div className="row mx-0">
                   <div className="col-lg-12">
                     <p className="txtWhite">
-                      Se trovi errori o bug apri una issue si github.
+                      Se trovi errori o bug apri una issue su github.
                       <br /> Se vuoi contribuire al catalogo con un contenuto{" "}
                       leggi la guida su docs italia
                     </p>

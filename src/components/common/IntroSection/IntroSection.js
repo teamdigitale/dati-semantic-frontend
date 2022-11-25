@@ -4,6 +4,8 @@ import { array, bool, string } from "prop-types";
 import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 import { getHeroSpace } from "../../../services/imgHeroSpace";
+import getAlertMessage from "../../../services/alertService";
+
 const IntroSection = ({
   title,
   subtitle,
@@ -19,10 +21,31 @@ const IntroSection = ({
   if (type) {
     heroSpace = getHeroSpace(location?.href);
   }
+  const alertMess = getAlertMessage();
   return (
     <React.Fragment>
+      {alertMess && alertMess != "" ? (
+        <div
+          className={!isSearch ? "mantainenceAllert" : "mantainenceAllertWhite"}
+        >
+          <div
+            className="container-fluid schemaPadding py-3"
+            data-testid="messageAlert"
+          >
+            <div className="alert alert-warning m-0" role="alert">
+              <strong>Avviso di manutenzione</strong> - {alertMess}
+            </div>
+          </div>
+        </div>
+      ) : null}
       {type && arrayBread ? (
-        <div className="row mx-0 px-0 pl-3 introSectionBread">
+        <div
+          className={
+            "row mx-0 px-0 my-0 py-0 pl-3" + !isSearch
+              ? "introSectionBread"
+              : "introSectionBreadWhite"
+          }
+        >
           <div className="col-lg-12 pl-5">
             <BreadCrumbs arrayBread={arrayBread} />
           </div>
@@ -73,15 +96,9 @@ const IntroSection = ({
                 )}
               </div>
             </div>
-            {type && heroSpace && heroSpace?.url ? (
-              <div className="col-lg-6 mt-5 d-flex justify-content-center">
-                <img
-                  width={heroSpace?.w}
-                  height={heroSpace?.h}
-                  src={heroSpace?.url}
-                  alt={heroSpace?.alt}
-                  title={heroSpace?.alt}
-                ></img>
+            {type && heroSpace ? (
+              <div className="col-xl-6 mt-5 d-flex justify-content-center">
+                <img src={heroSpace} className={"img-fluid"} />
               </div>
             ) : null}
           </div>
