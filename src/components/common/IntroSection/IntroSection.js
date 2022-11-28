@@ -24,6 +24,19 @@ const IntroSection = ({
   const alertMess = getAlertMessage();
   return (
     <React.Fragment>
+      {arrayBread ? (
+        <div
+          className={
+            !isSearch || isSearch == undefined
+              ? "introSectionBread py-0 pl-3"
+              : "introSectionBreadWhite" + "row mx-0 px-0 my-0 py-0 pl-3"
+          }
+        >
+          <div className="col-xl-12 pl-5">
+            <BreadCrumbs arrayBread={arrayBread} />
+          </div>
+        </div>
+      ) : null}
       {alertMess && alertMess != "" ? (
         <div
           className={!isSearch ? "mantainenceAllert" : "mantainenceAllertWhite"}
@@ -35,19 +48,6 @@ const IntroSection = ({
             <div className="alert alert-warning m-0" role="alert">
               <strong>Avviso di manutenzione</strong> - {alertMess}
             </div>
-          </div>
-        </div>
-      ) : null}
-      {type && arrayBread ? (
-        <div
-          className={
-            "row mx-0 px-0 my-0 py-0 pl-3" + !isSearch
-              ? "introSectionBread"
-              : "introSectionBreadWhite"
-          }
-        >
-          <div className="col-xl-12 pl-5">
-            <BreadCrumbs arrayBread={arrayBread} />
           </div>
         </div>
       ) : null}

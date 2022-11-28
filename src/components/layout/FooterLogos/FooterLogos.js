@@ -16,7 +16,7 @@ const FooterLogos = () => {
             href="https://ec.europa.eu/info/index_it"
           >
             <PnrrLogo
-              className="img-fluid img-logo-header-normal d-inline-block align-top p-2 rounded"
+              className="img-fluid img-logo-header-normal d-inline-block align-top mr-1 p-2 rounded"
               alt="Pnrr_logo"
               title="Pnrr"
             />

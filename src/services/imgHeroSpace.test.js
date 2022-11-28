@@ -11,7 +11,10 @@ describe("imgHeroSpace", () => {
       expect(getHeroSpace("faq")).toEqual(faq);
     });
     test("full url2", () => {
-      expect(getHeroSpace("iniziativa")).toEqual("home.svg");
+      expect(getHeroSpace("iniziativa")).toEqual(undefined);
+    });
+    test("full url3", () => {
+      expect(getHeroSpace("/")).toEqual("home.svg");
     });
   });
 });

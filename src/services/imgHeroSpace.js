@@ -7,7 +7,7 @@ export function getHeroSpace(url) {
       res = faqLogo;
     }
     if (url.includes("iniziativa")) {
-      res = homeLogo;
+      res = undefined;
     }
   } else {
     res = undefined;

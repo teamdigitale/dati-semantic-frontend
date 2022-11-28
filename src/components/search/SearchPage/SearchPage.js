@@ -61,7 +61,7 @@ function renderPagination(isLoading, error, searchResult, filter, navigate) {
     !error &&
     !isLoading &&
     hasSearchResult(searchResult) && (
-      <div className="row mt-5">
+      <div className="row mt-5 mb-4">
         <div className="col-12">
           <Pagination
             page={{

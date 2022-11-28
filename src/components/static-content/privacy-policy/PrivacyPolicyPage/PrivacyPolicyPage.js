@@ -14,6 +14,11 @@ const PrivacyPolicyPage = () => {
   const alertMess = getAlertMessage();
   return (
     <div data-testid="PrivacyPolicyPage">
+      <div className="row mx-0 px-0">
+        <div className="col-lg-12 pl-5">
+          <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACYPAGE} />
+        </div>
+      </div>
       {alertMess && alertMess != "" ? (
         <div className={"mantainenceAllertWhite"}>
           <div className="container-fluid schemaPadding py-3">
@@ -23,11 +28,6 @@ const PrivacyPolicyPage = () => {
           </div>
         </div>
       ) : null}
-      <div className="row mx-0 px-0">
-        <div className="col-lg-12 pl-5">
-          <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACYPAGE} />
-        </div>
-      </div>
       <div className="container-fluid schemaPadding">
         <div data-testid="PrivacyPolicyBody" className="policy-body">
           <div className="col-lg-6 pt-5">
