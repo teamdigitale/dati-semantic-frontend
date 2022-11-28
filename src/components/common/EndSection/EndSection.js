@@ -12,7 +12,8 @@ export const EndSection = (props) => {
               <div className="col-lg-8">
                 <div className="row mx-0">
                   <h2 className="txtWhite">
-                    Non hai trovato quello che cercavi? Contribuisci al catalogo
+                    Non hai trovato quello che cercavi?
+                    <br /> Contribuisci al catalogo
                   </h2>
                 </div>
 
@@ -40,7 +41,7 @@ export const EndSection = (props) => {
             </div>
           ) : (
             <div className="row mx-0 py-5" data-testid="endSection_2">
-              <div className="col-lg-5">
+              <div className="col-xl-5">
                 <div className="row mx-0">
                   <h2 className="txtWhite">
                     Schema è un catalogo in
@@ -49,7 +50,7 @@ export const EndSection = (props) => {
                 </div>
 
                 <div className="row mx-0">
-                  <div className="col-lg-12">
+                  <div className="col-xl-12">
                     <p className="txtWhite">
                       Se trovi errori o bug apri una issue su github.
                       <br /> Se vuoi contribuire al catalogo con un contenuto{" "}

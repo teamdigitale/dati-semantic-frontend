@@ -62,7 +62,7 @@ a.link:hover {
   text-decoration: underline;
 }
 .btn.lineUnder {
-  width: 90% !important;
+  width: 75% !important;
   display: flex;
   justify-content: flex-start;
 }
@@ -135,6 +135,10 @@ a.btn.endSection {
 }
 .normal-breack-text {
   word-break: break-all;
+}
+
+.header-h {
+  min-height: 104px;
 }
 
 @media (max-width: 960px) {

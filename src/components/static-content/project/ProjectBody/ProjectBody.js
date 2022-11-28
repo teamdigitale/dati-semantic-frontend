@@ -8,7 +8,7 @@ const ProjectBody = () => {
   const handleChangeSection = (id) => {
     document
       .getElementById(id)
-      .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      .scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
   };
   return (
     <div data-testid="ProjectBody" className="project-body container-fluid">
@@ -18,8 +18,9 @@ const ProjectBody = () => {
         </div>
         <div className="col-lg-5 mt-5 pt-2">
           <div className="">
+            <p id="INTRODUZIONE"></p>
             <ContentParagraph title="Introduzione">
-              <p id="INTRODUZIONE">
+              <p>
                 Schema è il catalogo nazionale della semantica dei dati. Il
                 catalogo facilita la ricerca e il riuso di asset semantici, come
                 ontologie, schemi dati e vocabolari controllati, e li mette a
@@ -60,9 +61,9 @@ const ProjectBody = () => {
                 </ul>
               </div>
             </ContentParagraph>
-
+            <p id="UTILIZZARE"></p>
             <ContentParagraph title="Come utilizzare il catalogo?">
-              <p id="UTILIZZARE">
+              <p>
                 Il catalogo serve a ricercare, consultare e riutilizzare
                 ontologie, vocabolari controllati e schemi dati. È rivolto in
                 particolare a tutti gli enti che creano servizi digitali basati
@@ -98,13 +99,13 @@ const ProjectBody = () => {
                 contenuti sui repository ufficiali e quindi sul catalogo.
               </p>
               <p>
-                Inoltre stiamo lavorando sarà possibile per gli sviluppatori di
-                API validare la semantica delle proprie API.
+                Inoltre, stiamo lavorando all’integrazione di uno strumento di
+                validazione della semantica delle API.
               </p>
             </ContentParagraph>
-
+            <p id="ATTUATORI"></p>
             <ContentParagraph title="Enti attuatori">
-              <p id="ATTUATORI">
+              <p>
                 Il progetto nasce dalla collaborazione fra Dipartimento per la
                 trasformazione digitale, ISTAT, Istituto di Scienze e Tecnologie
                 della Cognizione del Consiglio Nazionale delle Ricerche e AGID.
@@ -116,8 +117,9 @@ const ProjectBody = () => {
                 dei contenuti pubblicati.
               </p>
             </ContentParagraph>
+            <p id="NORMATIVO"></p>
             <ContentParagraph title="Quadro normativo">
-              <p id="NORMATIVO">
+              <p>
                 Da un punto di vista normativo, la necessità di garantire
                 l’interoperabilità semantica nella pubblica amministrazione
                 trova riscontro sia nel contesto europeo che nazionale. A

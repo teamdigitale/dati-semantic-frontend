@@ -7,7 +7,7 @@ const siteTitle = "Schema";
 const siteTagLine = "Il catalogo nazionale della semantica dei dati";
 
 const HeaderMainTitle = () => (
-  <div className="it-header-center-wrapper py-3">
+  <div className="it-header-center-wrapper py-3 header-h">
     <div className="container-fluid px-lg-2">
       <div className="row">
         <div className="col-12">
