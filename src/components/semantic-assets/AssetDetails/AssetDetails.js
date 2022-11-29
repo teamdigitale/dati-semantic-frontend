@@ -31,6 +31,11 @@ const AssetDetails = ({ details }) => {
         className={"row " + styles.detailsContainer + " mx-0"}
         data-testid="asset-details-container"
       >
+        <div className="row mx-0 pl-3">
+          <div className="col-lg-12 pl-5">
+            <BreadCrumbs arrayBread={breadC} />
+          </div>
+        </div>
         {alertMess && alertMess != "" ? (
           <div className={"mantainenceAllert"}>
             <div className="container-fluid schemaPadding py-3">
@@ -40,11 +45,6 @@ const AssetDetails = ({ details }) => {
             </div>
           </div>
         ) : null}
-        <div className="row mx-0 pl-3">
-          <div className="col-lg-12 pl-5">
-            <BreadCrumbs arrayBread={breadC} />
-          </div>
-        </div>
         <div className="container-fluid schemaPadding">
           <div className="row py-5">
             <div className="col-12">
