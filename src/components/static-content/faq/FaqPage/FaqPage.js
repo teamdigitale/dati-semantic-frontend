@@ -16,7 +16,7 @@ const FaqPage = () => {
         title="Hai bisogno di chiarimenti o supporto?"
         subtitle="Consulta le domande frequenti"
         primaryButtonText="Esplora il catalogo"
-        primaryButtonLink={routes.explore()}
+        primaryButtonLink={routes.search()}
         type="HEADER"
         arrayBread={BREADCRUMBS.FAQPAGE}
         isSearch={false}

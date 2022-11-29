@@ -66,7 +66,7 @@ const ProjectIndex = (props) => {
                   >
                     <span
                       className={
-                        "text-primary-title " +
+                        "text-primary-title text-left  py-2" +
                         (section && section === "utilizzare"
                           ? "active"
                           : "deactive")

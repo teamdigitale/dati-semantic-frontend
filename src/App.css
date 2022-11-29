@@ -62,9 +62,10 @@ a.link:hover {
   text-decoration: underline;
 }
 .btn.lineUnder {
-  width: 75% !important;
+  width: 90% !important;
   display: flex;
   justify-content: flex-start;
+  min-height: 62px !important;
 }
 
 div.progress-bar:empty {
