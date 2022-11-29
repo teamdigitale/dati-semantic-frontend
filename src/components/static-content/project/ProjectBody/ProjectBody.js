@@ -13,7 +13,7 @@ const ProjectBody = () => {
   return (
     <div data-testid="ProjectBody" className="project-body container-fluid">
       <div className="row mx-0">
-        <div className="col-lg-3 mt-5 px-xl-3">
+        <div className="col-xl-3 mt-5 px-xl-3">
           <ProjectIndex changeSection={(ev) => handleChangeSection(ev)} />
         </div>
         <div className="col-lg-5 mt-5 pt-2">

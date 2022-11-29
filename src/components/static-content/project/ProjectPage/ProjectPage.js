@@ -16,7 +16,7 @@ const ProjectPage = () => {
         della semantica dei dati"
         subtitle="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
         primaryButtonText="Esplora il catalogo"
-        primaryButtonLink={routes.explore()}
+        primaryButtonLink={routes.search()}
         type="HEADER"
         arrayBread={BREADCRUMBS.PROJECTPAGE}
         isSearch={false}
