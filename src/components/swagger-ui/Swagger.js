@@ -3,14 +3,15 @@ import { baseUrl } from "../../services/fetchUtils";
 import "swagger-ui-react/swagger-ui.css";
 import ContentParagraph from "../common/ContentParagraph/ContentParagraph";
 import Anchor from "../common/Anchor/Anchor";
-import { DIGITALE_DOCS_URL, routes } from "../../services/routes";
+import { routes } from "../../services/routes";
 import { AT_VOCABULARY } from "../../services/dataConstants";
 import React, { useEffect, useState } from "react";
 import { useQuery } from "../../hooks/useQuery";
 import Callout from "../common/Callout/Callout";
 import { getSemanticAssetByUri } from "../../services/vocabService";
-import IntroSection from "../common/IntroSection/IntroSection";
+import getAlertMessage from "../../services/alertService";
 
+const alertMess = getAlertMessage();
 const genericVocabExplanation = () => (
   <p>
     Due endpoint accessibili attraverso il metodo <code>GET</code> sono dedicati
@@ -80,6 +81,15 @@ const Swagger = () => {
   return (
     <div>
       <div data-testid="Swagger Intro" className="project-body container">
+        {alertMess && alertMess != "" ? (
+          <div>
+            <div className="py-3">
+              <div className="alert alert-warning m-0" role="alert">
+                <strong>Avviso di manutenzione</strong> - {alertMess}
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="ml-5 pl-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph title="Come utilizzare le API per i vocabolari">
@@ -115,13 +125,6 @@ const Swagger = () => {
           <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
         </div>
       </div>
-      <IntroSection
-        title="CONTRIBUISCI"
-        subtitle="Scopri come contribuire"
-        primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={DIGITALE_DOCS_URL}
-        isSearch={false}
-      />
     </div>
   );
 };
