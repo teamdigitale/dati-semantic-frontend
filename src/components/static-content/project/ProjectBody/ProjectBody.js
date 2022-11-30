@@ -170,7 +170,7 @@ const ProjectBody = () => {
         </ContentParagraph> */}
 
             <div className="mt-4 mb-5">
-              <a className="btn btn-primary mr-4" href={routes.explore()}>
+              <a className="btn btn-primary mr-4" href={routes.search()}>
                 Esplora il catalogo
               </a>
             </div>

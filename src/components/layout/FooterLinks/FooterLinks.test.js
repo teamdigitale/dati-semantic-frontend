@@ -7,7 +7,7 @@ describe("<FooterLinks />", () => {
   test("it should mount", () => {
     render(<FooterLinks />);
 
-    const footerText = screen.getByText("Note Legali");
+    const footerText = screen.getByText("Informativa privacy");
     expect(footerText).toBeInTheDocument();
   });
 });
