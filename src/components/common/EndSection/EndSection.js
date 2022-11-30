@@ -9,7 +9,7 @@ export const EndSection = (props) => {
         <div className="container-fluid schemaPadding">
           {props.type && props.type == 1 ? (
             <div className="row mx-0 py-5" data-testid="endSection_1">
-              <div className="col-lg-8">
+              <div className="col-xl-8">
                 <div className="row mx-0">
                   <h2 className="txtWhite">
                     Non hai trovato quello che cercavi?
@@ -76,7 +76,7 @@ export const EndSection = (props) => {
                       />
                     </a>
                   </div>
-                  <div className="col-xl-6 mt-2 mt-lg-0 d-flex justify-content-start justify-content-xl-end">
+                  <div className="col-xl-7 mt-2 mt-lg-0 d-flex justify-content-start">
                     <a
                       className="btn btn-outline-light font-weight-bold ml-0 ml-xl-2 mt-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
