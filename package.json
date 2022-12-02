@@ -68,7 +68,7 @@
         "@svgr/webpack": "6.5.1",
         "@wdio/cli": "^7.25.4",
         "@types/k6": "^0.41.0",
-        "@wdio/jasmine-framework": "^7.16.11",
+        "@wdio/jasmine-framework": "^8.0.2",
         "@wdio/local-runner": "^7.26.0",
         "@wdio/spec-reporter": "^7.16.11",
         "babel-eslint": "^10.1.0",
