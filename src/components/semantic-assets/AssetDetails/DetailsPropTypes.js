@@ -6,13 +6,13 @@ const getDetailsPropTypes = () => {
     details: shape({
       type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
       assetIri: string.isRequired,
-      title: string,
+      title: string, //notRequired for incorrect data
       description: string.isRequired,
       modifiedOn: string,
       themes: arrayOf(string).isRequired,
       rightsHolder: shape({
         iri: string.isRequired,
-        summary: string,
+        summary: string, //notRequired for incorrect data
       }).isRequired,
       accrualPeriodicity: string,
       distributions: arrayOf(

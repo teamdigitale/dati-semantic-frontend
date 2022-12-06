@@ -50,7 +50,7 @@ const SchemaMetadata = (props) => {
 SchemaMetadata.propTypes = {
   rightsHolder: shape({
     iri: string.isRequired,
-    summary: string,
+    summary: string, //notRequired for incorrect data
   }).isRequired,
   issuedOn: string,
   keyClasses: arrayOf(
