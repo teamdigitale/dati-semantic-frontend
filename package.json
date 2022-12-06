@@ -12,7 +12,8 @@
         "@typescript-eslint/eslint-plugin": "^4.5.0",
         "@typescript-eslint/parser": "^4.5.0",
         "babel-loader": "9.1.0",
-        "babel-plugin-named-asset-import": "^0.3.8",    
+        "babel-plugin-named-asset-import": "^0.3.8",
+        "babel-preset-react-app": "10.0.1",
         "bfj": "^7.0.2",
         "bootstrap-italia": "^1.4.3",
         "camelcase": "^6.2.1",
@@ -22,15 +23,16 @@
         "dotenv": "16.0.3",
         "dotenv-expand": "5.1.0",
         "file-loader": "6.2.0",
-        "fs-extra": "^9.0.1",
+        "fs-extra": "^11.1.0",
         "history": "^5.3.0",
         "html-webpack-plugin": "5.5.0",
-        "husky": "7.0.4",
+        "husky": "8.0.2",
         "identity-obj-proxy": "3.0.0",
-        "jquery": "^3.6.0",
+        "jquery": "^3.6.1",
         "mini-css-extract-plugin": "2.7.0",
+        "minimatch": "5.1.1",
         "mkdirp": "^1.0.4",
-        "node-fetch": "^3.2.10",
+        "node-fetch": "^3.3.0",
         "optimize-css-assets-webpack-plugin": "6.0.1",
         "owl.carousel": "^2.3.4",
         "pnp-webpack-plugin": "1.7.0",
@@ -52,25 +54,24 @@
         "sass-loader": "^10.0.5",
         "semver": "7.3.5",
         "style-loader": "2.0.0",
-        "stylelint": "14.14.1",
+        "stylelint": "14.15.0",
         "stylelint-config-sass-guidelines": "9.0.0",
         "stylelint-config-standard": "24.0.0",
         "terser-webpack-plugin": "5.3.6",
         "ts-pnp": "1.2.0",
         "url-loader": "4.1.1",
-        "web-vitals": "^2.1.2",
-        "babel-preset-react-app":"10.0.1"
+        "web-vitals": "^2.1.2"        
     },
     "devDependencies": {
+        "@babel/preset-flow": "7.18.6",
         "@babel/register": "^7.18.9",
-        "@babel/preset-flow":"7.18.6",
         "@pmmmwh/react-refresh-webpack-plugin": "0.5.9",
         "@svgr/webpack": "6.5.1",
-        "@wdio/cli": "^7.25.4",
         "@types/k6": "^0.41.0",
-        "@wdio/jasmine-framework": "^7.16.11",
-        "@wdio/local-runner": "^7.26.0",
-        "@wdio/spec-reporter": "^7.16.11",
+        "@wdio/cli": "^8.0.5",
+        "@wdio/jasmine-framework": "^8.0.5",
+        "@wdio/local-runner": "^8.0.5",
+        "@wdio/spec-reporter": "^8.0.0",
         "babel-eslint": "^10.1.0",
         "babel-jest": "29.3.1",
         "chromedriver": "^106.0.1",
@@ -85,13 +86,13 @@
         "eslint-plugin-react": "^7.31.10",
         "eslint-plugin-react-hooks": "^4.3.0",
         "eslint-plugin-testing-library": "5.0.1",
-        "eslint-webpack-plugin": "^2.6.0",
+        "eslint-webpack-plugin": "^3.2.0",
         "jest": "27.4.5",
         "jest-circus": "27.4.5",
         "jest-resolve": "27.4.5",
         "jest-watch-typeahead": "1.0.0",
         "k6": "^0.0.0",
-        "prettier": "^2.5.1",
+        "prettier": "^2.8.0",
         "prop-types": "^15.8.1",
         "react-dev-utils": "12.0.1",
         "swagger-ui-react": "^4.15.5",
@@ -100,7 +101,7 @@
         "webpack": "5.75.0",
         "webpack-dev-server": "4.11.1",
         "webpack-manifest-plugin": "5.0.0",
-        "workbox-webpack-plugin": "6.5.4"         
+        "workbox-webpack-plugin": "6.5.4"
     },
     "scripts": {
         "start": "./env.sh && move env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
@@ -159,16 +160,16 @@
         ],
         "testEnvironment": "jsdom",
         "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
-        "testPathIgnorePatterns":["/node_modules/"],
+        "testPathIgnorePatterns": [
+            "/node_modules/"
+        ],
         "transform": {
             "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
             "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
             "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
-            
             "^.+\\.module\\.(css|sass|scss)$"
-            
         ],
         "modulePaths": [],
         "moduleNameMapper": {
@@ -196,7 +197,10 @@
     "babel": {
         "presets": [
             "@babel/preset-env",
-            ["@babel/preset-react"]]
+            [
+                "@babel/preset-react"
+            ]
+        ]
     },
-    "proxy": "http://localhost:5001" 
+    "proxy": "http://localhost:5001"
 }
