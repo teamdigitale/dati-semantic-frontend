@@ -8111,7 +8111,22 @@ jest-resolve-dependencies@^27.4.5:
     jest-regex-util "^27.4.0"
     jest-snapshot "^27.4.5"
 
-jest-resolve@27.4.5, jest-resolve@^27.4.5:
+jest-resolve@29.3.1:
+  version "29.3.1"
+  resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-29.3.1.tgz#9a4b6b65387a3141e4a40815535c7f196f1a68a7"
+  integrity sha512-amXJgH/Ng712w3Uz5gqzFBBjxV8WFLSmNjoreBGMqxgCz5cH7swmBZzgBaCIOsvb0NbpJ0vgaSFdJqMdT+rADw==
+  dependencies:
+    chalk "^4.0.0"
+    graceful-fs "^4.2.9"
+    jest-haste-map "^29.3.1"
+    jest-pnp-resolver "^1.2.2"
+    jest-util "^29.3.1"
+    jest-validate "^29.3.1"
+    resolve "^1.20.0"
+    resolve.exports "^1.1.0"
+    slash "^3.0.0"
+
+jest-resolve@^27.4.5:
   version "27.4.5"
   resolved "https://registry.yarnpkg.com/jest-resolve/-/jest-resolve-27.4.5.tgz#8dc44f5065fb8d58944c20f932cb7b9fe9760cca"
   integrity sha512-xU3z1BuOz/hUhVUL+918KqUgK+skqOuUsAi7A+iwoUldK6/+PW+utK8l8cxIWT9AW7IAhGNXjSAh1UYmjULZZw==
@@ -8260,6 +8275,18 @@ jest-validate@^27.4.2:
     jest-get-type "^27.4.0"
     leven "^3.1.0"
     pretty-format "^27.4.2"
+
+jest-validate@^29.3.1:
+  version "29.3.1"
+  resolved "https://registry.yarnpkg.com/jest-validate/-/jest-validate-29.3.1.tgz#d56fefaa2e7d1fde3ecdc973c7f7f8f25eea704a"
+  integrity sha512-N9Lr3oYR2Mpzuelp1F8negJR3YE+L1ebk1rYA5qYo9TTY3f9OWdptLoNSPP9itOCBIRBqjt/S5XHlzYglLN67g==
+  dependencies:
+    "@jest/types" "^29.3.1"
+    camelcase "^6.2.0"
+    chalk "^4.0.0"
+    jest-get-type "^29.2.0"
+    leven "^3.1.0"
+    pretty-format "^29.3.1"
 
 jest-watch-typeahead@1.0.0:
   version "1.0.0"
@@ -8988,10 +9015,10 @@ minimalistic-assert@^1.0.0:
   resolved "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz"
   integrity sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==
 
-minimatch@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+minimatch@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.5.tgz#4da8f1290ee0f0f8e83d60ca69f8f134068604a3"
+  integrity sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==
   dependencies:
     brace-expansion "^1.1.7"
 
