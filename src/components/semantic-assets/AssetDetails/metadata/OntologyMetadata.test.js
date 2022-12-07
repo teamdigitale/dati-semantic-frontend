@@ -10,7 +10,6 @@ describe("<OntologyMetadata />", () => {
     expect(screen.getByTestId("common-metadata")).toBeInTheDocument();
 
     expect(screen.getByText("Concetti principali")).toBeInTheDocument();
-    expect(screen.getByText("keyClass2")).toBeInTheDocument();
 
     expect(screen.getByText("Prefisso")).toBeInTheDocument();
     expect(screen.getByText("Ontology prefix")).toBeInTheDocument();
