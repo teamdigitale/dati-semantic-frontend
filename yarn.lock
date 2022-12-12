@@ -3517,17 +3517,17 @@
   resolved "https://registry.yarnpkg.com/@wdio/repl/-/repl-8.0.0.tgz#18cd1c324dfd56cb47626cbad9a3c4e016b849cf"
   integrity sha512-Qys/t/NioO+LlcDcD+4Agn0JJjIiO6fkqOJJDxv3QulGPCmQ5SaYX+BQyz1o9sGscfr8s/435d+3dkBSO1+3tQ==
 
-"@wdio/reporter@8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-8.0.0.tgz#18073a6b9c3092c2def2a8ea4f8bd40a5bb87f8b"
-  integrity sha512-k+5TQcOCgBnsLB/rqFXDmkt3brvHDVUvARsQnd8w+NPccc4hI2YRAfTO1OZmLBZ7XLi+1gajXVgmtAmRR0F/sA==
+"@wdio/reporter@8.0.11":
+  version "8.0.11"
+  resolved "https://registry.yarnpkg.com/@wdio/reporter/-/reporter-8.0.11.tgz#7422ac4cad179fe30b155f33b5b4553cac7e8e34"
+  integrity sha512-kVFGzYhcrLTrc4FRjBQptBbIQzYapf0+TOAfHSCRSlP9BODpt2u1VwFY5ncQf/Kf64VtUaZwe3Y8f7YPnH5RGA==
   dependencies:
     "@types/diff" "^5.0.2"
     "@types/object-inspect" "^1.8.1"
     "@types/supports-color" "^8.1.1"
     "@types/tmp" "^0.2.3"
     "@wdio/logger" "8.0.0"
-    "@wdio/types" "8.0.0"
+    "@wdio/types" "8.0.11"
     diff "^5.0.0"
     object-inspect "^1.12.0"
     supports-color "9.2.3"
@@ -3548,13 +3548,13 @@
     webdriver "8.0.2"
     webdriverio "8.0.5"
 
-"@wdio/spec-reporter@^8.0.0":
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/@wdio/spec-reporter/-/spec-reporter-8.0.0.tgz#279670459ec15642e5b35841ea1302567854c5ac"
-  integrity sha512-Xg+2fT/Bt+hhJSmqZysFwJQu7+RxYdIm7m4hoS++fSxVTFlHjvsGBJAckgkVtx4FwiDNcr1qIvqd4eI6ZGmdXg==
+"@wdio/spec-reporter@^8.0.11":
+  version "8.0.11"
+  resolved "https://registry.yarnpkg.com/@wdio/spec-reporter/-/spec-reporter-8.0.11.tgz#60a242fe4619cbcc23ddc3436ea7dde21680e18f"
+  integrity sha512-G7W/GAmG8CjgvKcQPaC041jJUYs+chzz+K8FboejkyrK9LwvluZFxCmhCC6MlXCiAL3q45zHigpYahRFruWRgw==
   dependencies:
-    "@wdio/reporter" "8.0.0"
-    "@wdio/types" "8.0.0"
+    "@wdio/reporter" "8.0.11"
+    "@wdio/types" "8.0.11"
     chalk "^5.1.2"
     easy-table "^1.2.0"
     pretty-ms "^7.0.0"
@@ -3563,6 +3563,13 @@
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/@wdio/types/-/types-8.0.0.tgz#e5d3d87fb6bf96e5c48ea43477c81135076dd4d5"
   integrity sha512-6Qt4NmCJrxtbZLxCJBSW68Q4olvHGLoy5mOBaZhPC5FUEmxwhMAtq5e3zrAIpnHEMwl3RUDnMnSO9dApI7a7IQ==
+  dependencies:
+    "@types/node" "^18.0.0"
+
+"@wdio/types@8.0.11":
+  version "8.0.11"
+  resolved "https://registry.yarnpkg.com/@wdio/types/-/types-8.0.11.tgz#e3623506e89da59947aa7a7caf01e513363fe1c9"
+  integrity sha512-54xbajB7tqWmYPXFI0ALupPauwLyVtPSZSG/R/DPlY25p+Ygw4jwH64s+Jh1V3TZYnktfv4cIt1Bw/M35cBgOQ==
   dependencies:
     "@types/node" "^18.0.0"
 
@@ -8988,10 +8995,10 @@ minimalistic-assert@^1.0.0:
   resolved "https://registry.npmjs.org/minimalistic-assert/-/minimalistic-assert-1.0.1.tgz"
   integrity sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==
 
-minimatch@3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+minimatch@3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.5.tgz#4da8f1290ee0f0f8e83d60ca69f8f134068604a3"
+  integrity sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==
   dependencies:
     brace-expansion "^1.1.7"
 
