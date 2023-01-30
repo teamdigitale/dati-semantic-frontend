@@ -20,7 +20,7 @@ const HeaderSlim = () => (
                   aria-label="Vai al sito dell'Istat"
                   href="https://www.istat.it/"
                 >
-                  <u>ISTAT</u>
+                  <u>Istat</u>
                 </a>
               </div>
             </div>

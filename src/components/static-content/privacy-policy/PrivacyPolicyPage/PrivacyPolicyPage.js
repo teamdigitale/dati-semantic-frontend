@@ -14,11 +14,14 @@ const PrivacyPolicyPage = () => {
   const alertMess = getAlertMessage();
   return (
     <div data-testid="PrivacyPolicyPage">
-      <div className="row mx-0 px-0">
-        <div className="col-lg-12 pl-5">
-          <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACYPAGE} />
+      <div className="container-fluid px-xl-4 px-lg-2 px-0">
+        <div className="row mx-0 px-0">
+          <div className="col-lg-12 pl-5">
+            <BreadCrumbs arrayBread={BREADCRUMBS.PRIVACYPAGE} />
+          </div>
         </div>
       </div>
+
       {alertMess && alertMess != "" ? (
         <div className={"mantainenceAllertWhite"}>
           <div className="container-fluid schemaPadding py-3">

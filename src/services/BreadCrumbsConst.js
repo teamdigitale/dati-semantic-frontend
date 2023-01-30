@@ -21,6 +21,10 @@ export const PRIVACYPAGE = [
   { label: "Home", link: routes.explore(), id: 11 },
   { label: "Informativa privacy", link: "", id: 12 },
 ];
+export const LEGALNOTICES = [
+  { label: "Home", link: routes.explore(), id: 13 },
+  { label: "Note legali", link: "", id: 14 },
+];
 export const BREADCRUMBS = {
   EXPLOREPAGE: EXPLOREPAGE,
   PROJECTPAGE: PROJECTPAGE,
@@ -28,6 +32,7 @@ export const BREADCRUMBS = {
   SEARCHPAGE: SEARCHPAGE,
   DETAILSPAGE: DETAILSPAGE,
   PRIVACYPAGE: PRIVACYPAGE,
+  LEGALNOTICES: LEGALNOTICES,
 };
 
 export default BREADCRUMBS;

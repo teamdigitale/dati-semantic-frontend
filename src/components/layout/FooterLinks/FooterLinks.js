@@ -8,7 +8,7 @@ const FooterLinks = () => {
       <div className="container-fluid px-5">
         <div className="row mx-0 my-0 pt-3 align-items-center">
           {/* <p className="pl-1 pr-5">
-            <a className={styles.bottomFooter} href="#">
+            <a className={styles.bottomFooter} href={routes.legalNotice()}>
               Note Legali
             </a>
           </p> */}

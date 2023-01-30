@@ -5,7 +5,7 @@ import {
 
 export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
 export const ASSETS_URL_TOKEN = "details";
-
+export const LEGALNOTICES = "note-legali";
 export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
 export const GITHUB_SCHEMA =
   "https://github.com/teamdigitale/dati-semantic-frontend";
@@ -108,6 +108,9 @@ class Routes {
 
   privacyPolicy() {
     return "/" + PRIVACY_POLICY;
+  }
+  legalNotice() {
+    return "/" + LEGALNOTICES;
   }
 }
 
