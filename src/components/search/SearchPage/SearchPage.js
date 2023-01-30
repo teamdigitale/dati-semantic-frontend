@@ -13,6 +13,7 @@ import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
 import IntroSection from "../../common/IntroSection/IntroSection";
+
 const showItems = (isLoading, error, searchResult) => {
   const routNav = useNavigate();
   function goToError() {
@@ -121,12 +122,6 @@ const SearchPage = () => {
     document.title = "Search - Catalogo Nazionale Dati";
   });
 
-  const onFilterUpdate = useCallback((newFilter) => {
-    navigate(
-      routes.search({ ...newFilter, limit: PAGE_SIZE, offset: DEFAULT_OFFSET })
-    );
-  }, []);
-
   return (
     <React.Fragment>
       <IntroSection
@@ -141,9 +136,24 @@ const SearchPage = () => {
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
             <div className="col-12 col-lg-4 pl-lg-4 col-md-4" role="search">
-              <FilterPanel filter={filter} onFilterUpdate={onFilterUpdate} />
+              <FilterPanel
+                filter={filter}
+                onFilterUpdate={useCallback((newFilter) => {
+                  navigate(
+                    routes.search({
+                      ...newFilter,
+                      limit: PAGE_SIZE,
+                      offset: DEFAULT_OFFSET,
+                    })
+                  );
+
+                  document
+                    .getElementById("searchAnchor")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, [])}
+              />
             </div>
-            <div className="col-12 col-lg-8 col-md-8">
+            <div className="col-12 col-lg-8 col-md-8" id="searchAnchor">
               {renderResultCount(isLoading, error, searchResult)}
               {showItems(isLoading, error, searchResult)}
               {renderPagination(

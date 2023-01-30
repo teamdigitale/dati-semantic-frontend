@@ -27,15 +27,20 @@ const AssetDetails = ({ details }) => {
   breadC[2].label = details?.title;
   return (
     <div>
+      <div className={"w-100 " + styles.bkg}>
+        <div className={"container-fluid "}>
+          <div className="row mx-0 pl-3">
+            <div className="col-lg-12 pl-5">
+              <BreadCrumbs arrayBread={breadC} />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div
         className={"row " + styles.detailsContainer + " mx-0"}
         data-testid="asset-details-container"
       >
-        <div className="row mx-0 pl-3">
-          <div className="col-lg-12 pl-5">
-            <BreadCrumbs arrayBread={breadC} />
-          </div>
-        </div>
         {alertMess && alertMess != "" ? (
           <div className={"mantainenceAllert"}>
             <div className="container-fluid schemaPadding py-3">

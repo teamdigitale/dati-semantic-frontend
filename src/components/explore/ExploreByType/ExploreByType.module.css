@@ -4,3 +4,9 @@
   height: 121px;
   font-size: 22px !important;
 }
+.fontExploreByTypeColor {
+  color: #0066cc !important;
+}
+.footerBorderExploreByType {
+  border-top: none !important;
+}
