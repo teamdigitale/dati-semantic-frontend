@@ -89,7 +89,7 @@
         "eslint-webpack-plugin": "^3.2.0",
         "jest": "27.4.5",
         "jest-circus": "27.4.5",
-        "jest-resolve": "27.4.5",
+        "jest-resolve": "29.4.2",
         "jest-watch-typeahead": "1.0.0",
         "k6": "^0.0.0",
         "prettier": "^2.8.0",
