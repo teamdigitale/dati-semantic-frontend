@@ -4,6 +4,7 @@
 name: CI Test and Publish Workflow
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
