@@ -3,23 +3,31 @@ import { search } from "../../../services/searchService";
 import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
-import { DIGITALE_DOCS_URL, routes } from "../../../services/routes";
+import { routes } from "../../../services/routes";
 import Pagination, {
   DEFAULT_OFFSET,
   PAGE_SIZE,
 } from "../Pagination/Pagination";
-import IntroSection from "../../common/IntroSection/IntroSection";
+
 import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
+import BREADCRUMBS from "../../../services/BreadCrumbsConst";
+import EndSection from "../../common/EndSection/EndSection";
+import IntroSection from "../../common/IntroSection/IntroSection";
 
 const showItems = (isLoading, error, searchResult) => {
+  const routNav = useNavigate();
+  function goToError() {
+    routNav("/errore");
+  }
   if (isLoading) {
     return <h2>Caricamento...</h2>;
   }
   if (error) {
+    goToError();
     return (
       <SearchResultAlert
-        title="Errore di caricamento"
-        message="Impossibile caricare i risultati, prova di nuovo."
+        title="Errore imprevisto del server"
+        message="Ci scusiamo per il disagio, riprovare fra qualche minuto"
       />
     );
   }
@@ -54,7 +62,7 @@ function renderPagination(isLoading, error, searchResult, filter, navigate) {
     !error &&
     !isLoading &&
     hasSearchResult(searchResult) && (
-      <div className="row mt-5">
+      <div className="row mt-5 mb-4">
         <div className="col-12">
           <Pagination
             page={{
@@ -74,11 +82,13 @@ function renderResultCount(isLoading, error, searchResult) {
   return (
     <div className="row" data-testid="results-count">
       <div className="col-12">
-        <h2>
-          {!error && !isLoading && searchResult?.totalCount
-            ? `${searchResult?.totalCount} risultati`
-            : ""}
-        </h2>
+        {!error && !isLoading && searchResult?.totalCount ? (
+          <p className="h2" role="status">
+            {searchResult?.totalCount} risultati
+          </p>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
@@ -108,33 +118,57 @@ const SearchPage = () => {
     doSearch();
   }, [urlSearch]);
 
-  const onFilterUpdate = useCallback((newFilter) => {
-    navigate(
-      routes.search({ ...newFilter, limit: PAGE_SIZE, offset: DEFAULT_OFFSET })
-    );
-  }, []);
+  useEffect(() => {
+    document.title = "Search - Catalogo Nazionale Dati";
+  });
 
   return (
-    <div data-testid="SearchPage" className="mt-5">
-      <div className="container main-container pl-4 pr-4">
-        <div className="row">
-          <div className="col-12 col-lg-4 col-md-4" role="search">
-            <FilterPanel filter={filter} onFilterUpdate={onFilterUpdate} />
-          </div>
-          <div className="col-12 col-lg-8 col-md-8">
-            {renderResultCount(isLoading, error, searchResult)}
-            {showItems(isLoading, error, searchResult)}
-            {renderPagination(isLoading, error, searchResult, filter, navigate)}
+    <React.Fragment>
+      <IntroSection
+        title="Cerca nel catalogo nazionale 
+        della sematica dei dati"
+        subtitle="Cerca e utilizza tra decine di asset semantici. Puoi cercare per parola chiave, filtrare i risultati per categoria o strumento semantico, o titolare."
+        type=""
+        isSearch={true}
+        arrayBread={BREADCRUMBS.SEARCHPAGE}
+      />
+      <div data-testid="SearchPage" className="mt-5">
+        <div className="container-fluid schemaPadding">
+          <div className="row mx-0">
+            <div className="col-12 col-lg-4 pl-lg-4 col-md-4" role="search">
+              <FilterPanel
+                filter={filter}
+                onFilterUpdate={useCallback((newFilter) => {
+                  navigate(
+                    routes.search({
+                      ...newFilter,
+                      limit: PAGE_SIZE,
+                      offset: DEFAULT_OFFSET,
+                    })
+                  );
+
+                  document
+                    .getElementById("searchAnchor")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, [])}
+              />
+            </div>
+            <div className="col-12 col-lg-8 col-md-8" id="searchAnchor">
+              {renderResultCount(isLoading, error, searchResult)}
+              {showItems(isLoading, error, searchResult)}
+              {renderPagination(
+                isLoading,
+                error,
+                searchResult,
+                filter,
+                navigate
+              )}
+            </div>
           </div>
         </div>
+        <EndSection type={1} />
       </div>
-      <IntroSection
-        title="CONTRIBUISCI"
-        subtitle="Scopri come contribuire"
-        primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={DIGITALE_DOCS_URL}
-      />
-    </div>
+    </React.Fragment>
   );
 };
 

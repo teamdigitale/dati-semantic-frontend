@@ -4,17 +4,12 @@
 
 .description {
   height: 170px;
-  color: #455b71;
+  color: #19191a;
 }
 
 .scrollable {
   height: 170px;
-  overflow: hidden;
-}
-
-.scrollable:hover {
-  height: 170px;
-  overflow-y: scroll;
+  overflow: auto;
 }
 
 .descriptionText {

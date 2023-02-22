@@ -6,6 +6,7 @@ COPY package.json yarn.lock ./
 COPY talisman ./talisman
 RUN yarn install
 COPY . ./
+RUN yarn lint --fix
 RUN yarn build
 
 #Run

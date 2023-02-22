@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src 'none'; script-src 'self'; script-src-elem 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';
-                  base-uri 'self'; img-src 'self' data: https; font-src *; connect-src *; manifest-src *;">
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="stylesheet" href="%PUBLIC_URL%/css/fonts.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="description" content="Team Digitale - National Data Catalog" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Team Digitale - National Data Catalog</title>
-    <script src="%PUBLIC_URL%/env-config.js"></script>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+<html lang="it">
+
+<head>
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'none'; script-src 'self'; script-src-elem 'self' *.istat.it 'unsafe-inline'; style-src 'self' *.istat.it 'unsafe-inline'; base-uri 'self'; img-src 'self' data: https; font-src 'self' data:; connect-src *; manifest-src 'self';">
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="stylesheet" href="%PUBLIC_URL%/css/fonts.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Catalogo Nazionale Dati" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Catalogo Nazionale Dati</title>
+  <script src="%PUBLIC_URL%/js/global.js" ></script>
+  <script src="%PUBLIC_URL%/env-config.js"></script>
+  
+  <!-- 2022-10-27T12:35:00Z -->
+  <!-- Matomo -->
+<!--   Disable analytics until legal notes is present --> 
+    <!-- <script>
+    var idSite = Number(window._env_ && window._env_.MATOMO_SITE_ID || 35);
+    var matomoTrackingApiUrl = 'https://analytics.istat.it/matomo.php';
+
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['setTrackerUrl', matomoTrackingApiUrl]);
+    _paq.push(['setSiteId', idSite]);
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setCookieDomain", "*." + document.domain]);
+    _paq.push(["setDomains", ["*." + document.domain, "*." + document.domain]]);
+    _paq.push(['setSecureCookie', true]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);   
+  </script>
+  <script src="https://analytics.istat.it/matomo.js" async defer></script>
+  <noscript>
+    <p><img src="https://analytics.istat.it/matomo.php?idsite=33&amp;rec=1" style="border:0;" alt="" /></p>
+  </noscript> -->
+  <!-- End Matomo Code -->
+  
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -28,6 +54,7 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>window.__PUBLIC_PATH__ = "%PUBLIC_URL%/fonts"</script>
-  </body>
+  <script>window.__PUBLIC_PATH__ = "%PUBLIC_URL%/fonts"</script>
+</body>
+
 </html>

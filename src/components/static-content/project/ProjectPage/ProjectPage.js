@@ -1,26 +1,28 @@
 import IntroSection from "../../../common/IntroSection/IntroSection";
-import { DIGITALE_DOCS_URL, routes } from "../../../../services/routes";
+import { routes } from "../../../../services/routes";
 import ProjectBody from "../ProjectBody/ProjectBody";
-
+import { useEffect } from "react";
+import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
+import EndSection from "../../../common/EndSection/EndSection";
 const ProjectPage = () => {
+  useEffect(() => {
+    document.title = "Scopri l’iniziativa - Catalogo Nazionale Dati";
+  });
+
   return (
     <div data-testid="ProjectPage">
       <IntroSection
-        title="IL PROGETTO"
-        subtitle="Il catalogo nazionale della semantica dei dati"
-        description="Ricerca e riuso di asset semantici, tra cui ontologie, schemi dati e vocabolari controllati per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili"
-        primaryButtonText="Vai alle domande frequenti"
-        primaryButtonLink={routes.faq()}
-        secondaryButtonText="Esplora il catalogo"
-        secondaryButtonLink={routes.explore()}
+        title="Scopri il catalogo nazionale  
+        della semantica dei dati"
+        subtitle="Schema ti permette di ricercare e utilizzare tra decine di asset semantici per supportare lo sviluppo di API semanticamente e sintatticamente interoperabili."
+        primaryButtonText="Esplora il catalogo"
+        primaryButtonLink={routes.search()}
+        type="HEADER"
+        arrayBread={BREADCRUMBS.PROJECTPAGE}
+        isSearch={false}
       />
       <ProjectBody />
-      <IntroSection
-        title="CONTRIBUISCI"
-        subtitle="Scopri come contribuire"
-        primaryButtonText="Maggiori informazioni"
-        primaryButtonLink={DIGITALE_DOCS_URL}
-      />
+      <EndSection type={2} />
     </div>
   );
 };

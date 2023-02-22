@@ -6,6 +6,12 @@ import { arrayOf, shape, string } from "prop-types";
 import Anchor from "../../../common/Anchor/Anchor";
 
 const SchemaMetadata = (props) => {
+  const getSummaryFormIri = (iri) => {
+    if (iri && iri != null) {
+      const iris = iri.split("/");
+      return iris[iris.length - 1];
+    }
+  };
   return (
     <div data-testid="schema-metadata">
       <MetadataRow name="Titolare" value={props.rightsHolder.summary} />
@@ -26,7 +32,9 @@ const SchemaMetadata = (props) => {
                 <span key={keyClass.iri}>
                   {index > 0 && ", "}
                   <Anchor href={keyClass.iri} target="_blank" rel="noreferrer">
-                    {keyClass.summary}
+                    {keyClass.summary !== null && keyClass.iri
+                      ? keyClass.summary
+                      : getSummaryFormIri(keyClass.iri)}
                   </Anchor>
                 </span>
               ))}
@@ -42,7 +50,7 @@ const SchemaMetadata = (props) => {
 SchemaMetadata.propTypes = {
   rightsHolder: shape({
     iri: string.isRequired,
-    summary: string.isRequired,
+    summary: string, //notRequired for incorrect data
   }).isRequired,
   issuedOn: string,
   keyClasses: arrayOf(

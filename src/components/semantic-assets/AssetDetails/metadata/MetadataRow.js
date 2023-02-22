@@ -8,7 +8,7 @@ const MetadataRow = (props) => {
       <div className="row">
         <div className="col-3">
           <div className="pr-3">
-            <span className={styles.propertyName}>{props.name}</span>
+            <h3 className={styles.propertyName}>{props.name}</h3>
           </div>
         </div>
         <div className="col-8">

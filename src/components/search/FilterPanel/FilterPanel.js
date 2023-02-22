@@ -21,7 +21,7 @@ const FilterPanel = ({ filter, onFilterUpdate }) => {
 
   return (
     <div id="filter-panel" data-testid="FilterPanel">
-      <div className="row d-flex justify-content-center p-3">
+      <div className="row mx-0 d-flex justify-content-center p-3">
         <div className="col">
           <PatternFilter pattern={pattern} onPatternUpdate={onPatternUpdate} />
           <AssetTypeFilter types={types} onTypesUpdate={onTypesUpdate} />

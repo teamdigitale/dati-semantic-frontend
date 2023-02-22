@@ -4,9 +4,11 @@ import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 import "./HeaderMainMenu.css";
 
-const menuItems = [{ label: "Esplora", href: routes.explore() }];
+const menuItems = [
+  { label: "Catalogo", href: routes.search() },
+  { label: "Scopri l’iniziativa", href: routes.project() },
+];
 const additionalMenuItems = [
-  { label: "Il progetto", href: routes.project() },
   { label: "Domande frequenti", href: routes.faq() },
 ];
 const HeaderMainMenu = () => {
@@ -21,14 +23,14 @@ const HeaderMainMenu = () => {
 
   return (
     <div className="it-header-navbar-wrapper">
-      <div className="container">
+      <div className="container-fluid px-lg-4">
         <div className="row">
           <div className="col-12">
             <div id="it-region-header-nav" className="region header_nav">
               <nav
                 role="navigation"
                 aria-labelledby="main-menu"
-                className="navbar navbar-expand-lg has-megamenu"
+                className="navbar navbar-expand-lg has-megamenu theme-dark-mobile px-2"
               >
                 <button
                   className="custom-navbar-toggler"
@@ -54,35 +56,49 @@ const HeaderMainMenu = () => {
                     Main Menu
                   </h2>
                   <div className="menu-wrapper">
-                    <ul className="navbar-nav float-left">
-                      {menuItems.map((menuItem) => (
-                        <li className="nav-item megamenu" key={menuItem.label}>
-                          <Link
-                            className={
-                              "nav-link justify-content-center focus-element" +
-                              (isActive(menuItem.href) ? " active" : "")
-                            }
-                            to={menuItem.href}
+                    <ul className="navbar-nav container-fluid" role="list">
+                      <div className="mainmenu_left">
+                        {menuItems.map((menuItem) => (
+                          <li
+                            className="nav-item megamenu"
+                            key={menuItem.label}
+                            role="listitem"
                           >
-                            <span>{menuItem.label}</span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <ul className="navbar-nav float-right">
-                      {additionalMenuItems.map((menuItem) => (
-                        <li className="nav-item megamenu" key={menuItem.label}>
-                          <Link
-                            className={
-                              "nav-link justify-content-center focus-element" +
-                              (isActive(menuItem.href) ? " active" : "")
-                            }
-                            to={menuItem.href}
+                            <Link
+                              title={menuItem.label}
+                              aria-label={menuItem.label}
+                              className={
+                                "nav-link justify-content-center focus-element mr-3" +
+                                (isActive(menuItem.href) ? " active" : "")
+                              }
+                              to={menuItem.href}
+                            >
+                              <span className="">{menuItem.label}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </div>
+                      <div className="mainmenu_right">
+                        {additionalMenuItems.map((menuItem) => (
+                          <li
+                            className="nav-item megamenu"
+                            key={menuItem.label}
+                            role="listitem"
                           >
-                            <span>{menuItem.label}</span>
-                          </Link>
-                        </li>
-                      ))}
+                            <Link
+                              title={menuItem.label}
+                              aria-label={menuItem.label}
+                              className={
+                                "nav-link justify-content-center focus-element" +
+                                (isActive(menuItem.href) ? " active" : "")
+                              }
+                              to={menuItem.href}
+                            >
+                              <span className="">{menuItem.label}</span>
+                            </Link>
+                          </li>
+                        ))}
+                      </div>
                     </ul>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 .footerLinks {
-  height: 58px;
+  height: 62px;
   margin: 50px 0 0;
   background-color: #01254c;
 }
@@ -12,4 +12,12 @@
 
 a:hover {
   color: white !important;
+}
+.bottomFooter {
+  color: white !important;
+  font-size: 15px;
+  padding-right: 15px;
+}
+.bottomFooter:hover {
+  color: #0bd9d2 !important;
 }

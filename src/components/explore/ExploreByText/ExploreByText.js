@@ -20,32 +20,34 @@ const ExploreByText = () => {
   const onPatternChange = useCallback((e) => setPattern(e.target.value), []);
 
   return (
-    <ExploreSection title="Ricerca all'interno del catalogo">
-      <div className="pt-3 ml-4 pl-5">
-        <form onSubmit={doSubmit}>
-          <div className="form-row">
+    <ExploreSection title="Cerca nel catalogo per parola chiave">
+      <div className="pt-3 container-fluid schemaPadding" role="form">
+        <form role="search" onSubmit={doSubmit}>
+          <div className="form-row ml-md-4 pr-md-4 ml-1 pr-2">
             <div className="form-group col-md-7 p-2">
               <div className="search-group input-group">
-                <span className="input-group-append">
+                {/* <span className="input-group-append">
                   <div className="input-group-text bg-transparent">
-                    <Icon icon="it-search" size="sm" />
+                    <Icon icon="it-search" size="sm" alt="" />
                   </div>
-                </span>
+                </span> */}
                 <input
-                  type="text"
-                  className="form-control search-bar"
+                  aria-label="catalogo"
+                  type="search"
+                  className="form-control"
                   placeholder="es. persona, economia, attività"
                   value={pattern}
                   onChange={onPatternChange}
                 />
+                <span className="autocomplete-icon" aria-hidden="true">
+                  <div className="input-group-prepend">
+                    <Icon icon="it-search" size="sm" />
+                  </div>
+                </span>
               </div>
             </div>
-            <div className="form-group col-md-3 p-2">
-              <button
-                type="submit"
-                className="btn btn-primary w-75 mx-auto"
-                role="submit"
-              >
+            <div className="form-group col-md-3 p-2 d-flex justify-content-center">
+              <button type="submit" className="btn btn-primary w-75 mx-auto">
                 Cerca
               </button>
             </div>

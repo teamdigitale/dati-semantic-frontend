@@ -16,7 +16,7 @@ describe("<ExploreByType />", () => {
     (type) => {
       renderWithRoute(<ExploreByType />);
       expect(
-        screen.getByText("Esplora gli strumenti semantici per tipo")
+        screen.getByText("Esplora per strumenti semantici")
       ).toBeInTheDocument();
       expect(screen.getByText(getAssetPluralLabel(type))).toBeInTheDocument();
     }

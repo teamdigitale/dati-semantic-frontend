@@ -8,7 +8,7 @@ describe("<HeaderMainMenu />", () => {
   test("it should mount", () => {
     renderWithRoute(<HeaderMainMenu />);
 
-    const categories = screen.getByText("Esplora");
+    const categories = screen.getByText("Catalogo");
 
     expect(categories).toBeInTheDocument();
   });
@@ -23,7 +23,7 @@ describe("<HeaderMainMenu />", () => {
   test("it should render additional menu item for project", () => {
     renderWithRoute(<HeaderMainMenu />);
 
-    const categories = screen.getByText("Il progetto");
+    const categories = screen.getByText("Scopri l’iniziativa");
     expect(categories).toBeInTheDocument();
   });
 });

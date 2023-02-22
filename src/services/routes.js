@@ -5,16 +5,18 @@ import {
 
 export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
 export const ASSETS_URL_TOKEN = "details";
-
+export const LEGALNOTICES = "note-legali";
 export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
-
+export const GITHUB_SCHEMA =
+  "https://github.com/teamdigitale/dati-semantic-frontend";
 export const SEARCH_BASE_URL = "search";
 export const FAQ_URL = "faq";
-export const PROJECT_URL = "project";
+export const PROJECT_URL = "iniziativa";
 export const DIGITALE_DOCS_URL =
   "https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/";
 export const API_DOCS_URL = "api-docs";
-
+export const PRIVACY_POLICY = "privacy-policy";
+export const ERROR_PAGE = "errore";
 export const SearchParameterNames = {
   type: "type",
   theme: "theme",
@@ -102,6 +104,13 @@ class Routes {
       ["vocabIri", vocabIri],
     ]).toString();
     return `/${API_DOCS_URL}?${paramString}`;
+  }
+
+  privacyPolicy() {
+    return "/" + PRIVACY_POLICY;
+  }
+  legalNotice() {
+    return "/" + LEGALNOTICES;
   }
 }
 

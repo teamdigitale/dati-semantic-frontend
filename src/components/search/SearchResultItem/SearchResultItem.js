@@ -45,9 +45,9 @@ const SearchResultItem = ({ item }) => {
               </div>
             ))}
           </div>
-          <h4 className={"card-title primary-color " + styles.itemTitle}>
+          <h2 className={"h4 card-title primary-color " + styles.itemTitle}>
             {item.title}
-          </h4>
+          </h2>
           <p className={"card-text " + styles.itemDescription}>
             {truncate(item.description, 250)}
           </p>
@@ -64,7 +64,7 @@ const SearchResultItem = ({ item }) => {
               <span className={"font-weight-bold " + styles.itemInfoLabel}>
                 Titolare:
               </span>{" "}
-              <span className={styles.itemInfoLabel} id="rights-holder-name">
+              <span className={styles.itemInfoLabel + " rights-holder-name"}>
                 {item.rightsHolder.summary}
               </span>
             </div>

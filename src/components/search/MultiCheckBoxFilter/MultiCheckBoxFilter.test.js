@@ -36,7 +36,7 @@ describe("<MultiCheckBoxFilter />", () => {
       />
     );
 
-    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    expect(screen.getByTestId("listbox")).toBeInTheDocument();
   });
 
   test("it should display options (including 'All')", () => {
@@ -49,7 +49,7 @@ describe("<MultiCheckBoxFilter />", () => {
       />
     );
 
-    const options = screen.getAllByRole("option");
+    const options = screen.getAllByTestId("option");
     expect(options.length).toEqual(1 + allValues.length);
   });
 

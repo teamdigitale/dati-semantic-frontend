@@ -95,4 +95,3 @@ Documentation can be found here [Wiki](https://github.com/teamdigitale/dati-sema
 
 This work is licensed under the GNU Affero General Public License (AGPL), version 3 or later. You can find a copy of
 the license in the [LICENSE](https://github.com/teamdigitale/dati-semantic-frontend/blob/main/LICENSE) file
-

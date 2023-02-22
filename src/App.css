@@ -37,3 +37,126 @@
     transform: rotate(360deg);
   }
 }
+.opblock-summary-path:hover {
+  color: #3b4151 !important;
+}
+.swagger-ui .opblock-tag:hover {
+  color: #3b4151 !important;
+}
+a.nostyle:hover {
+  color: #3b4151 !important;
+}
+.text-primary-title {
+  color: #06c;
+}
+a.link:hover {
+  color: #004080 !important;
+}
+.lineUnder {
+  text-decoration: none;
+}
+.lineUnder :hover {
+  text-decoration: underline;
+}
+.lineUnder.active {
+  text-decoration: underline;
+}
+.btn.lineUnder {
+  width: 90% !important;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 62px !important;
+}
+
+div.progress-bar:empty {
+  display: flex;
+}
+.text-primary-title.active {
+  text-decoration: underline;
+}
+.introSectionBread {
+  background: #f2f7fc;
+}
+.introSectionBreadWhite {
+  background: white;
+}
+.explorePageBkg {
+  background-color: #f0f6fc !important;
+}
+.notUnderline {
+  text-decoration: none !important;
+}
+.searchForCategoryLink {
+  color: #0066cc;
+  text-decoration: none;
+}
+.searchForCategoryLink :hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+.endSectionBkg {
+  background-color: #0066cc !important;
+  min-height: 26.56rem !important;
+}
+.txtWhite {
+  color: white !important;
+}
+.endSectionBkg p.txtWhite {
+  font-size: 24px;
+}
+a.btn.endSection {
+  background-color: white;
+  color: #0066cc;
+}
+.container-fluid {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.breadcrumb-container {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.container-fluid.schemaPadding {
+  padding-left: 8.7rem !important;
+  padding-right: 8.7rem !important;
+}
+.mantainenceAllert {
+  width: 100%;
+  background-color: #f0f6fc;
+}
+.mantainenceAllertWhite {
+  width: 100%;
+  background-color: white;
+}
+.alert {
+  background-color: white;
+}
+.it-header-center-wrapper {
+  height: auto !important;
+}
+.normal-breack-text {
+  word-break: break-all;
+}
+
+.header-h {
+  min-height: 104px;
+}
+
+@media (max-width: 960px) {
+  .container-fluid.schemaPadding {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+}
+@media (max-width: 768px) {
+  .container-fluid.schemaPadding {
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+  }
+}
+@media (max-width: 540px) {
+  .container-fluid.schemaPadding {
+    padding-left: auto !important;
+    padding-right: auto !important;
+  }
+}

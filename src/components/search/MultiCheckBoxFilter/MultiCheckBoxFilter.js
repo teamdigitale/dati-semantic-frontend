@@ -7,6 +7,7 @@ const MultiCheckBoxFilter = ({
   keysAndLabels,
   selection,
   onSelectionUpdate,
+  labbledById,
 }) => {
   const addToSelection = (toBeAdded) => () => {
     onSelectionUpdate([...selection, toBeAdded]);
@@ -29,7 +30,7 @@ const MultiCheckBoxFilter = ({
             type="checkbox"
             id={id}
             checked={checked}
-            role="option"
+            data-testid="option"
             onChange={toggleSelection}
           />
           <label htmlFor={id}>{label}</label>
@@ -66,7 +67,11 @@ const MultiCheckBoxFilter = ({
   return (
     <div data-testid="MultiCheckBoxFilter">
       <div className="it-list-wrapper">
-        <ul className="it-list" role="listbox">
+        <ul
+          className="it-list"
+          data-testid="listbox"
+          aria-labelledby={labbledById}
+        >
           <li key="all">
             <div className="form-check">
               <input
@@ -76,7 +81,7 @@ const MultiCheckBoxFilter = ({
                 aria-checked={
                   allSelected ? "true" : someSelected ? "mixed" : "false"
                 }
-                role="option"
+                data-testid="option"
                 onChange={rotateAllSelection}
                 ref={indeterminateSetter}
               />
@@ -100,6 +105,7 @@ MultiCheckBoxFilter.propTypes = {
   ).isRequired,
   selection: arrayOf(string).isRequired,
   onSelectionUpdate: func.isRequired,
+  labbledById: string,
 };
 
 MultiCheckBoxFilter.defaultProps = {};

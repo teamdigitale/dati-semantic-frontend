@@ -27,7 +27,7 @@ const AssetDetailsSummary = (props) => {
       </div>
       <div className="row pt-3 pb-3">
         <div className="col-12">
-          <h2>{props.title}</h2>
+          <h1 className="h2">{props.title}</h1>
         </div>
       </div>
       <div className={"row " + styles.detailsCard}>
@@ -35,7 +35,7 @@ const AssetDetailsSummary = (props) => {
           <div className="card-wrapper card-space">
             <div className="card card-bg my-2 pl-5 pr-5 pt-5">
               <div className={"row " + styles.description}>
-                <div className={"col-10 " + styles.scrollable}>
+                <div className={"col-10 " + styles.scrollable} tabIndex="0">
                   <div className={"pr-3 pt-1" + styles.descriptionText}>
                     {props.description}
                   </div>

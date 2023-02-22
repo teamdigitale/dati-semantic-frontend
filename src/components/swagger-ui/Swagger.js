@@ -5,11 +5,13 @@ import ContentParagraph from "../common/ContentParagraph/ContentParagraph";
 import Anchor from "../common/Anchor/Anchor";
 import { routes } from "../../services/routes";
 import { AT_VOCABULARY } from "../../services/dataConstants";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery } from "../../hooks/useQuery";
 import Callout from "../common/Callout/Callout";
 import { getSemanticAssetByUri } from "../../services/vocabService";
+import getAlertMessage from "../../services/alertService";
 
+const alertMess = getAlertMessage();
 const genericVocabExplanation = () => (
   <p>
     Due endpoint accessibili attraverso il metodo <code>GET</code> sono dedicati
@@ -79,12 +81,21 @@ const Swagger = () => {
   return (
     <div>
       <div data-testid="Swagger Intro" className="project-body container">
+        {alertMess && alertMess != "" ? (
+          <div>
+            <div className="py-3">
+              <div className="alert alert-warning m-0" role="alert">
+                <strong>Avviso di manutenzione</strong> - {alertMess}
+              </div>
+            </div>
+          </div>
+        ) : null}
         <div className="ml-5 pl-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph title="Come utilizzare le API per i vocabolari">
               <p>
-                Qui di seguito &egrav; visualizzata la specifica delle API REST
-                messe a disposizione dal Catalogo.
+                Qui di seguito è visualizzata la specifica delle API REST messe
+                a disposizione dal Catalogo.
               </p>
               {vocabExplanation(loading, vocabDetails, error)}
             </ContentParagraph>
@@ -111,9 +122,9 @@ const Swagger = () => {
               </p>
             </ContentParagraph>
           )}
+          <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
         </div>
       </div>
-      <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
     </div>
   );
 };

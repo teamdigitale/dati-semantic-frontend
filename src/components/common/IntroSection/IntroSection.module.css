@@ -6,9 +6,13 @@ a:empty {
   display: none;
 }
 
+@media (max-width: 768px) {
+  [class*="col-"] {
+    margin-bottom: 15px;
+  }
+}
+
 .title {
-  width: 494px;
-  height: 24px;
   margin-bottom: 0px;
   font-size: 16px;
   letter-spacing: 1.1px;
@@ -16,18 +20,10 @@ a:empty {
 }
 
 .subtitle {
-  width: 500px;
-  height: 96px;
-  font-size: 40px;
-  line-height: 1.2;
-  letter-spacing: -1px;
-  color: #000;
-  padding-top: 14px;
+  font-size: 24px;
 }
 
 .description {
-  width: 578px;
-  height: 81px;
   font-size: 18px;
   font-weight: normal;
   font-stretch: normal;
@@ -44,4 +40,11 @@ a:empty {
 
 .btnSecondary:hover {
   color: #084d91 !important;
+}
+.bkgIntro {
+  background-color: #f2f7fc;
+}
+.IntroSectionIcon {
+  height: 100%;
+  width: 100%;
 }

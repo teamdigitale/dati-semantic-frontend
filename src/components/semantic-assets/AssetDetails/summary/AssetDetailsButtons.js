@@ -11,6 +11,7 @@ import styles from "./AssetDetailsButtons.module.css";
 const renderButton = (text, url, className) => {
   return (
     <button
+      aria-label={text + " (si apre in un'altra scheda)"}
       type="button"
       className={"btn " + className + " " + styles.detailsButton}
       onClick={() => window.open(url)}
@@ -69,7 +70,7 @@ AssetDetailsButtons.propTypes = {
   type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
   assetIri: PropTypes.string,
   vocabUrl: PropTypes.string,
-  accessUrl: PropTypes.string.isRequired,
+  accessUrl: PropTypes.string,
 };
 
 export default AssetDetailsButtons;

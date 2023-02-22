@@ -37,7 +37,9 @@ describe("<ExplorePage />", () => {
     const introduction = screen.getByTestId("ExplorePage");
 
     expect(introduction).toBeInTheDocument();
-    expect(introduction).toContainHTML("Ricerca e riuso di asset semantici");
+    expect(introduction).toContainHTML(
+      "Il catalogo nazionale per lo scambio di dati e informazioni tra pubbliche amministrazioni"
+    );
   });
 
   test("it should contain the text search form", () => {

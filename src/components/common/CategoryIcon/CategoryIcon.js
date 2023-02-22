@@ -5,7 +5,7 @@ import styles from "./CategoryIcon.module.css";
 
 const CategoryIcon = ({ category }) => {
   return (
-    <svg data-testid="CategoryIcon" className={styles.categoryIcon}>
+    <svg data-testid="CategoryIcon" className={styles.categoryIcon} alt="">
       <use href={sprite + `#${category.key.toLowerCase()}`} />
     </svg>
   );

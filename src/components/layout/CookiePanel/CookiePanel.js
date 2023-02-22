@@ -2,7 +2,7 @@ import "./CookiePanel.css";
 
 const CookiePanel = () => {
   return (
-    <div className="cookiebar">
+    <div className="cookiebar" role="contentinfo">
       <p>
         Questo sito utilizza cookie tecnici, analytics e di terze parti.
         Proseguendo nella navigazione accetti l’utilizzo dei cookie.

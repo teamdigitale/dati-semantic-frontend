@@ -11,6 +11,6 @@ describe("<ThemeFilter />", () => {
       <ThemeFilter themes={["AGRI", "HEAL"]} onThemesUpdate={themesUpdate} />
     );
 
-    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    expect(screen.getByTestId("listbox")).toBeInTheDocument();
   });
 });

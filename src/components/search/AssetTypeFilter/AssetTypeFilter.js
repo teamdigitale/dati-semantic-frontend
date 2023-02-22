@@ -17,6 +17,7 @@ const AssetTypeFilter = ({ types, onTypesUpdate }) => {
     <FilterPanelSection title="Filtra per Tipologie">
       <MultiCheckBoxFilter
         title="Tipologie"
+        labbledById="Filtra_per_Tipologie"
         keysAndLabels={keysAndLabels}
         selection={types}
         onSelectionUpdate={onTypesUpdate}

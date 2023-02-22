@@ -25,6 +25,10 @@ const AssetDetailsPage = () => {
     doSearch();
   }, [query]);
 
+  useEffect(() => {
+    document.title = "Asset - Catalogo Nazionale Dati";
+  });
+
   const showErrors = () => {
     if (!query.has("uri")) {
       return <AssetNotFound reason={MISSING_URI} />;
