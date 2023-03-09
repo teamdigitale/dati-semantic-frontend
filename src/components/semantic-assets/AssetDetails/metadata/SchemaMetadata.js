@@ -24,7 +24,7 @@ const SchemaMetadata = (props) => {
       {props.keyClasses && (
         <div className="row">
           <div className="col-3">
-            <span className={styles.propertyName}>Ontologie correlate</span>
+            <span className={styles.propertyName}>Concetti semantici</span>
           </div>
           <div className="col-8 text-justify">
             <span className={"text-monospace " + styles.propertyLink}>
