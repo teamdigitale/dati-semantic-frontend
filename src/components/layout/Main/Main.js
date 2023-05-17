@@ -35,6 +35,7 @@ const Main = ({ childRef }) => (
       <Route path={FAQ_URL} element={<FaqPage />} />
       <Route path={PROJECT_URL} element={<ProjectPage />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/error" element={<NotFound />} />
       <Route path={ASSETS_BASE_URL_TOKEN}>
         <Route path={ASSETS_URL_TOKEN} element={<AssetDetailsPage />} />
         <Route index path="*" element={<NotFound />} />
