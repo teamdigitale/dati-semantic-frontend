@@ -16,6 +16,7 @@ export const DIGITALE_DOCS_URL =
   "https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/";
 export const API_DOCS_URL = "api-docs";
 export const PRIVACY_POLICY = "privacy-policy";
+export const CONTACT = "contatti";
 export const ERROR_PAGE = "errore";
 export const SearchParameterNames = {
   type: "type",
@@ -109,6 +110,11 @@ class Routes {
   privacyPolicy() {
     return "/" + PRIVACY_POLICY;
   }
+
+  contact() {
+    return "/" + CONTACT;
+  }
+
   legalNotice() {
     return "/" + LEGALNOTICES;
   }

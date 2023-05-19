@@ -13,11 +13,13 @@ import {
   SEARCH_BASE_URL,
   ERROR_PAGE,
   LEGALNOTICES,
+  CONTACT,
 } from "../../../services/routes";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
 import ProjectPage from "../../static-content/project/ProjectPage/ProjectPage";
 import PrivacyPolicyPage from "../../static-content/privacy-policy/PrivacyPolicyPage/PrivacyPolicyPage";
+import ContactPage from "../../static-content/contact/ContactPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Swagger from "../../swagger-ui/Swagger";
@@ -42,6 +44,7 @@ const Main = ({ childRef }) => (
       </Route>
       <Route path={API_DOCS_URL} element={<Swagger />} />
       <Route path={PRIVACY_POLICY} element={<PrivacyPolicyPage />} />
+      <Route path={CONTACT} element={<ContactPage />} />
     </Routes>
   </main>
 );

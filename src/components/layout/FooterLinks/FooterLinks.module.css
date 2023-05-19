@@ -18,6 +18,9 @@ a:hover {
   font-size: 15px;
   padding-right: 15px;
 }
+.bottomFooter + .bottomFooter {
+  padding-left: 40px; /* Add your desired padding value */
+}
 .bottomFooter:hover {
   color: #0bd9d2 !important;
 }
