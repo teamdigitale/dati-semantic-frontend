@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React from "react";
 import { arrayOf, oneOf, shape, string } from "prop-types";
 import {
@@ -24,8 +25,7 @@ const SearchResultItem = ({ item }) => {
         >
           <div
             className={
-              "size-sm d-flex justify-content-between align-items-center " +
-              styles.topmostHeader
+              "size-sm d-flex align-items-center " + styles.topmostHeader
             }
           >
             <div>
@@ -36,6 +36,7 @@ const SearchResultItem = ({ item }) => {
               versionInfo={item.versionInfo}
               modifiedOn={item.modifiedOn}
               size={"small"}
+              status={item.status && item.status[0]}
             />
           </div>
           <div className="category-top clearfix">

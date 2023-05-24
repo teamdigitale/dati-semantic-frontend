@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import AssetIriRow from "./AssetIriRow";
 import MetadataRow from "./MetadataRow";
 import { getFrequencyLabel } from "../../../../assets/data/accrualPeriodicity";
@@ -34,8 +35,11 @@ const CommonMetadataGroup = (props) => {
           value={asItalianDate(details.issuedOn)}
         />
       )}
+      {details.modifiedOn && (
+        <MetadataRow name={"Ultima Modifica"} value={details.modifiedOn} />
+      )}
       {details.versionInfo && (
-        <MetadataRow name={"Versione"} value={details.versionInfo} />
+        <MetadataRow name={"Note Versione"} value={details.versionInfo} />
       )}
       {details.accrualPeriodicity && (
         <MetadataRow

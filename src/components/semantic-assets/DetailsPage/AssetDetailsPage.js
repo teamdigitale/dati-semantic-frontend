@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useEffect, useState } from "react";
 import { useQuery } from "../../../hooks/useQuery";
 import AssetNotFound, {

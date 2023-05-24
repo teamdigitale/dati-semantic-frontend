@@ -5,24 +5,61 @@ import {
 } from "../../../services/dataConstants";
 
 import styles from "./ModifiedOnOrVersion.module.css";
-import { asItalianDate } from "../../../services/stringUtils";
 
 const ModifiedOnOrVersion = (props) => {
-  let label, value;
+  let label, value, chipColor, statusText;
+
   if (props.type === AT_SCHEMA) {
     label = "Versione ";
     value = props.versionInfo ?? "n/a";
-  } else {
-    label = "Ultima modifica ";
-    value = props.modifiedOn ? asItalianDate(props.modifiedOn) : "n/a";
   }
+
+  switch (props.status) {
+    case "archived":
+      statusText = "Archiviato";
+      chipColor = "#515a7a";
+      break;
+    case "catalogued":
+    case "published":
+      statusText = "Stabile";
+      chipColor = "#008053";
+      break;
+    case "closed access":
+      statusText = "Accesso Ristretto";
+      chipColor = "#cc3344a";
+      break;
+    case "initial draft":
+    case "draft":
+    case "final draft":
+    case "intermediate draft":
+    case "submitted":
+      statusText = "Bozza";
+      chipColor = "#cc7a00";
+      break;
+    default:
+      statusText = "";
+      chipColor = "";
+  }
+
   return (
     <div
       className={
         props.size === "small" ? styles.modifiedOnSmall : styles.modifiedOnLarge
       }
     >
-      {label} <strong>{value}</strong>
+      {props.status && (
+        <div
+          className={`chip chip-simple chip-lg ml-2`}
+          style={{
+            backgroundColor: chipColor,
+          }}
+        >
+          <span className="chip-label text-white">{statusText}</span>
+        </div>
+      )}
+      <div style={{ marginLeft: "0.8rem" }}>
+        {label} <strong>{value}</strong>
+      </div>
     </div>
   );
 };
@@ -32,6 +69,7 @@ ModifiedOnOrVersion.propTypes = {
   modifiedOn: PropTypes.string,
   versionInfo: PropTypes.string,
   size: oneOf(["small", "large"]).isRequired,
+  status: PropTypes.string,
 };
 
 export default ModifiedOnOrVersion;

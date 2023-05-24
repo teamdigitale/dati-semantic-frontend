@@ -23,7 +23,7 @@ describe("<CommonMetadataGroup />", () => {
     expect(screen.getByText("Data creazione")).toBeInTheDocument();
     expect(screen.getByText("13/02/2017")).toBeInTheDocument();
 
-    expect(screen.getByText("Versione")).toBeInTheDocument();
+    expect(screen.getByText("Note Versione")).toBeInTheDocument();
     expect(
       screen.getByText(
         "E' l'attuale versione ISTAT della classificazione ufficiale sulle forme giuridiche"
