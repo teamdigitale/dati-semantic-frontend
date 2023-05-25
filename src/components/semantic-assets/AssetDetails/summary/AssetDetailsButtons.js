@@ -8,25 +8,21 @@ import * as PropTypes from "prop-types";
 import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
 import styles from "./AssetDetailsButtons.module.css";
-import axios from "axios";
 
 const renderButton = (text, url, className) => {
   const handleButtonClick = (event) => {
     event.preventDefault();
-    if (window.location) {
-      axios
-        .get(url)
-        .then((response) => {
-          if (response.status === 200) {
-            window.open(url);
-          } else {
-            window.location.href = "/error";
-          }
-        })
-        .catch(() => {
+    fetch(url)
+      .then((response) => {
+        if (response.status === 200) {
+          window.open(url);
+        } else {
           window.location.href = "/error";
-        });
-    }
+        }
+      })
+      .catch(() => {
+        window.location.href = "/error";
+      });
   };
 
   return (

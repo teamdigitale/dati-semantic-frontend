@@ -13,7 +13,7 @@ jest.mock("../../../../services/sparql");
 describe("<AssetDetailsButtons/>", () => {
   beforeEach(() => {
     global.window.open = jest.fn();
-    global.window.location.href = "/"; // Set a default value for window.location.href
+    //global.window.location.href = "/"; // Set a default value for window.location.href
     getSparqlEndpoint.mockReturnValue("http://sparql.example.com");
   });
 

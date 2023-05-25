@@ -9,7 +9,7 @@ describe("<AssetIri/>", () => {
     expect(screen.getByText("some-iri")).toBeInTheDocument();
     const externalLinkIcon = screen.getByTestId("external-link-icon");
     expect(externalLinkIcon).toBeInTheDocument();
-    // expect(externalLinkIcon.closest("a")).toHaveAttribute("href", "some-iri");
+    //expect(externalLinkIcon.closest("a")).toHaveAttribute("href", "some-iri");
     expect(externalLinkIcon.closest("a")).toHaveAttribute("target", "_blank");
   });
 });

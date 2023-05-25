@@ -3,19 +3,17 @@ import sprite from "../../../../assets/images/sprite.svg";
 import * as PropTypes from "prop-types";
 import React from "react";
 import rowStyle from "../metadata/MetadataRow.module.css";
-import axios from "axios";
+
 
 const AssetIriRow = (props) => {
   const url = props.assetIri;
   const handleClick = (event) => {
     event.preventDefault();
-    if (window.location) {
-    axios
-      .get(url, {
-        headers: {
-          Accept: "text/html",
-        },
-      })
+    fetch(url, {
+      headers: {
+        Accept: "text/html",
+      },
+    })
       .then((response) => {
         if (response.status === 200) {
           window.open(url);
@@ -27,7 +25,6 @@ const AssetIriRow = (props) => {
         console.log("error");
         window.location.href = "/error";
       });
-    };
   };
 
   return (
