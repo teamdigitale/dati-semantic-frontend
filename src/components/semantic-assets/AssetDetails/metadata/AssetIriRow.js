@@ -9,6 +9,7 @@ const AssetIriRow = (props) => {
   const url = props.assetIri;
   const handleClick = (event) => {
     event.preventDefault();
+    if (window.location) {
     axios
       .get(url, {
         headers: {
@@ -26,6 +27,7 @@ const AssetIriRow = (props) => {
         console.log("error");
         window.location.href = "/error";
       });
+    };
   };
 
   return (
