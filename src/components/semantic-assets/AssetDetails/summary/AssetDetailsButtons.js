@@ -13,18 +13,20 @@ import axios from "axios";
 const renderButton = (text, url, className) => {
   const handleButtonClick = (event) => {
     event.preventDefault();
-    axios
-      .get(url)
-      .then((response) => {
-        if (response.status === 200) {
-          window.open(url);
-        } else {
+    if (window.location) {
+      axios
+        .get(url)
+        .then((response) => {
+          if (response.status === 200) {
+            window.open(url);
+          } else {
+            window.location.href = "/error";
+          }
+        })
+        .catch(() => {
           window.location.href = "/error";
-        }
-      })
-      .catch(() => {
-        window.location.href = "/error";
-      });
+        });
+    }
   };
 
   return (
