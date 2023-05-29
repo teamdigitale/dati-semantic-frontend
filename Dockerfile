@@ -4,7 +4,7 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json yarn.lock ./
 COPY talisman ./talisman
-RUN yarn --ignore-engines
+RUN yarn install
 COPY . ./
 RUN yarn lint --fix
 RUN yarn build
