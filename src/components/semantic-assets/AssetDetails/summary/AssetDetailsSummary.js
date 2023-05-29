@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import AssetTypeChip from "../../../search/AssetTypeChip/AssetTypeChip";
 import styles from "./AssetDetailsSummary.module.css";
 import { getCategories } from "../../../../assets/data/categories";
@@ -46,6 +47,7 @@ const AssetDetailsSummary = (props) => {
                     modifiedOn={props.modifiedOn}
                     versionInfo={props.versionInfo}
                     size={"large"}
+                    status={props.status}
                   />
                 </div>
               </div>
@@ -64,6 +66,7 @@ AssetDetailsSummary.propTypes = {
   description: PropTypes.string.isRequired,
   modifiedOn: PropTypes.string,
   versionInfo: PropTypes.string,
+  status: PropTypes.string,
 };
 
 export default AssetDetailsSummary;

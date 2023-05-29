@@ -60,6 +60,7 @@ const AssetDetails = ({ details }) => {
                 description={details.description}
                 modifiedOn={details.modifiedOn}
                 versionInfo={details.versionInfo}
+                status={details.status && details.status[0]}
               />
               <div className="row pb-5" />
               <AssetDetailsButtons

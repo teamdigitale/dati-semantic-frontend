@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { routes } from "../../../../services/routes";
 import "./ProjectBody.css";
 import Anchor from "../../../common/Anchor/Anchor";
@@ -6,10 +7,17 @@ import ProjectIndex from "../ProjectIndex/ProjectIndex";
 
 const ProjectBody = () => {
   const handleChangeSection = (id) => {
-    document
-      .getElementById(id)
-      .scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+    if (typeof window !== "undefined" && window.location) {
+      document
+        .getElementById(id)
+        .scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "start",
+        });
+    }
   };
+
   return (
     <div data-testid="ProjectBody" className="project-body container-fluid">
       <div className="row mx-0">

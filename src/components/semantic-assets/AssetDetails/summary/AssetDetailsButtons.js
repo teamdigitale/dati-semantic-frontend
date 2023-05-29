@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   AT_SCHEMA,
   AT_VOCABULARY,
@@ -9,12 +10,27 @@ import getSparqlEndpoint from "../../../../services/sparql";
 import styles from "./AssetDetailsButtons.module.css";
 
 const renderButton = (text, url, className) => {
+  const handleButtonClick = (event) => {
+    event.preventDefault();
+    fetch(url)
+      .then((response) => {
+        if (response.status === 200) {
+          window.open(url);
+        } else {
+          window.location.href = "/error";
+        }
+      })
+      .catch(() => {
+        window.location.href = "/error";
+      });
+  };
+
   return (
     <button
       aria-label={text + " (si apre in un'altra scheda)"}
       type="button"
       className={"btn " + className + " " + styles.detailsButton}
-      onClick={() => window.open(url)}
+      onClick={handleButtonClick}
     >
       {text}
     </button>

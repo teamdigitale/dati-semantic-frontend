@@ -6,13 +6,9 @@ import {
   SUPPORTED_ASSET_TYPES,
 } from "../../../services/dataConstants";
 
-const AssetTypeChip = ({ type, bgColor }) => (
+const AssetTypeChip = ({ type }) => (
   <div
-    className={
-      bgColor === "blue"
-        ? "bg-primary chip chip-simple chip-lg"
-        : "bg-800 chip chip-simple chip-lg"
-    }
+    className={"bg-primary chip chip-simple chip-lg"}
     data-testid="AssetTypeChip"
     aria-label={"Tipologia:" + getAssetLabel(type)}
   >

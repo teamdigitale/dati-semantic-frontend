@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { routes } from "../../../services/routes";
 import styles from "./FooterLinks.module.css";
@@ -24,6 +25,9 @@ const FooterLinks = () => {
             >
               Dichiarazione di accessibilità
             </a>
+            {/* <a className={styles.bottomFooter} href={routes.contact()}>
+              Contatti
+            </a> */}
           </p>
         </div>
       </div>
