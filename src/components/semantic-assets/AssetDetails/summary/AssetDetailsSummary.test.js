@@ -32,23 +32,4 @@ describe("<AssetDetailsSummary/>", () => {
 
     expect(screen.getByText("Some description")).toBeInTheDocument();
   });
-
-  // test("should render n/a when modifiedOn is missing", () => {
-  //   render(
-  //     <AssetDetailsSummary
-  //       type={AT_VOCABULARY}
-  //       description={"Some description"}
-  //       title={"Some title"}
-  //       themes={[
-  //         "http://publications.europa.eu/resource/authority/data-theme/ECON",
-  //         "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-  //       ]}
-  //     />
-  //   );
-  //   const modifiedOnElement = screen.queryByText("n/a", {
-  //     selector: ".modifiedOnLarge",
-  //   });
-
-  //   expect(modifiedOnElement).toBeInTheDocument();
-  // });
 });
