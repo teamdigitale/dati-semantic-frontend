@@ -66,7 +66,6 @@ describe("<SearchResultItem />", () => {
 
     expect(summary).toBeInTheDocument();
   });
-
   test("it should display versionInfo for Schema", () => {
     vocabItem.type = AT_SCHEMA;
     renderWithRoute(<SearchResultItem item={vocabItem} />);
