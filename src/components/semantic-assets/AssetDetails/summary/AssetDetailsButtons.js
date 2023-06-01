@@ -10,9 +10,15 @@ import getSparqlEndpoint from "../../../../services/sparql";
 import styles from "./AssetDetailsButtons.module.css";
 
 const renderButton = (text, url, className) => {
+  var options = {
+    method: "GET",
+    headers: {
+      Origin: "*",
+    },
+  };
   const handleButtonClick = (event) => {
     event.preventDefault();
-    fetch(url)
+    fetch(url, options)
       .then((response) => {
         if (response.status === 200) {
           window.open(url);
