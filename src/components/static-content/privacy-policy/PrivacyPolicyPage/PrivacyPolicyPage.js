@@ -41,23 +41,23 @@ const PrivacyPolicyPage = () => {
               Le informazioni contenute nella presente pagina sono rese ai sensi
               dell’art. 13 del Regolamento (UE) 2016/679 (di seguito
               Regolamento) e hanno l’obiettivo di descrivere le modalità di
-              trattamento dei dati personali degli utenti che consultano
-              esclusivamente il presente sito e che afferiscono soltanto ai
-              cookie utilizzati. Infatti{" "}
+              trattamento dei dati personali degli utenti che consultano il sito{" "}
               <Anchor href="https://www.schema.gov.it">
                 www.schema.gov.it
               </Anchor>{" "}
-              non contiene altri dati personali diversi da questi.
+              . Le informazioni che seguono non riguardano altri siti, pagine o
+              servizi online raggiungibili tramite link ipertestuali qui
+              pubblicati ma riferiti a risorse esterne a questo sito.
             </p>
             <ContentParagraph title="Titolare del trattamento">
-              Titolare del Trattamento è la Presidenza del Consiglio dei
-              Ministri - Dipartimento per la Trasformazione Digitale, con sede
-              in Largo Pietro di Brazzà 86, 00187 Roma contattabile ai seguenti
+              Il Titolare del trattamento è la Presidenza del Consiglio dei
+              Ministri - Dipartimento per la trasformazione digitale, con sede
+              in Largo Pietro di Brazzà 86, 00187 Roma, contattabile ai seguenti
               recapiti:
               <div className="pt-4">
                 <ul>
                   <li>
-                    Email:{" "}
+                    E-mail:{" "}
                     <Anchor
                       href="mailto:segreteria.trasformazionedigitale@governo.it"
                       target="_blank"
@@ -103,24 +103,22 @@ const PrivacyPolicyPage = () => {
             <ContentParagraph title="Base giuridica del trattamento">
               <p>
                 I dati personali indicati nella presente pagina sono trattati
-                dalla Presidenza del Consiglio per garantire la funzionalità del
-                sito.
-              </p>
-              <p>
-                Gli altri dati presenti nel sito sono di natura non personale e
-                sono trattati dalla Presidenza del Consiglio dei Ministri
-                nell’esecuzione dei compiti di interesse pubblico ad esso
-                affidati in attuazione dell’Intervento Catalogo Nazionale Dati
-                “Progettazione, creazione e attuazione di un catalogo centrale
-                (in open data, secondo i principi del Quadro10 europeo di
-                interoperabilità) comprendente schemi di dati, ontologie e
-                vocabolari di base a sostegno della creazione e della
-                progettazione di servizi digitali interoperabili ” facente parte
-                della Misura 1.3.1. della Missione 1 - Componente 1 - Asse 1 del
-                PNRR.
+                dalla Presidenza del Consiglio dei Ministri - Dipartimento per
+                la trasformazione digitale nell’esecuzione dei propri compiti di
+                interesse pubblico o comunque connessi all’esercizio dei propri
+                pubblici poteri (art. 6, par. 1, lett. e del GDPR), ivi inclusi
+                i poteri ad esso attribuiti in attuazione dell’Intervento
+                Catalogo Nazionale Dati “Progettazione, creazione e attuazione
+                di un catalogo centrale (in open data, secondo i principi del
+                Quadro10 europeo di interoperabilità) comprendente schemi di
+                dati, ontologie e vocabolari di base a sostegno della creazione
+                e della progettazione di servizi digitali interoperabili”
+                facente parte della Misura 1.3.1. della Missione 1 - Componente
+                1 - Asse 1 del PNRR. I dati sono altresì trattati per garantire
+                la funzionalità del presente sito.
               </p>
             </ContentParagraph>
-            <ContentParagraph title="Dati trattati e finalità del trattamento">
+            <ContentParagraph title="Dati trattati, finalità del trattamento e periodo di conservazione">
               <h5 className="bold">Dati di navigazione</h5>
               <p>
                 I sistemi informatici e le procedure software preposte al
@@ -142,52 +140,61 @@ const PrivacyPolicyPage = () => {
               </p>
               <p>
                 Tali dati, necessari per la fruizione dei servizi web, vengono
-                anche trattati allo scopo di controllare il corretto
-                funzionamento dei servizi offerti.
+                anche trattati allo scopo di:
+                <ul style={{ listStyleType: "circle" }}>
+                  <li>
+                    ottenere informazioni statistiche sull’uso dei servizi e i
+                    prodotti offerti (numero di accessi, numero di visitatori
+                    per fascia oraria o giornaliera, pagine più visitate, numero
+                    di click sul contenuto offerto e numero di interazioni con
+                    lo stesso, aree geografiche di provenienza degli utenti,
+                    ecc.);{" "}
+                  </li>
+                  <li>
+                    controllare il corretto funzionamento dei servizi offerti.
+                  </li>
+                </ul>
               </p>
-              <p>I dati di navigazione non persistono per più di 7 giorni.</p>
-              <h5 className="bold">Cookie e altri sistemi di tracciamento</h5>
               <p>
-                Questo sito fa esclusivo uso di cookie tecnici, ossia di file di
-                testo depositati sul computer degli utenti, necessari per il
-                funzionamento e il monitoraggio del sito stesso. Non viene fatto
-                uso di cookie per la profilazione degli utenti.
+                I dati di navigazione non persistono per più di centottanta
+                giorni.
+              </p>
+              <h5 className="bold">Chi potrà conoscere i dati personali </h5>
+              <p>
+                I dati personali raccolti potranno essere oggetto di
+                comunicazione a soggetti, interni o esterni alla Presidenza del
+                Consiglio dei Ministri, nei confronti dei quali la comunicazione
+                si configura come necessaria per il perseguimento delle finalità
+                sopra specificate, compresi soggetti terzi che forniscono un
+                servizio al Titolare.
               </p>
               <p>
-                Viene fatto uso di cookie tecnici di sessione (non persistenti),
-                in modo strettamente limitato a quanto necessario per la
-                navigazione sicura ed efficiente dei siti.
-              </p>
-              <h5 className="bold">Visualizzazione dei dati</h5>
-              <p>
-                Circa i trattamenti di dati personali effettuati dai gestori dei
-                software utilizzati per la visualizzazione dei metadati qui
-                esposti si rimanda alle informazioni da questi rese attraverso
-                le rispettive privacy policy. La Presidenza del Consiglio non
-                tratta eventuali dati personali conferiti dall’utenza attraverso
-                tali software.
+                In particolare, soggetto attuatore del progetto “Catalogo
+                Nazionale Dati” per conto della Presidenza del Consiglio –
+                Dipartimento per la trasformazione digitale è l’Istituto
+                Nazionale di Statistica (Istat), nominato responsabile del
+                trattamento ai sensi dell’art. 28 del Regolamento, quale
+                fornitore dei servizi tecnologici afferenti a questo sito.
+                Ulteriori informazioni possono essere richieste al Titolare,
+                scrivendo a{" "}
+                <Anchor
+                  href="mailto:segreteria.trasformazionedigitale@governo.it"
+                  target="_blank"
+                >
+                  segreteria.trasformazionedigitale@governo.it
+                </Anchor>
               </p>
             </ContentParagraph>
-            <ContentParagraph title="Soggetti che possono venire a conoscenza dei dati o ai quali gli stessi possono essere comunicati">
-              <p>
-                Potranno venire a conoscenza dei dati di navigazione sopra
-                descritti esclusivamente i dipendenti della Presidenza del
-                Consiglio o i collaboratori, anche esterni, che forniscono
-                servizi strumentali alle finalità sopra indicate (es. servizi
-                tecnici); tali soggetti agiranno in qualità di Soggetti
-                autorizzati a trattare i dati (art. 29 Reg. (UE) 2016/679) o di
-                Responsabili del trattamento (art. 28 Reg. (UE) 2016/679).
-              </p>
-            </ContentParagraph>
+
             <ContentParagraph title="Diritti degli interessati">
               <p>
                 Gli interessati hanno il diritto di ottenere dalla Presidenza
-                del Consiglio, nei casi previsti, l’accesso ai propri dati
-                personali e la rettifica o la cancellazione degli stessi o la
-                limitazione del trattamento che li riguarda o di opporsi al
-                trattamento (artt. 15 e ss. del Regolamento), scrivendo ai
-                contatti di riferimento del Responsabile della Protezione Dati
-                sopra menzionati.
+                del Consiglio dei Ministri – Dipartimento per la trasformazione
+                digitale, nei casi previsti, l’accesso ai propri dati personali
+                e la rettifica o la cancellazione degli stessi o la limitazione
+                del trattamento che li riguarda o di opporsi al trattamento
+                (artt. 15 e ss. del Regolamento). L’apposita istanza può essere
+                presentata utilizzando gli indirizzi di posta sopra specificati.
               </p>
             </ContentParagraph>
             <ContentParagraph title="Diritto di reclamo">
@@ -199,6 +206,78 @@ const PrivacyPolicyPage = () => {
                 dati personali, come previsto dall’art. 77 del Regolamento, o di
                 adire le opportune sedi giudiziarie (art. 79 del Regolamento
                 stesso).
+              </p>
+            </ContentParagraph>
+            <ContentParagraph title="Cookie e altri sistemi di tracciamento">
+              <p>
+                Questa sezione fornisce informazioni dettagliate sull’uso dei
+                cookie, su come sono utilizzati dal sito e su come gestirli, in
+                attuazione dell’art. 122 del decreto legislativo 30 giugno 2003,
+                n. 196, nonché nel rispetto delle “Linee guida cookie e altri
+                strumenti di tracciamento” emanate dal Garante per la protezione
+                dei dati personali con provvedimento del 10 giugno 2021.
+              </p>
+              <p>
+                In particolare, questo sito fa esclusivo uso di cookie tecnici,
+                ossia di file di testo depositati sul computer degli utenti,
+                necessari per il funzionamento e il monitoraggio del sito
+                stesso. Non viene fatto uso di cookie per la profilazione degli
+                utenti. L’unico trattamento effettuato riguarda la produzione di
+                statistiche, con dati pseudonimizzati, sulla navigazione nel
+                sito stesso, attraverso il prodotto Matomo.
+              </p>
+              <p>
+                La configurazione adottata, in modo da escludere trattamenti di
+                dati identificativi, raccoglie le seguenti informazioni:
+                <ul style={{ listStyleType: "circle" }}>
+                  <li>
+                    L’indirizzo IP, che viene mascherato azzerando gli ultimi 2
+                    byte (xxx.xxx.0.0)
+                  </li>
+                  <li>Il sistema operativo utilizzato</li>
+                  <li>
+                    Il tipo di browser e la lingua principale in esso impostata
+                  </li>
+                  <li>Il tipo di dispositivo (PC, smartphone, tablet).</li>
+                </ul>
+              </p>
+              <p>
+                Viene fatto uso di cookie tecnici di sessione (non persistenti),
+                in modo strettamente limitato a quanto necessario per la
+                navigazione sicura ed efficiente dei siti.
+              </p>
+            </ContentParagraph>
+            <ContentParagraph title="Come disabilitare i cookie (opt-out) sul proprio dispositivo">
+              <p>
+                La maggior parte dei browser accetta i cookie automaticamente,
+                ma è possibile rifiutarli. Se non si desidera ricevere o
+                memorizzare i cookie, si possono modificare le impostazioni di
+                sicurezza del browser utilizzato, secondo le istruzioni rese
+                disponibili dai relativi fornitori ai link di seguito indicati.
+                Nel caso in cui si disabilitino tutti i cookie, il sito potrebbe
+                non funzionare correttamente.
+              </p>
+              <ul>
+                <li>Chrome</li>
+                <li>Firefox</li>
+                <li>Safari</li>
+                <li>Edge</li>
+                <li>Opera</li>
+              </ul>
+              <p>
+                Le presenti informazioni sono aggiornate alla data riportata in
+                calce a questa pagina.
+              </p>
+            </ContentParagraph>
+            <ContentParagraph title="Dati comunicati dall’utente">
+              <p>
+                L’invio facoltativo, esplicito e volontario di messaggi agli
+                indirizzi di contatto del sito comporta l’acquisizione dei dati
+                di contatto del mittente, necessari a rispondere, nonché dei
+                dati personali inclusi nelle comunicazioni. Tali dati saranno
+                trattati dal Titolare esclusivamente al fine di - e per il
+                periodo strettamente necessario a - gestire le interazioni con
+                l’utenza.
               </p>
             </ContentParagraph>
           </div>
