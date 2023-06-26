@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
+import { baseUrl } from "../../../services/fetchUtils";
 import sprite from "../../../assets/images/sprite.svg";
 import "./Validatore.css";
 
@@ -45,20 +46,26 @@ const Validatore = () => {
   };
 
   const downloadFile = () => {
-    let messages;
-    let filename;
+    let messages = [];
+    let filename = "Lista.txt";
 
     if (response.errors.length > 0) {
-      messages = response.errors.map(
-        (error, index) => `${index + 1}. ${error.message}`
+      messages.push("LISTA ERRORI");
+      messages = messages.concat(
+        response.errors.map((error, index) => `${index + 1}. ${error.message}`)
       );
-      filename = "Lista.txt";
-    } else if (response.warnings.length > 0) {
-      messages = response.warnings.map(
-        (warning, index) => `${index + 1}. ${warning.message}`
+    }
+
+    if (response.warnings.length > 0) {
+      messages.push("LISTA WARNING");
+      messages = messages.concat(
+        response.warnings.map(
+          (warning, index) => `${index + 1}. ${warning.message}`
+        )
       );
-      filename = "Lista.txt";
-    } else {
+    }
+
+    if (messages.length === 0) {
       return;
     }
 
@@ -90,7 +97,7 @@ const Validatore = () => {
         type = "schema";
       }
 
-      fetch(`http://localhost:8080/validate?type=${type}`, {
+      fetch(`${baseUrl()}/validate?type=${type}`, {
         method: "POST",
         body: formData,
       }).then((response) => {
@@ -644,7 +651,9 @@ const Validatore = () => {
                                 </div>
                               </div>
                             </>
-                          ) : warnings?.length !== 0 ? (
+                          ) : null}
+
+                          {warnings?.length !== 0 ? (
                             <>
                               <div
                                 className="col-12 pt-1 ml-1 mb-2 title"
