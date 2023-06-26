@@ -1,0 +1,82 @@
+.title {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1rem; 
+  line-height: 1.5rem; 
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #455B71;
+  margin-left: 0.125rem; 
+}
+
+.main {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5rem; 
+  line-height: 3rem; 
+  letter-spacing: -0.0625rem; 
+  color: #000000;
+}
+
+.subtitle {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 1.25rem; 
+  line-height: 1.5rem; 
+  letter-spacing: -0.0625rem; 
+  color: #000000;
+}
+
+.description {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.25rem; 
+  line-height: 2rem; 
+  color: #455B71;
+  margin-left: 0.5rem; 
+}
+
+.label {
+  width: 8.0625rem; 
+  height: 1.25rem; 
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem; 
+  line-height: 1.25rem; 
+  color: #FFFFFF;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.hr {
+  box-sizing: content-box;
+  overflow: visible;
+  margin-top: -0.3125rem; 
+  margin-bottom: 1.875rem; 
+  border-top: 0.0625rem solid rgba(0, 0, 0, 0.1); 
+}
+
+.horizontal {
+  border: 0.0625rem solid black; 
+  margin-left: 1.5rem;
+  width: 67%;
+}
+
+.btn-outline-danger:hover {
+  color: #990000 !important;
+}
+
+.detailsContainer {
+    background: linear-gradient(to bottom, #f0f6fc 29.5rem, white 0);
+  }
+
+.detagliContainer {
+    background: linear-gradient(to bottom, #f0f6fc 27rem, white 0);
+  }
+

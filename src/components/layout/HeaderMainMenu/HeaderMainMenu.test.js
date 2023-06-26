@@ -23,7 +23,7 @@ describe("<HeaderMainMenu />", () => {
   test("it should render additional menu item for project", () => {
     renderWithRoute(<HeaderMainMenu />);
 
-    const categories = screen.getByText("Scopri l’iniziativa");
+    const categories = screen.getByText("L’iniziativa");
     expect(categories).toBeInTheDocument();
   });
 });
