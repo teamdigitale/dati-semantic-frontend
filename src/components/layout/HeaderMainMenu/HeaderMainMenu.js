@@ -4,11 +4,9 @@ import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 import "./HeaderMainMenu.css";
 
-const menuItems = [
-  { label: "Catalogo", href: routes.search() },
-  { label: "Scopri l’iniziativa", href: routes.project() },
-];
+const menuItems = [{ label: "Catalogo", href: routes.search() }];
 const additionalMenuItems = [
+  { label: "L’iniziativa", href: routes.project() },
   { label: "Domande frequenti", href: routes.faq() },
 ];
 const HeaderMainMenu = () => {

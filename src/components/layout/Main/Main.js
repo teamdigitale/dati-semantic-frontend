@@ -10,6 +10,7 @@ import {
   FAQ_URL,
   PRIVACY_POLICY,
   PROJECT_URL,
+  VALIDATORE,
   SEARCH_BASE_URL,
   ERROR_PAGE,
   LEGALNOTICES,
@@ -25,6 +26,7 @@ import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Swagger from "../../swagger-ui/Swagger";
 import PropTypes from "prop-types";
 import LeaglNotices from "../../static-content/legal-notices/legalNotices";
+import Validatore from "../../static-content/validatore/Validatore";
 
 const Main = ({ childRef }) => (
   <main id="main" ref={childRef} tabIndex={-1} role="main">
@@ -36,6 +38,7 @@ const Main = ({ childRef }) => (
       <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
       <Route path={FAQ_URL} element={<FaqPage />} />
       <Route path={PROJECT_URL} element={<ProjectPage />} />
+      <Route path={VALIDATORE} element={<Validatore />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/error" element={<NotFound />} />
       <Route path={ASSETS_BASE_URL_TOKEN}>

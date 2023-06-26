@@ -28,11 +28,16 @@ export const LEGALNOTICES = [
 ];
 export const CONTACTPAGE = [
   { label: "Home", link: routes.explore(), id: 15 },
-  { label: "Contact", link: "", id: 16 },
+  { label: "Contatti", link: "", id: 16 },
+];
+export const VALIDATORE = [
+  { label: "Home", link: routes.explore(), id: 17 },
+  { label: "Validatore semantico", link: "", id: 18 },
 ];
 export const BREADCRUMBS = {
   EXPLOREPAGE: EXPLOREPAGE,
   PROJECTPAGE: PROJECTPAGE,
+  VALIDATORE: VALIDATORE,
   FAQPAGE: FAQPAGE,
   SEARCHPAGE: SEARCHPAGE,
   DETAILSPAGE: DETAILSPAGE,
