@@ -24,7 +24,6 @@ export const getSummaries = (list) => {
 
 const CommonMetadataGroup = (props) => {
   const details = props.details;
-  console.log(details);
   return (
     <div data-testid="common-metadata">
       <AssetIriRow assetIri={details.assetIri} />

@@ -49,7 +49,7 @@ const OntologyMetadata = ({ details }) => {
           <hr />
         </div>
       )}
-      {console.log(details.keyClasses)}
+
       {details.prefix && (
         <MetadataRow name={"Prefisso"} value={details.prefix} />
       )}
