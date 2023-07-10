@@ -9,6 +9,7 @@ const AssetIriRow = (props) => {
   const handleClick = (event) => {
     event.preventDefault();
     fetch(url, {
+      mode: "cors",
       headers: {
         Accept: "text/html",
         Origin: "*",
