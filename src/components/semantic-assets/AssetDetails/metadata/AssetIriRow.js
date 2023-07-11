@@ -4,14 +4,15 @@ import * as PropTypes from "prop-types";
 import React from "react";
 import rowStyle from "../metadata/MetadataRow.module.css";
 
-
 const AssetIriRow = (props) => {
   const url = props.assetIri;
   const handleClick = (event) => {
     event.preventDefault();
     fetch(url, {
+      mode: "cors",
       headers: {
         Accept: "text/html",
+        Origin: "*",
       },
     })
       .then((response) => {

@@ -36,7 +36,10 @@ const CommonMetadataGroup = (props) => {
         />
       )}
       {details.modifiedOn && (
-        <MetadataRow name={"Ultima Modifica"} value={details.modifiedOn} />
+        <MetadataRow
+          name={"Ultima Modifica"}
+          value={asItalianDate(details.modifiedOn)}
+        />
       )}
       {details.versionInfo && (
         <MetadataRow name={"Note Versione"} value={details.versionInfo} />

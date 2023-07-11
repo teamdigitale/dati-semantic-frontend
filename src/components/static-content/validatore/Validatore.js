@@ -479,7 +479,7 @@ const Validatore = () => {
                                 className="pt-1 ml-0 title"
                                 style={{ color: "green" }}
                               >
-                                DOCUMETO IDONEO
+                                DOCUMENTO IDONEO
                               </div>
                             </div>
                           </div>
@@ -539,7 +539,7 @@ const Validatore = () => {
                                 className="pt-1 ml-0 title"
                                 style={{ color: "hsl(0, 70%, 50%)" }}
                               >
-                                DOCUMETO NON IDONEO
+                                DOCUMENTO NON IDONEO
                               </div>
                             </div>
                           </div>
