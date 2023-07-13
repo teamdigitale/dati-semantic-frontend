@@ -12,7 +12,7 @@ import styles from "./AssetDetailsButtons.module.css";
 const renderButton = (text, url, className) => {
   var options = {
     method: "GET",
-    mode: "cors",
+    mode: "no-cors",
     headers: {
       Origin: "*",
     },
