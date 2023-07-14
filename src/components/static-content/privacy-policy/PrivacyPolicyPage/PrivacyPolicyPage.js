@@ -79,7 +79,7 @@ const PrivacyPolicyPage = () => {
             </ContentParagraph>
             <ContentParagraph title="Responsabile della protezione dei dati">
               Il Responsabile per la protezione dei dati - Data Protection
-              Officer, è contattabile ai seguenti recapiti:
+              Officer è contattabile ai seguenti recapiti:
               <div className="pt-4">
                 <ul>
                   <li>

@@ -1,4 +1,6 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable prettier/prettier */
 import React, { useState, useRef } from "react";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
@@ -513,219 +515,275 @@ const Validatore = () => {
             </div>
           ) : response &&
             (response.errors.length !== 0 || response.warnings.length !== 0) ? (
-            <div className="row mx-0 detagliContainer mb-5">
-              <div className="container-fluid schemaPadding">
-                <div className="row pt-5">
-                  <div className="col-12">
-                    <div>
-                      <div className="col-lg-12">
-                        <div className="row">
-                          <button
-                            type="button"
-                            className="btn btn-outline-primary font-weight-bold ml-2"
-                            onClick={handlePageReload}
-                          >
-                            <svg
-                              className="icon icon-sm ml-0 mr-3"
-                              style={{ fill: "blue" }}
-                            >
-                              <use href={sprite + "#it-arrow-left"}></use>
-                            </svg>
-                            Torna indietro
-                          </button>
-                          <div className="col-lg-12 pl-2 mt-5 mb-4">
-                            <div className="text-uppercase ml-0 title">
+            <>
+              <div className="row mx-0 detagliContainer mb-5">
+                <div className="container-fluid schemaPadding">
+                  <div className="row pt-5">
+                    <div className="col-12">
+                      <div>
+                        <div className="col-lg-12">
+                          <div className="row">
+                            {warnings.length !== 0 && (
                               <div
-                                className="pt-1 ml-0 title"
-                                style={{ color: "hsl(0, 70%, 50%)" }}
+                                className="schemaPadding py-3 ml-2 mb-4"
+                                data-testid="messageAlert"
                               >
-                                DOCUMENTO NON IDONEO
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="col-12 row mb-5">
-                            <svg
-                              className="icon icon-xl mr-3 mt-3"
-                              style={{ fill: "red" }}
-                            >
-                              <use href={sprite + "#it-error"}></use>
-                            </svg>
-                            <h1 className="main col-6">
-                              Ci dispiace, il tuo documento non risulta essere
-                              idoneo.
-                            </h1>
-                          </div>
-                          {errors?.length !== 0 ? (
-                            <div>
-                              <a
-                                className="btn btn-lg btn-danger font-weight-bold text-white ml-2 "
-                                onClick={handleShowErrors}
-                              >
-                                Mostra errori
-                              </a>
-                            </div>
-                          ) : null}
-
-                          {warnings?.length !== 0 ? (
-                            <div>
-                              <a
-                                className="btn btn-lg btn-outline-danger font-weight-bold ml-2"
-                                onClick={handleShowWarnings}
-                                style={{ color: "hsl(0, 70%, 50%)" }}
-                              >
-                                Mostra warning
-                              </a>
-                            </div>
-                          ) : null}
-
-                          <div>
-                            <a
-                              className="btn btn-lg btn-primary text-white ml-3"
-                              onClick={downloadFile}
-                            >
-                              <svg
-                                className="icon icon-sm ml-0 mr-2"
-                                style={{ fill: "white" }}
-                              >
-                                <use href={sprite + "#it-download"}></use>
-                              </svg>
-                              Scarica Lista
-                            </a>
-                          </div>
-
-                          {errors?.length !== 0 ? (
-                            <>
-                              <div
-                                className="col-12 pt-1 ml-1 mb-2 title"
-                                ref={errorRef}
-                                style={{ color: "#455B71", marginTop: "6rem" }}
-                              >
-                                LISTA ERRORI
-                              </div>
-                              <div
-                                className="card card-bg mt-4"
-                                style={{ minHeight: "3rem" }}
-                              >
-                                <div className="col-12 card-space">
-                                  <div className="row">
-                                    <div
-                                      className="pt-1"
-                                      ref={errorRef}
-                                      style={{
-                                        fontWeight: "700",
-                                        fontSize: "0.8rem",
-                                        marginTop: "1rem",
-                                        marginBottom: "1.5rem",
-                                        marginLeft: "1rem",
-                                        margin: "1.4rem",
-                                        width: "100%",
-                                        borderBottom: "2px solid black",
-                                      }}
-                                    >
-                                      LISTA ERRORI
-                                    </div>
-                                    {errors.map((error, index) => {
-                                      return (
-                                        <div
-                                          key={index}
-                                          className="col-12 card-wrapper card-space mx-2"
-                                        >
-                                          <div
-                                            className="col-12 row"
-                                            style={{
-                                              borderBottom: "2px solid #F0F0F0",
-                                            }}
-                                          >
-                                            <h6 className="text-primary col-1 mr-4 ml-2 font-weight-bold">
-                                              Errore {`${index + 1}`}
-                                            </h6>
-                                            <span className="col-10">
-                                              {error.message}
-                                            </span>
-                                          </div>
-                                        </div>
-                                      );
-                                    })}
-                                  </div>
+                                <div
+                                  className="alert alert-warning m-0"
+                                  role="alert"
+                                >
+                                  <strong>
+                                    <span className="col-12">
+                                      In caso di soli messaggi di avvertimento
+                                      (WARNING) il processo di harvester sarà in
+                                      grado di acquisire il materiale semantico.
+                                      E' consigliabile, ma non obbligatorio,
+                                      procedere con la risoluzione degli
+                                      avvertimenti segnalati.
+                                    </span>
+                                  </strong>
                                 </div>
                               </div>
-                            </>
-                          ) : null}
-
-                          {warnings?.length !== 0 ? (
-                            <>
+                            )}
+                            {errors.length !== 0 && (
                               <div
-                                className="col-12 pt-1 ml-1 mb-2 title"
-                                ref={warningRef}
-                                style={{ color: "#455B71", marginTop: "6rem" }}
+                                className="schemaPadding py-3 ml-2 mb-4"
+                                data-testid="messageAlert"
                               >
-                                LISTA WARNING
-                              </div>
-
-                              <div
-                                className="card card-bg mt-4"
-                                style={{ minHeight: "3rem" }}
-                              >
-                                <div className="col-12 card-wrapper card-space">
-                                  <div className="row">
-                                    <div
-                                      className="pt-1"
-                                      ref={warningRef}
-                                      style={{
-                                        fontWeight: "700",
-                                        fontSize: "0.8rem",
-                                        marginTop: "1rem",
-                                        marginBottom: "1.5rem",
-                                        marginLeft: "1rem",
-                                        margin: "1.4rem",
-                                        width: "100%",
-                                        borderBottom: "2px solid black",
-                                      }}
-                                    >
-                                      LISTA WARNING
-                                    </div>
-                                    {warnings.map((warning, index) => {
-                                      return (
-                                        <div
-                                          key={index}
-                                          className="col-12 card-wrapper card-space mx-2"
-                                        >
-                                          <div
-                                            className="col-12 row"
-                                            style={{
-                                              borderBottom: "2px solid #F0F0F0",
-                                            }}
-                                          >
-                                            <h6 className="text-primary col-1 mr-5 ml-2 font-weight-bold">
-                                              Warning {`${index + 1}`}
-                                            </h6>
-                                            <span className="col-10">
-                                              {warning.message}
-                                            </span>
-                                          </div>
-                                        </div>
-                                      );
-                                    })}
-                                  </div>
+                                <div
+                                  className="alert alert-danger m-0"
+                                  role="alert"
+                                >
+                                  <strong>
+                                    <span style={{ marginRight: "" }}>
+                                      In caso di segnalazione di errori (ERROR)
+                                      il processo di harvesting NON potrà
+                                      acquisire il metariale semantico, in
+                                      questo caso è NECESSARIO procedere con la
+                                      correzione di tutti gli errori segnalati
+                                      prima di poter sottomettere l'asset
+                                      semantico al processo di harvesting.
+                                    </span>
+                                  </strong>
                                 </div>
                               </div>
-                            </>
-                          ) : null}
+                            )}
 
-                          <div className="col-12 d-flex justify-content-end">
-                            <a
-                              className="btn btn-lg btn-primary text-white mt-5"
-                              onClick={downloadFile}
+                            <button
+                              type="button"
+                              className="btn btn-outline-primary font-weight-bold ml-2"
+                              onClick={handlePageReload}
                             >
                               <svg
-                                className="icon icon-sm mt- ml-0 mr-2"
-                                style={{ fill: "white" }}
+                                className="icon icon-sm ml-0 mr-3"
+                                style={{ fill: "blue" }}
                               >
-                                <use href={sprite + "#it-download"}></use>
+                                <use href={sprite + "#it-arrow-left"}></use>
                               </svg>
-                              Scarica Lista
-                            </a>
+                              Torna indietro
+                            </button>
+                            <div className="col-lg-12 pl-2 mt-5 mb-4">
+                              <div className="text-uppercase ml-0 title">
+                                <div
+                                  className="pt-1 ml-0 title"
+                                  style={{ color: "hsl(0, 70%, 50%)" }}
+                                >
+                                  DOCUMENTO NON IDONEO
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="col-12 row mb-5">
+                              <svg
+                                className="icon icon-xl mr-3 mt-3"
+                                style={{ fill: "red" }}
+                              >
+                                <use href={sprite + "#it-error"}></use>
+                              </svg>
+                              <h1 className="main col-6">
+                                Attenzione, si è verificato un problema con la
+                                tua richiesta
+                              </h1>
+                            </div>
+                            {errors?.length !== 0 ? (
+                              <div>
+                                <a
+                                  className="btn btn-lg btn-danger font-weight-bold text-white ml-2 "
+                                  onClick={handleShowErrors}
+                                >
+                                  Mostra errori
+                                </a>
+                              </div>
+                            ) : null}
+
+                            {warnings?.length !== 0 ? (
+                              <div>
+                                <a
+                                  className="btn btn-lg btn-outline-danger font-weight-bold ml-2"
+                                  onClick={handleShowWarnings}
+                                  style={{ color: "hsl(0, 70%, 50%)" }}
+                                >
+                                  Mostra warning
+                                </a>
+                              </div>
+                            ) : null}
+
+                            <div>
+                              <a
+                                className="btn btn-lg btn-primary text-white ml-3"
+                                onClick={downloadFile}
+                              >
+                                <svg
+                                  className="icon icon-sm ml-0 mr-2"
+                                  style={{ fill: "white" }}
+                                >
+                                  <use href={sprite + "#it-download"}></use>
+                                </svg>
+                                Scarica Lista
+                              </a>
+                            </div>
+
+                            {errors?.length !== 0 ? (
+                              <>
+                                <div
+                                  className="col-12 pt-1 ml-1 mb-2 title"
+                                  ref={errorRef}
+                                  style={{
+                                    color: "#455B71",
+                                    marginTop: "6rem",
+                                  }}
+                                >
+                                  LISTA ERRORI
+                                </div>
+                                <div
+                                  className="card card-bg mt-4"
+                                  style={{ minHeight: "3rem" }}
+                                >
+                                  <div className="col-12 card-space">
+                                    <div className="row">
+                                      <div
+                                        className="pt-1"
+                                        ref={errorRef}
+                                        style={{
+                                          fontWeight: "700",
+                                          fontSize: "0.8rem",
+                                          marginTop: "1rem",
+                                          marginBottom: "1.5rem",
+                                          marginLeft: "1rem",
+                                          margin: "1.4rem",
+                                          width: "100%",
+                                          borderBottom: "2px solid black",
+                                        }}
+                                      >
+                                        LISTA ERRORI
+                                      </div>
+                                      {errors.map((error, index) => {
+                                        return (
+                                          <div
+                                            key={index}
+                                            className="col-12 card-wrapper card-space mx-2"
+                                          >
+                                            <div
+                                              className="col-12 row"
+                                              style={{
+                                                borderBottom:
+                                                  "2px solid #F0F0F0",
+                                              }}
+                                            >
+                                              <h6 className="text-primary col-1 mr-4 ml-2 font-weight-bold">
+                                                Errore {`${index + 1}`}
+                                              </h6>
+                                              <span className="col-10">
+                                                {error.message}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                </div>
+                              </>
+                            ) : null}
+
+                            {warnings?.length !== 0 ? (
+                              <>
+                                <div
+                                  className="col-12 pt-1 ml-1 mb-2 title"
+                                  ref={warningRef}
+                                  style={{
+                                    color: "#455B71",
+                                    marginTop: "6rem",
+                                  }}
+                                >
+                                  LISTA WARNING
+                                </div>
+
+                                <div
+                                  className="card card-bg mt-4"
+                                  style={{ minHeight: "3rem" }}
+                                >
+                                  <div className="col-12 card-wrapper card-space">
+                                    <div className="row">
+                                      <div
+                                        className="pt-1"
+                                        ref={warningRef}
+                                        style={{
+                                          fontWeight: "700",
+                                          fontSize: "0.8rem",
+                                          marginTop: "1rem",
+                                          marginBottom: "1.5rem",
+                                          marginLeft: "1rem",
+                                          margin: "1.4rem",
+                                          width: "100%",
+                                          borderBottom: "2px solid black",
+                                        }}
+                                      >
+                                        LISTA WARNING
+                                      </div>
+                                      {warnings.map((warning, index) => {
+                                        return (
+                                          <div
+                                            key={index}
+                                            className="col-12 card-wrapper card-space mx-2"
+                                          >
+                                            <div
+                                              className="col-12 row"
+                                              style={{
+                                                borderBottom:
+                                                  "2px solid #F0F0F0",
+                                              }}
+                                            >
+                                              <h6 className="text-primary col-1 mr-5 ml-2 font-weight-bold">
+                                                Warning {`${index + 1}`}
+                                              </h6>
+                                              <span className="col-10">
+                                                {warning.message}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        );
+                                      })}
+                                    </div>
+                                  </div>
+                                </div>
+                              </>
+                            ) : null}
+
+                            <div className="col-12 d-flex justify-content-end">
+                              <a
+                                className="btn btn-lg btn-primary text-white mt-5"
+                                onClick={downloadFile}
+                              >
+                                <svg
+                                  className="icon icon-sm mt- ml-0 mr-2"
+                                  style={{ fill: "white" }}
+                                >
+                                  <use href={sprite + "#it-download"}></use>
+                                </svg>
+                                Scarica Lista
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -733,7 +791,7 @@ const Validatore = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </>
           ) : null}
         </div>
       )}
