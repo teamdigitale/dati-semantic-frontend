@@ -46,4 +46,3 @@ AssetIriRow.propTypes = {
 };
 
 export default AssetIriRow;
-IriRow;
