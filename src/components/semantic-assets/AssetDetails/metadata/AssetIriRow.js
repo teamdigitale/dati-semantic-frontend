@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import sprite from "../../../../assets/images/sprite.svg";
 import * as PropTypes from "prop-types";
 import React from "react";

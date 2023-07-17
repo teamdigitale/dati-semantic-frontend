@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
   AT_SCHEMA,
   AT_VOCABULARY,
