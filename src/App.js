@@ -7,7 +7,6 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap-italia/dist/css/bootstrap-italia.min.css";
 import "./global-bootstrap-italia";
 import "owl.carousel";
-import "bootstrap-italia";
 import React, { useRef } from "react";
 
 function App() {

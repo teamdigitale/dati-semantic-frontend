@@ -1,5 +1,4 @@
 import PropTypes, { arrayOf, oneOf, shape, string } from "prop-types";
-import { Icon } from "design-react-kit";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import rowStyle from "../../semantic-assets/AssetDetails/metadata/MetadataRow.module.css";
@@ -50,7 +49,6 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <Icon icon="it-chevron-left" />
             <span className="sr-only" style={{ color: "black" }}>
               Pagina precedente
             </span>
@@ -94,7 +92,6 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             <span className="sr-only" style={{ color: "black" }}>
               Pagina successiva
             </span>
-            <Icon icon="it-chevron-right" />
           </a>
         </li>
       </ul>

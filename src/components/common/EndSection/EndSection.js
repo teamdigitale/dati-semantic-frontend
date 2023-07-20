@@ -1,7 +1,6 @@
 import { number } from "prop-types";
 import React from "react";
 import { DIGITALE_DOCS_URL, GITHUB_SCHEMA } from "../../../services/routes";
-import { Icon } from "design-react-kit";
 export const EndSection = (props) => {
   return (
     <React.Fragment>
@@ -68,12 +67,6 @@ export const EndSection = (props) => {
                       title="vai su github di schema"
                     >
                       Vai su github{" "}
-                      <Icon
-                        className="ml-1"
-                        size="sm"
-                        fill="#0066cc"
-                        icon={"it-github"}
-                      />
                     </a>
                   </div>
                   <div className="col-xl-7 mt-2 mt-lg-0 d-flex justify-content-start">

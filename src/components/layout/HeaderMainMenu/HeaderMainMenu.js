@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Icon } from "design-react-kit";
 import { routes } from "../../../services/routes";
 import "./HeaderMainMenu.css";
 
@@ -37,9 +36,7 @@ const HeaderMainMenu = () => {
                   aria-expanded="false"
                   aria-label="Toggle navigation"
                   data-target="#main-menu"
-                >
-                  <Icon icon="it-burger" />
-                </button>
+                ></button>
                 <div
                   className="navbar-collapsable"
                   id="main-menu"

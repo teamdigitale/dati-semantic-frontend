@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import { Icon } from "design-react-kit";
 import "./ExploreByText.css";
 
 const ExploreByText = () => {
@@ -40,9 +39,7 @@ const ExploreByText = () => {
                   onChange={onPatternChange}
                 />
                 <span className="autocomplete-icon" aria-hidden="true">
-                  <div className="input-group-prepend">
-                    <Icon icon="it-search" size="sm" />
-                  </div>
+                  <div className="input-group-prepend"></div>
                 </span>
               </div>
             </div>

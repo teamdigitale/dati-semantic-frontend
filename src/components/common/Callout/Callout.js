@@ -1,5 +1,4 @@
 import React from "react";
-import { Icon } from "design-react-kit";
 import PropTypes, { oneOf, string } from "prop-types";
 
 const TYPES_TO_ICON = {
@@ -10,12 +9,10 @@ const TYPES_TO_ICON = {
 
 const Callout = ({ type, title, children }) => {
   const icon = TYPES_TO_ICON[type];
+  console.log(icon);
   return (
     <div className={"callout m-5 " + type} role="alert">
-      <div className="callout-title">
-        <Icon icon={icon} />
-        {title}
-      </div>
+      <div className="callout-title">{title}</div>
       {children}
     </div>
   );
