@@ -63,19 +63,22 @@ const Swagger = () => {
   const query = useQuery();
   const iri = query.get("vocabIri");
 
-  useEffect(async () => {
-    if (!iri) {
-      return;
-    }
+  useEffect(() => {
+    const asyncFn = async () => {
+      if (!iri) {
+        return;
+      }
 
-    setLoading(true);
-    try {
-      const details = await getSemanticAssetByUri(iri);
-      setVocabDetails(details);
-    } catch (e) {
-      setError(true);
-    }
-    setLoading(false);
+      setLoading(true);
+      try {
+        const details = await getSemanticAssetByUri(iri);
+        setVocabDetails(details);
+      } catch (e) {
+        setError(true);
+      }
+      setLoading(false);
+    };
+    asyncFn();
   }, [iri]);
 
   return (
