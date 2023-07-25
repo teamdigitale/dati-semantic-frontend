@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useState, useEffect } from "react";
 import AssetTypeChip from "../../../search/AssetTypeChip/AssetTypeChip";
 import styles from "./AssetDetailsSummary.module.css";
 import { getCategories } from "../../../../assets/data/categories";
@@ -10,6 +11,26 @@ const AssetDetailsSummary = (props) => {
   const categories = getCategories().filter(
     (c) => props.themes.indexOf(c.uri) > -1
   );
+  const [columnClass, setColumnClass] = useState("col-10");
+  const [column2Class, setColumn2Class] = useState("col-2");
+
+  const updateColumnClasses = () => {
+    if (window.innerWidth <= 680) {
+      setColumnClass("col-7");
+      setColumn2Class("col-5");
+    } else {
+      setColumnClass("col-10");
+      setColumn2Class("col-2");
+    }
+  };
+
+  useEffect(() => {
+    updateColumnClasses();
+    window.addEventListener("resize", updateColumnClasses);
+    return () => {
+      window.removeEventListener("resize", updateColumnClasses);
+    };
+  }, []);
   return (
     <div data-testid="asset-details-summary">
       <div className="row pt-3 pb-3">
@@ -36,12 +57,15 @@ const AssetDetailsSummary = (props) => {
           <div className="card-wrapper card-space">
             <div className="card card-bg my-2 pl-5 pr-5 pt-5">
               <div className={"row " + styles.description}>
-                <div className={"col-10 " + styles.scrollable} tabIndex="0">
+                <div
+                  className={`${columnClass} ${styles.scrollable}`}
+                  tabIndex="0"
+                >
                   <div className={"pr-3 pt-1" + styles.descriptionText}>
                     {props.description}
                   </div>
                 </div>
-                <div className="col-2 text-right">
+                <div className={`${column2Class} text-right`}>
                   <ModifiedOnOrVersion
                     type={props.type}
                     modifiedOn={props.modifiedOn}

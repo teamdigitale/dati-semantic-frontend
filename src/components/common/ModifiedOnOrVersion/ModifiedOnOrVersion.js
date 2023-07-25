@@ -52,6 +52,7 @@ const ModifiedOnOrVersion = (props) => {
           className={`chip chip-simple chip-lg ml-2`}
           style={{
             backgroundColor: chipColor,
+            border: "none",
           }}
         >
           <span className="chip-label text-white">{statusText}</span>
