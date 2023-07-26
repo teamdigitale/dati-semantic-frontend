@@ -31,6 +31,7 @@ const Pagination = ({ page, filter, onPageSelect }) => {
   const currentPageNumber = Math.floor(page.offset / PAGE_SIZE) + 1;
   const onPageSelection = (offset) => {
     onPageSelect({ ...filter, ["offset"]: offset });
+    window.scrollTo(0, 0);
   };
   return (
     <nav

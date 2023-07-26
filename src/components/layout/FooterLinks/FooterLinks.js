@@ -21,6 +21,11 @@ const FooterLinks = () => {
               Dichiarazione di accessibilità
             </a>
           </p>
+          <p className=" pr-5">
+            <a className={styles.bottomFooter} href={routes.legalNotice()}>
+              Note legali
+            </a>
+          </p>
         </div>
       </div>
     </div>

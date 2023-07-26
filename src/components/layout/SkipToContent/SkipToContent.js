@@ -5,14 +5,14 @@ function SkipToContent({ mainRef, footerRef }) {
     <div>
       <a
         href="#main"
-        className="sr-only sr-only-focusable"
+        className="visually-hidden visually-hidden-focusable"
         onClick={() => mainRef.current.focus()}
       >
         Vai al contenuto principale
       </a>
       <a
         href="#footer"
-        className="sr-only sr-only-focusable"
+        className="visually-hidden visually-hidden-focusable"
         onClick={() => footerRef.current.focus()}
       >
         Vai al footer
