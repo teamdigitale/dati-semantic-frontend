@@ -8,8 +8,8 @@ import "./FooterLogos.css";
 
 const FooterLogos = () => {
   return (
-    <div className="container-fluid px-5">
-      <div className="row footer_logoteam">
+    <div className="container-fluid" style={{ padding: "0 40px" }}>
+      <div className="footer_logoteam d-flex">
         <div className="footer_logo_img">
           <a
             aria-label="Vai al sito del pnrr"
@@ -53,7 +53,7 @@ const FooterLogos = () => {
             />
           </a>
         </div>
-        <div className="footer_logo_img">
+        <div className="footer_logo_img ps-3">
           <a aria-label="Vai al sito dell'ISTAT" href="https://www.istat.it/">
             <IstatLogo className="istat-logo" alt="" title="Istat" />
           </a>

@@ -71,7 +71,7 @@ export const EndSection = (props) => {
                   </div>
                   <div className="col-xl-7 mt-2 mt-lg-0 d-flex justify-content-start">
                     <a
-                      className="btn btn-outline-light font-weight-bold ml-0 ml-xl-2 mt-2 mt-xl-0"
+                      className="btn btn-outline-light fw-bold ms-0 ms-xl-2 mt-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
                       role="button"
                       aria-label="vai alla pagina di docs italia"
