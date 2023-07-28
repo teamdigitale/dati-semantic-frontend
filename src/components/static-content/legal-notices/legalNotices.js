@@ -36,43 +36,45 @@ export const LeaglNotices = () => {
               Note Legali
             </div>
             <p style={{ fontSize: 20 }}>
-              Il catalogo nazionale della semantica dei dati (anche conosciuto
-              come National Data Catalog - abbreviato NDC) e raggiungibile da
-              www.schema.gov.it, è un progetto di titolarità del Dipartimento
-              per la Trasformazione Digitale – Presidenza Del Consiglio dei
-              ministri. Ha il compito di armonizzare e condividere la semantica
-              dei dati utile a garantire l'interoperabilità semantica
+              Il catalogo nazionale della semantica dei dati (National Data
+              Catalog - NDC) è un progetto di titolarità del Dipartimento per la
+              Trasformazione Digitale – Presidenza Del Consiglio dei ministri.
+              Il catalogo ha il compito di armonizzare e condividere la
+              semantica dei dati utile a garantire l'interoperabilità semantica
               nell'interscambio e fruizione di dati, in particolare tramite
               interfacce per la programmazione di applicazioni (API), come
               quelle reperibili nel catalogo della Piattaforma Digitale
-              Nazionale Dati (PDND). Il catalogo, oltre a pubblicare i contenuti
-              definiti a livello nazionale, raccoglie - tramite estrazione
-              automatica (web harvesting) - le risorse semantiche già pubblicate
-              dalle singole pubbliche amministrazioni nei propri repository di
-              cui gli stessi enti sono gli unici titolari, mantenendo così la
-              responsabilità in merito al contenuto.
+              Nazionale Dati (PDND). Il catalogo raccoglie in{" "}
+              <Anchor href="https://www.schema.gov.it">
+                www.schema.gov.it
+              </Anchor>{" "}
+              - tramite estrazione automatica (web harvesting) – le risorse
+              semantiche già pubblicate dalle singole pubbliche amministrazioni
+              nei propri repository di cui gli stessi enti sono gli unici
+              titolari, mantenendo così la responsabilità in merito al
+              contenuto.
             </p>
             <p style={{ fontSize: 20 }}>
               Nell’ambito dei progetti del Piano Nazionale di Ripresa e
               Resilienza (PNNR), il Dipartimento per la trasformazione digitale,
               ha individuato Istat quale ente attuatore del progetto NDC per la
-              realizzazione, gestione e manutenzione del catalogo, mentre
-              l’accordo prevede il coinvolgimento di soggetti quali AGID per le
-              sue funzioni istituzionali in materia di interoperabilità.
+              realizzazione, gestione e manutenzione del catalogo; allo stesso
+              tempo, è previsto il coinvolgimento di soggetti quali AGID per le
+              sue funzioni istituzionali in materia di interoperabilità tecnica.
             </p>
             <p style={{ fontSize: 20 }}>
               L’Istat provvede allo sviluppo del catalogo e alla sua
-              implementazione e fornisce, laddove richiesto, supporto tecnico e
+              implementazione fornendo, laddove richiesto, supporto tecnico e
               metodologico alle pubbliche amministrazioni nella definizione di
               ontologie, vocabolari controllati e schemi di dati relativi ai
               propri dataset. La responsabilità della scelta e della
-              pubblicazione di un determinato asset semantico è della pubblica
-              amministrazione che provvede alla pubblicazione sul proprio
-              repository; la validazione rimane, quindi, di competenza della
-              stessa pubblica amministrazione.
+              pubblicazione di una determinata risorsa semantica è della
+              pubblica amministrazione che provvede alla pubblicazione sul
+              proprio repository; la validazione rimane, quindi, di competenza
+              della stessa pubblica amministrazione.
             </p>
             <p style={{ fontSize: 20 }}>
-              La titolarità dei contenuti semantici pubblicati nel catalogo è,
+              La titolarità delle risorse semantiche pubblicate nel catalogo è,
               quindi, degli enti titolari delle basi di dati cui i singoli
               contenuti afferiscono, ferma restando la corretta attribuzione di
               paternità degli stessi.
@@ -83,17 +85,14 @@ export const LeaglNotices = () => {
             <p style={{ fontSize: 20 }}>
               Ove non diversamente specificato, i contenuti pubblicati su
               schema.gov.it sono rilasciati dalla Presidenza del Consiglio dei
-              Ministri – Dipartimento per la Trasformazione Digitale con{" "}
-              <Anchor href="https://creativecommons.org/licenses/by/4.0/legalcode.it">
-                licenza CC-BY 4.0
-              </Anchor>{" "}
-              . Gli utenti possono, nel rispetto delle disposizioni vigenti,
-              condividere (riprodurre, distribuire, comunicare al pubblico,
-              esporre in pubblico, rappresentare, eseguire e recitare questo
-              materiale con qualsiasi mezzo e formato) e modificare (trasformare
-              il materiale e utilizzarlo per opere derivate) per qualsiasi fine,
-              anche commerciale con il solo onere di attribuzione, senza apporre
-              restrizioni aggiuntive.{" "}
+              Ministri – Dipartimento per la Trasformazione Digitale con licenza
+              CC-BY 4.0. Gli utenti possono, nel rispetto delle disposizioni
+              vigenti, condividere (riprodurre, distribuire, comunicare al
+              pubblico, esporre in pubblico, rappresentare, eseguire e recitare
+              questo materiale con qualsiasi mezzo e formato) e modificare
+              (trasformare il materiale e utilizzarlo per opere derivate) per
+              qualsiasi fine, anche commerciale con il solo onere di
+              attribuzione, senza apporre restrizioni aggiuntive.
             </p>
             <p style={{ fontSize: 20 }}>
               Per la corretta attribuzione di paternità da parte
