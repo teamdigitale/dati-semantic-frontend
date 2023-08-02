@@ -1,7 +1,7 @@
 import "./PrivacyPolicyPage.css";
 import Anchor from "../../../common/Anchor/Anchor";
 import ContentParagraph from "../../../common/ContentParagraph/ContentParagraph";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import BreadCrumbs from "../../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 import EndSection from "../../../common/EndSection/EndSection";
@@ -43,9 +43,10 @@ const PrivacyPolicyPage = () => {
               Regolamento) e hanno l’obiettivo di descrivere le modalità di
               trattamento dei dati personali degli utenti che consultano il sito{" "}
               <Anchor href="https://www.schema.gov.it">
-                www.schema.gov.it
+                www.schema.gov.it.
               </Anchor>{" "}
-              . Le informazioni che seguono non riguardano altri siti, pagine o
+              <br />
+              Le informazioni che seguono non riguardano altri siti, pagine o
               servizi online raggiungibili tramite link ipertestuali qui
               pubblicati ma riferiti a risorse esterne a questo sito.
             </p>
@@ -278,6 +279,15 @@ const PrivacyPolicyPage = () => {
                 trattati dal Titolare esclusivamente al fine di - e per il
                 periodo strettamente necessario a - gestire le interazioni con
                 l’utenza.
+              </p>
+            </ContentParagraph>
+            <ContentParagraph title="">
+              <p className="footerTxtCnt"> Ultimo aggiornamento: agosto 2023</p>
+              <p className="footerTxtCnt">
+                La presente informativa potrà subire variazioni. Si consiglia,
+                quindi, di controllare regolarmente questa pagina web e di
+                tenere in considerazione la versione più aggiornata
+                dell’informativa ivi riportata.
               </p>
             </ContentParagraph>
           </div>
