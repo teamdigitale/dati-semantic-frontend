@@ -24,7 +24,7 @@ export const AT_TO_LABEL = [
     label: "Schema",
     pluralLabel: "Schemi Dati",
     subTitle:
-      "La descrizione di insiemi di dati, per definirne la serealizzazione e validarne la sintassi",
+      "La descrizione di insiemi di dati, per definirne la serializzazione e validarne la sintassi",
     buttonText: "Esplora gli schemi dati",
   },
 ];
