@@ -20,7 +20,11 @@ const showItems = (isLoading, error, searchResult) => {
     routNav("/errore");
   }
   if (isLoading) {
-    return <h2>Caricamento...</h2>;
+    return (
+      <h2 role="alert" aria-live="assertive">
+        Caricamento...
+      </h2>
+    );
   }
   if (error) {
     goToError();
@@ -83,7 +87,7 @@ function renderResultCount(isLoading, error, searchResult) {
     <div className="row" data-testid="results-count">
       <div className="col-12">
         {!error && !isLoading && searchResult?.totalCount ? (
-          <p className="h2" role="status">
+          <p className="h2" role="status" aria-live="assertive">
             {searchResult?.totalCount} risultati
           </p>
         ) : (
@@ -135,7 +139,7 @@ const SearchPage = () => {
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
-            <div className="col-12 col-lg-4 pl-lg-4 col-md-4" role="search">
+            <div className="col-12 col-lg-4 ps-lg-4 col-md-4" role="search">
               <FilterPanel
                 filter={filter}
                 onFilterUpdate={useCallback((newFilter) => {

@@ -93,7 +93,7 @@ const Swagger = () => {
             </div>
           </div>
         ) : null}
-        <div className="ml-5 pl-5 pt-5">
+        <div className="ms-5 ps-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph title="Come utilizzare le API per i vocabolari">
               <p>

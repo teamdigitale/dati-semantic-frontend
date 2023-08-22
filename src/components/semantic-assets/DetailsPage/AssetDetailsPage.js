@@ -36,7 +36,11 @@ const AssetDetailsPage = () => {
     }
 
     if (isLoading) {
-      return <h2>Caricamento...</h2>;
+      return (
+        <h2 role="alert" aria-live="assertive">
+          Caricamento...
+        </h2>
+      );
     }
 
     if (!vocabData) {

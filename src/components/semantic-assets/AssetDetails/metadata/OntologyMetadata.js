@@ -17,7 +17,7 @@ const OntologyMetadata = ({ details }) => {
         <div>
           <div className="row">
             <div className="col-3">
-              <div className="pr-3">
+              <div className="pe-3">
                 <h3 className={style.propertyName}>Concetti principali</h3>
               </div>
             </div>

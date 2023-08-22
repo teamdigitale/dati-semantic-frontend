@@ -28,11 +28,11 @@ const IntroSection = ({
         <div
           className={
             !isSearch || isSearch == undefined
-              ? "introSectionBread py-0 pl-3"
-              : "introSectionBreadWhite" + "row mx-0 px-0 my-0 py-0 pl-3"
+              ? "introSectionBread py-0 ps-3"
+              : "introSectionBreadWhite" + "row mx-0 px-0 my-0 py-0 ps-3"
           }
         >
-          <div className="col-xl-12 pl-5">
+          <div className="col-xl-12 ps-5">
             <BreadCrumbs arrayBread={arrayBread} />
           </div>
         </div>
@@ -58,8 +58,8 @@ const IntroSection = ({
       >
         <div className="container-fluid schemaPadding py-5">
           <div className="row mx-0 ">
-            <div className=" col-xl-6  mb-0 mb-xl-4 pl-xl-5">
-              <div className={"font-weight-bold " + styles.title}>
+            <div className=" col-xl-6 mb-0 mb-xl-4 ps-xl-4">
+              <div className={"fw-bold " + styles.title}>
                 <h1>{title}</h1>
               </div>
               <p className={styles.subtitle}>{subtitle}</p>
@@ -68,8 +68,8 @@ const IntroSection = ({
                   <div
                     className={
                       primaryButtonText.length > 20
-                        ? "col-xl-5 mb-2 mb-xl-0 mx-0 px-0"
-                        : "col-xl-4 mb-2 mb-xl-0 mx-0 px-0"
+                        ? "col-xl-5 mb-2 mb-xl-0 mx-2 px-1"
+                        : "col-xl-4 mb-2 mb-xl-0 mx-2 px-1"
                     }
                   >
                     <a className={"btn btn-primary"} href={primaryButtonLink}>
@@ -81,7 +81,7 @@ const IntroSection = ({
                 )}
 
                 {secondaryButtonLink ? (
-                  <div className="col-xl-6 d-flex justify-content-xl-start  mx-0 ml-xl-4 px-0 pl-xl-1">
+                  <div className="col-xl-6 d-flex justify-content-xl-start mx-0 ms-xl-4 px-0 ms-3 ps-xl-0">
                     <a
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary
@@ -98,7 +98,7 @@ const IntroSection = ({
             </div>
             {type && heroSpace ? (
               <div className="col-xl-6 mt-5 d-flex justify-content-center">
-                <img src={heroSpace} className={"img-fluid"} />
+                <img src={heroSpace} className={"img-fluid"} alt="" />
               </div>
             ) : null}
           </div>

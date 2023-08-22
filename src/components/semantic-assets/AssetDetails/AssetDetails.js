@@ -29,8 +29,8 @@ const AssetDetails = ({ details }) => {
     <div>
       <div className={"w-100 " + styles.bkg}>
         <div className={"container-fluid "}>
-          <div className="row mx-0 pl-3">
-            <div className="col-lg-12 pl-5">
+          <div className="mx-0 ps-3">
+            <div className="col-lg-12 ps-5">
               <BreadCrumbs arrayBread={breadC} />
             </div>
           </div>
@@ -50,8 +50,11 @@ const AssetDetails = ({ details }) => {
             </div>
           </div>
         ) : null}
-        <div className="container-fluid schemaPadding">
-          <div className="row py-5">
+        <div
+          className="container-fluid schemaPadding d-flex"
+          style={{ width: "85%" }}
+        >
+          <div className="py-5">
             <div className="col-12">
               <AssetDetailsSummary
                 themes={details.themes}
@@ -75,11 +78,19 @@ const AssetDetails = ({ details }) => {
                     <div className="card card-bg">
                       <div className="card-body px-5">
                         <div className="category-top">
-                          <div className={"category " + styles.metadataHeader}>
+                          <div
+                            className={"category " + styles.metadataHeader}
+                            style={{
+                              fontWeight: "700",
+                              fontSize: "0.8rem",
+                              paddingBottom: "0.5rem",
+                              width: "100%",
+                              borderBottom: "1px solid black",
+                            }}
+                          >
                             <h2>dettagli</h2>
                           </div>
                         </div>
-                        <hr className="border-black" />
                         {details.type === AT_VOCABULARY && (
                           <VocabularyMetadata details={details} />
                         )}

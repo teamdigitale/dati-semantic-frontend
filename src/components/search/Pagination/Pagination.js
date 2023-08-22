@@ -2,6 +2,7 @@ import PropTypes, { arrayOf, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import rowStyle from "../../semantic-assets/AssetDetails/metadata/MetadataRow.module.css";
+import sprite from "../../../assets/images/sprite.svg";
 
 export const PAGE_SIZE = 5;
 export const DEFAULT_OFFSET = 0;
@@ -50,7 +51,12 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <span className="sr-only" style={{ color: "black" }}>
+            <div className="col-12 col-md-6 col-lg-1">
+              <svg className="icon">
+                <use href={sprite + "#it-chevron-left"}></use>
+              </svg>{" "}
+            </div>
+            <span className="visually-hidden" style={{ color: "black" }}>
               Pagina precedente
             </span>
           </a>
@@ -90,9 +96,14 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <span className="sr-only" style={{ color: "black" }}>
+            <span className="visually-hidden" style={{ color: "black" }}>
               Pagina successiva
             </span>
+            <div className="col-12 col-md-6 col-lg-1">
+              <svg className="icon">
+                <use href={sprite + "#it-chevron-right"}></use>
+              </svg>{" "}
+            </div>
           </a>
         </li>
       </ul>

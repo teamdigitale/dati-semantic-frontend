@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import "./HeaderMainMenu.css";
+import sprite from "../../../assets/images/sprite.svg";
 
 const menuItems = [{ label: "Catalogo", href: routes.search() }];
 const additionalMenuItems = [
@@ -35,14 +36,19 @@ const HeaderMainMenu = () => {
                   aria-controls="main-menu"
                   aria-expanded="false"
                   aria-label="Toggle navigation"
+                  data-toggle="navbarcollapsible"
                   data-target="#main-menu"
-                ></button>
+                >
+                  <svg className="icon">
+                    <use href={sprite + "#it-burger"}></use>
+                  </svg>{" "}
+                </button>
                 <div
                   className="navbar-collapsable"
                   id="main-menu"
                   style={{ display: " none" }}
                 >
-                  <div className="close-div sr-only">
+                  <div className="close-div visually-hidden">
                     <button className="btn close-menu" type="button">
                       <span className="it-close">Chiudi</span>
                     </button>
@@ -63,7 +69,7 @@ const HeaderMainMenu = () => {
                               title={menuItem.label}
                               aria-label={menuItem.label}
                               className={
-                                "nav-link justify-content-center focus-element mr-3" +
+                                "nav-link justify-content-center focus-element me-3" +
                                 (isActive(menuItem.href) ? " active" : "")
                               }
                               to={menuItem.href}

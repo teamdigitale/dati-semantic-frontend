@@ -8,13 +8,11 @@ import ProjectIndex from "../ProjectIndex/ProjectIndex";
 const ProjectBody = () => {
   const handleChangeSection = (id) => {
     if (typeof window !== "undefined" && window.location) {
-      document
-        .getElementById(id)
-        .scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-          inline: "start",
-        });
+      document.getElementById(id).scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "start",
+      });
     }
   };
 
@@ -178,7 +176,7 @@ const ProjectBody = () => {
         </ContentParagraph> */}
 
             <div className="mt-4 mb-5">
-              <a className="btn btn-primary mr-4" href={routes.search()}>
+              <a className="btn btn-primary me-4" href={routes.search()}>
                 Esplora il catalogo
               </a>
             </div>
