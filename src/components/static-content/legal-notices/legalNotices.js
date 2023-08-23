@@ -5,6 +5,7 @@ import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import Anchor from "../../common/Anchor/Anchor";
 import "../privacy-policy/PrivacyPolicyPage/PrivacyPolicyPage.css";
+import ContentParagraph from "../../common/ContentParagraph/ContentParagraph";
 export const LeaglNotices = () => {
   useEffect(() => {
     document.title = "Note Legali - Catalogo Nazionale Dati";
@@ -32,7 +33,9 @@ export const LeaglNotices = () => {
       <div data-testid="legalNoticesBody" className="policy-body">
         <div className="container-fluid schemaPadding">
           <div className="col-lg-6 pt-5">
-            <div className="text-sm-left pb-4 display-1">Note Legali</div>
+            <div className="text-sm-left pb-4">
+              <h1>Note Legali</h1>
+            </div>
             <p style={{ fontSize: 18 }}>
               Il catalogo nazionale della semantica dei dati (National Data
               Catalog - NDC) è un progetto di titolarità del Dipartimento per la
@@ -75,45 +78,44 @@ export const LeaglNotices = () => {
               contenuti afferiscono, ferma restando la corretta attribuzione di
               paternità degli stessi.
             </p>
-            <div className="text-sm-left pb-4 display-2">
-              Licenza dei contenuti
-            </div>
-            <p style={{ fontSize: 18 }}>
-              Ove non diversamente specificato, i contenuti pubblicati su
-              schema.gov.it sono rilasciati dalla Presidenza del Consiglio dei
-              Ministri – Dipartimento per la Trasformazione Digitale con licenza{" "}
-              <Anchor href="https://creativecommons.org/licenses/by/4.0/legalcode.it">
-                CC-BY 4.0.
-              </Anchor>{" "}
-              Gli utenti possono, nel rispetto delle disposizioni vigenti,
-              condividere (riprodurre, distribuire, comunicare al pubblico,
-              esporre in pubblico, rappresentare, eseguire e recitare questo
-              materiale con qualsiasi mezzo e formato) e modificare (trasformare
-              il materiale e utilizzarlo per opere derivate) per qualsiasi fine,
-              anche commerciale con il solo onere di attribuzione, senza apporre
-              restrizioni aggiuntive.
-            </p>
-            <p style={{ fontSize: 18 }}>
-              Per la corretta attribuzione di paternità da parte
-              dell’utilizzatore, si rinvia all’individuazione del “Creatore”
-              indicato per ciascuna risorsa del catalogo.
-            </p>
+            <ContentParagraph title="Licenza dei contenuti">
+              <p style={{ fontSize: 18 }}>
+                Ove non diversamente specificato, i contenuti pubblicati su
+                schema.gov.it sono rilasciati dalla Presidenza del Consiglio dei
+                Ministri – Dipartimento per la Trasformazione Digitale con
+                licenza{" "}
+                <Anchor href="https://creativecommons.org/licenses/by/4.0/legalcode.it">
+                  CC-BY 4.0.
+                </Anchor>{" "}
+                Gli utenti possono, nel rispetto delle disposizioni vigenti,
+                condividere (riprodurre, distribuire, comunicare al pubblico,
+                esporre in pubblico, rappresentare, eseguire e recitare questo
+                materiale con qualsiasi mezzo e formato) e modificare
+                (trasformare il materiale e utilizzarlo per opere derivate) per
+                qualsiasi fine, anche commerciale con il solo onere di
+                attribuzione, senza apporre restrizioni aggiuntive.
+              </p>
+              <p style={{ fontSize: 18 }}>
+                Per la corretta attribuzione di paternità da parte
+                dell’utilizzatore, si rinvia all’individuazione del “Creatore”
+                indicato per ciascuna risorsa del catalogo.
+              </p>
+            </ContentParagraph>
 
-            <div className="text-sm-left pb-4 display-2">
-              Collegamenti a siti esterni
-            </div>
-            <p style={{ fontSize: 18 }}>
-              I collegamenti a siti esterni di terzi, indicati in questo sito,
-              nonché i contenuti incorporati di terzi sono forniti come servizio
-              agli utenti. L’indicazione dei collegamenti a siti esterni di
-              terzi o l’inserimento di contenuti incorporati di terzi non
-              implica alcun tipo di approvazione o condivisione di
-              responsabilità in relazione alla legittimità, alla completezza e
-              alla correttezza delle informazioni contenute nei siti indicati.
-            </p>
-            <p style={{ fontSize: 18, fontStyle: "italic" }}>
-              Ultimo aggiornamento: agosto 2023
-            </p>
+            <ContentParagraph title="Collegamenti a siti esterni">
+              <p style={{ fontSize: 18 }}>
+                I collegamenti a siti esterni di terzi, indicati in questo sito,
+                nonché i contenuti incorporati di terzi sono forniti come
+                servizio agli utenti. L’indicazione dei collegamenti a siti
+                esterni di terzi o l’inserimento di contenuti incorporati di
+                terzi non implica alcun tipo di approvazione o condivisione di
+                responsabilità in relazione alla legittimità, alla completezza e
+                alla correttezza delle informazioni contenute nei siti indicati.
+              </p>
+              <p style={{ fontSize: 18, fontStyle: "italic" }}>
+                Ultimo aggiornamento: agosto 2023
+              </p>
+            </ContentParagraph>
           </div>
         </div>
       </div>
