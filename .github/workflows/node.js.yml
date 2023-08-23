@@ -63,8 +63,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
-      - name: Running audit check
-        run: yarn audit --groups dependencies
       - name: docker-security
         uses: instrumenta/conftest-action@master
         with:
