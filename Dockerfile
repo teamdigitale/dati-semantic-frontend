@@ -7,7 +7,6 @@ COPY talisman ./talisman
 RUN yarn --ignore-engines
 COPY . ./
 RUN yarn lint --fix
-RUN yarn install
 RUN yarn build
 
 #Run
