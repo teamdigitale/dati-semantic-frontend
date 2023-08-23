@@ -1260,6 +1260,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@favware/skip-dependency@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.2.1.tgz#67f9339bfb8e303792e91df8526cd45375fdb930"
+  integrity sha512-b2e93XZvSS3md4N6FRBDsVm3FM/L6BHQPyxK4lkgTIqv2E852xkCP7Lr9Inzr5ElHCodVblPx1vrSaTUKzBXBQ==
+
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.5.0.tgz#1407967d4c6eecd7388f83acf1eaf4d0c6e58ef9"
@@ -9826,6 +9831,12 @@ progress@2.0.3, progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
+progressbar.js@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/progressbar.js/-/progressbar.js-1.1.0.tgz#300f99be40ba93fb0867f91dff01771236cade70"
+  integrity sha512-K68/xcyXKo2I6T3PfIkXrRaycxROmWeU4bugb49iulWR25cU94PM0cfZ47S0jDhG5K3vPhZwCOy1fgb5Pgh6UQ==
+  dependencies:
+    shifty "^2.1.2"
 
 promise@^8.1.0:
   version "8.3.0"
