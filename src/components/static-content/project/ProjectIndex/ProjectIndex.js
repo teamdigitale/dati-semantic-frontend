@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ProjectIndex.css";
 const ProjectIndex = (props) => {
   const [progress, setProgress] = useState(25);
   const [section, setSection] = useState("Introduzione");
@@ -17,7 +18,7 @@ const ProjectIndex = (props) => {
     <React.Fragment>
       {progress && section ? (
         <div
-          className="sidebar-wrapper it-line-right-side sticky-top"
+          className="sidebar-wrapper it-line-right-side"
           data-testid="ProjectIndex"
         >
           <div className="sidebar-linklist-wrapper">
@@ -27,7 +28,7 @@ const ProjectIndex = (props) => {
                   <h3>INDICE DELLA PAGINA</h3>
                 </li>
                 <li>
-                  <div className="container ps-4 pe-4 mb-2">
+                  <div className="ps-4 pe-4 mb-2">
                     <div className="progress">
                       <div
                         className="progress-bar"

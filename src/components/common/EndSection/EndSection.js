@@ -84,7 +84,7 @@ export const EndSection = (props) => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-xl-7 mt-2 ms-5 mt-lg-0 d-flex justify-content-start">
+                  <div className="col-xl-7 ms-5 mt-lg-0 d-flex justify-content-start">
                     <a
                       className="btn ms-0 ms-xl-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
