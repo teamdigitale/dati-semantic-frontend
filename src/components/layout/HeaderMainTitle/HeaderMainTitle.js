@@ -28,7 +28,7 @@ const HeaderMainTitle = () => (
                       height="130"
                     />
                   </div>
-                  <div className="col-9" style={{ marginLeft: "-0.625rem" }}>
+                  <div className="col-9 pagetitle">
                     <div className="it-brand-text">
                       <h2 className="h2">{siteTitle}</h2>
                       <h3 className="small">{siteTagLine}</h3>

@@ -4,6 +4,7 @@ import getAlertMessage from "../../../services/alertService";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import Anchor from "../../common/Anchor/Anchor";
+import "./legalNotices.css";
 import "../privacy-policy/PrivacyPolicyPage/PrivacyPolicyPage.css";
 import ContentParagraph from "../../common/ContentParagraph/ContentParagraph";
 export const LeaglNotices = () => {
@@ -36,7 +37,7 @@ export const LeaglNotices = () => {
             <div className="text-sm-left pb-4">
               <h1>Note Legali</h1>
             </div>
-            <p style={{ fontSize: 18 }}>
+            <p className="paragraph">
               Il catalogo nazionale della semantica dei dati (National Data
               Catalog - NDC) è un progetto di titolarità del Dipartimento per la
               Trasformazione Digitale – Presidenza Del Consiglio dei ministri.
@@ -53,7 +54,7 @@ export const LeaglNotices = () => {
               titolari, mantenendo così la responsabilità in merito al
               contenuto.
             </p>
-            <p style={{ fontSize: 18 }}>
+            <p className="paragraph">
               Nell’ambito dei progetti del Piano Nazionale di Ripresa e
               Resilienza (PNNR), il Dipartimento per la trasformazione digitale,
               ha individuato Istat quale ente attuatore del progetto NDC per la
@@ -61,7 +62,7 @@ export const LeaglNotices = () => {
               tempo, è previsto il coinvolgimento di soggetti quali AGID per le
               sue funzioni istituzionali in materia di interoperabilità tecnica.
             </p>
-            <p style={{ fontSize: 18 }}>
+            <p className="paragraph">
               L’Istat provvede allo sviluppo del catalogo e alla sua
               implementazione fornendo, laddove richiesto, supporto tecnico e
               metodologico alle pubbliche amministrazioni nella definizione di
@@ -72,14 +73,14 @@ export const LeaglNotices = () => {
               proprio repository; la validazione rimane, quindi, di competenza
               della stessa pubblica amministrazione.
             </p>
-            <p style={{ fontSize: 18 }}>
+            <p className="paragraph">
               La titolarità delle risorse semantiche pubblicate nel catalogo è,
               quindi, degli enti titolari delle basi di dati cui i singoli
               contenuti afferiscono, ferma restando la corretta attribuzione di
               paternità degli stessi.
             </p>
             <ContentParagraph title="Licenza dei contenuti">
-              <p style={{ fontSize: 18 }}>
+              <p className="paragraph">
                 Ove non diversamente specificato, i contenuti pubblicati su
                 schema.gov.it sono rilasciati dalla Presidenza del Consiglio dei
                 Ministri – Dipartimento per la Trasformazione Digitale con
@@ -95,7 +96,7 @@ export const LeaglNotices = () => {
                 qualsiasi fine, anche commerciale con il solo onere di
                 attribuzione, senza apporre restrizioni aggiuntive.
               </p>
-              <p style={{ fontSize: 18 }}>
+              <p className="paragraph">
                 Per la corretta attribuzione di paternità da parte
                 dell’utilizzatore, si rinvia all’individuazione del “Creatore”
                 indicato per ciascuna risorsa del catalogo.
@@ -103,7 +104,7 @@ export const LeaglNotices = () => {
             </ContentParagraph>
 
             <ContentParagraph title="Collegamenti a siti esterni">
-              <p style={{ fontSize: 18 }}>
+              <p className="paragraph">
                 I collegamenti a siti esterni di terzi, indicati in questo sito,
                 nonché i contenuti incorporati di terzi sono forniti come
                 servizio agli utenti. L’indicazione dei collegamenti a siti
@@ -112,7 +113,7 @@ export const LeaglNotices = () => {
                 responsabilità in relazione alla legittimità, alla completezza e
                 alla correttezza delle informazioni contenute nei siti indicati.
               </p>
-              <p style={{ fontSize: 18, fontStyle: "italic" }}>
+              <p className="paragraph fst-italic">
                 Ultimo aggiornamento: agosto 2023
               </p>
             </ContentParagraph>

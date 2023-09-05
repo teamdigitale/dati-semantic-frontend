@@ -61,12 +61,8 @@ const HeaderMainMenu = () => {
                     <use href={sprite + "#it-burger"}></use>
                   </svg>
                 </button>
-                <div
-                  className="navbar-collapsable"
-                  id="main-menu"
-                  style={{ display: "none" }}
-                >
-                  <div className="overlay" style={{ display: "none" }}></div>
+                <div className="navbar-collapsable" id="main-menu">
+                  <div className="overlay"></div>
                   <div className="close-div">
                     <button className="btn close-menu" type="button">
                       <span className="visually-hidden">Chiudi</span>

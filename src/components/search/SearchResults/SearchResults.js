@@ -28,7 +28,7 @@ const SearchResults = (props) => {
   };
 
   return (
-    <div data-testid="SearchResults">
+    <div data-testid="SearchResults" aria-live="polite">
       {emptyResultsMessage()}
 
       {renderItems()}

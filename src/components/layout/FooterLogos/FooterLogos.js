@@ -53,7 +53,7 @@ const FooterLogos = () => {
             />
           </a>
         </div>
-        <div className="footer_logo_img ps-3">
+        <div className="footer_logo_img ps-1">
           <a aria-label="Vai al sito dell'ISTAT" href="https://www.istat.it/">
             <IstatLogo className="istat-logo" alt="" title="Istat" />
           </a>

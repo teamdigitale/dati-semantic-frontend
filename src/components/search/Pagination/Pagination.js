@@ -52,11 +52,11 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             }}
           >
             <div className="col-12 col-md-6 col-lg-1">
-              <svg className="icon">
+              <svg className="icon" alt="indietro">
                 <use href={sprite + "#it-chevron-left"}></use>
               </svg>{" "}
             </div>
-            <span className="visually-hidden" style={{ color: "black" }}>
+            <span className="visually-hidden text-black">
               Pagina precedente
             </span>
           </a>
@@ -96,11 +96,11 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <span className="visually-hidden" style={{ color: "black" }}>
+            <span className="visually-hidden text-black">
               Pagina successiva
             </span>
             <div className="col-12 col-md-6 col-lg-1">
-              <svg className="icon">
+              <svg className="icon" alt="avanti">
                 <use href={sprite + "#it-chevron-right"}></use>
               </svg>{" "}
             </div>

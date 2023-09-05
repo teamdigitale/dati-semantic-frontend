@@ -170,10 +170,7 @@ const Validatore = () => {
                       </div>
 
                       <div className="col-lg-6 text-end">
-                        <div
-                          className="bg-primary chip chip-simple chip-lg"
-                          style={{ border: "none" }}
-                        >
+                        <div className="bg-primary chip chip-simple chip-lg border-0">
                           <span className="label">Validatore semantico</span>
                         </div>
                       </div>
@@ -201,12 +198,9 @@ const Validatore = () => {
                           style={{ height: "23rem" }}
                         >
                           <div className="mb-2">
-                            <div style={{ width: "auto" }} tabIndex="0">
+                            <div className="w-auto" tabIndex="0">
                               <>
-                                <h1
-                                  className="subtitle col-16 mt-4"
-                                  style={{ marginLeft: "1.5rem" }}
-                                >
+                                <h1 className="subtitle col-16 mt-4">
                                   Che tipologia di file devi validare?
                                 </h1>
                                 <div
@@ -252,10 +246,7 @@ const Validatore = () => {
                                     <label htmlFor="radio6">Schema dati</label>
                                   </div>
                                 </div>
-                                <h1
-                                  className="subtitle col-16 mt-5 "
-                                  style={{ marginLeft: "1.5rem" }}
-                                >
+                                <h1 className="subtitle col-16 mt-5">
                                   Allega il file
                                 </h1>
                               </>
@@ -291,10 +282,8 @@ const Validatore = () => {
                                 <div className="my-4 ms-1">
                                   <ul className="upload-file-list mt-4 ms-4">
                                     <li
-                                      className="upload-file success"
+                                      className="upload-file success mb-2 mt-2"
                                       style={{
-                                        marginBottom: "0.4rem",
-                                        marginTop: "0.5rem",
                                         maxWidth: "50%",
                                       }}
                                     >
@@ -348,10 +337,8 @@ const Validatore = () => {
                                   <div className="my-2 ms-1 d-flex">
                                     <ul className="upload-file-list mt-2 ms-4">
                                       <li
-                                        className="upload-file success"
+                                        className="upload-file success mb-2 mt-2"
                                         style={{
-                                          marginBottom: "0.4rem",
-                                          marginTop: "0.5rem",
                                           maxWidth: "100%",
                                         }}
                                       >
@@ -367,12 +354,7 @@ const Validatore = () => {
                                           )}
                                           <span className="upload-file-weight ms-3">
                                             {selectedFile && (
-                                              <span
-                                                style={{
-                                                  color: "black",
-                                                  fontWeight: "bold",
-                                                }}
-                                              >
+                                              <span className="fw-bold text-black">
                                                 {getFileSize(selectedFile.size)}
                                               </span>
                                             )}
@@ -400,7 +382,7 @@ const Validatore = () => {
                                       >
                                         <svg
                                           className="icon icon-sm ms-0 me-3"
-                                          style={{ fill: "white" }}
+                                          fill="white"
                                         >
                                           <use
                                             href={sprite + "#it-delete"}
@@ -413,12 +395,7 @@ const Validatore = () => {
                                 </div>
                               )}
                             </div>
-                            <hr
-                              className="border col-11 mb-0 mt-3 pe-4"
-                              style={{
-                                marginLeft: "1.5rem",
-                              }}
-                            />
+                            <hr className="border col-11 mb-0 mt-3 pe-4 ms-4" />
                           </div>
                           <div>
                             {currentStep === 3 && selectedType ? (
@@ -432,13 +409,7 @@ const Validatore = () => {
                               </div>
                             ) : (
                               <div>
-                                <a
-                                  className="btn btn-lg disabled ms-4 mt-4 mb-3"
-                                  style={{
-                                    backgroundColor: "#D9DADB",
-                                    color: "#768594",
-                                  }}
-                                >
+                                <a className="btn btn-lg btn-light disabled ms-4 mt-4 mb-3">
                                   Valida documento
                                 </a>
                               </div>
@@ -470,20 +441,14 @@ const Validatore = () => {
                             className="btn btn-outline-primary fw-bold ms-2"
                             onClick={handlePageReload}
                           >
-                            <svg
-                              className="icon icon-sm ms-0 me-3"
-                              style={{ fill: "blue" }}
-                            >
+                            <svg className="icon icon-sm ms-0 me-3" fill="blue">
                               <use href={sprite + "#it-arrow-left"}></use>
                             </svg>
                             Torna indietro
                           </button>
                           <div className="col-lg-12 ps-2 mt-5 mb-4">
                             <div className="text-uppercase ms-0 title">
-                              <div
-                                className="pt-1 ms-0 title"
-                                style={{ color: "green" }}
-                              >
+                              <div className="pt-1 ms-0 title text-success">
                                 DOCUMENTO IDONEO
                               </div>
                             </div>
@@ -492,7 +457,7 @@ const Validatore = () => {
                           <div className="col-12 mb-5 d-flex">
                             <svg
                               className="icon icon-xl me-3 mt-3"
-                              style={{ fill: "green" }}
+                              fill="green"
                             >
                               <use href={sprite + "#it-check-circle"}></use>
                             </svg>
@@ -558,7 +523,7 @@ const Validatore = () => {
                                   role="alert"
                                 >
                                   <strong>
-                                    <span style={{ marginRight: "" }}>
+                                    <span>
                                       In caso di segnalazione di errori (ERROR)
                                       il processo di harvesting NON potrà
                                       acquisire il metariale semantico, in
@@ -579,7 +544,7 @@ const Validatore = () => {
                             >
                               <svg
                                 className="icon icon-sm ms-0 me-3"
-                                style={{ fill: "blue" }}
+                                fill="blue"
                               >
                                 <use href={sprite + "#it-arrow-left"}></use>
                               </svg>
@@ -599,7 +564,7 @@ const Validatore = () => {
                             <div className="col-12 mb-5 d-flex">
                               <svg
                                 className="icon icon-xl me-3 mt-3"
-                                style={{ fill: "red" }}
+                                fill="red"
                               >
                                 <use href={sprite + "#it-error"}></use>
                               </svg>
@@ -639,7 +604,7 @@ const Validatore = () => {
                                 >
                                   <svg
                                     className="icon icon-sm ms-0 me-2"
-                                    style={{ fill: "white" }}
+                                    fill="white"
                                   >
                                     <use href={sprite + "#it-download"}></use>
                                   </svg>
@@ -667,21 +632,16 @@ const Validatore = () => {
                                   <div className="col-12 card-space">
                                     <div className="row">
                                       <div
-                                        className="pt-1"
+                                        className="pt-1 fw-bold mt-3 mb-4 ms-4"
                                         ref={errorRef}
                                         style={{
-                                          fontWeight: "700",
                                           fontSize: "0.8rem",
-                                          marginTop: "1rem",
-                                          marginBottom: "1.5rem",
-                                          marginLeft: "1.6rem",
-                                          margin: "1.4rem",
                                           width: "95%",
                                         }}
                                       >
                                         <span
+                                          className="d-flex"
                                           style={{
-                                            display: "flex",
                                             paddingBottom: "0.8rem",
                                             borderBottom: "1px solid black",
                                           }}
@@ -706,9 +666,8 @@ const Validatore = () => {
                                                 {error.message}
                                               </span>
                                               <hr
+                                                className="ms-3 me-4"
                                                 style={{
-                                                  marginLeft: "1rem",
-                                                  marginRight: "1.4rem",
                                                   paddingBottom: "0.1rem",
                                                   width: "95%",
                                                 }}
@@ -743,21 +702,16 @@ const Validatore = () => {
                                   <div className="col-12 card-space">
                                     <div className="row">
                                       <div
-                                        className="pt-1"
+                                        className="pt-1 mt-3 mb-4 ms-4 fw-bold"
                                         ref={warningRef}
                                         style={{
-                                          fontWeight: "700",
                                           fontSize: "0.8rem",
-                                          marginTop: "1rem",
-                                          marginBottom: "1.5rem",
-                                          marginLeft: "1.6rem",
-                                          margin: "1.4rem",
                                           width: "95%",
                                         }}
                                       >
                                         <span
+                                          className="d-flex"
                                           style={{
-                                            display: "flex",
                                             paddingBottom: "0.8rem",
                                             borderBottom: "1px solid black",
                                           }}
@@ -782,9 +736,8 @@ const Validatore = () => {
                                                 {warning.message}
                                               </span>
                                               <hr
+                                                className="ms-3 me-4"
                                                 style={{
-                                                  marginLeft: "1rem",
-                                                  marginRight: "1.4rem",
                                                   paddingBottom: "0.1rem",
                                                   width: "95%",
                                                 }}
