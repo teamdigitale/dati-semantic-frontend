@@ -19,18 +19,18 @@ const HeaderMainTitle = () => (
                 aria-label="(s schema il catalogo nazionale della semantica dei dati) - Vai alla home"
               >
                 <div className="row mx-0">
-                  <div className="col-md-2">
+                  <div className="col-2">
                     <Logo
                       className="img-fluid img-logo-header-normal d-inline-block align-top p-1 rounded"
                       alt=""
                       title="Home"
-                      width="78"
-                      height="78"
+                      width="130"
+                      height="130"
                     />
                   </div>
-                  <div className="col-md-10">
+                  <div className="col-9 pagetitle">
                     <div className="it-brand-text">
-                      <h2 className="h3">{siteTitle}</h2>
+                      <h2 className="h2">{siteTitle}</h2>
                       <h3 className="small">{siteTagLine}</h3>
                     </div>
                   </div>

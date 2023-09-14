@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState, useEffect } from "react";
 import AssetTypeChip from "../../../search/AssetTypeChip/AssetTypeChip";
+import { useState, useEffect } from "react";
 import styles from "./AssetDetailsSummary.module.css";
 import { getCategories } from "../../../../assets/data/categories";
 import PropTypes, { oneOf } from "prop-types";
@@ -18,6 +18,9 @@ const AssetDetailsSummary = (props) => {
     if (window.innerWidth <= 680) {
       setColumnClass("col-7");
       setColumn2Class("col-5");
+    } else if (window.innerWidth > 680 && window.innerWidth <= 1300) {
+      setColumnClass("col-8");
+      setColumn2Class("col-4");
     } else {
       setColumnClass("col-10");
       setColumn2Class("col-2");
@@ -34,7 +37,7 @@ const AssetDetailsSummary = (props) => {
   return (
     <div data-testid="asset-details-summary">
       <div className="row pt-3 pb-3">
-        <div className="col-6 text-uppercase font-weight-bold">
+        <div className="col-6 text-uppercase fw-bold">
           <div className="category-top pt-1">
             {categories.map((c) => (
               <div key={c.key} className="category">
@@ -43,7 +46,7 @@ const AssetDetailsSummary = (props) => {
             ))}
           </div>
         </div>
-        <div className="col-6 text-right">
+        <div className="col-6 text-end">
           <AssetTypeChip type={props.type} bgColor={"blue"} />
         </div>
       </div>
@@ -55,17 +58,17 @@ const AssetDetailsSummary = (props) => {
       <div className={"row " + styles.detailsCard}>
         <div className="col-12">
           <div className="card-wrapper card-space">
-            <div className="card card-bg my-2 pl-5 pr-5 pt-5">
+            <div className="card card-bg my-2 ps-5 pe-5 pt-5">
               <div className={"row " + styles.description}>
                 <div
                   className={`${columnClass} ${styles.scrollable}`}
                   tabIndex="0"
                 >
-                  <div className={"pr-3 pt-1" + styles.descriptionText}>
+                  <div className={"pe-3 pt-1" + styles.descriptionText}>
                     {props.description}
                   </div>
                 </div>
-                <div className={`${column2Class} text-right`}>
+                <div className={`${column2Class} text-end`}>
                   <ModifiedOnOrVersion
                     type={props.type}
                     modifiedOn={props.modifiedOn}

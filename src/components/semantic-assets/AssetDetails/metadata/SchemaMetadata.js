@@ -26,8 +26,8 @@ const SchemaMetadata = (props) => {
           <div className="col-3">
             <span className={styles.propertyName}>Concetti semantici</span>
           </div>
-          <div className="col-8 text-justify">
-            <span className={"text-monospace " + styles.propertyLink}>
+          <div className="col-8">
+            <span className={"font-monospace " + styles.propertyLink}>
               {props.keyClasses.map((keyClass, index) => (
                 <span key={keyClass.iri}>
                   {index > 0 && ", "}

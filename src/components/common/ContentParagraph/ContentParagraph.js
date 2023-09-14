@@ -4,7 +4,7 @@ import { node, string } from "prop-types";
 const ContentParagraph = ({ title, children }) => {
   return (
     <>
-      <h2 className="h4">{title}</h2>
+      <h4>{title}</h4>
       <div className="content pb-3">{children}</div>
     </>
   );

@@ -8,15 +8,15 @@ import "./FooterLogos.css";
 
 const FooterLogos = () => {
   return (
-    <div className="container-fluid px-5">
-      <div className="row footer_logoteam">
+    <div className="container-fluid" style={{ padding: "0 40px" }}>
+      <div className="footer_logoteam d-flex">
         <div className="footer_logo_img">
           <a
             aria-label="Vai al sito del pnrr"
             href="https://ec.europa.eu/info/index_it"
           >
             <PnrrLogo
-              className="img-fluid img-logo-header-normal d-inline-block align-top mr-1 p-2 rounded"
+              className="img-fluid img-logo-header-normal d-inline-block align-top me-1 p-2 rounded"
               alt="Pnrr_logo"
               title="Pnrr"
             />
@@ -41,7 +41,7 @@ const FooterLogos = () => {
             title=""
           />
         </div>
-        <div className="footer_logo_img mr-4">
+        <div className="footer_logo_img me-4">
           <a
             aria-label="Vai al sito del Dipartimento per la trasformazione digitale"
             href="https://innovazione.gov.it/dipartimento/"
@@ -53,7 +53,7 @@ const FooterLogos = () => {
             />
           </a>
         </div>
-        <div className="footer_logo_img">
+        <div className="footer_logo_img ps-1">
           <a aria-label="Vai al sito dell'ISTAT" href="https://www.istat.it/">
             <IstatLogo className="istat-logo" alt="" title="Istat" />
           </a>

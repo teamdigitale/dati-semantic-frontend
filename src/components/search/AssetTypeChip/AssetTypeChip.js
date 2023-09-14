@@ -8,10 +8,9 @@ import {
 
 const AssetTypeChip = ({ type }) => (
   <div
-    className={"bg-primary chip chip-simple chip-lg"}
+    className={"bg-primary chip chip-simple chip-lg border-0"}
     data-testid="AssetTypeChip"
     aria-label={"Tipologia:" + getAssetLabel(type)}
-    style={{ border: "none" }}
   >
     <span className={styles.label + " chip-label"}>{getAssetLabel(type)}</span>
   </div>

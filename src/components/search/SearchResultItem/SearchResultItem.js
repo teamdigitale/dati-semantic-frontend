@@ -55,14 +55,12 @@ const SearchResultItem = ({ item }) => {
           <div className={styles.itemInfo}>
             {item.type !== AT_SCHEMA && (
               <div>
-                <span className={"font-weight-bold " + styles.itemInfoLabel}>
-                  URI:
-                </span>{" "}
+                <span className={"fw-bold " + styles.itemInfoLabel}>URI:</span>{" "}
                 <span className={styles.itemInfoLabel}>{item.assetIri}</span>
               </div>
             )}
             <div>
-              <span className={"font-weight-bold " + styles.itemInfoLabel}>
+              <span className={"fw-bold " + styles.itemInfoLabel}>
                 Titolare:
               </span>{" "}
               <span className={styles.itemInfoLabel + " rights-holder-name"}>

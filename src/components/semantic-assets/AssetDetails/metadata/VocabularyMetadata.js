@@ -14,7 +14,7 @@ const VocabularyMetadata = ({ details }) => {
             Indirizzo dell&apos;endpoint
           </div>
           <div className="col-8">
-            <div className={"text-monospace " + rowStyle.propertyLink}>
+            <div className={"font-monospace " + rowStyle.propertyLink}>
               <a
                 href={details.endpointUrl}
                 target="_blank"

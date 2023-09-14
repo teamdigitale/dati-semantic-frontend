@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { func, string } from "prop-types";
-import { Icon } from "design-react-kit";
 import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
+import sprite from "../../../assets/images/sprite.svg";
 
 const PatternFilter = ({ pattern, onPatternUpdate }) => {
   const [value, setValue] = useState(pattern);
 
   return (
     <FilterPanelSection title="Ricerca nel Catalogo">
-      <div className="form-row" data-testid="PatternFilter" role="form">
+      <div className="row" data-testid="PatternFilter" role="form">
         <form
           role="search"
           aria-labelledby="Ricerca_nel_Catalogo"
@@ -30,7 +30,11 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
               />
               <span className="autocomplete-icon" aria-hidden="true">
                 <div className="input-group-prepend">
-                  <Icon icon="it-search" size="sm" />
+                  <div className="col-12 col-md-6 col-lg-4">
+                    <svg className="icon">
+                      <use href={sprite + "#it-search"}></use>
+                    </svg>{" "}
+                  </div>
                 </div>
               </span>
             </div>

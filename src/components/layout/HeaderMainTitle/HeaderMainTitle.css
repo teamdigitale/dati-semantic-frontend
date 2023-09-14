@@ -14,3 +14,13 @@
   letter-spacing: normal;
   line-height: 1.35;
 }
+
+.pagetitle{
+  margin-left: -0.625rem;
+}
+
+@media (max-width: 500px) {
+  [class*="col-2"] {
+    width: 70px;
+  }
+}

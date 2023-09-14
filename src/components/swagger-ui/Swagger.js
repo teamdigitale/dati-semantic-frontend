@@ -63,19 +63,22 @@ const Swagger = () => {
   const query = useQuery();
   const iri = query.get("vocabIri");
 
-  useEffect(async () => {
-    if (!iri) {
-      return;
-    }
+  useEffect(() => {
+    const asyncFn = async () => {
+      if (!iri) {
+        return;
+      }
 
-    setLoading(true);
-    try {
-      const details = await getSemanticAssetByUri(iri);
-      setVocabDetails(details);
-    } catch (e) {
-      setError(true);
-    }
-    setLoading(false);
+      setLoading(true);
+      try {
+        const details = await getSemanticAssetByUri(iri);
+        setVocabDetails(details);
+      } catch (e) {
+        setError(true);
+      }
+      setLoading(false);
+    };
+    asyncFn();
   }, [iri]);
 
   return (
@@ -90,7 +93,7 @@ const Swagger = () => {
             </div>
           </div>
         ) : null}
-        <div className="ml-5 pl-5 pt-5">
+        <div className="ms-5 ps-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph title="Come utilizzare le API per i vocabolari">
               <p>

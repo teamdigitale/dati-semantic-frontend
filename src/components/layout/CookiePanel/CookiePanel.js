@@ -12,7 +12,7 @@ const CookiePanel = () => {
           data-accept="cookiebar"
           className="cookiebar-btn cookiebar-confirm"
         >
-          Accetto<span className="sr-only"> i cookies</span>
+          Accetto<span className="visually-hidden"> i cookies</span>
         </button>
       </div>
     </div>

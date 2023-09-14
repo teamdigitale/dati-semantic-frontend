@@ -1,8 +1,8 @@
 import PropTypes, { arrayOf, oneOf, shape, string } from "prop-types";
-import { Icon } from "design-react-kit";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import rowStyle from "../../semantic-assets/AssetDetails/metadata/MetadataRow.module.css";
+import sprite from "../../../assets/images/sprite.svg";
 
 export const PAGE_SIZE = 5;
 export const DEFAULT_OFFSET = 0;
@@ -51,8 +51,12 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <Icon icon="it-chevron-left" />
-            <span className="sr-only" style={{ color: "black" }}>
+            <div className="col-12 col-md-6 col-lg-1">
+              <svg className="icon" alt="indietro">
+                <use href={sprite + "#it-chevron-left"}></use>
+              </svg>{" "}
+            </div>
+            <span className="visually-hidden text-black">
               Pagina precedente
             </span>
           </a>
@@ -92,10 +96,14 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               e.preventDefault();
             }}
           >
-            <span className="sr-only" style={{ color: "black" }}>
+            <span className="visually-hidden text-black">
               Pagina successiva
             </span>
-            <Icon icon="it-chevron-right" />
+            <div className="col-12 col-md-6 col-lg-1">
+              <svg className="icon" alt="avanti">
+                <use href={sprite + "#it-chevron-right"}></use>
+              </svg>{" "}
+            </div>
           </a>
         </li>
       </ul>

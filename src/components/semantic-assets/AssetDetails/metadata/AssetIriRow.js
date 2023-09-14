@@ -10,7 +10,7 @@ const AssetIriRow = (props) => {
         <h3 className={"strong " + rowStyle.propertyName}>URI</h3>
       </div>
       <div className="col-8">
-        <div className={"text-monospace " + rowStyle.propertyLink}>
+        <div className={"font-monospace " + rowStyle.propertyLink}>
           <a
             href={props.assetIri}
             target="_blank"

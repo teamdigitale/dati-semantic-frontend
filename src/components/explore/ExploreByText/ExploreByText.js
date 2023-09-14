@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import { Icon } from "design-react-kit";
+import sprite from "../../../assets/images/sprite.svg";
 import "./ExploreByText.css";
 
 const ExploreByText = () => {
@@ -23,7 +23,7 @@ const ExploreByText = () => {
     <ExploreSection title="Cerca nel catalogo per parola chiave">
       <div className="pt-3 container-fluid schemaPadding" role="form">
         <form role="search" onSubmit={doSubmit}>
-          <div className="form-row ml-md-4 pr-md-4 ml-1 pr-2">
+          <div className="row ms-1 pe-2">
             <div className="form-group col-md-7 p-2">
               <div className="search-group input-group">
                 {/* <span className="input-group-append">
@@ -40,8 +40,11 @@ const ExploreByText = () => {
                   onChange={onPatternChange}
                 />
                 <span className="autocomplete-icon" aria-hidden="true">
-                  <div className="input-group-prepend">
-                    <Icon icon="it-search" size="sm" />
+                  <div className="input-group-prepend"></div>
+                  <div className="col-12 col-md-6 col-lg-4">
+                    <svg className="icon">
+                      <use href={sprite + "#it-search"}></use>
+                    </svg>{" "}
                   </div>
                 </span>
               </div>

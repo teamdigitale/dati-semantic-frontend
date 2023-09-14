@@ -13,7 +13,7 @@ const ContactPage = () => {
     <div data-testid="ContactPage">
       <div className="container-fluid px-xl-4 px-lg-2 px-0">
         <div className="row mx-0 px-0">
-          <div className="col-lg-12 pl-5">
+          <div className="col-lg-12 ps-5">
             <BreadCrumbs arrayBread={BREADCRUMBS.CONTACTPAGE} />
           </div>
         </div>
@@ -25,7 +25,7 @@ const ContactPage = () => {
       >
         <div data-testid="ContactBody" className="policy-body">
           <div className="col-lg-6 pt-5">
-            <div className="text-center text-sm-left pb-4">
+            <div className="text-sm-left pb-4">
               <h1>Contatti</h1>
             </div>
             <p

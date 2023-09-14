@@ -34,7 +34,7 @@ const PrivacyPolicyPage = () => {
       <div className="container-fluid schemaPadding">
         <div data-testid="PrivacyPolicyBody" className="policy-body">
           <div className="col-lg-6 pt-5">
-            <div className="text-center text-sm-left pb-4">
+            <div className="text-sm-left pb-4">
               <h1>Informativa sul trattamento dei dati personali</h1>
             </div>
             <p>

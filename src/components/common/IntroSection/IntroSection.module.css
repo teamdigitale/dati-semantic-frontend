@@ -6,12 +6,6 @@ a:empty {
   display: none;
 }
 
-@media (max-width: 768px) {
-  [class*="col-"] {
-    margin-bottom: 15px;
-  }
-}
-
 .title {
   margin-bottom: 0px;
   font-size: 16px;
