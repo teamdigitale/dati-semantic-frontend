@@ -7,14 +7,30 @@ import * as PropTypes from "prop-types";
 import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
 import styles from "./AssetDetailsButtons.module.css";
+import axios from "axios";
 
 const renderButton = (text, url, className) => {
+  const handleButtonClick = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.get(url);
+
+      if (response.status === 200) {
+        window.open(url);
+      } else {
+        window.location.href = "/error";
+      }
+    } catch (error) {
+      window.location.href = "/error";
+    }
+  };
   return (
     <button
       aria-label={text + " (si apre in un'altra scheda)"}
       type="button"
       className={"btn " + className + " " + styles.detailsButton}
-      onClick={() => window.open(url)}
+      onClick={handleButtonClick}
     >
       {text}
     </button>
