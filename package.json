@@ -171,7 +171,9 @@
             "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
         },
         "transformIgnorePatterns": [
-            "^.+\\.module\\.(css|sass|scss)$"
+            "^.+\\.module\\.(css|sass|scss)$",
+
+           "<rootDir>/node_modules/(?!axios)/"
         ],
         "modulePaths": [],
         "moduleNameMapper": {
