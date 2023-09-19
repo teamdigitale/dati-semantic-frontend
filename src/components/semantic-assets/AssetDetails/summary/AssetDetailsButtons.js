@@ -19,10 +19,10 @@ const renderButton = (text, url, className) => {
       if (response.status === 200) {
         window.open(url);
       } else {
-        window.location.href = "/error";
+        console.log("test");
       }
     } catch (error) {
-      window.location.href = "/error";
+      console.log("test err");
     }
   };
   return (
