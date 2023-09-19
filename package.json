@@ -150,6 +150,7 @@
             "!src/**/*.lazy.js",
             "!src/index.js"
         ],
+        "coverageReporters": [ "text-summary", "lcov" ],
         "setupFiles": [
             "react-app-polyfill/jsdom"
         ],
