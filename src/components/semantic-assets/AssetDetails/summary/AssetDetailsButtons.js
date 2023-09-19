@@ -16,7 +16,7 @@ const renderButton = (text, url, className) => {
     try {
       const response = await axios.get(url);
 
-      if (response.status === 200) {
+       if (response.status === 200) {
         window.open(url);
       } else {
         console.log("test");
