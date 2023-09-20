@@ -26,7 +26,7 @@ const CommonMetadataGroup = (props) => {
   const details = props.details;
   return (
     <div data-testid="common-metadata">
-      <AssetIriRow assetIri={details.assetIri} />
+      <AssetIriRow assetIri={details.assetIri} type={details.type} />
       <hr />
       <MetadataRow name="Titolare" value={details.rightsHolder.summary} />
       {details.issuedOn && (
