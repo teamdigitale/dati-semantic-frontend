@@ -13,6 +13,7 @@ import {
   VALIDATORE,
   SEARCH_BASE_URL,
   ERROR_PAGE,
+  ERROR_404,
   LEGALNOTICES,
   CONTACT,
 } from "../../../services/routes";
@@ -40,7 +41,7 @@ const Main = ({ childRef }) => (
       <Route path={PROJECT_URL} element={<ProjectPage />} />
       <Route path={VALIDATORE} element={<Validatore />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/error" element={<NotFound />} />
+      <Route path={ERROR_404} element={<NotFound />} />
       <Route path={ASSETS_BASE_URL_TOKEN}>
         <Route path={ASSETS_URL_TOKEN} element={<AssetDetailsPage />} />
         <Route index path="*" element={<NotFound />} />
