@@ -7,23 +7,21 @@ import * as PropTypes from "prop-types";
 import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
 import styles from "./AssetDetailsButtons.module.css";
-import axios from "axios";
 
 const renderButton = (text, url, className) => {
-  const handleButtonClick = async (event) => {
+  const handleButtonClick = (event) => {
     event.preventDefault();
-
-    try {
-      const response = await axios.get(url);
-
-      if (response.status === 200) {
-        window.open(url);
-      } else {
-        window.location.href = "/error";
-      }
-    } catch (error) {
-      window.location.href = "/error";
-    }
+    fetch(url)
+      .then((response) => {
+        if (response.status === 200) {
+          window.open(url);
+        } else {
+          window.open("/error");
+        }
+      })
+      .catch(() => {
+        window.open("/error");
+      });
   };
   return (
     <button
