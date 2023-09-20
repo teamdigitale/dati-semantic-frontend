@@ -4,6 +4,7 @@ import {
 } from "../components/search/Pagination/Pagination";
 
 export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
+export const ERROR_404 = "error";
 export const ASSETS_URL_TOKEN = "details";
 export const LEGALNOTICES = "note-legali";
 export const ASSETS_FULL_URL = `/${ASSETS_BASE_URL_TOKEN}/${ASSETS_URL_TOKEN}`;
