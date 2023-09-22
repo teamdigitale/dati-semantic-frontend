@@ -13,14 +13,14 @@ const renderButton = (text, url, className) => {
     event.preventDefault();
     fetch(url)
       .then((response) => {
-        if (response.status === 200) {
+        if (response.status < 400) {
           window.open(url);
         } else {
-          window.open("/error");
+          window.open("/error", "_self");
         }
       })
       .catch(() => {
-        window.open("/error");
+        window.open("/error", "_self");
       });
   };
   return (
