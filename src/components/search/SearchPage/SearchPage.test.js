@@ -166,7 +166,10 @@ describe("<SearchPage />", () => {
       simulateVocabDataLoaded();
 
       await waitFor(() => expect(SearchResults).toHaveBeenCalled());
-      expect(SearchResults).toHaveBeenCalledWith({ items: someVocabs }, {});
+      expect(SearchResults).toHaveBeenCalledWith(
+        { items: someVocabs, areFiltersActive: false },
+        {}
+      );
       expect(SearchResultAlert).not.toHaveBeenCalled();
       expect(Pagination).toHaveBeenCalled();
       expect(Pagination).toHaveBeenCalledWith(

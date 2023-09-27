@@ -1,5 +1,5 @@
 import React from "react";
-import { arrayOf, oneOf, shape, string } from "prop-types";
+import { arrayOf, bool, oneOf, shape, string } from "prop-types";
 import SearchResultItem from "../SearchResultItem/SearchResultItem";
 import Callout from "../../common/Callout/Callout";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
@@ -28,7 +28,10 @@ const SearchResults = (props) => {
   };
 
   return (
-    <div data-testid="SearchResults" aria-live="polite">
+    <div
+      data-testid="SearchResults"
+      aria-live={props.areFiltersActive ? "polite" : "off"}
+    >
       {emptyResultsMessage()}
 
       {renderItems()}
@@ -51,6 +54,7 @@ SearchResults.propTypes = {
       modified: string,
     })
   ).isRequired,
+  areFiltersActive: bool,
 };
 
 SearchResults.defaultProps = {};

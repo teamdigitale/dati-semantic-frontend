@@ -14,7 +14,7 @@ import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
 import IntroSection from "../../common/IntroSection/IntroSection";
 
-const showItems = (isLoading, error, searchResult) => {
+const showItems = (isLoading, error, searchResult, areFiltersActive) => {
   const routNav = useNavigate();
   function goToError() {
     routNav("/errore");
@@ -47,7 +47,10 @@ const showItems = (isLoading, error, searchResult) => {
   return (
     <div className="row mt-5">
       <div className="col-12">
-        <SearchResults items={searchResult.data} />{" "}
+        <SearchResults
+          items={searchResult.data}
+          areFiltersActive={areFiltersActive}
+        />
       </div>
     </div>
   );
@@ -102,6 +105,7 @@ const SearchPage = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [areFiltersActive, setAreFiltersActive] = useState(false);
   const { search: urlSearch } = useLocation();
   const navigate = useNavigate();
 
@@ -121,6 +125,10 @@ const SearchPage = () => {
     };
     doSearch();
   }, [urlSearch]);
+
+  const updateFilterStatus = (newFilterStatus) => {
+    setAreFiltersActive(newFilterStatus);
+  };
 
   useEffect(() => {
     document.title = "Search - Catalogo Nazionale Dati";
@@ -154,12 +162,13 @@ const SearchPage = () => {
                   document
                     .getElementById("searchAnchor")
                     ?.scrollIntoView({ behavior: "smooth" });
+                  updateFilterStatus(true);
                 }, [])}
               />
             </div>
             <div className="col-12 col-lg-8 col-md-8" id="searchAnchor">
               {renderResultCount(isLoading, error, searchResult)}
-              {showItems(isLoading, error, searchResult)}
+              {showItems(isLoading, error, searchResult, areFiltersActive)}
               {renderPagination(
                 isLoading,
                 error,
