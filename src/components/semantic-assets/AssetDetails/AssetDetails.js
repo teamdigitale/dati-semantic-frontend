@@ -50,10 +50,7 @@ const AssetDetails = ({ details }) => {
             </div>
           </div>
         ) : null}
-        <div
-          className="container-fluid schemaPadding d-flex"
-          style={{ width: "85%" }}
-        >
+        <div className="container-fluid schemaPadding" style={{ width: "85%" }}>
           <div className="py-5">
             <div className="col-12">
               <AssetDetailsSummary

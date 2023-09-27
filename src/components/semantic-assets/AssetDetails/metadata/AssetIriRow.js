@@ -15,11 +15,11 @@ const AssetIriRow = (props) => {
           if (response.status < 400) {
             window.open(url);
           } else {
-            window.open("/error");
+            window.open("/error", "_self");
           }
         })
         .catch(() => {
-          window.open("/error");
+          window.open("/error", "_self");
         });
     } else {
       window.open(url);
