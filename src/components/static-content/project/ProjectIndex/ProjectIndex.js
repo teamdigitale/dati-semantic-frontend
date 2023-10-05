@@ -25,7 +25,7 @@ const ProjectIndex = (props) => {
             <div className="link-list-wrapper">
               <ul className="link-list">
                 <li>
-                  <h3>INDICE DELLA PAGINA</h3>
+                  <p className="fw-bold h3">INDICE DELLA PAGINA</p>
                 </li>
                 <li>
                   <div className="ps-4 pe-4 mb-2">
@@ -36,6 +36,7 @@ const ProjectIndex = (props) => {
                         aria-valuenow={progress}
                         aria-valuemin="0"
                         aria-valuemax="10"
+                        aria-label="progressbar"
                         style={{ width: progress + "%" }}
                       ></div>
                     </div>

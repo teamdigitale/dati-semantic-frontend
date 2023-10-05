@@ -36,11 +36,11 @@
         "owl.carousel": "^2.3.4",
         "pnp-webpack-plugin": "1.7.0",
         "popper.js": "^1.16.1",
-        "postcss-flexbugs-fixes": "4.2.1",
-        "postcss-loader": "7.0.1",
-        "postcss-normalize": "8.0.1",
-        "postcss-preset-env": "6.7.0",
-        "postcss-safe-parser": "5.0.2",
+        "postcss-flexbugs-fixes": "5.0.2",
+        "postcss-loader": "7.3.3",
+        "postcss-normalize": "10.0.1",
+        "postcss-preset-env": "9.1.4",
+        "postcss-safe-parser": "6.0.0",
         "prompts": "2.4.2",
         "react": "^18.0.2",
         "react-app-polyfill": "^3.0.0",
@@ -103,7 +103,8 @@
         "workbox-webpack-plugin": "6.5.4"
     },
     "resolutions": {
-        "semver": "7.5.3"
+        "semver": "7.5.3",
+        "postcss": "8.4.31"
     },
     "scripts": {
         "start": "./env.sh && move env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
