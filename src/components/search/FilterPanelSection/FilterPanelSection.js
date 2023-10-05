@@ -4,12 +4,12 @@ import "./FilterPanelSection.css";
 
 const FilterPanelSection = ({ title, children }) => (
   <div className="mb-5 mt-2" data-testid="FilterPanelSection">
-    <h3
+    <p
       className="mb-4 text-uppercase panel-heading"
       id={title.split(" ").join("_")}
     >
       {title}
-    </h3>
+    </p>
     {children}
   </div>
 );

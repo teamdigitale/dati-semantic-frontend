@@ -120,7 +120,7 @@ const PrivacyPolicyPage = () => {
               </p>
             </ContentParagraph>
             <ContentParagraph title="Dati trattati, finalità del trattamento e periodo di conservazione">
-              <h5 className="bold">Dati di navigazione</h5>
+              <p className="h5 bold">Dati di navigazione</p>
               <p>
                 I sistemi informatici e le procedure software preposte al
                 funzionamento di questo sito acquisiscono, nel corso del loro
@@ -160,7 +160,7 @@ const PrivacyPolicyPage = () => {
                 I dati di navigazione non persistono per più di centottanta
                 giorni.
               </p>
-              <h5 className="bold">Chi potrà conoscere i dati personali </h5>
+              <p className="h5 bold">Chi potrà conoscere i dati personali </p>
               <p>
                 I dati personali raccolti potranno essere oggetto di
                 comunicazione a soggetti, interni o esterni alla Presidenza del
