@@ -19,6 +19,7 @@ export const API_DOCS_URL = "api-docs";
 export const PRIVACY_POLICY = "privacy-policy";
 export const CONTACT = "contatti";
 export const ERROR_PAGE = "errore";
+export const NEWERROR_PAGE = "error-page";
 export const SearchParameterNames = {
   type: "type",
   theme: "theme",

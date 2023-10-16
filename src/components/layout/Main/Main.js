@@ -13,6 +13,7 @@ import {
   VALIDATORE,
   SEARCH_BASE_URL,
   ERROR_PAGE,
+  NEWERROR_PAGE,
   LEGALNOTICES,
   CONTACT,
 } from "../../../services/routes";
@@ -22,6 +23,7 @@ import ProjectPage from "../../static-content/project/ProjectPage/ProjectPage";
 import PrivacyPolicyPage from "../../static-content/privacy-policy/PrivacyPolicyPage/PrivacyPolicyPage";
 import ContactPage from "../../static-content/contact/ContactPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import NewErrorPage from "../NewErrorPage/NewErrorPage";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Swagger from "../../swagger-ui/Swagger";
 import PropTypes from "prop-types";
@@ -34,6 +36,7 @@ const Main = ({ childRef }) => (
     <Routes>
       <Route path="/" element={<ExplorePage />} />
       <Route path={ERROR_PAGE} element={<ErrorPage />} />
+      <Route path={NEWERROR_PAGE} element={<NewErrorPage />} />
       <Route path={LEGALNOTICES} element={<LeaglNotices />} />
       <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
       <Route path={FAQ_URL} element={<FaqPage />} />

@@ -8,7 +8,7 @@ const ErrorPage = () => {
   return (
     <div className="container mt-5 mb-5" id="ERRORPAGE">
       <div className="row mx-0 my-1 justify-content-center">
-        <div className="col-md-6 d-flex justify-content-center my-5">
+        <div className="col-md-6 d-flex justify-content-center my-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="160"
@@ -28,20 +28,22 @@ const ErrorPage = () => {
       <div className="row mx-0 my-1 justify-content-center">
         <div className="col-md-8 d-flex justify-content-center">
           <h1 className="my-1 text-center text-primary-title" role="status">
-            Il sistema al momento non è disponibile
+            Sistema al momento
+            <br />
+            non disponibile
           </h1>
         </div>
       </div>
       <div className="row mx-0 my-2 justify-content-center">
         <div className="col-md-6 d-flex justify-content-center">
-          <p className="my-1" role="status">
+          <p className="my-1 fw-normal fs-4" role="status">
             Ci scusiamo per l&apos;inconveniente.
             <br />
             Ti invitiamo a riprovare più tardi.
           </p>
         </div>
       </div>
-      <div className="row mx-0 my-2 justify-content-center">
+      <div className="row mx-0 my-4 justify-content-center">
         <div className="col-md-6 d-flex justify-content-center">
           <button className="btn btn-primary" onClick={() => goToHome("/")}>
             Vai alla pagina iniziale

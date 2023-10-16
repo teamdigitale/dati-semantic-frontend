@@ -33,13 +33,13 @@ const NotFound = () => {
       </div>
       <div className="row mx-0 my-2 justify-content-center">
         <div className="col-md-6 d-flex justify-content-center">
-          <p className="my-1" role="status">
+          <p className="my-1 fw-normal fs-4" role="status">
             Utilizza il menu per riprendere la navigazione
           </p>
         </div>
       </div>
       <div className="row mx-0 my-2 justify-content-center">
-        <div className="col-md-6 d-flex justify-content-center">
+        <div className="col-md-6 d-flex justify-content-center my-4">
           <button className="btn btn-primary" onClick={() => goToHome("/")}>
             Vai alla pagina iniziale
           </button>
