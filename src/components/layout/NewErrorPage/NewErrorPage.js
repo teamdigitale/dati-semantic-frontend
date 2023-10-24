@@ -26,12 +26,12 @@ const NewErrorPage = () => {
                 rx="5.5"
                 transform="matrix(-6.79865e-09 -1 -1 6.79865e-09 104 51)"
                 stroke="#F7B000"
-                stroke-width="3"
+                strokeWidth="3"
               />
               <path
                 d="M130 50L115 50C112.239 50 110 47.7614 110 45V45C110 42.2386 112.239 40 115 40L130 40"
                 stroke="#F7B000"
-                stroke-width="3"
+                strokeWidth="3"
               />
               <line
                 x1="1.5"
@@ -40,8 +40,8 @@ const NewErrorPage = () => {
                 y2="-1.5"
                 transform="matrix(-1 6.79865e-09 6.79865e-09 1 116 47)"
                 stroke="#F7B000"
-                stroke-width="3"
-                stroke-linecap="round"
+                strokeWidth="3"
+                strokeLinecap="round"
               />
               <circle cx="45" cy="45" r="45" fill="#0066CC" />
               <path
@@ -64,7 +64,7 @@ const NewErrorPage = () => {
               <path
                 d="M-7.47852e-08 40L14.5 40C17.5376 40 20 42.4624 20 45.5V45.5C20 48.5376 17.5376 51 14.5 51L0 51"
                 stroke="#F7B000"
-                stroke-width="3"
+                strokeWidth="3"
               />
               <rect
                 width="10"
@@ -72,7 +72,7 @@ const NewErrorPage = () => {
                 rx="5"
                 transform="matrix(-6.79865e-09 -1 -1 6.79865e-09 46 50)"
                 stroke="#F7B000"
-                stroke-width="3"
+                strokeWidth="3"
               />
               <line
                 x1="1.5"
@@ -81,96 +81,96 @@ const NewErrorPage = () => {
                 y2="-1.5"
                 transform="matrix(-1 6.79865e-09 6.79865e-09 1 32 47)"
                 stroke="#F7B000"
-                stroke-width="3"
-                stroke-linecap="round"
+                strokeWidth="3"
+                strokeLinecap="round"
               />
               <path
                 d="M41 44.9484C40.9949 50.8617 42.1551 56.718 44.4141 62.1833C46.6732 67.6473 49.9868 72.6135 54.1657 76.7977C58.3446 80.9818 63.3072 84.3007 68.7695 86.566C74.2317 88.8314 80.0867 89.9981 86 90.0004C97.9347 90.0004 109.381 85.2595 117.82 76.8196C126.259 68.3809 131 56.934 131 44.9998C131 33.065 126.259 21.6192 117.82 13.1801C109.381 4.74093 97.9347 0 86 0C74.0753 0.00335007 62.6392 4.73839 54.2022 13.1656C45.7653 21.5928 41.0171 33.0236 41 44.9484Z"
                 fill="#0066CC"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M61 66H113V28H61V66Z"
                 fill="#0066CC"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M61 66H113V28H61V66Z"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M61 39.5H113"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M69 33.5C69 34.3291 68.3288 35 67.4994 35C66.6712 35 66 34.3291 66 33.5C66 32.6709 66.6712 32 67.4994 32C68.3288 32 69 32.6709 69 33.5Z"
                 fill="white"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M74 33.5C74 34.3291 73.3288 35 72.4994 35C71.6712 35 71 34.3291 71 33.5C71 32.6709 71.6712 32 72.4994 32C73.3288 32 74 32.6709 74 33.5Z"
                 fill="white"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M78 33.5C78 34.3291 77.3288 35 76.4994 35C75.6712 35 75 34.3291 75 33.5C75 32.6709 75.6712 32 76.4994 32C77.3288 32 78 32.6709 78 33.5Z"
                 fill="white"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M67 61H108V45H67V61Z"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M67 55.5H108"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M67 50.5H108"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M89.5 45V61"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M89.5 45V61"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M73 45V61"
                 stroke="white"
-                stroke-width="1.34"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="1.34"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </div>

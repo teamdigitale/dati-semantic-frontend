@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import AssetDetailsButtons from "./AssetDetailsButtons";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import {
   AT_ONTOLOGY,
   AT_SCHEMA,
@@ -13,7 +13,6 @@ jest.mock("../../../../services/sparql");
 describe("<AssetDetailsButtons/>", () => {
   beforeEach(() => {
     global.window.open = jest.fn();
-    //global.window.location.href = "/"; // Set a default value for window.location.href
     getSparqlEndpoint.mockReturnValue("http://sparql.example.com");
   });
 
@@ -32,35 +31,16 @@ describe("<AssetDetailsButtons/>", () => {
   });
 
   test("renders buttons for vocab", () => {
-    const openSpy = jest.spyOn(window, "open");
-    render(
-      <AssetDetailsButtons
-        type={AT_VOCABULARY}
-        assetIri={"CvIri"}
-        vocabUrl={"CvUrl"}
-        accessUrl={"gitUrl"}
-      />
-    );
+    render(<AssetDetailsButtons type={AT_VOCABULARY} accessUrl={"gitUrl"} />);
 
     const sparqlButton = screen.getByText("sparql");
     expect(sparqlButton).toBeInTheDocument();
-    fireEvent.click(sparqlButton);
-    // expect(openSpy).toHaveBeenCalledWith(
-    //   "http://sparql.example.com?qtxt=select distinct ?prop ?value where { <CvIri> ?prop ?value}"
-    // );
-    openSpy.mockClear();
 
     const apiBtn = screen.getByText("api");
     expect(apiBtn).toBeInTheDocument();
-    fireEvent.click(apiBtn);
-    // expect(openSpy).toHaveBeenCalledWith("CvUrl");
-    openSpy.mockClear();
 
     const srcBtn = screen.getByText("Vai al sorgente");
     expect(srcBtn).toBeInTheDocument();
-    fireEvent.click(srcBtn);
-    // expect(openSpy).toHaveBeenCalledWith("gitUrl");
-    openSpy.mockClear();
   });
 
   test("renders buttons for ontology", () => {
