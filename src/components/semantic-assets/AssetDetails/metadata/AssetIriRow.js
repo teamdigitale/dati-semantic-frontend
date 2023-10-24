@@ -1,29 +1,25 @@
 import sprite from "../../../../assets/images/sprite.svg";
 import * as PropTypes from "prop-types";
 import React from "react";
+import { baseUrl } from "../../../../services/fetchUtils";
 import rowStyle from "../metadata/MetadataRow.module.css";
 
 const AssetIriRow = (props) => {
-  const type = props.type;
   const url = props.assetIri;
   const handleClick = (event) => {
-    if (type == "ONTOLOGY") {
-      event.preventDefault();
+    event.preventDefault();
 
-      fetch(`https://schema.gov.it/lode/extract?url=${url}`)
-        .then((response) => {
-          if (response.status < 400) {
-            window.open(url);
-          } else {
-            window.open("/error-page", "_self");
-          }
-        })
-        .catch(() => {
+    fetch(`${baseUrl()}/check-url?url=${url}`)
+      .then((response) => {
+        if (response.status < 400) {
+          window.open(url);
+        } else {
           window.open("/error-page", "_self");
-        });
-    } else {
-      window.open(url);
-    }
+        }
+      })
+      .catch(() => {
+        window.open("/error-page", "_self");
+      });
   };
 
   return (
@@ -66,7 +62,6 @@ const AssetIriRow = (props) => {
 
 AssetIriRow.propTypes = {
   assetIri: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
 };
 
 export default AssetIriRow;

@@ -6,12 +6,13 @@ import {
 import * as PropTypes from "prop-types";
 import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
+import { baseUrl } from "../../../../services/fetchUtils";
 import styles from "./AssetDetailsButtons.module.css";
 
 const renderButton = (text, url, className) => {
   const handleButtonClick = (event) => {
     event.preventDefault();
-    fetch(url)
+    fetch(`${baseUrl()}/check-url?url=${url}`)
       .then((response) => {
         if (response.status < 400) {
           window.open(url);
