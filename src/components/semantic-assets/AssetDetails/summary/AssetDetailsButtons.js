@@ -11,19 +11,24 @@ import styles from "./AssetDetailsButtons.module.css";
 
 const renderButton = (text, url, className) => {
   const handleButtonClick = (event) => {
-    event.preventDefault();
-    fetch(`${baseUrl()}/check-url?url=${url}`)
-      .then((response) => {
-        if (response.status < 400) {
-          window.open(url);
-        } else {
+    if (text === "Vai al sorgente") {
+      event.preventDefault();
+      fetch(`${baseUrl()}/check-url?url=${url}`)
+        .then((response) => {
+          if (response.status < 400) {
+            window.open(url);
+          } else {
+            window.open("/error-page", "_self");
+          }
+        })
+        .catch(() => {
           window.open("/error-page", "_self");
-        }
-      })
-      .catch(() => {
-        window.open("/error-page", "_self");
-      });
+        });
+    } else {
+      window.open(url);
+    }
   };
+
   return (
     <button
       aria-label={text + " (si apre in un'altra scheda)"}
