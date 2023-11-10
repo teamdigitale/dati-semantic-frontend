@@ -1,5 +1,4 @@
-# Build
-FROM 18.2.0-alpine3.15 as build
+FROM 18.2.0-alpine as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 COPY package.json yarn.lock ./
