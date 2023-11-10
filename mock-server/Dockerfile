@@ -1,5 +1,5 @@
 # pull official base image
-FROM 18.2.0-alpine3.15 as build
+FROM 18.2.0-alpine as build
 
 # set working directory
 WORKDIR /app
