@@ -1,4 +1,3 @@
-# Build
 FROM 18.2.0-alpine as build
 WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
