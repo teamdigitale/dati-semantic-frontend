@@ -104,10 +104,7 @@ const Validatore = () => {
         body: formData,
       }).then((response) => {
         if (response.status > 400) {
-          throw new Error(
-            alert("Errore durante la validazione del file."),
-            window.location.reload()
-          );
+          throw new Error(window.open("/error-page", "_self"));
         }
         response.json().then((data) => {
           setResponse(data);
