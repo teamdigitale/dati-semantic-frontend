@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import { chunk } from "../../../services/arrayUtils";
-/* import styles from "./ExploreByCategory.module.css"; */
+import styles from "./ExploreByCategory.module.css";
 
 const categoryData = getCategories();
 
@@ -33,15 +33,11 @@ const ExploreByCategory = () => {
           <div className="col-xl-12 d-flex justify-content-start">
             {chunk(categoryCells, categoryCells.length).map((row, rowIndex) => {
               return (
-                <div
-                  role="listitem"
-                  className="row mx-0 px-3"
-                  key={"row" + rowIndex}
-                >
+                <div className="row mx-0 px-3" key={"row" + rowIndex}>
                   {row.map((item) => {
                     return (
                       <div
-                        className="col-xl-4 col-lg-6 px-2 my-4 pointer"
+                        className={`col-xl-4 col-lg-6 px-2 my-4 ${styles.item}`}
                         key={item.key}
                         onClick={item.onClick}
                         data-testid={item.key}

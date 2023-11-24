@@ -51,11 +51,7 @@ const IntroSection = ({
           </div>
         </div>
       ) : null}
-      <div
-        data-testid="Header"
-        className={!isSearch ? styles.bkgIntro : ""}
-        role="complementary"
-      >
+      <div data-testid="Header" className={!isSearch ? styles.bkgIntro : ""}>
         <div className="container-fluid schemaPadding py-5">
           <div className="row mx-0 ">
             <div className=" col-xl-6 mb-0 mb-xl-4 ps-xl-4">

@@ -19,10 +19,7 @@ const SearchResultItem = ({ item }) => {
   return (
     <div className="card-wrapper card-space " data-testid="SearchResultItem">
       <div className={"card card-bg my-2 " + styles.smallerFooter}>
-        <a
-          className="card-body stretched-link text-decoration-none"
-          href={getDetailsPageUrl(item.assetIri)}
-        >
+        <a className="card-body text-decoration-none">
           <div
             className={
               "size-sm d-flex align-items-center " + styles.topmostHeader
@@ -46,9 +43,17 @@ const SearchResultItem = ({ item }) => {
               </div>
             ))}
           </div>
-          <h2 className={"h4 card-title primary-color " + styles.itemTitle}>
+          <h2
+            className={"h4 card-title primary-color " + styles.itemTitle}
+            onClick={(e) => {
+              e.preventDefault();
+              window.location.href = getDetailsPageUrl(item.assetIri);
+            }}
+            style={{ cursor: "pointer" }}
+          >
             {item.title}
           </h2>
+
           <p className={"card-text " + styles.itemDescription}>
             {truncate(item.description, 250)}
           </p>

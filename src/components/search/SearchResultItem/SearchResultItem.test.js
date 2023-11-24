@@ -8,7 +8,6 @@ import {
   getAssetLabel,
 } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
-import { getDetailsPageUrl } from "../../../services/vocabService";
 
 const vocabItem = {
   assetIri: "http://www.disney.com/characters",
@@ -54,10 +53,6 @@ describe("<SearchResultItem />", () => {
     let link = screen.getByText(vocabItem.assetIri);
 
     expect(link).toBeInTheDocument();
-    expect(link.closest("a")).toHaveAttribute(
-      "href",
-      getDetailsPageUrl(vocabItem.assetIri)
-    );
   });
   test("it should display rights holder summary", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);

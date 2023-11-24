@@ -160,3 +160,40 @@ a.btn.endSection {
     padding-right: auto !important;
   }
 }
+
+.swagger-ui .info .title small {
+  background: #707683 !important;
+  border-radius: 57px;
+  display: inline-block;
+  font-size: 10px;
+  margin: 0 0 0 5px;
+  padding: 2px 4px;
+  position: relative;
+  top: -5px;
+  vertical-align: super;
+}
+
+.swagger-ui .info .title small.version-stamp {
+  background-color: #5d8200 !important;
+}
+
+.url {
+  background-color: #3973b6  !important;
+  color: #f0f0f0 !important;
+  text-decoration: underline !important;
+}
+
+a[href="https://schema.gov.it"][target="_blank"][rel="noopener noreferrer"] {
+  background-color: #3973b6 !important;
+  color: #ffffff !important;
+}
+
+
+.swagger-ui .link, .swagger-ui .link:active, .swagger-ui .link:focus, .swagger-ui .link:hover, .swagger-ui .link:link, .swagger-ui .link:visited {
+  text-decoration: underline !important;
+} 
+
+.opblock-summary-method {
+  background-color: #4177ae !important;
+}
+

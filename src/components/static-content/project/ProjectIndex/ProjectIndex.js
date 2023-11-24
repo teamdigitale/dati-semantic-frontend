@@ -17,107 +17,87 @@ const ProjectIndex = (props) => {
   return (
     <React.Fragment>
       {progress && section ? (
-        <div
+        <nav
           className="sidebar-wrapper it-line-right-side"
           data-testid="ProjectIndex"
         >
           <div className="sidebar-linklist-wrapper">
             <div className="link-list-wrapper">
-              <ul className="link-list">
-                <li>
-                  <p className="fw-bold h3">INDICE DELLA PAGINA</p>
-                </li>
-                <li>
-                  <div className="ps-4 pe-4 mb-2">
-                    <div className="progress">
-                      <div
-                        className="progress-bar"
-                        role="progressbar"
-                        aria-valuenow={progress}
-                        aria-valuemin="0"
-                        aria-valuemax="10"
-                        aria-label="progressbar"
-                        style={{ width: progress + "%" }}
-                      ></div>
-                    </div>
+              <h3 className="fw-bold" id="pageindextitle">
+                INDICE DELLA PAGINA
+              </h3>
+              <ul className="link-list" aria-labelledby="pageindextitle">
+                <div className="ps-4 pe-4 mb-2">
+                  <div className="progress">
+                    <div
+                      className="progress-bar"
+                      role="progressbar"
+                      aria-valuenow={progress}
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      aria-label="progressbar"
+                      style={{ width: progress + "%" }}
+                    ></div>
                   </div>
-                </li>
+                </div>
                 <li>
                   <button
+                    role="link"
                     data-testid="ProjectIndexBtn"
-                    className="btn lineUnder"
+                    className="btn text-start"
                     onClick={() => selectSectionPage("Introduzione", 25)}
+                    aria-current={
+                      section === "Introduzione" ? "location" : "false"
+                    }
                   >
-                    <span
-                      className={
-                        "text-primary-title " +
-                        (section && section === "Introduzione"
-                          ? "active"
-                          : "deactive")
-                      }
-                    >
-                      Introduzione
-                    </span>
+                    <span className="text-primary-title">Introduzione</span>
                   </button>
                 </li>
                 <li>
                   <button
+                    role="link"
                     data-testid="ProjectIndexBtn2"
-                    className="btn lineUnder"
+                    className="btn text-start"
                     onClick={() => selectSectionPage("utilizzare", 50)}
+                    aria-current={
+                      section === "utilizzare" ? "location" : "false"
+                    }
                   >
-                    <span
-                      className={
-                        "text-primary-title text-start  py-2" +
-                        (section && section === "utilizzare"
-                          ? "active"
-                          : "deactive")
-                      }
-                    >
+                    <span className="text-primary-title text-nowrap">
                       Come utilizzare il catalogo
                     </span>
                   </button>
                 </li>
                 <li>
                   <button
+                    role="link"
                     data-testid="ProjectIndexBtn3"
-                    className="btn lineUnder"
+                    className="btn text-start"
                     onClick={() => selectSectionPage("attuatori", 75)}
+                    aria-current={
+                      section === "attuatori" ? "location" : "false"
+                    }
                   >
-                    <span
-                      className={
-                        "text-primary-title " +
-                        (section && section === "attuatori"
-                          ? "active"
-                          : "deactive")
-                      }
-                    >
-                      Enti attuatori
-                    </span>
+                    <span className="text-primary-title">Enti attuatori</span>
                   </button>
                 </li>
                 <li>
                   <button
+                    role="link"
                     data-testid="ProjectIndexBtn4"
-                    className="btn lineUnder"
+                    className="btn text-start"
                     onClick={() => selectSectionPage("normativo", 100)}
+                    aria-current={
+                      section === "normativo" ? "location" : "false"
+                    }
                   >
-                    <span
-                      className={
-                        "text-primary-title " +
-                        (section && section === "normativo"
-                          ? "active"
-                          : "deactive")
-                      }
-                    >
-                      Quadro normativo
-                    </span>
+                    <span className="text-primary-title">Quadro normativo</span>
                   </button>
                 </li>
               </ul>
             </div>
           </div>
-        </div>
+        </nav>
       ) : (
         <div data-testid="ProjectIndexE"></div>
       )}

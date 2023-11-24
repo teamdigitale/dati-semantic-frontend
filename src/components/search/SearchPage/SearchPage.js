@@ -90,7 +90,7 @@ function renderResultCount(isLoading, error, searchResult) {
     <div className="row" data-testid="results-count">
       <div className="col-12">
         {!error && !isLoading && searchResult?.totalCount ? (
-          <p className="h2" role="status" aria-live="assertive">
+          <p className="h2" role="alert" aria-live="assertive">
             {searchResult?.totalCount} risultati
           </p>
         ) : (

@@ -50,6 +50,7 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               onPageSelection((currentPageNumber - 2) * PAGE_SIZE);
               e.preventDefault();
             }}
+            aria-disabled={currentPageNumber <= 1 ? "true" : "false"}
           >
             <div className="col-12 col-md-6 col-lg-1">
               <svg className="icon" alt="indietro">
@@ -76,6 +77,11 @@ const Pagination = ({ page, filter, onPageSelect }) => {
                   onPageSelection((pageNumber - 1) * PAGE_SIZE);
                   e.preventDefault();
                 }}
+                aria-disabled={
+                  itemState(pageNumber, totalPages) === "disabled"
+                    ? "true"
+                    : "false"
+                }
               >
                 {pageNumber}
               </a>
@@ -95,6 +101,7 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               onPageSelection(currentPageNumber * PAGE_SIZE);
               e.preventDefault();
             }}
+            aria-disabled={currentPageNumber >= totalPages ? "true" : "false"}
           >
             <span className="visually-hidden text-black">
               Pagina successiva

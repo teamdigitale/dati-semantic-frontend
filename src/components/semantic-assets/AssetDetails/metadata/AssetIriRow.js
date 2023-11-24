@@ -42,7 +42,6 @@ const AssetIriRow = (props) => {
       <div className="col-1">
         <a
           aria-label="Vai all'URI dell'asset (si apre in un'altra scheda)"
-          role="link"
           className="btn btn-sm pt-0"
           onClick={handleClick}
           target="_blank"

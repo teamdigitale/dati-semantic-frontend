@@ -12,7 +12,11 @@ export const BreadCrumbs = (props) => {
           {props?.arrayBread?.map((bread, i) => {
             return bread?.link != "" && bread?.link != "back" ? (
               <li className="breadcrumb-item" key={bread?.id + "key" + i}>
-                <a className="link" href={bread?.link} title={bread?.label}>
+                <a
+                  className="link text-decoration-none"
+                  href={bread?.link}
+                  title={bread?.label}
+                >
                   {bread?.label}
                 </a>
                 <span className="separator">/</span>
@@ -23,7 +27,11 @@ export const BreadCrumbs = (props) => {
                 key={bread?.id + "keyBack" + i}
                 onClick={() => history?.back()}
               >
-                <a className="link" href="#" title={bread?.label}>
+                <a
+                  className="link text-decoration-none"
+                  href="#"
+                  title={bread?.label}
+                >
                   {bread?.label}
                 </a>
                 <span className="separator">/</span>
@@ -35,7 +43,9 @@ export const BreadCrumbs = (props) => {
                 key={bread?.id + "Skey" + i}
                 title={bread?.label}
               >
-                <strong>{bread?.label}</strong>
+                <a className="link text-decoration-none" href="">
+                  <strong>{bread?.label}</strong>
+                </a>
               </li>
             );
           })}

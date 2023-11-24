@@ -23,7 +23,7 @@ const ExploreByType = () => {
     const onTypeClick = useCallback(() => searchFor(type), [type]);
 
     return (
-      <div className={"col-xl-4"} role="listitem">
+      <div className={"col-xl-4"}>
         <div
           className={"card-wrapper card-space " + styles.fontExploreByTypeColor}
         >
