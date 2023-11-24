@@ -83,7 +83,11 @@ const Swagger = () => {
 
   return (
     <div>
-      <div data-testid="Swagger Intro" className="project-body container">
+      <div
+        data-testid="Swagger Intro"
+        className="project-body container"
+        lang="en"
+      >
         {alertMess && alertMess != "" ? (
           <div>
             <div className="py-3">
@@ -95,7 +99,17 @@ const Swagger = () => {
         ) : null}
         <div className="ms-5 ps-5 pt-5">
           {!vocabDetails && (
-            <ContentParagraph title="Come utilizzare le API per i vocabolari">
+            <ContentParagraph>
+              <h1
+                className="h3"
+                style={{
+                  fontSize: "1.555rem",
+                  lineHeight: "1.428",
+                  fontWeight: "600",
+                }}
+              >
+                Come utilizzare le API per i vocabolari
+              </h1>
               <p>
                 Qui di seguito è visualizzata la specifica delle API REST messe
                 a disposizione dal Catalogo.
@@ -104,9 +118,17 @@ const Swagger = () => {
             </ContentParagraph>
           )}
           {vocabDetails && (
-            <ContentParagraph
-              title={"Come utilizzare le API per '" + vocabDetails.title + "'"}
-            >
+            <ContentParagraph>
+              <h1
+                className="h3"
+                style={{
+                  fontSize: "1.555rem",
+                  lineHeight: "1.428",
+                  fontWeight: "600",
+                }}
+              >
+                Come utilizzare le API per {`${vocabDetails.title}`}
+              </h1>
               Nell&apos;utilizzo degli endpoint per le voci del Vocabolario
               Controllato, utilizzare:
               <ul>

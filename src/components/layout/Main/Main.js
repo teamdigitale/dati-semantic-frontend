@@ -31,7 +31,7 @@ import LeaglNotices from "../../static-content/legal-notices/legalNotices";
 import Validatore from "../../static-content/validatore/Validatore";
 
 const Main = ({ childRef }) => (
-  <main id="main" ref={childRef} tabIndex={-1} role="main">
+  <main id="main" ref={childRef} tabIndex={-1}>
     <ScrollToTop />
     <Routes>
       <Route path="/" element={<ExplorePage />} />

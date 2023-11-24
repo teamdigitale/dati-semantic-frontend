@@ -5,7 +5,7 @@ import styles from "./FooterLinks.module.css";
 
 const FooterLinks = () => {
   return (
-    <div className={styles.footerLinks} role="contentinfo">
+    <div className={styles.footerLinks}>
       <div className="container-fluid px-5">
         <div className="mx-0 my-0 pt-3 align-items-center d-flex">
           <p className="pe-5">

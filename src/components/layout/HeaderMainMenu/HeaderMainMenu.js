@@ -44,9 +44,8 @@ const HeaderMainMenu = () => {
           <div className="col-12">
             <div id="it-region-header-nav" className="region header_nav">
               <nav
-                role="navigation"
                 className="navbar navbar-expand-lg has-megamenu theme-dark-mobile px-2"
-                aria-label="main-menu"
+                aria-label="menu principale"
               >
                 <button
                   className="custom-navbar-toggler"
@@ -72,18 +71,17 @@ const HeaderMainMenu = () => {
                     </button>
                   </div>
                   <h2 id="main-menu-title" className="d-none">
-                    Main Menu
+                    Menu Principale
                   </h2>
                   <div className="menu-wrapper">
                     {screenSize[0] <= 991 && (
-                      <ul className="navbar-nav container-fluid" role="list">
+                      <ul className="navbar-nav container-fluid">
                         <div className="d-flex flex-column">
                           <div className="mainmenu_left">
                             {menuItems.map((menuItem) => (
                               <li
                                 className="nav-item megamenu"
                                 key={menuItem.label}
-                                role="listitem"
                                 onClick={handleClick}
                               >
                                 <Link
@@ -94,6 +92,9 @@ const HeaderMainMenu = () => {
                                     (isActive(menuItem.href) ? " active" : "")
                                   }
                                   to={menuItem.href}
+                                  aria-current={
+                                    isActive(menuItem.href) ? "page" : "false"
+                                  }
                                 >
                                   <span className="">{menuItem.label}</span>
                                 </Link>
@@ -105,7 +106,6 @@ const HeaderMainMenu = () => {
                               <li
                                 className="nav-item megamenu"
                                 key={menuItem.label}
-                                role="listitem"
                                 onClick={handleClick}
                               >
                                 <Link
@@ -116,6 +116,9 @@ const HeaderMainMenu = () => {
                                     (isActive(menuItem.href) ? " active" : "")
                                   }
                                   to={menuItem.href}
+                                  aria-current={
+                                    isActive(menuItem.href) ? "page" : "false"
+                                  }
                                 >
                                   <span className="">{menuItem.label}</span>
                                 </Link>
@@ -126,13 +129,12 @@ const HeaderMainMenu = () => {
                       </ul>
                     )}
                     {screenSize[0] > 991 && (
-                      <ul className="navbar-nav container-fluid" role="list">
+                      <ul className="navbar-nav container-fluid">
                         <div className="mainmenu_left">
                           {menuItems.map((menuItem) => (
                             <li
                               className="nav-item megamenu"
                               key={menuItem.label}
-                              role="listitem"
                               onClick={handleClick}
                             >
                               <Link
@@ -154,7 +156,6 @@ const HeaderMainMenu = () => {
                             <li
                               className="nav-item megamenu"
                               key={menuItem.label}
-                              role="listitem"
                               onClick={handleClick}
                             >
                               <Link

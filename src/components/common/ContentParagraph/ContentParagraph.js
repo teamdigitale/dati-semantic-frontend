@@ -11,7 +11,7 @@ const ContentParagraph = ({ title, children }) => {
 };
 
 ContentParagraph.propTypes = {
-  title: string.isRequired,
+  title: string,
   children: node,
 };
 ContentParagraph.defaultPropTypes = {};
