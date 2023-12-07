@@ -83,7 +83,11 @@ const Swagger = () => {
 
   return (
     <div>
-      <div data-testid="Swagger Intro" className="project-body container">
+      <div
+        data-testid="Swagger Intro"
+        className="project-body container"
+        lang="en"
+      >
         {alertMess && alertMess != "" ? (
           <div>
             <div className="py-3">
