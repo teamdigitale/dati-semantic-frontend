@@ -34,6 +34,11 @@ const AssetIriRow = (props) => {
             target="_blank"
             rel="noreferrer"
             className={rowStyle.assetLink}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              pointerEvents: "none",
+            }}
           >
             {url}
           </a>
@@ -43,6 +48,7 @@ const AssetIriRow = (props) => {
         <a
           aria-label="Vai all'URI dell'asset (si apre in un'altra scheda)"
           className="btn btn-sm pt-0"
+          href={sprite + "#it-external-link"}
           onClick={handleClick}
           target="_blank"
           rel="noreferrer"

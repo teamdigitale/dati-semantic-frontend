@@ -56,10 +56,7 @@ const ExploreByType = () => {
   return (
     <ExploreSection title="Esplora per strumenti semantici">
       <div className="container-fluid">
-        <div
-          className={"row justify-content-between mx-0 mt-4 mb-5 pb-3"}
-          role="list"
-        >
+        <div className={"row justify-content-between mx-0 mt-4 mb-5 pb-3"}>
           {renderType(AT_SCHEMA)}
           {renderType(AT_ONTOLOGY)}
           {renderType(AT_VOCABULARY)}

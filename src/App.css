@@ -178,14 +178,12 @@ a.btn.endSection {
 }
 
 .url {
-  background-color: #3973b6  !important;
-  color: #f0f0f0 !important;
+  color: #3973b6 !important;
   text-decoration: underline !important;
 }
 
 a[href="https://schema.gov.it"][target="_blank"][rel="noopener noreferrer"] {
-  background-color: #3973b6 !important;
-  color: #ffffff !important;
+  color: #3973b6 !important;
 }
 
 
@@ -196,4 +194,3 @@ a[href="https://schema.gov.it"][target="_blank"][rel="noopener noreferrer"] {
 .opblock-summary-method {
   background-color: #4177ae !important;
 }
-

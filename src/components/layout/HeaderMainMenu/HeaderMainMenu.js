@@ -52,7 +52,7 @@ const HeaderMainMenu = () => {
                   type="button"
                   aria-controls="main-menu"
                   aria-expanded="false"
-                  aria-label="Toggle navigation"
+                  aria-label="Toggle navigazione"
                   data-bs-toggle="navbarcollapsible"
                   data-bs-target="#main-menu"
                 >
@@ -145,6 +145,9 @@ const HeaderMainMenu = () => {
                                   (isActive(menuItem.href) ? " active" : "")
                                 }
                                 to={menuItem.href}
+                                aria-current={
+                                  isActive(menuItem.href) ? "page" : "false"
+                                }
                               >
                                 <span className="">{menuItem.label}</span>
                               </Link>
@@ -166,6 +169,9 @@ const HeaderMainMenu = () => {
                                   (isActive(menuItem.href) ? " active" : "")
                                 }
                                 to={menuItem.href}
+                                aria-current={
+                                  isActive(menuItem.href) ? "page" : "false"
+                                }
                               >
                                 <span className="">{menuItem.label}</span>
                               </Link>

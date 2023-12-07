@@ -8,6 +8,10 @@ import ProjectIndex from "../ProjectIndex/ProjectIndex";
 const ProjectBody = () => {
   const handleChangeSection = (id) => {
     if (typeof window !== "undefined" && window.location) {
+      const titleElement = document.getElementById(id);
+      if (titleElement) {
+        titleElement.focus();
+      }
       document.getElementById(id).scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -24,8 +28,8 @@ const ProjectBody = () => {
         </div>
         <div className="col-lg-5 mt-5 pt-2">
           <div className="">
-            <p id="INTRODUZIONE"></p>
-            <ContentParagraph title="Introduzione">
+            {/* <p id="INTRODUZIONE"></p> */}
+            <ContentParagraph id="INTRODUZIONE" title="Introduzione">
               <p>
                 Schema è il catalogo nazionale della semantica dei dati. Il
                 catalogo facilita la ricerca e il riuso di asset semantici, come
@@ -37,7 +41,7 @@ const ProjectBody = () => {
                 durante gli scambi tra le parti. In altre parole, “ciò che viene
                 inviato è ciò che viene compreso”.
               </p>
-              <div>
+              <div>     
                 <p>
                   La piattaforma cataloga, rendendoli ricercabili e riusabili:
                 </p>
@@ -67,8 +71,11 @@ const ProjectBody = () => {
                 </ul>
               </div>
             </ContentParagraph>
-            <p id="UTILIZZARE"></p>
-            <ContentParagraph title="Come utilizzare il catalogo?">
+            {/* <p id="UTILIZZARE"></p> */}
+            <ContentParagraph
+              id="UTILIZZARE"
+              title="Come utilizzare il catalogo?"
+            >
               <p>
                 Il catalogo serve a ricercare, consultare e riutilizzare
                 ontologie, vocabolari controllati e schemi dati. È rivolto in
@@ -109,8 +116,8 @@ const ProjectBody = () => {
                 validazione della semantica delle API.
               </p>
             </ContentParagraph>
-            <p id="ATTUATORI"></p>
-            <ContentParagraph title="Enti attuatori">
+            {/* <p id="ATTUATORI"></p> */}
+            <ContentParagraph id="ATTUATORI" title="Enti attuatori">
               <p>
                 Il progetto nasce dalla collaborazione fra Dipartimento per la
                 trasformazione digitale, ISTAT, Istituto di Scienze e Tecnologie
@@ -123,8 +130,8 @@ const ProjectBody = () => {
                 dei contenuti pubblicati.
               </p>
             </ContentParagraph>
-            <p id="NORMATIVO"></p>
-            <ContentParagraph title="Quadro normativo">
+            {/* <p id="NORMATIVO"></p> */}
+            <ContentParagraph id="NORMATIVO" title="Quadro normativo">
               <p>
                 Da un punto di vista normativo, la necessità di garantire
                 l’interoperabilità semantica nella pubblica amministrazione
