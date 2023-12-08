@@ -28,7 +28,7 @@ const ExploreByCategory = () => {
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
-      <div className="mt-4 container-fluid px-5 pb-5" role="list">
+      <div className="mt-4 container-fluid px-5 pb-5">
         <div className="row mx-0">
           <div className="col-xl-12 d-flex justify-content-start">
             {chunk(categoryCells, categoryCells.length).map((row, rowIndex) => {
@@ -36,31 +36,31 @@ const ExploreByCategory = () => {
                 <div className="row mx-0 px-3" key={"row" + rowIndex}>
                   {row.map((item) => {
                     return (
-                      <div
-                        className={`col-xl-4 col-lg-6 px-2 my-4 ${styles.item}`}
+                      <a
+                        href="#"
+                        className={`col-xl-4 col-lg-6 px-2 my-4 ${styles.item} searchForCategoryLink`}
                         key={item.key}
                         onClick={item.onClick}
                         data-testid={item.key}
+                        tabIndex="0"
                       >
-                        <a href="#" className="searchForCategoryLink">
-                          <div className="card card-teaser rounded shadow">
-                            <div className="card-body">
-                              <div className="row mx-0 px-1">
-                                <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center align-items-end">
-                                  <CategoryIcon category={item} />
-                                </div>
-                                <div className="col-lg-8 d-flex justify-content-lg-start justify-content-center align-items-center">
-                                  <p className="h5">
-                                    <strong className="text-center">
-                                      {item.label}
-                                    </strong>
-                                  </p>
-                                </div>
+                        <div className="card card-teaser rounded shadow">
+                          <div className="card-body">
+                            <div className="row mx-0 px-1">
+                              <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center align-items-end">
+                                <CategoryIcon category={item} />
+                              </div>
+                              <div className="col-lg-8 d-flex justify-content-lg-start justify-content-center align-items-center">
+                                <p className="h5">
+                                  <strong className="text-center">
+                                    {item.label}
+                                  </strong>
+                                </p>
                               </div>
                             </div>
                           </div>
-                        </a>
-                      </div>
+                        </div>
+                      </a>
                     );
                   })}
                 </div>

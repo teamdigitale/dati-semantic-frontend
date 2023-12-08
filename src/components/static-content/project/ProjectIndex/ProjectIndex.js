@@ -20,26 +20,27 @@ const ProjectIndex = (props) => {
         <nav
           className="sidebar-wrapper it-line-right-side"
           data-testid="ProjectIndex"
+          id="nav"
         >
           <div className="sidebar-linklist-wrapper">
             <div className="link-list-wrapper">
               <h3 className="fw-bold" id="pageindextitle">
                 INDICE DELLA PAGINA
               </h3>
-              <ul className="link-list" aria-labelledby="pageindextitle">
-                <div className="ps-4 pe-4 mb-2">
-                  <div className="progress">
-                    <div
-                      className="progress-bar"
-                      role="progressbar"
-                      aria-valuenow={progress}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                      aria-label="progressbar"
-                      style={{ width: progress + "%" }}
-                    ></div>
-                  </div>
+              <div className="ps-4 pe-4 mb-2">
+                <div className="progress">
+                  <div
+                    className="progress-bar"
+                    role="progressbar"
+                    aria-valuenow={progress}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label="progressbar"
+                    style={{ width: progress + "%" }}
+                  ></div>
                 </div>
+              </div>
+              <ul className="link-list" aria-labelledby="pageindextitle">
                 <li>
                   <button
                     role="link"
