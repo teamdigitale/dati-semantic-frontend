@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { ReactComponent as Logo } from "../../../assets/images/dt-logo.svg";
 import { Link } from "react-router-dom";

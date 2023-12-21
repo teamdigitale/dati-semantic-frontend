@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import SwaggerUI from "swagger-ui-react";
 import { baseUrl } from "../../services/fetchUtils";
 import "swagger-ui-react/swagger-ui.css";

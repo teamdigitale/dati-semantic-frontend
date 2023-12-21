@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState } from "react";
 import "./ProjectIndex.css";
 const ProjectIndex = (props) => {
