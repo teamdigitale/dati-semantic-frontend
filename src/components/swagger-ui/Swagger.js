@@ -94,7 +94,7 @@ const Swagger = () => {
           </div>
         ) : null}
 
-        <div className="ms-5 ps-5 pt-5" lang="en">
+        <div className="ms-5 ps-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph>
               <h1
@@ -144,7 +144,9 @@ const Swagger = () => {
               </p>
             </ContentParagraph>
           )}
-          <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
+          <div lang="en">
+            <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
+          </div>
         </div>
       </div>
     </div>

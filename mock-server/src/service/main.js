@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const mbHelper = require("../mountebank-helper");
 const settings = require("../settings");
 

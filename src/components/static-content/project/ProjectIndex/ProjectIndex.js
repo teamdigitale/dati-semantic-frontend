@@ -36,6 +36,7 @@ const ProjectIndex = (props) => {
                     aria-valuemin="0"
                     aria-valuemax="100"
                     aria-label="progressbar"
+                    aria-hidden="true"
                     style={{ width: progress + "%" }}
                   ></div>
                 </div>

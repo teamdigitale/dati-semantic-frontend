@@ -32,6 +32,11 @@ const OntologyMetadata = ({ details }) => {
                           href={keyClass.iri}
                           target="_blank"
                           rel="noreferrer"
+                          style={{
+                            textDecoration: "none",
+                            color: "inherit",
+                            pointerEvents: "none",
+                          }}
                         >
                           {keyClass.summary !== null && keyClass.iri
                             ? keyClass.summary

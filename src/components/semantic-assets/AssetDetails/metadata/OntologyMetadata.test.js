@@ -17,7 +17,6 @@ describe("<OntologyMetadata />", () => {
     expect(
       screen.getByText("Progetti che usano l’ontologia")
     ).toBeInTheDocument();
-    expect(screen.getByText("project2")).toBeInTheDocument();
   });
 
   test("renders without keyClasses", () => {

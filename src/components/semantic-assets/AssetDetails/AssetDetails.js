@@ -115,7 +115,9 @@ const AssetDetails = ({ details }) => {
                                 </div>
                               </div>
                               <hr className="border-black" />
-                              <SwaggerUI url={downloadUrl} />
+                              <div lang="en">
+                                <SwaggerUI url={downloadUrl} />
+                              </div>
                             </div>
                           </div>
                         )}
