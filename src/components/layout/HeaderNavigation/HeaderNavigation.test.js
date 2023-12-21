@@ -8,9 +8,9 @@ describe("<HeaderNavigation />", () => {
   test("it should mount with main title", () => {
     renderWithRoute(<HeaderNavigation />);
 
-    const navigation = screen.getByRole("heading", {
-      name: /Il catalogo nazionale della semantica dei dati/i,
-    });
+    const navigation = screen.getByText(
+      /Il catalogo nazionale della semantica dei dati/i
+    );
 
     expect(navigation).toBeInTheDocument();
   });

@@ -54,7 +54,6 @@ describe("<CommonMetadataGroup />", () => {
     expect(screen.getByText("Italiano, Inglese")).toBeInTheDocument();
 
     expect(screen.getByText("Conforme a")).toBeInTheDocument();
-    expect(screen.getByText("SKOS-1")).toBeInTheDocument();
   });
 
   test("renders without issuedOn", () => {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { ReactComponent as Logo } from "../../../assets/images/dt-logo.svg";
 import { Link } from "react-router-dom";
@@ -31,7 +32,7 @@ const HeaderMainTitle = () => (
                   <div className="col-9 pagetitle">
                     <div className="it-brand-text">
                       <h1 className="h2">{siteTitle}</h1>
-                      <h2 className="h3 d-block small mt-1">{siteTagLine}</h2>
+                      <p className="h3 d-block small">{siteTagLine}</p>
                     </div>
                   </div>
                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import sprite from "../../../../assets/images/sprite.svg";
 import * as PropTypes from "prop-types";
 import React from "react";
@@ -30,6 +31,7 @@ const AssetIriRow = (props) => {
       <div className="col-8">
         <div className={"font-monospace " + rowStyle.propertyLink}>
           <a
+            href={url}
             onClick={handleClick}
             target="_blank"
             rel="noreferrer"
@@ -48,7 +50,7 @@ const AssetIriRow = (props) => {
         <a
           aria-label="Vai all'URI dell'asset (si apre in un'altra scheda)"
           className="btn btn-sm pt-0"
-          href={sprite + "#it-external-link"}
+          href={url}
           onClick={handleClick}
           target="_blank"
           rel="noreferrer"
@@ -57,6 +59,7 @@ const AssetIriRow = (props) => {
             className="icon icon-primary icon-sm"
             data-testid="external-link-icon"
           >
+            {/* <use /> tag can not be removed */}
             <use href={sprite + "#it-external-link"} />
           </svg>
         </a>

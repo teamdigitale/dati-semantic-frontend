@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import SwaggerUI from "swagger-ui-react";
 import { baseUrl } from "../../services/fetchUtils";
 import "swagger-ui-react/swagger-ui.css";
@@ -83,11 +84,7 @@ const Swagger = () => {
 
   return (
     <div>
-      <div
-        data-testid="Swagger Intro"
-        className="project-body container"
-        lang="en"
-      >
+      <div data-testid="Swagger Intro" className="project-body container">
         {alertMess && alertMess != "" ? (
           <div>
             <div className="py-3">
@@ -98,7 +95,7 @@ const Swagger = () => {
           </div>
         ) : null}
 
-        <div className="ms-5 ps-5 pt-5" lang="en">
+        <div className="ms-5 ps-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph>
               <h1
@@ -148,7 +145,9 @@ const Swagger = () => {
               </p>
             </ContentParagraph>
           )}
-          <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
+          <div lang="en">
+            <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
+          </div>
         </div>
       </div>
     </div>

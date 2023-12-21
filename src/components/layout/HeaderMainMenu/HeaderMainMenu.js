@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { routes } from "../../../services/routes";
@@ -52,7 +53,7 @@ const HeaderMainMenu = () => {
                   type="button"
                   aria-controls="main-menu"
                   aria-expanded="false"
-                  aria-label="Toggle navigazione"
+                  aria-label="Attiva/Disattiva Navigazione"
                   data-bs-toggle="navbarcollapsible"
                   data-bs-target="#main-menu"
                 >
@@ -75,14 +76,17 @@ const HeaderMainMenu = () => {
                   </h2>
                   <div className="menu-wrapper">
                     {screenSize[0] <= 991 && (
-                      <ul className="navbar-nav container-fluid">
+                      <nav className="navbar-nav container-fluid">
                         <div className="d-flex flex-column">
-                          <div className="mainmenu_left">
+                          <ul className="mainmenu_left m-0 list-unstyled">
                             {menuItems.map((menuItem) => (
                               <li
                                 className="nav-item megamenu"
                                 key={menuItem.label}
                                 onClick={handleClick}
+                                aria-current={
+                                  isActive(menuItem.href) ? "page" : "false"
+                                }
                               >
                                 <Link
                                   title={menuItem.label}
@@ -92,21 +96,21 @@ const HeaderMainMenu = () => {
                                     (isActive(menuItem.href) ? " active" : "")
                                   }
                                   to={menuItem.href}
-                                  aria-current={
-                                    isActive(menuItem.href) ? "page" : "false"
-                                  }
                                 >
                                   <span className="">{menuItem.label}</span>
                                 </Link>
                               </li>
                             ))}
-                          </div>
-                          <div>
+                          </ul>
+                          <ul className="list-unstyled">
                             {additionalMenuItems.map((menuItem) => (
                               <li
                                 className="nav-item megamenu"
                                 key={menuItem.label}
                                 onClick={handleClick}
+                                aria-current={
+                                  isActive(menuItem.href) ? "page" : "false"
+                                }
                               >
                                 <Link
                                   title={menuItem.label}
@@ -116,26 +120,26 @@ const HeaderMainMenu = () => {
                                     (isActive(menuItem.href) ? " active" : "")
                                   }
                                   to={menuItem.href}
-                                  aria-current={
-                                    isActive(menuItem.href) ? "page" : "false"
-                                  }
                                 >
                                   <span className="">{menuItem.label}</span>
                                 </Link>
                               </li>
                             ))}
-                          </div>
+                          </ul>
                         </div>
-                      </ul>
+                      </nav>
                     )}
                     {screenSize[0] > 991 && (
-                      <ul className="navbar-nav container-fluid">
-                        <div className="mainmenu_left">
+                      <nav className="navbar-nav container-fluid">
+                        <ul className="mainmenu_left mb-0">
                           {menuItems.map((menuItem) => (
                             <li
                               className="nav-item megamenu"
                               key={menuItem.label}
                               onClick={handleClick}
+                              aria-current={
+                                isActive(menuItem.href) ? "page" : "false"
+                              }
                             >
                               <Link
                                 title={menuItem.label}
@@ -145,21 +149,21 @@ const HeaderMainMenu = () => {
                                   (isActive(menuItem.href) ? " active" : "")
                                 }
                                 to={menuItem.href}
-                                aria-current={
-                                  isActive(menuItem.href) ? "page" : "false"
-                                }
                               >
                                 <span className="">{menuItem.label}</span>
                               </Link>
                             </li>
                           ))}
-                        </div>
-                        <div className="mainmenu_right">
+                        </ul>
+                        <ul className="mainmenu_right mb-0">
                           {additionalMenuItems.map((menuItem) => (
                             <li
                               className="nav-item megamenu"
                               key={menuItem.label}
                               onClick={handleClick}
+                              aria-current={
+                                isActive(menuItem.href) ? "page" : "false"
+                              }
                             >
                               <Link
                                 title={menuItem.label}
@@ -169,16 +173,13 @@ const HeaderMainMenu = () => {
                                   (isActive(menuItem.href) ? " active" : "")
                                 }
                                 to={menuItem.href}
-                                aria-current={
-                                  isActive(menuItem.href) ? "page" : "false"
-                                }
                               >
                                 <span className="">{menuItem.label}</span>
                               </Link>
                             </li>
                           ))}
-                        </div>
-                      </ul>
+                        </ul>
+                      </nav>
                     )}
                   </div>
                 </div>

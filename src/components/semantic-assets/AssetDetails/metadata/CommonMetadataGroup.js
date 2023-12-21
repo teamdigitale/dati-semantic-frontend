@@ -17,8 +17,14 @@ const getLanguages = (languages) => {
 
 export const getSummaries = (list) => {
   return list
-    .filter((i) => i.summary)
-    .map((i) => i.summary)
+    .map((i) => {
+      if (i.summary === null) {
+        const iris = i.iri.split("/");
+        return iris[iris.length - 1];
+      } else {
+        return i.summary;
+      }
+    })
     .join(", ");
 };
 
