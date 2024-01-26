@@ -13,14 +13,28 @@
 a:hover {
   color: white !important;
 }
+
 .bottomFooter {
   color: white !important;
   font-size: 15px;
   padding-right: 15px;
 }
-.bottomFooter + .bottomFooter {
-  padding-left: 40px; /* Add your desired padding value */
+
+.bottomFooter+.bottomFooter {
+  padding-left: 40px;
+  /* Add your desired padding value */
 }
+
 .bottomFooter:hover {
   color: #0bd9d2 !important;
+}
+
+
+@media screen and (max-width: 992px) {
+  .bottomFooter {
+    text-wrap: nowrap;
+    font-size: 10px;
+    margin-right: -3em;
+  }
+
 }

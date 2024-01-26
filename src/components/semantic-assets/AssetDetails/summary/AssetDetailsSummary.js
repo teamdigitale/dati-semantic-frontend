@@ -36,8 +36,8 @@ const AssetDetailsSummary = (props) => {
   }, []);
   return (
     <div data-testid="asset-details-summary">
-      <div className="row pt-3 pb-3">
-        <div className="col-6 text-uppercase fw-bold">
+      <div className={" row pt-3 pb-3"}>
+        <div className={styles.text + " col-6 text-uppercase fw-bold"}>
           <div className="category-top pt-1">
             {categories.map((c) => (
               <div key={c.key} className="category">
@@ -46,22 +46,22 @@ const AssetDetailsSummary = (props) => {
             ))}
           </div>
         </div>
-        <div className="col-6 text-end">
+        <div className="col-6 text-center">
           <AssetTypeChip type={props.type} bgColor={"blue"} />
         </div>
       </div>
       <div className="row pt-3 pb-3">
         <div className="col-12">
-          <h1 className="h2">{props.title}</h1>
+          <h1 className={styles.topp + "h2"}>{props.title}</h1>
         </div>
       </div>
       <div className={"row " + styles.detailsCard}>
         <div className="col-12">
           <div className="card-wrapper card-space">
-            <div className="card card-bg my-2 ps-5 pe-5 pt-5">
+            <div className={" card card-bg my-2 ps-5 pe-5 pt-5"}>
               <div className={"row " + styles.description}>
                 <div
-                  className={`${columnClass} ${styles.scrollable}`}
+                  className={`${columnClass} ${styles.scrollable} ${styles.card}`}
                   tabIndex="0"
                 >
                   <div className={"pe-3 pt-1" + styles.descriptionText}>

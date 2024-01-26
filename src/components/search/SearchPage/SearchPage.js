@@ -138,7 +138,7 @@ const SearchPage = () => {
     <React.Fragment>
       <IntroSection
         title="Cerca nel catalogo nazionale 
-        della sematica dei dati"
+        della semantica dei dati"
         subtitle="Cerca e utilizza tra decine di asset semantici. Puoi cercare per parola chiave, filtrare i risultati per categoria o strumento semantico, o titolare."
         type=""
         isSearch={true}
@@ -179,7 +179,7 @@ const SearchPage = () => {
             </div>
           </div>
         </div>
-        <EndSection type={1} />
+        <EndSection type={2} />
       </div>
     </React.Fragment>
   );

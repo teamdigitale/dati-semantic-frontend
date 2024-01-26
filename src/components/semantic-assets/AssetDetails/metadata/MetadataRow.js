@@ -5,7 +5,7 @@ import * as PropTypes from "prop-types";
 const MetadataRow = (props) => {
   return (
     <div>
-      <div className="row">
+      <div className={"row " + styles.column}>
         <div className="col-3">
           <div className="pe-3">
             <h3 className={styles.propertyName}>{props.name}</h3>

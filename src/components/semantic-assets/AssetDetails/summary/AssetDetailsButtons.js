@@ -58,7 +58,7 @@ const AssetDetailsButtons = (props) => {
 
   return (
     <div
-      className="justify-content-end d-flex"
+      className={"justify-content-end d-flex " + styles.cntbuttons}
       data-testid="asset-details-buttons"
     >
       {props.type !== AT_SCHEMA && (

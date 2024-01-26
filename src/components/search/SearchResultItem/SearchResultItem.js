@@ -16,6 +16,11 @@ const SearchResultItem = ({ item }) => {
   const categories = getCategories().filter(
     (c) => item.themes.indexOf(c.uri) > -1
   );
+
+  const copyUrlToClipboard = () => {
+    navigator.clipboard.writeText(item.assetIri);
+  };
+
   return (
     <div className="card-wrapper card-space " data-testid="SearchResultItem">
       <div className={"card card-bg my-2 " + styles.smallerFooter}>
@@ -53,11 +58,13 @@ const SearchResultItem = ({ item }) => {
           >
             {item.title}
           </h2>
-
           <p className={"card-text " + styles.itemDescription}>
             {truncate(item.description, 250)}
           </p>
           <div className={styles.itemInfo}>
+            <button className="btn btn-secondary" onClick={copyUrlToClipboard}>
+              Copia URL
+            </button>
             {item.type !== AT_SCHEMA && (
               <div>
                 <span className={"fw-bold " + styles.itemInfoLabel}>URI:</span>{" "}

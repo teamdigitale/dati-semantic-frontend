@@ -10,6 +10,13 @@ export const DEFAULT_OFFSET = 0;
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 
 const getPageSlidingWindow = (currentPage, totalPages) => {
+  if (totalPages <= 2) {
+    if (totalPages === 2) {
+      return [1, 2];
+    }
+    return [1];
+  }
+
   if (currentPage === 1) {
     return [1, 2, 3];
   }
@@ -18,6 +25,7 @@ const getPageSlidingWindow = (currentPage, totalPages) => {
     if (totalPages > 3) {
       return [currentPage - 2, currentPage - 1, currentPage];
     }
+
     return [1, 2, 3];
   }
 

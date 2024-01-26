@@ -9,7 +9,7 @@ const VocabularyMetadata = ({ details }) => {
     <div data-testid="vocab-metadata">
       <CommonMetadataGroup details={details} />
       {details.endpointUrl && (
-        <div className="row" data-testid="asset-iri-row">
+        <div className={"row " + rowStyle.column} data-testid="asset-iri-row">
           <div className={"col-3 strong " + rowStyle.propertyName}>
             Indirizzo dell&apos;endpoint
           </div>
@@ -20,11 +20,6 @@ const VocabularyMetadata = ({ details }) => {
                 target="_blank"
                 rel="noreferrer"
                 className={rowStyle.assetLink}
-                style={{
-                  textDecoration: "none",
-                  color: "inherit",
-                  pointerEvents: "none",
-                }}
               >
                 {details.endpointUrl}
               </a>
@@ -42,7 +37,6 @@ const VocabularyMetadata = ({ details }) => {
                 className="icon icon-primary icon-sm"
                 data-testid="external-link-icon-for-endpoint-url"
               >
-                {/* <use /> tag can not be removed */}
                 <use href={sprite + "#it-external-link"} />
               </svg>
             </a>

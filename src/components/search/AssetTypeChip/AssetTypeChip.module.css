@@ -6,3 +6,11 @@
   text-transform: none;
   color: #fff !important;
 }
+
+
+@media screen and (max-width: 992px) {
+  .chop {
+    height: 5em !important;
+    padding-bottom: 1em !important;
+  }
+}
