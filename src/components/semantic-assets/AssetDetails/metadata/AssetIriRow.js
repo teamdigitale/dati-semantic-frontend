@@ -24,7 +24,7 @@ const AssetIriRow = (props) => {
   };
 
   return (
-    <div className="row" data-testid="asset-iri-row">
+    <div className={"row " + rowStyle.column} data-testid="asset-iri-row">
       <div className={"col-3 strong "}>
         <h3 className={"strong " + rowStyle.propertyName}>URI</h3>
       </div>

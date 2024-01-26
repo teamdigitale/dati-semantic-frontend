@@ -3,15 +3,15 @@ import React from "react";
 import { DIGITALE_DOCS_URL, GITHUB_SCHEMA } from "../../../services/routes";
 import sprite from "../../../assets/images/sprite.svg";
 export const EndSection = (props) => {
-  const buttonStyles = {
-    display: "inline-block",
-    padding: "0.5rem 1rem",
-    border: "1px solid white",
-    color: "white",
-    textDecoration: "none",
-    fontWeight: "bold",
-    background: "transparent",
-  };
+  // const buttonStyles = {
+  //   display: "inline-block",
+  //   padding: "0.5rem 1rem",
+  //   border: "1px solid white",
+  //   color: "white",
+  //   textDecoration: "none",
+  //   fontWeight: "bold",
+  //   background: "transparent",
+  // };
   return (
     <React.Fragment>
       <div className="endSectionBkg">
@@ -62,8 +62,8 @@ export const EndSection = (props) => {
                   <div className="col-xl-12">
                     <p className="txtWhite">
                       Se trovi errori o bug apri una issue su github.
-                      <br /> Se vuoi contribuire al catalogo con un contenuto{" "}
-                      leggi la guida su docs italia
+                      {/* <br /> Se vuoi contribuire al catalogo con un contenuto{" "}
+                      leggi la guida su docs italia                    */}
                     </p>
                   </div>
                 </div>
@@ -85,7 +85,7 @@ export const EndSection = (props) => {
                     </a>
                   </div>
                   <div className="col-xl-7 ms-5 mt-lg-0 d-flex justify-content-start">
-                    <a
+                    {/* <a
                       className="btn ms-0 ms-xl-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
                       role="button"
@@ -94,7 +94,7 @@ export const EndSection = (props) => {
                       style={buttonStyles}
                     >
                       Scopri come contribuire
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               </div>

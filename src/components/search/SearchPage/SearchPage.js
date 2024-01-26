@@ -179,7 +179,7 @@ const SearchPage = () => {
             </div>
           </div>
         </div>
-        <EndSection type={1} />
+        <EndSection type={2} />
       </div>
     </React.Fragment>
   );

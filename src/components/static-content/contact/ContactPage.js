@@ -47,7 +47,7 @@ const ContactPage = () => {
         </div>
       </div>
 
-      <EndSection type={2} />
+      <EndSection type={1} />
     </div>
   );
 };

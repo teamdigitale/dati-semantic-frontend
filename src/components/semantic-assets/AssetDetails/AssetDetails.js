@@ -30,7 +30,7 @@ const AssetDetails = ({ details }) => {
       <div className={"w-100 " + styles.bkg}>
         <div className={"container-fluid "}>
           <div className="mx-0 ps-3">
-            <div className="col-lg-12 ps-5">
+            <div className={"col-lg-12 " + styles.padding}>
               <BreadCrumbs arrayBread={breadC} />
             </div>
           </div>
@@ -130,7 +130,7 @@ const AssetDetails = ({ details }) => {
           </div>
         </div>
       </div>
-      <EndSection type={1} />
+      <EndSection type={2} />
     </div>
   );
 };

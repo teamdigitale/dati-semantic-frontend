@@ -16,3 +16,13 @@
 .assetLink:hover {
   color: #084d91 !important;
 }
+
+@media screen and (max-width: 992px) {
+  .column {
+    flex-direction: column ;
+  }
+
+  .propertyName {
+    text-wrap: nowrap;
+  }
+}

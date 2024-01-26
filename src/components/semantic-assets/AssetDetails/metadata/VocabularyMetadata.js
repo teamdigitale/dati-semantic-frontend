@@ -9,7 +9,7 @@ const VocabularyMetadata = ({ details }) => {
     <div data-testid="vocab-metadata">
       <CommonMetadataGroup details={details} />
       {details.endpointUrl && (
-        <div className="row" data-testid="asset-iri-row">
+        <div className={"row " + rowStyle.column} data-testid="asset-iri-row">
           <div className={"col-3 strong " + rowStyle.propertyName}>
             Indirizzo dell&apos;endpoint
           </div>
