@@ -148,7 +148,7 @@ a.btn.endSection {
     padding-right: 3rem !important;
   }
 }
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .container-fluid.schemaPadding {
     padding-left: 0.7rem !important;
     padding-right: 0.7rem !important;
@@ -159,7 +159,7 @@ a.btn.endSection {
     padding-left: auto !important;
     padding-right: auto !important;
   }
-}
+} */
 
 .swagger-ui .info .title small {
   background: #707683 !important;

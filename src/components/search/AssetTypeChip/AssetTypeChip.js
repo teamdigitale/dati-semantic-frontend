@@ -8,7 +8,7 @@ import {
 
 const AssetTypeChip = ({ type }) => (
   <div
-    className={styles.chop + " bg-primary chip chip-simple chip-lg border-0"}
+    className=" bg-primary chip chip-simple chip-lg border-0"
     data-testid="AssetTypeChip"
     aria-label={"Tipologia:" + getAssetLabel(type)}
   >

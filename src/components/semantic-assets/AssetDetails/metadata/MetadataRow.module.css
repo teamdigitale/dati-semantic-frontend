@@ -24,5 +24,6 @@
 
   .propertyName {
     text-wrap: nowrap;
+    font-size: 13px;
   }
 }

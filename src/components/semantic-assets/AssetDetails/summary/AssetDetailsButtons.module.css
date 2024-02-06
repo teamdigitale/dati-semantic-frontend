@@ -1,13 +1,12 @@
 .detailsButton {
-  margin: 30px 5px 30px 15px;
-  width: 186px;
   height: 48px;
+  margin: 10px;
+  width: 186px;
 }
 
 
 @media screen and (max-width: 992px) {
   .cntbuttons {
-    margin-left: 2.5em;
     flex-direction: column;
     justify-content: flex-end !important;
   }

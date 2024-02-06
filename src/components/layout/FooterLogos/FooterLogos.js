@@ -9,7 +9,7 @@ import "./FooterLogos.css";
 const FooterLogos = () => {
   return (
     <div className="container-fluid" style={{ padding: "0 40px" }}>
-      <div className="footer_logoteam d-flex">
+      <div className="footer_logoteam  logos list-unstyled d-flex flex-column flex-md-row flex-wrap align-items-center mb-0 justify-content-md-between">
         <div className="footer_logo_img">
           <a
             aria-label="Vai al sito del pnrr"
@@ -34,7 +34,7 @@ const FooterLogos = () => {
             />
           </a>
         </div>
-        <div className="footer_logo_img">
+        <div className="footer_logo_img d-none d-lg-block">
           <Divider
             className="img-fluid img-logo-header-normal  d-inline-block align-top p-2 rounded"
             alt="divisore"
