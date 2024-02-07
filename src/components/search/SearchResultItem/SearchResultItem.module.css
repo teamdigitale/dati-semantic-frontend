@@ -15,6 +15,13 @@
   font-size: 18px !important;
 }
 
+.copyurl:hover, .copyurl:hover * {
+  color: #06c;
+  cursor: pointer;
+  text-decoration: underline !important;
+}
+
+
 .itemInfo {
   font-size: 15px;
   font-weight: normal;

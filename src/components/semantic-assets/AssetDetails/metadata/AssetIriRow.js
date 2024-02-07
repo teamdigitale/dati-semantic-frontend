@@ -22,6 +22,10 @@ const AssetIriRow = (props) => {
       });
   };
 
+  const copyUrlToClipboard = () => {
+    navigator.clipboard.writeText(url);
+  };
+
   return (
     <div className={"row " + rowStyle.column} data-testid="asset-iri-row">
       <div className={"col-3 strong "}>
@@ -44,10 +48,15 @@ const AssetIriRow = (props) => {
           </a>
         </div>
       </div>
-      <div className="col-1">
+      <div className="col-1 d-flex">
+        <a className="btn btn-sm pt-0 px-1 pe-3" onClick={copyUrlToClipboard}>
+          <svg className={" icon icon-sm icon-primary"} alt="copia URI">
+            <use href={sprite + "#it-copy"}></use>
+          </svg>{" "}
+        </a>
         <a
           aria-label="Vai all'URI dell'asset (si apre in un'altra scheda)"
-          className="btn btn-sm pt-0"
+          className="btn btn-sm pt-0 px-1"
           href={sprite + "#it-external-link"}
           onClick={handleClick}
           target="_blank"
