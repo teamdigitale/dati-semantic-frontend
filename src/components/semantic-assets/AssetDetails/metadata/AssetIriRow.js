@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import sprite from "../../../../assets/images/sprite.svg";
 import * as PropTypes from "prop-types";
 import React from "react";
@@ -23,6 +22,10 @@ const AssetIriRow = (props) => {
       });
   };
 
+  const copyUrlToClipboard = () => {
+    navigator.clipboard.writeText(url);
+  };
+
   return (
     <div className={"row " + rowStyle.column} data-testid="asset-iri-row">
       <div className={"col-3 strong "}>
@@ -31,7 +34,6 @@ const AssetIriRow = (props) => {
       <div className="col-8">
         <div className={"font-monospace " + rowStyle.propertyLink}>
           <a
-            href={url}
             onClick={handleClick}
             target="_blank"
             rel="noreferrer"
@@ -46,11 +48,16 @@ const AssetIriRow = (props) => {
           </a>
         </div>
       </div>
-      <div className="col-1">
+      <div className="col-1 d-flex">
+        <a className="btn btn-sm pt-0 px-1 pe-3" onClick={copyUrlToClipboard}>
+          <svg className={" icon icon-sm icon-primary"} alt="copia URI">
+            <use href={sprite + "#it-copy"}></use>
+          </svg>{" "}
+        </a>
         <a
           aria-label="Vai all'URI dell'asset (si apre in un'altra scheda)"
-          className="btn btn-sm pt-0"
-          href={url}
+          className="btn btn-sm pt-0 px-1"
+          href={sprite + "#it-external-link"}
           onClick={handleClick}
           target="_blank"
           rel="noreferrer"
@@ -59,7 +66,6 @@ const AssetIriRow = (props) => {
             className="icon icon-primary icon-sm"
             data-testid="external-link-icon"
           >
-            {/* <use /> tag can not be removed */}
             <use href={sprite + "#it-external-link"} />
           </svg>
         </a>

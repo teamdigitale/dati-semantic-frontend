@@ -42,6 +42,40 @@ const Pagination = ({ page, filter, onPageSelect }) => {
     onPageSelect({ ...filter, ["offset"]: offset });
     window.scrollTo(0, 0);
   };
+
+  // if (totalPages === 1) {
+  //   return (
+  //     <nav
+  //       className="pagination-wrapper justify-content-center"
+  //       aria-label="Navigazione allineata a destra"
+  //     >
+  //       <ul className="pagination">
+  //         <li className="page-item disabled">
+  //           <a className="page-link" href="#" tabIndex="-1" aria-hidden="true">
+  //             <svg className="icon icon-primary">
+  //               <use href="/bootstrap-italia/dist/svg/sprites.svg#it-chevron-left"></use>
+  //             </svg>
+  //             <span className="visually-hidden">Pagina precedente</span>
+  //           </a>
+  //         </li>
+  //         <li className="page-item">
+  //           <a className="page-link" href="#" aria-current="page">
+  //             <span className="d-inline-block d-sm-none">Pagina </span>1
+  //           </a>
+  //         </li>
+  //         <li className="page-item">
+  //           <a className="page-link" href="#">
+  //             <span className="visually-hidden">Pagina successiva</span>
+  //             <svg className="icon icon-primary">
+  //               <use href="/bootstrap-italia/dist/svg/sprites.svg#it-chevron-right"></use>
+  //             </svg>
+  //           </a>
+  //         </li>
+  //       </ul>
+  //     </nav>
+  //   );
+  // }
+
   return (
     <nav
       className="pagination-wrapper justify-content-center"
@@ -60,11 +94,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             }}
             aria-disabled={currentPageNumber <= 1 ? "true" : "false"}
           >
-            <div className="col-12 col-md-6 col-lg-1">
-              <svg className="icon" alt="indietro">
-                <use href={sprite + "#it-chevron-left"}></use>
-              </svg>{" "}
-            </div>
+            <svg className="icon" alt="indietro">
+              <use href={sprite + "#it-chevron-left"}></use>
+            </svg>{" "}
             <span className="visually-hidden text-black">
               Pagina precedente
             </span>
@@ -114,11 +146,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             <span className="visually-hidden text-black">
               Pagina successiva
             </span>
-            <div className="col-12 col-md-6 col-lg-1">
-              <svg className="icon" alt="avanti">
-                <use href={sprite + "#it-chevron-right"}></use>
-              </svg>{" "}
-            </div>
+            <svg className="icon" alt="avanti">
+              <use href={sprite + "#it-chevron-right"}></use>
+            </svg>{" "}
           </a>
         </li>
       </ul>

@@ -50,7 +50,7 @@ export const EndSection = (props) => {
             </div>
           ) : (
             <div className="row mx-0 py-5" data-testid="endSection_2">
-              <div className="col-xl-5">
+              <div className="">
                 <div className="row mx-0">
                   <h2 className="txtWhite">
                     Schema è un catalogo in
@@ -68,7 +68,7 @@ export const EndSection = (props) => {
                   </div>
                 </div>
                 <div className="mx-0 ms-2 mt-2 d-flex">
-                  <div className="col-xl-4">
+                  <div className="">
                     <a
                       className="btn btn-primary endSection link fw-bold d-flex"
                       href={GITHUB_SCHEMA}
@@ -76,8 +76,8 @@ export const EndSection = (props) => {
                       aria-label="vai su github di schema"
                       title="vai su github di schema"
                     >
-                      Vai su github{" "}
-                      <div className="col-12 col-md-6 col-lg-3">
+                      Vai su github
+                      <div className="">
                         <svg className="icon icon-sm icon-primary ms-2">
                           <use href={sprite + "#it-github"}></use>
                         </svg>{" "}

@@ -16,7 +16,7 @@ const OntologyMetadata = ({ details }) => {
       {details.keyClasses?.length > 0 && (
         <div>
           <div className="row">
-            <div className="col-3">
+            <div className="col">
               <div className="pe-3">
                 <h3 className={style.propertyName}>Concetti principali</h3>
               </div>

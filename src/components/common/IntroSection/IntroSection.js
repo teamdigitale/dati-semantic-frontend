@@ -77,7 +77,7 @@ const IntroSection = ({
                 )}
 
                 {secondaryButtonLink ? (
-                  <div className="col-xl-6 d-flex justify-content-xl-start mx-0 ms-xl-4 px-0 ms-3 ps-xl-0">
+                  <div className="col-xl-6 d-flex justify-content-xl-start mx-0 ms-xl-4 px-0 ms-2 ps-xl-0">
                     <a
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary

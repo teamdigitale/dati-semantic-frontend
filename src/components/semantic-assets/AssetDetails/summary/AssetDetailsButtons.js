@@ -58,11 +58,11 @@ const AssetDetailsButtons = (props) => {
 
   return (
     <div
-      className={"justify-content-end d-flex " + styles.cntbuttons}
+      className={"buttons-wrapper my-5 text-center text-sm-end"}
       data-testid="asset-details-buttons"
     >
       {props.type !== AT_SCHEMA && (
-        <div>
+        <div className="btn p-0">
           {renderButton(
             "sparql",
             getSparqlEndpoint() +
@@ -75,7 +75,7 @@ const AssetDetailsButtons = (props) => {
         </div>
       )}
       {props.type === AT_VOCABULARY && (
-        <div>
+        <div className="btn p-0">
           {renderButton(
             "api",
             props.vocabUrl,
@@ -83,7 +83,7 @@ const AssetDetailsButtons = (props) => {
           )}
         </div>
       )}
-      <div>
+      <div className="btn p-0">
         {renderButton("Vai al sorgente", props.accessUrl, "btn-primary")}
       </div>
     </div>

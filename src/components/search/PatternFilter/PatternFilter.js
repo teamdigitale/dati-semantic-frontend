@@ -38,10 +38,10 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
                 </div>
               </span>
             </div>
-            <div className="col-12">
+            <div className="col-12 col-md-12">
               <button
                 type="submit"
-                className="btn btn-primary w-75 mx-auto m-4 p-2"
+                className="btn btn-primary w-100 mx-auto m-4 p-2"
                 data-testid="submit"
               >
                 Cerca

@@ -46,13 +46,13 @@ const AssetDetailsSummary = (props) => {
             ))}
           </div>
         </div>
-        <div className="col-6 text-center">
+        <div className="col-md-6 d-flex justify-content-end">
           <AssetTypeChip type={props.type} bgColor={"blue"} />
         </div>
       </div>
       <div className="row pt-3 pb-3">
         <div className="col-12">
-          <h1 className={styles.topp + "h2"}>{props.title}</h1>
+          <h1 className={"h2"}>{props.title}</h1>
         </div>
       </div>
       <div className={"row " + styles.detailsCard}>
@@ -68,7 +68,9 @@ const AssetDetailsSummary = (props) => {
                     {props.description}
                   </div>
                 </div>
-                <div className={`${column2Class} text-end`}>
+                <div
+                  className={`${column2Class} text-end text-nowrap no-wrap-xs mt-3 px-0`}
+                >
                   <ModifiedOnOrVersion
                     type={props.type}
                     modifiedOn={props.modifiedOn}

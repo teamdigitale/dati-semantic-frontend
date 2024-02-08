@@ -57,7 +57,7 @@ const ModifiedOnOrVersion = (props) => {
           <span className="chip-label text-white">{statusText}</span>
         </div>
       )}
-      <div className="ms-3">
+      <div className="col-ms-6 px-2">
         {label} <strong>{value}</strong>
       </div>
     </div>

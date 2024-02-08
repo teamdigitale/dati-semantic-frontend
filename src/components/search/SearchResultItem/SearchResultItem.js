@@ -11,6 +11,7 @@ import AssetTypeChip from "../AssetTypeChip/AssetTypeChip";
 import styles from "./SearchResultItem.module.css";
 import { truncate } from "../../../services/stringUtils";
 import ModifiedOnOrVersion from "../../common/ModifiedOnOrVersion/ModifiedOnOrVersion";
+import sprite from "../../../assets/images/sprite.svg";
 
 const SearchResultItem = ({ item }) => {
   const categories = getCategories().filter(
@@ -27,7 +28,8 @@ const SearchResultItem = ({ item }) => {
         <a className="card-body text-decoration-none">
           <div
             className={
-              "size-sm d-flex align-items-center " + styles.topmostHeader
+              "size-sm d-flex align-items-center flex-column flex-sm-row " +
+              styles.topmostHeader
             }
           >
             <div>
@@ -68,7 +70,23 @@ const SearchResultItem = ({ item }) => {
             {item.type !== AT_SCHEMA && (
               <div>
                 <span className={"fw-bold " + styles.itemInfoLabel}>URI:</span>{" "}
-                <span className={styles.itemInfoLabel}>{item.assetIri}</span>
+                <span
+                  onClick={copyUrlToClipboard}
+                  className={styles.copyurl}
+                  title="Copia"
+                >
+                  <span className={styles.itemInfoLabel + " px-1 pe-3"}>
+                    {item.assetIri}
+                  </span>
+                  <span className={styles.copy}>
+                    <svg
+                      className={" icon icon-sm icon-primary"}
+                      alt="copia URI"
+                    >
+                      <use href={sprite + "#it-copy"}></use>
+                    </svg>{" "}
+                  </span>
+                </span>
               </div>
             )}
             <div>
