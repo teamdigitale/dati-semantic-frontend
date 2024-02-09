@@ -64,9 +64,6 @@ const SearchResultItem = ({ item }) => {
             {truncate(item.description, 250)}
           </p>
           <div className={styles.itemInfo}>
-            <button className="btn btn-secondary" onClick={copyUrlToClipboard}>
-              Copia URL
-            </button>
             {item.type !== AT_SCHEMA && (
               <div>
                 <span className={"fw-bold " + styles.itemInfoLabel}>URI:</span>{" "}

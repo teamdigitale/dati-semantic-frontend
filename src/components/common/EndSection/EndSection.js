@@ -84,8 +84,8 @@ export const EndSection = (props) => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-xl-7 ms-5 mt-lg-0 d-flex justify-content-start">
-                    {/* <a
+                  {/* <div className="col-xl-7 ms-5 mt-lg-0 d-flex justify-content-start">
+                    <a
                       className="btn ms-0 ms-xl-2 mt-xl-0"
                       href={DIGITALE_DOCS_URL}
                       role="button"
@@ -94,8 +94,8 @@ export const EndSection = (props) => {
                       style={buttonStyles}
                     >
                       Scopri come contribuire
-                    </a> */}
-                  </div>
+                    </a>
+                  </div> */}
                 </div>
               </div>
             </div>
