@@ -79,7 +79,7 @@ const SearchResultItem = ({ item }) => {
                     <svg
                       className={" icon icon-sm icon-primary"}
                       alt="copia URI"
-                    >
+                    > 
                       <use href={sprite + "#it-copy"}></use>
                     </svg>{" "}
                   </span>
