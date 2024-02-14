@@ -16,13 +16,10 @@ const OntologyMetadata = ({ details }) => {
       {details.keyClasses?.length > 0 && (
         <div>
           <div className="row">
-            <div className="col">
-              <div className="pe-3">
-                <h3 className={style.propertyName}>Concetti principali</h3>
-              </div>
+            <div className="col-12 col-lg-3 strong">
+              <h3 className={style.propertyName}>Concetti principali</h3>
             </div>
-
-            <div className="col-8">
+            <div className="col-12 col-lg-9">
               {details.keyClasses && details.keyClasses.length > 0 ? (
                 details.keyClasses.map((keyClass, index) => {
                   {
@@ -33,11 +30,6 @@ const OntologyMetadata = ({ details }) => {
                           href={keyClass.iri}
                           target="_blank"
                           rel="noreferrer"
-                          style={{
-                            textDecoration: "none",
-                            color: "inherit",
-                            pointerEvents: "none",
-                          }}
                         >
                           {keyClass.summary !== null && keyClass.iri
                             ? keyClass.summary
