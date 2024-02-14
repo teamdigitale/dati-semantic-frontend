@@ -6,12 +6,10 @@ const MetadataRow = (props) => {
   return (
     <div>
       <div className={"row " + styles.column}>
-        <div className="col-3">
-          <div className="pe-3">
-            <h3 className={styles.propertyName}>{props.name}</h3>
-          </div>
+        <div className="col-12 col-lg-3 strong">
+          <h3 className={styles.propertyName}>{props.name}</h3>
         </div>
-        <div className="col-8">
+        <div className="col-12 col-lg-9">
           <span className={styles.propertyValue}>{props.value}</span>
         </div>
         <div className="col-1">{props.externalLink}</div>

@@ -25,6 +25,11 @@ const VocabularyMetadata = ({ details }) => {
                   target="_blank"
                   rel="noreferrer"
                   className={rowStyle.assetLink}
+                  style={{
+                    textDecoration: "none",
+                    color: "inherit",
+                    pointerEvents: "none",
+                  }}
                 >
                   {details.endpointUrl}
                 </a>

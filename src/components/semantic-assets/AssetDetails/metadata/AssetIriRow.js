@@ -68,6 +68,11 @@ const AssetIriRow = (props) => {
               onClick={handleClick}
               target="_blank"
               rel="noreferrer"
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                pointerEvents: "none",
+              }}
             >
               <svg
                 className="icon icon-primary icon-sm"
