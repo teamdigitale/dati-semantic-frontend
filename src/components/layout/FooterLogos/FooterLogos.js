@@ -8,7 +8,7 @@ import "./FooterLogos.css";
 
 const FooterLogos = () => {
   return (
-    <div className="container-fluid" style={{ padding: "0 40px" }}>
+    <div className="container">
       <div className="footer_logoteam  logos list-unstyled d-flex flex-column flex-md-row flex-wrap align-items-center mb-0 justify-content-md-between">
         <div className="footer_logo_img">
           <a
