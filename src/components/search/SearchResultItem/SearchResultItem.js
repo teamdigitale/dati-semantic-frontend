@@ -28,8 +28,7 @@ const SearchResultItem = ({ item }) => {
         <a className="card-body text-decoration-none">
           <div
             className={
-              "size-sm d-flex align-items-center flex-column flex-sm-row " +
-              styles.topmostHeader
+              "size-sm d-flex flex-column flex-sm-row " + styles.topmostHeader
             }
           >
             <div>

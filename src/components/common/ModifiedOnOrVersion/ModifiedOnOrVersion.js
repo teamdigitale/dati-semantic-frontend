@@ -49,7 +49,7 @@ const ModifiedOnOrVersion = (props) => {
     >
       {props.status && (
         <div
-          className={`chip chip-simple chip-lg ms-2 border-0`}
+          className={`chip chip-simple chip-lg border-0`}
           style={{
             backgroundColor: chipColor,
           }}

@@ -14,7 +14,11 @@ const SchemaMetadata = (props) => {
   };
   return (
     <div data-testid="schema-metadata">
-      <MetadataRow name="Titolare" value={props.rightsHolder.summary} />
+      <MetadataRow
+        name="Titolare"
+        value={props.rightsHolder.summary}
+        iconLink={props.rightsHolder.iri}
+      />
       {props.issuedOn && (
         <MetadataRow
           name={"Data Creazione"}

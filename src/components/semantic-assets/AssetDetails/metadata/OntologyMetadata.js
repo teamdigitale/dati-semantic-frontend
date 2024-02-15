@@ -10,6 +10,7 @@ const OntologyMetadata = ({ details }) => {
       return iris[iris.length - 1];
     }
   };
+
   return (
     <div data-testid="ontology-metadata">
       <CommonMetadataGroup details={details} />

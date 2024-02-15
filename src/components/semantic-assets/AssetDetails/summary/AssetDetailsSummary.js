@@ -46,8 +46,10 @@ const AssetDetailsSummary = (props) => {
             ))}
           </div>
         </div>
-        <div className="col-md-6 d-flex justify-content-end">
-          <AssetTypeChip type={props.type} bgColor={"blue"} />
+        <div className="col-md-6">
+          <div className="d-md-flex justify-content-end">
+            <AssetTypeChip type={props.type} bgColor={"blue"} />
+          </div>
         </div>
       </div>
       <div className="row pt-3 pb-3">

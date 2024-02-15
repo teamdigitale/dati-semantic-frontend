@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 const Footer = ({ childRef }) => {
   return (
-    <footer id="footer" ref={childRef} tabIndex={-1}>
+    <footer className="it-footer" id="footer" ref={childRef} tabIndex={-1}>
       <FooterLogos />
       <FooterLinks />
     </footer>

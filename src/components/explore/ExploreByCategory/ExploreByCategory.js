@@ -44,10 +44,12 @@ const ExploreByCategory = () => {
                         data-testid={item.key}
                         tabIndex="0"
                       >
-                        <div className="card card-teaser rounded shadow">
+                        <div
+                          className={`card card-teaser rounded shadow ${styles.customCard}`}
+                        >
                           <div className="card-body">
                             <div className="row mx-0 px-1">
-                              <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center align-items-end">
+                              <div className="col-lg-4 d-flex justify-content-lg-start justify-content-center align-items-center">
                                 <CategoryIcon category={item} />
                               </div>
                               <div className="col-lg-8 d-flex justify-content-lg-start justify-content-center align-items-center">
