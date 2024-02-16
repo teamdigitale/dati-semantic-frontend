@@ -53,10 +53,7 @@ const AssetIriRow = (props) => {
             </a>
           </div>
           <div className="col-xl-2 col-4 text-end">
-            <a
-              className="btn btn-sm pt-0 px-1 pe-3"
-              onClick={copyUrlToClipboard}
-            >
+            <a className="btn btn-sm pt-0 px-1" onClick={copyUrlToClipboard}>
               <svg className={" icon icon-sm icon-primary"} alt="copia URI">
                 <use href={sprite + "#it-copy"}></use>
               </svg>{" "}
