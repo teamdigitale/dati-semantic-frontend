@@ -41,7 +41,7 @@ const FooterLogos = () => {
             title=""
           />
         </div>
-        <div className="footer_logo_img me-4">
+        <div className="footer_logo_img">
           <a
             aria-label="Vai al sito del Dipartimento per la trasformazione digitale"
             href="https://innovazione.gov.it/dipartimento/"

@@ -37,9 +37,9 @@ const MetadataRow = (props) => {
               <div className="col-1">{props.externalLink}</div>
             )}
           </div>
-          <hr />
         </div>
       </div>
+      <hr />
     </div>
   );
 };

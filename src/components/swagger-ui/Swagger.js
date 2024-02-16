@@ -146,7 +146,7 @@ const Swagger = () => {
             </ContentParagraph>
           )}
           <div lang="en">
-            <SwaggerUI url={baseUrl() + "/api-docs.yaml"} />
+            <SwaggerUI url={baseUrl() + "/openapi.yaml"} />
           </div>
         </div>
       </div>
