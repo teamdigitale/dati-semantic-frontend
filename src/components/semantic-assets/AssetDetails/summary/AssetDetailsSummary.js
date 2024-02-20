@@ -35,7 +35,7 @@ const AssetDetailsSummary = (props) => {
     };
   }, []);
   return (
-    <div data-testid="asset-details-summary">
+    <div data-testid="asset-details-summary" id="asset-details-summary">
       <div className={" row pt-3 pb-3"}>
         <div className={styles.text + " col-6 text-uppercase fw-bold"}>
           <div className="category-top pt-1">
@@ -97,7 +97,7 @@ AssetDetailsSummary.propTypes = {
   description: PropTypes.string.isRequired,
   modifiedOn: PropTypes.string,
   versionInfo: PropTypes.string,
-  status: PropTypes.string,
+  status: PropTypes.string
 };
 
 export default AssetDetailsSummary;

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   AT_ONTOLOGY,
   AT_SCHEMA,
-  AT_VOCABULARY,
+  AT_VOCABULARY
 } from "../../../services/dataConstants";
 import styles from "./AssetDetails.module.css";
 import AssetDetailsSummary from "./summary/AssetDetailsSummary";
@@ -25,6 +25,27 @@ const AssetDetails = ({ details }) => {
   let breadC = Array.from(BREADCRUMBS.DETAILSPAGE);
   breadC[2].label = "";
   breadC[2].label = details?.title;
+
+  const detailSummaryEl = document.getElementById("asset-details-summary");
+  const backgroundEl = document.getElementById("background");
+
+  const handleChangeBackground = () => {
+    const offset = detailSummaryEl.clientHeight - 100;
+    backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc ${offset}px, white 0)`;
+  };
+
+  useEffect(() => {
+    if (detailSummaryEl) {
+      window.addEventListener("resize", handleChangeBackground);
+    }
+    if (backgroundEl)
+      backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc 20%, white 0)`;
+
+    return () => {
+      window.removeEventListener("resize", handleChangeBackground);
+    };
+  }, [detailSummaryEl, backgroundEl]);
+
   return (
     <div>
       <div className={"w-100 " + styles.bkg}>
@@ -38,7 +59,8 @@ const AssetDetails = ({ details }) => {
       </div>
 
       <div
-        className={"row " + styles.detailsContainer + " mx-0"}
+        className={"row mx-0"}
+        id="background"
         data-testid="asset-details-container"
       >
         {alertMess && alertMess != "" ? (
@@ -82,7 +104,7 @@ const AssetDetails = ({ details }) => {
                               fontSize: "0.8rem",
                               paddingBottom: "0.5rem",
                               width: "100%",
-                              borderBottom: "1px solid black",
+                              borderBottom: "1px solid black"
                             }}
                           >
                             <h2>dettagli</h2>
