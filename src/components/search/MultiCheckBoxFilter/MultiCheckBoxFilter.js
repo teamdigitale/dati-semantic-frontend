@@ -7,7 +7,7 @@ const MultiCheckBoxFilter = ({
   keysAndLabels,
   selection,
   onSelectionUpdate,
-  labbledById,
+  labbledById
 }) => {
   const addToSelection = (toBeAdded) => () => {
     onSelectionUpdate([...selection, toBeAdded]);
@@ -100,12 +100,12 @@ MultiCheckBoxFilter.propTypes = {
   keysAndLabels: arrayOf(
     shape({
       key: string.isRequired,
-      label: string,
+      label: string
     })
   ).isRequired,
   selection: arrayOf(string).isRequired,
   onSelectionUpdate: func.isRequired,
-  labbledById: string,
+  labbledById: string
 };
 
 MultiCheckBoxFilter.defaultProps = {};

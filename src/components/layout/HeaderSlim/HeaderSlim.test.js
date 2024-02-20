@@ -8,7 +8,7 @@ describe("<HeaderSlim />", () => {
     render(<HeaderSlim />);
 
     const header = screen.getByRole("link", {
-      name: /Dipartimento per la trasformazione Digitale/i,
+      name: /Dipartimento per la trasformazione Digitale/i
     });
 
     expect(header).toBeInTheDocument();
@@ -19,7 +19,7 @@ describe("<HeaderSlim />", () => {
 
     const anchor = screen
       .getByRole("link", {
-        name: /Dipartimento per la trasformazione Digitale/i,
+        name: /Dipartimento per la trasformazione Digitale/i
       })
       .closest("a");
 

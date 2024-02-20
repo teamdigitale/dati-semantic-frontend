@@ -59,9 +59,9 @@ BreadCrumbs.propTypes = {
     shape({
       label: string.isRequired,
       link: string,
-      id: number.isRequired,
+      id: number.isRequired
     })
-  ).isRequired,
+  ).isRequired
 };
 BreadCrumbs.defaultProps = {};
 export default BreadCrumbs;

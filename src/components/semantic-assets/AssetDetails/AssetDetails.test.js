@@ -10,11 +10,11 @@ import AssetDetailsButtons from "./summary/AssetDetailsButtons";
 jest.mock("../../../services/sparql");
 jest.mock("swagger-ui-react", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 jest.mock("./summary/AssetDetailsButtons", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 const details = assetDetails();
@@ -89,9 +89,9 @@ describe("<AssetDetails />", () => {
       distributions: [
         {
           accessUrl: "access.yaml",
-          downloadUrl: "download.yaml",
-        },
-      ],
+          downloadUrl: "download.yaml"
+        }
+      ]
     };
     detailsWithAccessUrl.type = AT_SCHEMA;
     render(<AssetDetails details={detailsWithAccessUrl} />);
@@ -103,7 +103,7 @@ describe("<AssetDetails />", () => {
           "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
         vocabUrl:
           "/api-docs?vocabIri=https%3A%2F%2Fw3id.org%2Fitalia%2Fcontrolled-vocabulary%2Fclassifications-for-organizations%2Flegal-status",
-        accessUrl: "access.yaml",
+        accessUrl: "access.yaml"
       }),
       {}
     );
@@ -114,9 +114,9 @@ describe("<AssetDetails />", () => {
       ...details,
       distributions: [
         {
-          downloadUrl: "download.yaml",
-        },
-      ],
+          downloadUrl: "download.yaml"
+        }
+      ]
     };
 
     detailsWithNoAccessUrl.type = AT_SCHEMA;
@@ -129,7 +129,7 @@ describe("<AssetDetails />", () => {
           "https://w3id.org/italia/controlled-vocabulary/classifications-for-organizations/legal-status",
         vocabUrl:
           "/api-docs?vocabIri=https%3A%2F%2Fw3id.org%2Fitalia%2Fcontrolled-vocabulary%2Fclassifications-for-organizations%2Flegal-status",
-        accessUrl: "download.yaml",
+        accessUrl: "download.yaml"
       }),
       {}
     );

@@ -11,7 +11,7 @@ describe("<HeaderMainTitle />", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: /Schema/i,
+        name: /Schema/i
       })
     ).toBeInTheDocument();
 

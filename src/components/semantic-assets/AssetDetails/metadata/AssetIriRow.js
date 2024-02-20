@@ -46,7 +46,7 @@ const AssetIriRow = (props) => {
               style={{
                 textDecoration: "none",
                 color: "inherit",
-                pointerEvents: "none",
+                pointerEvents: "none"
               }}
             >
               {url}
@@ -81,7 +81,7 @@ const AssetIriRow = (props) => {
 };
 
 AssetIriRow.propTypes = {
-  assetIri: PropTypes.string.isRequired,
+  assetIri: PropTypes.string.isRequired
 };
 
 export default AssetIriRow;

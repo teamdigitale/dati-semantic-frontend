@@ -12,7 +12,7 @@ describe("Validatore", () => {
   it("handles file selection and updates state", () => {
     render(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
-      type: "text/turtle",
+      type: "text/turtle"
     });
     const input = screen.getByLabelText("Upload");
     fireEvent.change(input, { target: { files: [file] } });
@@ -22,7 +22,7 @@ describe("Validatore", () => {
   it("displays the selected file name after successful file selection", () => {
     render(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
-      type: "text/turtle",
+      type: "text/turtle"
     });
     const input = screen.getByLabelText("Upload");
     fireEvent.change(input, { target: { files: [file] } });
@@ -34,7 +34,7 @@ describe("Validatore", () => {
   it("displays the upload progress bar during file upload", () => {
     render(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
-      type: "text/turtle",
+      type: "text/turtle"
     });
     const input = screen.getByLabelText("Upload");
     fireEvent.change(input, { target: { files: [file] } });
@@ -46,7 +46,7 @@ describe("Validatore", () => {
   it("enables the 'Valida documento' button when a file is selected", () => {
     render(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
-      type: "text/turtle",
+      type: "text/turtle"
     });
     const input = screen.getByLabelText("Upload");
     fireEvent.change(input, { target: { files: [file] } });

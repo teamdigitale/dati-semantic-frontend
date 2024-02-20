@@ -8,12 +8,12 @@ import IntroSection from "../../../common/IntroSection/IntroSection";
 
 jest.mock("../../../common/IntroSection/IntroSection", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../FaqBody/FaqBody", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<FaqPage />", () => {

@@ -17,7 +17,7 @@ const ExploreSection = ({ title, children }) => (
 
 ExploreSection.propTypes = {
   title: string.isRequired,
-  children: element.isRequired,
+  children: element.isRequired
 };
 
 ExploreSection.defaultProps = {};

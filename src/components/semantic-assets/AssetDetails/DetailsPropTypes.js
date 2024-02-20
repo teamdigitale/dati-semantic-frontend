@@ -12,30 +12,30 @@ const getDetailsPropTypes = () => {
       themes: arrayOf(string).isRequired,
       rightsHolder: shape({
         iri: string.isRequired,
-        summary: string, //notRequired for incorrect data
+        summary: string //notRequired for incorrect data
       }).isRequired,
       accrualPeriodicity: string,
       distributions: arrayOf(
         shape({
           accessUrl: string,
-          downloadUrl: string.isRequired,
+          downloadUrl: string.isRequired
         })
       ).isRequired,
       subjects: arrayOf(string),
       contactPoint: shape({
         iri: string.isRequired,
-        summary: string.isRequired,
+        summary: string.isRequired
       }),
       publishers: arrayOf(
         shape({
           iri: string.isRequired,
-          summary: string,
+          summary: string
         })
       ),
       creators: arrayOf(
         shape({
           iri: string.isRequired,
-          summary: string,
+          summary: string
         })
       ),
       versionInfo: string,
@@ -45,7 +45,7 @@ const getDetailsPropTypes = () => {
       conformsTo: arrayOf(
         shape({
           iri: string.isRequired,
-          summary: string,
+          summary: string
         })
       ),
       keyConcept: string,
@@ -53,17 +53,17 @@ const getDetailsPropTypes = () => {
       keyClasses: arrayOf(
         shape({
           iri: string.isRequired,
-          summary: string,
+          summary: string
         })
       ),
       prefix: string,
       projects: arrayOf(
         shape({
           iri: string.isRequired,
-          summary: string,
+          summary: string
         })
-      ),
-    }).isRequired,
+      )
+    }).isRequired
   };
 };
 

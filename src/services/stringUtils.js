@@ -13,7 +13,7 @@ export const asItalianDate = (str) => {
   return new Date(str).toLocaleDateString("it-IT", {
     year: "numeric",
     month: "2-digit",
-    day: "2-digit",
+    day: "2-digit"
   });
 };
 

@@ -144,8 +144,8 @@ a.btn.endSection {
 
 @media (max-width: 960px) {
   .container-fluid.schemaPadding {
-    padding-left: 3rem !important;
-    padding-right: 3rem !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5em !important;
   }
 }
 /* @media (max-width: 768px) {
@@ -182,14 +182,19 @@ a.btn.endSection {
   text-decoration: underline !important;
 }
 
-a[href="https://schema.gov.it"][target="_blank"][rel="noopener noreferrer"] {
+a[href="https://schema.gov.it"][target="_blank"][rel="noopener noreferrer"]
+{
   color: #3973b6 !important;
 }
 
-
-.swagger-ui .link, .swagger-ui .link:active, .swagger-ui .link:focus, .swagger-ui .link:hover, .swagger-ui .link:link, .swagger-ui .link:visited {
+.swagger-ui .link,
+.swagger-ui .link:active,
+.swagger-ui .link:focus,
+.swagger-ui .link:hover,
+.swagger-ui .link:link,
+.swagger-ui .link:visited {
   text-decoration: underline !important;
-} 
+}
 
 .opblock-summary-method {
   background-color: #4177ae !important;

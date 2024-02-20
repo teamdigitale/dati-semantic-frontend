@@ -13,7 +13,7 @@ const Footer = ({ childRef }) => {
 };
 
 Footer.propTypes = {
-  childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 };
 
 Footer.defaultProps = {};

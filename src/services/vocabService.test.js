@@ -5,7 +5,7 @@ let fetchMock;
 beforeEach(() => {
   fetchMock = jest.spyOn(global, "fetch").mockResolvedValue({
     ok: true,
-    json: jest.fn().mockResolvedValue({ assetIri: "https://w3id.org/id" }),
+    json: jest.fn().mockResolvedValue({ assetIri: "https://w3id.org/id" })
   });
   global.window._env_ = { API_URL: "" };
 });

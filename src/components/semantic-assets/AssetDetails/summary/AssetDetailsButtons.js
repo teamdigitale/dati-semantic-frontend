@@ -1,7 +1,7 @@
 import {
   AT_SCHEMA,
   AT_VOCABULARY,
-  SUPPORTED_ASSET_TYPES,
+  SUPPORTED_ASSET_TYPES
 } from "../../../../services/dataConstants";
 import * as PropTypes from "prop-types";
 import { oneOf } from "prop-types";
@@ -94,7 +94,7 @@ AssetDetailsButtons.propTypes = {
   type: oneOf(SUPPORTED_ASSET_TYPES).isRequired,
   assetIri: PropTypes.string,
   vocabUrl: PropTypes.string,
-  accessUrl: PropTypes.string,
+  accessUrl: PropTypes.string
 };
 
 export default AssetDetailsButtons;

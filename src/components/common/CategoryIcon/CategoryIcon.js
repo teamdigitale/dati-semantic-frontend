@@ -14,8 +14,8 @@ const CategoryIcon = ({ category }) => {
 CategoryIcon.propTypes = {
   category: shape({
     key: string.isRequired,
-    label: string,
-  }).isRequired,
+    label: string
+  }).isRequired
 };
 
 CategoryIcon.defaultProps = {};

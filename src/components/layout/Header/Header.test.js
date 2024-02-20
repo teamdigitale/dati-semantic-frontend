@@ -7,12 +7,12 @@ import HeaderMainTitle from "../HeaderMainTitle/HeaderMainTitle";
 
 jest.mock("../HeaderSlim/HeaderSlim", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../HeaderMainTitle/HeaderMainTitle", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<Header />", () => {

@@ -7,7 +7,7 @@ import {
   AT_SCHEMA,
   AT_VOCABULARY,
   getAssetLabel,
-  SUPPORTED_ASSET_TYPES,
+  SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
 import userEvent from "@testing-library/user-event";
 

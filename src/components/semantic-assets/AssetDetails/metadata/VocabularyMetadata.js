@@ -28,7 +28,7 @@ const VocabularyMetadata = ({ details }) => {
                   style={{
                     textDecoration: "none",
                     color: "inherit",
-                    pointerEvents: "none",
+                    pointerEvents: "none"
                   }}
                 >
                   {details.endpointUrl}

@@ -15,29 +15,29 @@ import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 jest.mock("../../../services/searchService");
 jest.mock("../SearchResults/SearchResults", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../FilterPanel/FilterPanel", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../Pagination/Pagination", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../SearchResultAlert/SearchResultAlert", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 const mockNavigation = jest.fn();
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
-  useNavigate: () => mockNavigation,
+  useNavigate: () => mockNavigation
 }));
 
 describe("<SearchPage />", () => {
@@ -68,7 +68,7 @@ describe("<SearchPage />", () => {
     await waitFor(() => {
       expect(search).toHaveBeenCalledWith({
         types: [AT_VOCABULARY],
-        pattern: "abc",
+        pattern: "abc"
       });
     });
   });
@@ -79,7 +79,7 @@ describe("<SearchPage />", () => {
       routes.search({
         types: [AT_VOCABULARY],
         pattern: "abc",
-        themes: ["AGRI"],
+        themes: ["AGRI"]
       })
     );
 
@@ -89,8 +89,8 @@ describe("<SearchPage />", () => {
           filter: {
             types: [AT_VOCABULARY],
             pattern: "abc",
-            themes: ["AGRI"],
-          },
+            themes: ["AGRI"]
+          }
         }),
         {}
       );
@@ -132,13 +132,13 @@ describe("<SearchPage />", () => {
       {
         type: AT_VOCABULARY,
         assetIri: "http://www.disney.com/characters/",
-        title: "Disney characters",
+        title: "Disney characters"
       },
       {
         type: AT_VOCABULARY,
         assetIri: "http://www.atptour.com/court-types",
-        title: "Tennis court types",
-      },
+        title: "Tennis court types"
+      }
     ];
 
     let resolve;
@@ -176,12 +176,12 @@ describe("<SearchPage />", () => {
         {
           page: {
             offset: 0,
-            totalCount: 2,
+            totalCount: 2
           },
           filter: {
-            types: [AT_VOCABULARY],
+            types: [AT_VOCABULARY]
           },
-          onPageSelect: expect.any(Function),
+          onPageSelect: expect.any(Function)
         },
         {}
       );

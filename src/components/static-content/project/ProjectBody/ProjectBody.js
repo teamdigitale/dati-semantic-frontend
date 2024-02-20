@@ -15,7 +15,7 @@ const ProjectBody = () => {
       document.getElementById(id).scrollIntoView({
         behavior: "smooth",
         block: "start",
-        inline: "start",
+        inline: "start"
       });
     }
   };
@@ -41,7 +41,7 @@ const ProjectBody = () => {
                 durante gli scambi tra le parti. In altre parole, “ciò che viene
                 inviato è ciò che viene compreso”.
               </p>
-              <div>     
+              <div>
                 <p>
                   La piattaforma cataloga, rendendoli ricercabili e riusabili:
                 </p>

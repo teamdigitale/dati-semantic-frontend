@@ -36,9 +36,9 @@ FilterPanel.propTypes = {
   filter: shape({
     pattern: string,
     types: arrayOf(oneOf(SUPPORTED_ASSET_TYPES)),
-    themes: arrayOf(oneOf(SUPPORTED_THEMES)),
+    themes: arrayOf(oneOf(SUPPORTED_THEMES))
   }).isRequired,
-  onFilterUpdate: func.isRequired,
+  onFilterUpdate: func.isRequired
 };
 
 FilterPanel.defaultProps = {};

@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
 import Pagination, {
   DEFAULT_OFFSET,
-  PAGE_SIZE,
+  PAGE_SIZE
 } from "../Pagination/Pagination";
 
 import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
@@ -74,7 +74,7 @@ function renderPagination(isLoading, error, searchResult, filter, navigate) {
           <Pagination
             page={{
               totalCount: searchResult.totalCount,
-              offset: searchResult.offset,
+              offset: searchResult.offset
             }}
             filter={filter}
             onPageSelect={onPageSelect(navigate)}
@@ -155,7 +155,7 @@ const SearchPage = () => {
                     routes.search({
                       ...newFilter,
                       limit: PAGE_SIZE,
-                      offset: DEFAULT_OFFSET,
+                      offset: DEFAULT_OFFSET
                     })
                   );
 

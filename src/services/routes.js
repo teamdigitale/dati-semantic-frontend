@@ -1,6 +1,6 @@
 import {
   DEFAULT_OFFSET,
-  PAGE_SIZE,
+  PAGE_SIZE
 } from "../components/search/Pagination/Pagination";
 
 export const ASSETS_BASE_URL_TOKEN = "semantic-assets";
@@ -23,7 +23,7 @@ export const NEWERROR_PAGE = "error-page";
 export const SearchParameterNames = {
   type: "type",
   theme: "theme",
-  pattern: "pattern",
+  pattern: "pattern"
 };
 
 class Routes {
@@ -33,11 +33,11 @@ class Routes {
       themes: [],
       pattern: "",
       limit: PAGE_SIZE,
-      offset: DEFAULT_OFFSET,
+      offset: DEFAULT_OFFSET
     };
     const { types, themes, pattern, offset } = {
       ...defaultFilters,
-      ...filters,
+      ...filters
     };
 
     const params = [];
@@ -108,7 +108,7 @@ class Routes {
       return "/" + API_DOCS_URL;
     }
     const paramString = new URLSearchParams([
-      ["vocabIri", vocabIri],
+      ["vocabIri", vocabIri]
     ]).toString();
     return `/${API_DOCS_URL}?${paramString}`;
   }

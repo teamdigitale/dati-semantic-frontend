@@ -3,7 +3,7 @@ import React from "react";
 import { arrayOf, oneOf, shape, string } from "prop-types";
 import {
   AT_SCHEMA,
-  SUPPORTED_ASSET_TYPES,
+  SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
 import { getDetailsPageUrl } from "../../../services/vocabService";
 import { getCategories } from "../../../assets/data/categories";
@@ -110,9 +110,9 @@ SearchResultItem.propTypes = {
     versionInfo: string,
     themes: arrayOf(string).isRequired,
     rightsHolder: shape({
-      summary: string.isRequired,
-    }).isRequired,
-  }).isRequired,
+      summary: string.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 SearchResultItem.defaultProps = {};

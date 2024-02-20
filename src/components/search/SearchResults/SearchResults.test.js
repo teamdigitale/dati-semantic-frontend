@@ -7,7 +7,7 @@ import SearchResultItem from "../SearchResultItem/SearchResultItem";
 
 jest.mock("../SearchResultItem/SearchResultItem", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<SearchResults />", () => {
@@ -22,14 +22,14 @@ describe("<SearchResults />", () => {
         type: AT_VOCABULARY,
         assetIri: "http://www.disney.com/characters/",
         title: "Disney characters",
-        description: "Some description",
+        description: "Some description"
       },
       {
         type: AT_VOCABULARY,
         assetIri: "http://www.atptour.com/court-types",
         title: "Tennis court types",
-        description: "Some other description",
-      },
+        description: "Some other description"
+      }
     ];
 
     test("it should not show empty results message for valid items", () => {

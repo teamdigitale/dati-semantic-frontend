@@ -8,17 +8,17 @@ import ExploreByText from "../ExploreByText/ExploreByText";
 
 jest.mock("../ExploreByCategory/ExploreByCategory", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../ExploreByType/ExploreByType", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../ExploreByText/ExploreByText", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<ExplorePage />", () => {

@@ -23,7 +23,7 @@ describe("Routes object", () => {
 
       test("should return a search URL with multiple types", () => {
         const searchRoute = routes.search({
-          types: [AT_ONTOLOGY, AT_VOCABULARY],
+          types: [AT_ONTOLOGY, AT_VOCABULARY]
         });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
@@ -49,7 +49,7 @@ describe("Routes object", () => {
       test("should return a search URL with themes and a type", () => {
         const searchRoute = routes.search({
           themes: ["ECON", "AGRI"],
-          types: [AT_SCHEMA],
+          types: [AT_SCHEMA]
         });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
@@ -59,7 +59,7 @@ describe("Routes object", () => {
 
       test("should return a search URL with pattern", () => {
         const searchRoute = routes.search({
-          pattern: "something with a space",
+          pattern: "something with a space"
         });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
@@ -69,7 +69,7 @@ describe("Routes object", () => {
 
       test("should return a search URL with offset", () => {
         const searchRoute = routes.search({
-          offset: 20,
+          offset: 20
         });
 
         expect(searchRoute).toMatch(/\/search\?.*/);
@@ -88,7 +88,7 @@ describe("Routes object", () => {
         const filter = routes.searchUrlToFilter(`type=${AT_VOCABULARY}`);
 
         expect(filter).toEqual({
-          types: [AT_VOCABULARY],
+          types: [AT_VOCABULARY]
         });
       });
 
@@ -98,7 +98,7 @@ describe("Routes object", () => {
         );
 
         expect(filter).toEqual({
-          types: [AT_VOCABULARY, AT_ONTOLOGY],
+          types: [AT_VOCABULARY, AT_ONTOLOGY]
         });
       });
 
@@ -116,7 +116,7 @@ describe("Routes object", () => {
         expect(filter).toEqual({
           types: [AT_VOCABULARY],
           themes: ["AGRI"],
-          pattern: "abc",
+          pattern: "abc"
         });
       });
     });

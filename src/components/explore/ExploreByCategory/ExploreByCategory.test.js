@@ -8,7 +8,7 @@ import { getCategories } from "../../../assets/data/categories";
 
 jest.mock("../../common/CategoryIcon/CategoryIcon", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<ExploreByCategory />", () => {

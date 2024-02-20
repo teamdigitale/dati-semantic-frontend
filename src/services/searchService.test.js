@@ -6,7 +6,7 @@ describe("Search service", () => {
   beforeEach(() => {
     fetchMock = jest.spyOn(global, "fetch").mockResolvedValue({
       ok: true,
-      json: jest.fn().mockResolvedValue({ data: [{}, {}] }),
+      json: jest.fn().mockResolvedValue({ data: [{}, {}] })
     });
 
     global.window._env_ = { API_URL: "" };

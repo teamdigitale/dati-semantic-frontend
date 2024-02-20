@@ -2,14 +2,14 @@ import React from "react";
 import PropTypes, { func } from "prop-types";
 import {
   AT_TO_LABEL,
-  SUPPORTED_ASSET_TYPES,
+  SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
 import MultiCheckBoxFilter from "../MultiCheckBoxFilter/MultiCheckBoxFilter";
 import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
 
 const keysAndLabels = AT_TO_LABEL.map((ttl) => ({
   key: ttl.type,
-  label: ttl.label,
+  label: ttl.label
 }));
 
 const AssetTypeFilter = ({ types, onTypesUpdate }) => {
@@ -28,7 +28,7 @@ const AssetTypeFilter = ({ types, onTypesUpdate }) => {
 
 AssetTypeFilter.propTypes = {
   types: PropTypes.arrayOf(PropTypes.oneOf(SUPPORTED_ASSET_TYPES)).isRequired,
-  onTypesUpdate: func.isRequired,
+  onTypesUpdate: func.isRequired
 };
 
 AssetTypeFilter.defaultProps = {};

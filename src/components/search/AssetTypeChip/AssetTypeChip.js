@@ -3,7 +3,7 @@ import { oneOf } from "prop-types";
 import styles from "./AssetTypeChip.module.css";
 import {
   getAssetLabel,
-  SUPPORTED_ASSET_TYPES,
+  SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
 
 const AssetTypeChip = ({ type }) => (
@@ -18,7 +18,7 @@ const AssetTypeChip = ({ type }) => (
 
 AssetTypeChip.propTypes = {
   type: oneOf(SUPPORTED_ASSET_TYPES),
-  bgColor: oneOf(["blue", "black"]),
+  bgColor: oneOf(["blue", "black"])
 };
 
 AssetTypeChip.defaultProps = {};

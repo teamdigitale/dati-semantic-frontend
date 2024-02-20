@@ -17,7 +17,7 @@ const allValues = [
   { key: "Roger", label: "Roger Federer" },
   { key: "Rafa", label: "Rafael Nadal" },
   { key: "Nole", label: "Novak Djokovic" },
-  { key: "Andy", label: "Any Murray" },
+  { key: "Andy", label: "Any Murray" }
 ];
 
 const allKeys = allValues.map((kl) => kl.key);

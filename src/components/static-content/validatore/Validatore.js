@@ -101,7 +101,7 @@ const Validatore = () => {
 
       fetch(`${baseUrl()}/validate?type=${type}`, {
         method: "POST",
-        body: formData,
+        body: formData
       }).then((response) => {
         if (response.status > 400) {
           throw new Error(window.open("/error-page", "_self"));
@@ -281,7 +281,7 @@ const Validatore = () => {
                                     <li
                                       className="upload-file success mb-2 mt-2"
                                       style={{
-                                        maxWidth: "50%",
+                                        maxWidth: "50%"
                                       }}
                                     >
                                       <svg
@@ -309,7 +309,7 @@ const Validatore = () => {
                                       <div
                                         className="progress"
                                         style={{
-                                          width: "11.67rem",
+                                          width: "11.67rem"
                                         }}
                                       >
                                         <div
@@ -318,7 +318,7 @@ const Validatore = () => {
                                           style={{
                                             width: `calc(10rem * ${
                                               uploadProgress / 100
-                                            })`,
+                                            })`
                                           }}
                                           aria-valuenow={uploadProgress}
                                           aria-valuemin="0"
@@ -336,7 +336,7 @@ const Validatore = () => {
                                       <li
                                         className="upload-file success mb-2 mt-2"
                                         style={{
-                                          maxWidth: "100%",
+                                          maxWidth: "100%"
                                         }}
                                       >
                                         <svg
@@ -617,7 +617,7 @@ const Validatore = () => {
                                   ref={errorRef}
                                   style={{
                                     color: "#455B71",
-                                    marginTop: "6rem",
+                                    marginTop: "6rem"
                                   }}
                                 >
                                   LISTA ERRORI
@@ -633,14 +633,14 @@ const Validatore = () => {
                                         ref={errorRef}
                                         style={{
                                           fontSize: "0.8rem",
-                                          width: "95%",
+                                          width: "95%"
                                         }}
                                       >
                                         <span
                                           className="d-flex"
                                           style={{
                                             paddingBottom: "0.8rem",
-                                            borderBottom: "1px solid black",
+                                            borderBottom: "1px solid black"
                                           }}
                                         >
                                           LISTA ERRORI
@@ -666,7 +666,7 @@ const Validatore = () => {
                                                 className="ms-3 me-4"
                                                 style={{
                                                   paddingBottom: "0.1rem",
-                                                  width: "95%",
+                                                  width: "95%"
                                                 }}
                                               />
                                             </div>
@@ -686,7 +686,7 @@ const Validatore = () => {
                                   ref={warningRef}
                                   style={{
                                     color: "#455B71",
-                                    marginTop: "6rem",
+                                    marginTop: "6rem"
                                   }}
                                 >
                                   LISTA WARNING
@@ -703,14 +703,14 @@ const Validatore = () => {
                                         ref={warningRef}
                                         style={{
                                           fontSize: "0.8rem",
-                                          width: "95%",
+                                          width: "95%"
                                         }}
                                       >
                                         <span
                                           className="d-flex"
                                           style={{
                                             paddingBottom: "0.8rem",
-                                            borderBottom: "1px solid black",
+                                            borderBottom: "1px solid black"
                                           }}
                                         >
                                           LISTA WARNING
@@ -736,7 +736,7 @@ const Validatore = () => {
                                                 className="ms-3 me-4"
                                                 style={{
                                                   paddingBottom: "0.1rem",
-                                                  width: "95%",
+                                                  width: "95%"
                                                 }}
                                               />
                                             </div>

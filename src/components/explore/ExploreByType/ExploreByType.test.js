@@ -6,7 +6,7 @@ import {
   AT_ONTOLOGY,
   AT_SCHEMA,
   AT_VOCABULARY,
-  getAssetPluralLabel,
+  getAssetPluralLabel
 } from "../../../services/dataConstants";
 import { screen } from "@testing-library/react";
 

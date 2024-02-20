@@ -54,15 +54,15 @@ const SchemaMetadata = (props) => {
 SchemaMetadata.propTypes = {
   rightsHolder: shape({
     iri: string.isRequired,
-    summary: string, //notRequired for incorrect data
+    summary: string //notRequired for incorrect data
   }).isRequired,
   issuedOn: string,
   keyClasses: arrayOf(
     shape({
       iri: string.isRequired,
-      summary: string,
+      summary: string
     })
-  ),
+  )
 };
 
 export default SchemaMetadata;

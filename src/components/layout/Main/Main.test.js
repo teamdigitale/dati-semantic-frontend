@@ -8,12 +8,12 @@ import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 
 jest.mock("../../explore/ExplorePage/ExplorePage", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("../NotFound/NotFound", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<Main />", () => {

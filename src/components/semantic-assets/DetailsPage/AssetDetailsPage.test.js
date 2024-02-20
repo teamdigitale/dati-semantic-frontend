@@ -4,7 +4,7 @@ import { waitFor } from "@testing-library/dom";
 import AssetDetailsPage from "./AssetDetailsPage";
 import AssetNotFound, {
   MISSING_RESOURCE,
-  MISSING_URI,
+  MISSING_URI
 } from "../AssetNotFound/AssetNotFound";
 import { renderWithRoute } from "../../../services/testUtils";
 import { getSemanticAssetByUri } from "../../../services/vocabService";
@@ -18,11 +18,11 @@ const { getDetailsPageUrl } = jest.requireActual(
 jest.mock("../../../services/vocabService");
 jest.mock("../AssetNotFound/AssetNotFound", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 jest.mock("../AssetDetails/AssetDetails", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<AssetDetailsPage />", () => {

@@ -5,7 +5,7 @@ import SearchResultItem from "./SearchResultItem";
 import {
   AT_SCHEMA,
   AT_VOCABULARY,
-  getAssetLabel,
+  getAssetLabel
 } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 
@@ -19,8 +19,8 @@ const vocabItem = {
   versionInfo: "1.0",
   rightsHolder: {
     iri: "http://publications.europa.eu/resource/authority/corporate-body/EUROSTAT",
-    summary: "Eurostat",
-  },
+    summary: "Eurostat"
+  }
 };
 
 describe("<SearchResultItem />", () => {
@@ -84,8 +84,8 @@ describe("<SearchResultItem />", () => {
       ...vocabItem,
       themes: [
         "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-        "http://publications.europa.eu/resource/authority/data-theme/TRAN",
-      ],
+        "http://publications.europa.eu/resource/authority/data-theme/TRAN"
+      ]
     };
 
     renderWithRoute(<SearchResultItem item={itemsWithMultipleThemes} />);
