@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import {
   AT_ONTOLOGY,
   AT_SCHEMA,
@@ -34,12 +34,11 @@ const AssetDetails = ({ details }) => {
     backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc ${offset}px, white 0)`;
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (detailSummaryEl) {
+      handleChangeBackground();
       window.addEventListener("resize", handleChangeBackground);
     }
-    if (backgroundEl)
-      backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc 20%, white 0)`;
 
     return () => {
       window.removeEventListener("resize", handleChangeBackground);
