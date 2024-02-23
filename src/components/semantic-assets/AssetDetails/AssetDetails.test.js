@@ -1,8 +1,8 @@
 import AssetDetails from "./AssetDetails";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import getSparqlEndpoint from "../../../services/sparql";
 import { AT_ONTOLOGY, AT_SCHEMA } from "../../../services/dataConstants";
-import { assetDetails } from "../../../services/testUtils";
+import { assetDetails, renderWithRoute } from "../../../services/testUtils";
 import SwaggerUI from "swagger-ui-react";
 import React from "react";
 import AssetDetailsButtons from "./summary/AssetDetailsButtons";
@@ -28,7 +28,7 @@ describe("<AssetDetails />", () => {
   });
 
   test("it should render all components for controlled vocabulary", () => {
-    render(<AssetDetails details={details} />);
+    renderWithRoute(<AssetDetails details={details} />);
 
     const vocabDetails = screen.getByTestId("asset-details-container");
     expect(vocabDetails).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe("<AssetDetails />", () => {
 
   test("it should render all components for Onntology", () => {
     details.type = AT_ONTOLOGY;
-    render(<AssetDetails details={details} />);
+    renderWithRoute(<AssetDetails details={details} />);
 
     const vocabMetadata = screen.queryByTestId("vocab-metadata");
     expect(vocabMetadata).not.toBeInTheDocument();
@@ -65,7 +65,7 @@ describe("<AssetDetails />", () => {
 
   test("it should render all components for Schema", () => {
     details.type = AT_SCHEMA;
-    render(<AssetDetails details={details} />);
+    renderWithRoute(<AssetDetails details={details} />);
 
     const vocabMetadata = screen.queryByTestId("vocab-metadata");
     expect(vocabMetadata).not.toBeInTheDocument();
@@ -94,7 +94,7 @@ describe("<AssetDetails />", () => {
       ]
     };
     detailsWithAccessUrl.type = AT_SCHEMA;
-    render(<AssetDetails details={detailsWithAccessUrl} />);
+    renderWithRoute(<AssetDetails details={detailsWithAccessUrl} />);
 
     expect(AssetDetailsButtons).toHaveBeenCalledWith(
       expect.objectContaining({
@@ -120,7 +120,7 @@ describe("<AssetDetails />", () => {
     };
 
     detailsWithNoAccessUrl.type = AT_SCHEMA;
-    render(<AssetDetails details={detailsWithNoAccessUrl} />);
+    renderWithRoute(<AssetDetails details={detailsWithNoAccessUrl} />);
 
     expect(AssetDetailsButtons).toHaveBeenCalledWith(
       expect.objectContaining({

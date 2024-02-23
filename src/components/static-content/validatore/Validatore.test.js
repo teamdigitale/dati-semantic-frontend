@@ -1,16 +1,17 @@
 /* eslint-disable prettier/prettier */
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { screen, fireEvent } from "@testing-library/react";
 import Validatore from "./Validatore";
+import { renderWithRoute } from "../../../services/testUtils";
 
 describe("Validatore", () => {
   it("renders Validatore component", () => {
-    render(<Validatore />);
+    renderWithRoute(<Validatore />);
     expect(screen.getByLabelText("Upload")).toBeInTheDocument();
   });
 
   it("handles file selection and updates state", () => {
-    render(<Validatore />);
+    renderWithRoute(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });
@@ -20,7 +21,7 @@ describe("Validatore", () => {
   });
 
   it("displays the selected file name after successful file selection", () => {
-    render(<Validatore />);
+    renderWithRoute(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });
@@ -32,7 +33,7 @@ describe("Validatore", () => {
   });
 
   it("displays the upload progress bar during file upload", () => {
-    render(<Validatore />);
+    renderWithRoute(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });
@@ -44,7 +45,7 @@ describe("Validatore", () => {
   });
 
   it("enables the 'Valida documento' button when a file is selected", () => {
-    render(<Validatore />);
+    renderWithRoute(<Validatore />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });

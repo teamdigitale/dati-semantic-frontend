@@ -1,8 +1,9 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import IntroSection from "./IntroSection";
 import { routes } from "../../../services/routes";
+import { renderWithRoute } from "../../../services/testUtils";
 const OLD_ENV = window?._env_;
 
 describe("<ExplorePage />", () => {
@@ -16,7 +17,7 @@ describe("<ExplorePage />", () => {
   });
   test("it should mount with an introduction text", () => {
     window._env_.NDC_MAINTENANCE_MESSAGE = "prova sa";
-    render(
+    renderWithRoute(
       <IntroSection
         title="DOMANDE FREQUENTI"
         subtitle="Esplora le risposte alle domande più frequenti"
