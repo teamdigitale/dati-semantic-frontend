@@ -7,7 +7,7 @@ import {
   AT_VOCABULARY,
   getAssetButtonText,
   getAssetPluralLabel,
-  getAssetSubTitle,
+  getAssetSubTitle
 } from "../../../services/dataConstants";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import styles from "./ExploreByType.module.css";

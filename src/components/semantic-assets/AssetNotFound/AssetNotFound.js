@@ -32,7 +32,7 @@ const AssetNotFound = ({ reason }) => {
 };
 
 AssetNotFound.propTypes = {
-  reason: oneOf([MISSING_URI, MISSING_RESOURCE]).isRequired,
+  reason: oneOf([MISSING_URI, MISSING_RESOURCE]).isRequired
 };
 
 AssetNotFound.defaultProps = {};

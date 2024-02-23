@@ -1,5 +1,5 @@
 .detailsContainer {
-  background: linear-gradient(to bottom, #f0f6fc 437px, white 0);
+  background: linear-gradient(to bottom, #f0f6fc 600px, white 0);
 }
 .bkg {
   background-color: #f0f6fc;
@@ -17,22 +17,19 @@
   letter-spacing: 1px;
 }
 
-.padding{
+.padding {
   padding-left: 16px !important;
 }
 
-
-@media  screen and (max-width: 992px) {
-    .ps-5 {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-
- 
+@media screen and (max-width: 992px) {
+  .ps-5 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
+}
 
-  @media  screen and (max-width: 520px) {
-    .detailsContainer {
-      background: linear-gradient(to bottom, #f0f6fc 600px, white 0);
-    }
+@media screen and (max-width: 520px) {
+  .detailsContainer {
+    background: linear-gradient(to bottom, #f0f6fc 600px, white 0);
   }
+}

@@ -9,7 +9,7 @@ describe("<SchemaMetadata />", () => {
         issuedOn={"2017-02-13"}
         keyClasses={[
           { iri: "some-iri-2", summary: "summary1" },
-          { iri: "some-iri-3", summary: "summary2" },
+          { iri: "some-iri-3", summary: "summary2" }
         ]}
       />
     );

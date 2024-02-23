@@ -48,7 +48,7 @@ MetadataRow.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   iconLink: PropTypes.string,
-  externalLink: PropTypes.element,
+  externalLink: PropTypes.element
 };
 
 export default MetadataRow;

@@ -1,7 +1,16 @@
 import React from "react";
 
 import { arrayOf, string, number, shape } from "prop-types";
+import { useNavigate } from "react-router-dom";
+
 export const BreadCrumbs = (props) => {
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    if (document.referrer === "") navigate("/search", { replace: "true" });
+    else navigate(-1);
+  };
+
   return (
     <React.Fragment>
       <nav
@@ -25,7 +34,7 @@ export const BreadCrumbs = (props) => {
               <li
                 className="breadcrumb-item"
                 key={bread?.id + "keyBack" + i}
-                onClick={() => history?.back()}
+                onClick={handleBack}
               >
                 <a
                   className="link text-decoration-none"
@@ -59,9 +68,9 @@ BreadCrumbs.propTypes = {
     shape({
       label: string.isRequired,
       link: string,
-      id: number.isRequired,
+      id: number.isRequired
     })
-  ).isRequired,
+  ).isRequired
 };
 BreadCrumbs.defaultProps = {};
 export default BreadCrumbs;

@@ -5,7 +5,7 @@ import sprite from "../../../assets/images/sprite.svg";
 const TYPES_TO_ICON = {
   danger: "it-close-circle",
   "callout-highlight": "it-info-circle",
-  info: "it-info-circle",
+  info: "it-info-circle"
 };
 
 const Callout = ({ type, title, children }) => {
@@ -28,7 +28,7 @@ const Callout = ({ type, title, children }) => {
 Callout.propTypes = {
   type: oneOf(["danger", "callout-highlight", "info"]).isRequired,
   title: string.isRequired,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 Callout.defaultProps = {};

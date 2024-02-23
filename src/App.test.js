@@ -7,12 +7,12 @@ import Main from "./components/layout/Main/Main";
 
 jest.mock("./components/layout/Header/Header", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 jest.mock("./components/layout/Main/Main", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("The NDC App", () => {

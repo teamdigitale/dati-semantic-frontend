@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import {
   AT_ONTOLOGY,
   AT_SCHEMA,
-  AT_VOCABULARY,
+  AT_VOCABULARY
 } from "../../../../services/dataConstants";
 import getSparqlEndpoint from "../../../../services/sparql";
 

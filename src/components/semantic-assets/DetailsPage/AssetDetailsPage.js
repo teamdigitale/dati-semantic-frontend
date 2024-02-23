@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "../../../hooks/useQuery";
 import AssetNotFound, {
   MISSING_RESOURCE,
-  MISSING_URI,
+  MISSING_URI
 } from "../AssetNotFound/AssetNotFound";
 import { getSemanticAssetByUri } from "../../../services/vocabService";
 import AssetDetails from "../AssetDetails/AssetDetails";

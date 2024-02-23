@@ -22,7 +22,7 @@ const ExploreByCategory = () => {
       key: c.key,
       icon: <CategoryIcon category={c} className="mt-5" />,
       label: c.label,
-      onClick: onCategoryClick,
+      onClick: onCategoryClick
     };
   });
 

@@ -56,7 +56,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
 
 PatternFilter.propTypes = {
   pattern: string.isRequired,
-  onPatternUpdate: func.isRequired,
+  onPatternUpdate: func.isRequired
 };
 
 PatternFilter.defaultProps = {};

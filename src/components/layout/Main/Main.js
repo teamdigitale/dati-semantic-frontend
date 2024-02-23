@@ -15,7 +15,7 @@ import {
   ERROR_PAGE,
   NEWERROR_PAGE,
   LEGALNOTICES,
-  CONTACT,
+  CONTACT
 } from "../../../services/routes";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
@@ -56,7 +56,7 @@ const Main = ({ childRef }) => (
 );
 
 Main.propTypes = {
-  childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 };
 
 Main.defaultProps = {};

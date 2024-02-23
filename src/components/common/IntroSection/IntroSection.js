@@ -15,7 +15,7 @@ const IntroSection = ({
   secondaryButtonLink,
   type,
   arrayBread,
-  isSearch,
+  isSearch
 }) => {
   let heroSpace = "";
   if (type) {
@@ -113,7 +113,7 @@ IntroSection.propTypes = {
   secondaryButtonLink: string,
   type: string,
   arrayBread: array,
-  isSearch: bool,
+  isSearch: bool
 };
 
 IntroSection.defaultProps = {};

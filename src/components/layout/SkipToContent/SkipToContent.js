@@ -23,7 +23,7 @@ function SkipToContent({ mainRef, footerRef }) {
 
 SkipToContent.propTypes = {
   mainRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
-  footerRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+  footerRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 };
 
 export default SkipToContent;

@@ -8,13 +8,13 @@ import sprite from "../../../assets/images/sprite.svg";
 const menuItems = [{ label: "Catalogo", href: routes.search() }];
 const additionalMenuItems = [
   { label: "L’iniziativa", href: routes.project() },
-  { label: "Domande frequenti", href: routes.faq() },
+  { label: "Domande frequenti", href: routes.faq() }
 ];
 const HeaderMainMenu = () => {
   const { pathname } = useLocation();
   const [screenSize, setScreenSize] = useState([
     window.innerWidth,
-    window.innerHeight,
+    window.innerHeight
   ]);
   useEffect(() => {
     window.addEventListener("resize", () => {

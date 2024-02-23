@@ -16,7 +16,7 @@ Anchor.propTypes = {
   href: string,
   target: string,
   rel: string,
-  children: node,
+  children: node
 };
 
 Anchor.defaultProps = {};

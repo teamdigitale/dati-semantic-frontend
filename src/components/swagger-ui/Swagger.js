@@ -103,7 +103,7 @@ const Swagger = () => {
                 style={{
                   fontSize: "1.555rem",
                   lineHeight: "1.428",
-                  fontWeight: "600",
+                  fontWeight: "600"
                 }}
               >
                 Come utilizzare le API per i vocabolari
@@ -122,7 +122,7 @@ const Swagger = () => {
                 style={{
                   fontSize: "1.555rem",
                   lineHeight: "1.428",
-                  fontWeight: "600",
+                  fontWeight: "600"
                 }}
               >
                 Come utilizzare le API per {`${vocabDetails.title}`}

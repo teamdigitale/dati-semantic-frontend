@@ -6,7 +6,7 @@ import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
 
 const keysAndLabels = getCategories().map((c) => ({
   key: c.key,
-  label: c.label,
+  label: c.label
 }));
 const categoryKeys = keysAndLabels.map((c) => c.key);
 
@@ -24,7 +24,7 @@ const ThemeFilter = ({ themes, onThemesUpdate }) => (
 
 ThemeFilter.propTypes = {
   themes: PropTypes.arrayOf(PropTypes.oneOf(categoryKeys)).isRequired,
-  onThemesUpdate: func.isRequired,
+  onThemesUpdate: func.isRequired
 };
 
 ThemeFilter.defaultProps = {};

@@ -3,7 +3,7 @@ import AssetDetailsSummary from "./AssetDetailsSummary";
 import { render, screen } from "@testing-library/react";
 import {
   AT_VOCABULARY,
-  getAssetLabel,
+  getAssetLabel
 } from "../../../../services/dataConstants";
 
 describe("<AssetDetailsSummary/>", () => {
@@ -15,7 +15,7 @@ describe("<AssetDetailsSummary/>", () => {
         title={"Some title"}
         themes={[
           "http://publications.europa.eu/resource/authority/data-theme/ECON",
-          "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+          "http://publications.europa.eu/resource/authority/data-theme/EDUC"
         ]}
         modifiedOn="2020-12-01"
       />

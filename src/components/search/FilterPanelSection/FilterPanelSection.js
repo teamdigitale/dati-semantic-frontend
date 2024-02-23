@@ -16,7 +16,7 @@ const FilterPanelSection = ({ title, children }) => (
 
 FilterPanelSection.propTypes = {
   title: string.isRequired,
-  children: node,
+  children: node
 };
 
 FilterPanelSection.defaultProps = {};

@@ -7,11 +7,11 @@ import FooterLinks from "../FooterLinks/FooterLinks";
 
 jest.mock("../FooterLogos/FooterLogos", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 jest.mock("../FooterLinks/FooterLinks", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<Footer />", () => {

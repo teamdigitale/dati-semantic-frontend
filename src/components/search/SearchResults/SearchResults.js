@@ -49,12 +49,12 @@ SearchResults.propTypes = {
       themes: arrayOf(string),
       rightsHolder: shape({
         iri: string,
-        summary: string,
+        summary: string
       }),
-      modified: string,
+      modified: string
     })
   ).isRequired,
-  areFiltersActive: bool,
+  areFiltersActive: bool
 };
 
 SearchResults.defaultProps = {};

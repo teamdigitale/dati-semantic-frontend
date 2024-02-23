@@ -13,7 +13,7 @@ const ContentParagraph = ({ id, title, children }) => {
 ContentParagraph.propTypes = {
   id: string,
   title: string,
-  children: node,
+  children: node
 };
 ContentParagraph.defaultPropTypes = {};
 

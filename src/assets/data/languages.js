@@ -2,23 +2,23 @@ const data = [
   {
     iri: "http://publications.europa.eu/resource/authority/language/ITA",
     label_en: "Italian",
-    label_it: "Italiano",
+    label_it: "Italiano"
   },
   {
     iri: "http://publications.europa.eu/resource/authority/language/ENG",
     label_en: "English",
-    label_it: "Inglese",
+    label_it: "Inglese"
   },
   {
     iri: "http://publications.europa.eu/resource/authority/language/DEU",
     label_en: "German",
-    label_it: "Tedesco",
+    label_it: "Tedesco"
   },
   {
     iri: "http://publications.europa.eu/resource/authority/language/FRA",
     label_en: "French",
-    label_it: "Francese",
-  },
+    label_it: "Francese"
+  }
 ];
 
 export const getLanguageLabel = (iri) => {

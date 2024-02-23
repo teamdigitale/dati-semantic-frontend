@@ -1,7 +1,7 @@
 import PropTypes, { oneOf } from "prop-types";
 import {
   AT_SCHEMA,
-  SUPPORTED_ASSET_TYPES,
+  SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
 
 import styles from "./ModifiedOnOrVersion.module.css";
@@ -51,7 +51,7 @@ const ModifiedOnOrVersion = (props) => {
         <div
           className={`chip chip-simple chip-lg border-0`}
           style={{
-            backgroundColor: chipColor,
+            backgroundColor: chipColor
           }}
         >
           <span className="chip-label text-white">{statusText}</span>
@@ -69,7 +69,7 @@ ModifiedOnOrVersion.propTypes = {
   modifiedOn: PropTypes.string,
   versionInfo: PropTypes.string,
   size: oneOf(["small", "large"]).isRequired,
-  status: PropTypes.string,
+  status: PropTypes.string
 };
 
 export default ModifiedOnOrVersion;

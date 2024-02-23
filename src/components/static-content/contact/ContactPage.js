@@ -32,7 +32,7 @@ const ContactPage = () => {
               style={{
                 fontSize: "1.5rem",
                 fontWeight: "normal",
-                marginBottom: "3rem",
+                marginBottom: "3rem"
               }}
             >
               Ricevi informazioni sulle attività del Catalogo <br></br>{" "}

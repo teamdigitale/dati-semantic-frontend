@@ -10,15 +10,15 @@ import ThemeFilter from "../ThemeFilter/ThemeFilter";
 
 jest.mock("../PatternFilter/PatternFilter", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 jest.mock("../AssetTypeFilter/AssetTypeFilter", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 jest.mock("../ThemeFilter/ThemeFilter", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 const filterUpdate = jest.fn();
@@ -52,7 +52,7 @@ describe("<FilterPanel />", () => {
     test("it should propagate pattern value to pattern filter", () => {
       const filter = {
         types: [AT_ONTOLOGY],
-        pattern: "abc",
+        pattern: "abc"
       };
       render(<FilterPanel filter={filter} onFilterUpdate={filterUpdate} />);
 
@@ -65,7 +65,7 @@ describe("<FilterPanel />", () => {
     test("it should bubble up pattern changes to callback", () => {
       const originalFilter = {
         types: [AT_ONTOLOGY],
-        pattern: "abc",
+        pattern: "abc"
       };
       render(
         <FilterPanel filter={originalFilter} onFilterUpdate={filterUpdate} />
@@ -78,7 +78,7 @@ describe("<FilterPanel />", () => {
 
       expect(filterUpdate).toHaveBeenCalledWith({
         ...originalFilter,
-        pattern: "def",
+        pattern: "def"
       });
     });
   });
@@ -87,7 +87,7 @@ describe("<FilterPanel />", () => {
     test("it should propagate type selection value to type filter", () => {
       const filter = {
         types: [AT_ONTOLOGY],
-        pattern: "abc",
+        pattern: "abc"
       };
       render(<FilterPanel filter={filter} onFilterUpdate={filterUpdate} />);
 
@@ -100,7 +100,7 @@ describe("<FilterPanel />", () => {
     test("it should bubble up types changes to callback", () => {
       const originalFilter = {
         types: [AT_ONTOLOGY],
-        pattern: "abc",
+        pattern: "abc"
       };
       render(
         <FilterPanel filter={originalFilter} onFilterUpdate={filterUpdate} />
@@ -113,7 +113,7 @@ describe("<FilterPanel />", () => {
 
       expect(filterUpdate).toHaveBeenCalledWith({
         ...originalFilter,
-        types: [AT_ONTOLOGY, AT_SCHEMA],
+        types: [AT_ONTOLOGY, AT_SCHEMA]
       });
     });
   });
@@ -123,7 +123,7 @@ describe("<FilterPanel />", () => {
       const filter = {
         types: [AT_ONTOLOGY],
         pattern: "abc",
-        themes: ["HEAL", "TRAN"],
+        themes: ["HEAL", "TRAN"]
       };
       render(<FilterPanel filter={filter} onFilterUpdate={filterUpdate} />);
 
@@ -137,7 +137,7 @@ describe("<FilterPanel />", () => {
       const originalFilter = {
         types: [AT_ONTOLOGY],
         pattern: "abc",
-        themes: ["HEAL", "TRAN"],
+        themes: ["HEAL", "TRAN"]
       };
       render(
         <FilterPanel filter={originalFilter} onFilterUpdate={filterUpdate} />
@@ -150,7 +150,7 @@ describe("<FilterPanel />", () => {
 
       expect(filterUpdate).toHaveBeenCalledWith({
         ...originalFilter,
-        themes: ["TRAN"],
+        themes: ["TRAN"]
       });
     });
   });

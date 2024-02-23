@@ -6,7 +6,7 @@ describe("Handle Error", () => {
       handleError({
         ok: false,
         status: 404,
-        statusText: "Not Found",
+        statusText: "Not Found"
       })
     ).toThrow("Not Found");
   });
@@ -15,7 +15,7 @@ describe("Handle Error", () => {
     expect(() =>
       handleError({
         ok: false,
-        status: 404,
+        status: 404
       })
     ).toThrow("Error while fetching data!");
   });
@@ -25,7 +25,7 @@ describe("Handle Error", () => {
       handleError({
         ok: true,
         status: 200,
-        json: () => Promise.resolve({}),
+        json: () => Promise.resolve({})
       })
     ).not.toThrow();
   });

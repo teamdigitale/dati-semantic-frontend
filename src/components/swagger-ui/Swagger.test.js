@@ -11,7 +11,7 @@ import "@testing-library/jest-dom";
 jest.mock("../../services/vocabService");
 jest.mock("swagger-ui-react", () => ({
   __esModule: true,
-  default: jest.fn(),
+  default: jest.fn()
 }));
 
 describe("<Swagger />", () => {
@@ -51,7 +51,7 @@ describe("<Swagger />", () => {
       title: title,
       agencyId: "Disney",
       keyConcept: "characters",
-      endpointUrl: "http://ndc.org/vocabs/D/C",
+      endpointUrl: "http://ndc.org/vocabs/D/C"
     };
     beforeEach(() => {
       getSemanticAssetByUri.mockResolvedValue(vocabData);

@@ -1,7 +1,7 @@
 import { getCategories } from "../assets/data/categories";
 import {
   DEFAULT_OFFSET,
-  PAGE_SIZE,
+  PAGE_SIZE
 } from "../components/search/Pagination/Pagination";
 import { baseUrl, handleError } from "./fetchUtils";
 
@@ -36,7 +36,7 @@ export function search(options = {}) {
     types: [],
     themes: [],
     limit: PAGE_SIZE,
-    offset: DEFAULT_OFFSET,
+    offset: DEFAULT_OFFSET
   };
 
   options = { ...defaultOptions, ...options };

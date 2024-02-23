@@ -160,13 +160,13 @@ Pagination.propTypes = {
   filter: shape({
     pattern: string,
     types: arrayOf(oneOf(SUPPORTED_ASSET_TYPES)),
-    themes: arrayOf(oneOf(SUPPORTED_THEMES)),
+    themes: arrayOf(oneOf(SUPPORTED_THEMES))
   }).isRequired,
   page: shape({
     offset: PropTypes.number.isRequired,
-    totalCount: PropTypes.number.isRequired,
+    totalCount: PropTypes.number.isRequired
   }),
-  onPageSelect: PropTypes.func.isRequired,
+  onPageSelect: PropTypes.func.isRequired
 };
 
 Pagination.defaultProps = {};
