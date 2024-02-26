@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AT_ONTOLOGY,
   AT_SCHEMA,
@@ -19,6 +19,7 @@ import EndSection from "../../common/EndSection/EndSection";
 import getAlertMessage from "../../../services/alertService";
 
 const AssetDetails = ({ details }) => {
+  const [stoplight, setStoplight] = useState(false);
   const accessUrl = details.distributions?.map((u) => u.accessUrl).pop();
   const downloadUrl = details.distributions?.map((u) => u.downloadUrl).pop();
   const alertMess = getAlertMessage();
@@ -34,11 +35,13 @@ const AssetDetails = ({ details }) => {
     backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc ${offset}px, white 0)`;
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (detailSummaryEl) {
       handleChangeBackground();
       window.addEventListener("resize", handleChangeBackground);
     }
+
+    if (!stoplight) setStoplight(true);
 
     return () => {
       window.removeEventListener("resize", handleChangeBackground);
