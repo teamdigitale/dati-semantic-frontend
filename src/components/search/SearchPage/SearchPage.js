@@ -1,105 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { search } from "../../../services/searchService";
-import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
 import { useLocation, useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import Pagination, {
-  DEFAULT_OFFSET,
-  PAGE_SIZE
-} from "../Pagination/Pagination";
+import { DEFAULT_OFFSET, PAGE_SIZE } from "../Pagination/Pagination";
 
-import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import EndSection from "../../common/EndSection/EndSection";
 import IntroSection from "../../common/IntroSection/IntroSection";
-
-const showItems = (isLoading, error, searchResult, areFiltersActive) => {
-  const routNav = useNavigate();
-  function goToError() {
-    routNav("/errore");
-  }
-  if (isLoading) {
-    return (
-      <h2 role="alert" aria-live="assertive">
-        Caricamento...
-      </h2>
-    );
-  }
-  if (error) {
-    goToError();
-    return (
-      <SearchResultAlert
-        title="Errore imprevisto del server"
-        message="Ci scusiamo per il disagio, riprovare fra qualche minuto"
-      />
-    );
-  }
-  if (!(searchResult.data && searchResult.data.length)) {
-    return (
-      <SearchResultAlert
-        title="Nessun risultato trovato"
-        message="La ricerca non ha prodotto nessun risultato, modifica i filtri o prova un'altra chiave di ricerca."
-      />
-    );
-  }
-
-  return (
-    <div className="row mt-5">
-      <div className="col-12">
-        <SearchResults
-          items={searchResult.data}
-          areFiltersActive={areFiltersActive}
-        />
-      </div>
-    </div>
-  );
-};
-
-const onPageSelect = (navigate) => (filterWithPagination) => {
-  navigate(routes.search(filterWithPagination));
-};
-
-function hasSearchResult(searchResult) {
-  return searchResult && searchResult.data && searchResult.data.length > 0;
-}
-
-function renderPagination(isLoading, error, searchResult, filter, navigate) {
-  return (
-    !error &&
-    !isLoading &&
-    hasSearchResult(searchResult) && (
-      <div className="row mt-5 mb-4">
-        <div className="col-12">
-          <Pagination
-            page={{
-              totalCount: searchResult.totalCount,
-              offset: searchResult.offset
-            }}
-            filter={filter}
-            onPageSelect={onPageSelect(navigate)}
-          />
-        </div>
-      </div>
-    )
-  );
-}
-
-function renderResultCount(isLoading, error, searchResult) {
-  return (
-    <div className="row" data-testid="results-count">
-      <div className="col-12">
-        {!error && !isLoading && searchResult?.totalCount ? (
-          <p className="h2" role="alert" aria-live="assertive">
-            {searchResult?.totalCount} risultati
-          </p>
-        ) : (
-          ""
-        )}
-      </div>
-    </div>
-  );
-}
+import { ResultCount } from "./partials/ResultCount";
+import { List } from "./partials/List";
+import { PaginationList } from "./partials/PaginationList";
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState(null);
@@ -144,38 +55,48 @@ const SearchPage = () => {
         isSearch={true}
         arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
+      <div className="container-fluid schemaPadding">
+        <div className="col-12" role="search">
+          <FilterPanel
+            filter={filter}
+            onFilterUpdate={useCallback((newFilter) => {
+              navigate(
+                routes.search({
+                  ...newFilter,
+                  limit: PAGE_SIZE,
+                  offset: DEFAULT_OFFSET
+                })
+              );
+
+              document
+                .getElementById("searchAnchor")
+                ?.scrollIntoView({ behavior: "smooth" });
+              updateFilterStatus(true);
+            }, [])}
+          />
+        </div>
+      </div>
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
-            <div className="col-12 col-lg-4 ps-lg-4 col-md-4" role="search">
-              <FilterPanel
-                filter={filter}
-                onFilterUpdate={useCallback((newFilter) => {
-                  navigate(
-                    routes.search({
-                      ...newFilter,
-                      limit: PAGE_SIZE,
-                      offset: DEFAULT_OFFSET
-                    })
-                  );
-
-                  document
-                    .getElementById("searchAnchor")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                  updateFilterStatus(true);
-                }, [])}
+            <div className="col-12 px-0" id="searchAnchor">
+              <ResultCount
+                isLoading={isLoading}
+                error={error}
+                totalCount={searchResult?.totalCount}
               />
-            </div>
-            <div className="col-12 col-lg-8 col-md-8" id="searchAnchor">
-              {renderResultCount(isLoading, error, searchResult)}
-              {showItems(isLoading, error, searchResult, areFiltersActive)}
-              {renderPagination(
-                isLoading,
-                error,
-                searchResult,
-                filter,
-                navigate
-              )}
+              <List
+                isLoading={isLoading}
+                error={error}
+                searchResultData={searchResult?.data}
+                areFiltersActive={areFiltersActive}
+              />
+              <PaginationList
+                isLoading={isLoading}
+                error={error}
+                searchResult={searchResult}
+                filter={filter}
+              />
             </div>
           </div>
         </div>
