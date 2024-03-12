@@ -11,6 +11,7 @@ import IntroSection from "../../common/IntroSection/IntroSection";
 import { ResultCount } from "./partials/ResultCount";
 import { List } from "./partials/List";
 import { PaginationList } from "./partials/PaginationList";
+import { OrderFilter } from "../OrderFilter/OrderFilter";
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState(null);
@@ -41,12 +42,27 @@ const SearchPage = () => {
     setAreFiltersActive(newFilterStatus);
   };
 
+  const onFilterUpdate = useCallback((newFilter) => {
+    navigate(
+      routes.search({
+        ...newFilter,
+        limit: PAGE_SIZE,
+        offset: DEFAULT_OFFSET
+      })
+    );
+
+    document
+      .getElementById("searchAnchor")
+      ?.scrollIntoView({ behavior: "smooth" });
+    updateFilterStatus(true);
+  }, []);
+
   useEffect(() => {
     document.title = "Search - Catalogo Nazionale Dati";
   });
 
   return (
-    <React.Fragment>
+    <>
       <IntroSection
         title="Cerca nel catalogo nazionale 
         della semantica dei dati"
@@ -56,35 +72,26 @@ const SearchPage = () => {
         arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
       <div className="container-fluid schemaPadding">
-        <div className="col-12" role="search">
-          <FilterPanel
-            filter={filter}
-            onFilterUpdate={useCallback((newFilter) => {
-              navigate(
-                routes.search({
-                  ...newFilter,
-                  limit: PAGE_SIZE,
-                  offset: DEFAULT_OFFSET
-                })
-              );
-
-              document
-                .getElementById("searchAnchor")
-                ?.scrollIntoView({ behavior: "smooth" });
-              updateFilterStatus(true);
-            }, [])}
-          />
+        <div className="col-12 mb-5" role="search">
+          <FilterPanel filter={filter} onFilterUpdate={onFilterUpdate} />
         </div>
+        <hr />
       </div>
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
             <div className="col-12 px-0" id="searchAnchor">
-              <ResultCount
-                isLoading={isLoading}
-                error={error}
-                totalCount={searchResult?.totalCount}
-              />
+              <div className="d-flex direction-row align-items-end justify-content-between">
+                <ResultCount
+                  isLoading={isLoading}
+                  error={error}
+                  totalCount={searchResult?.totalCount}
+                />
+                <OrderFilter
+                  orderQuery={filter}
+                  onOrderChange={onFilterUpdate}
+                />
+              </div>
               <List
                 isLoading={isLoading}
                 error={error}
@@ -102,7 +109,7 @@ const SearchPage = () => {
         </div>
         <EndSection type={2} />
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

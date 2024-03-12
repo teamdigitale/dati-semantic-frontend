@@ -38,7 +38,14 @@ const Main = ({ childRef }) => (
       <Route path={ERROR_PAGE} element={<ErrorPage />} />
       <Route path={NEWERROR_PAGE} element={<NewErrorPage />} />
       <Route path={LEGALNOTICES} element={<LeaglNotices />} />
-      <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
+      <Route
+        path={SEARCH_BASE_URL}
+        element={
+          <div className="secondaryBkg">
+            <SearchPage />
+          </div>
+        }
+      />
       <Route path={FAQ_URL} element={<FaqPage />} />
       <Route path={PROJECT_URL} element={<ProjectPage />} />
       <Route path={VALIDATORE} element={<Validatore />} />

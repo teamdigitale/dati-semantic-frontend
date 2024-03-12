@@ -3,11 +3,11 @@ import { bool, number } from "prop-types";
 export const ResultCount = ({ isLoading, error, totalCount }) => {
   return (
     <div className="row" data-testid="results-count">
-      <div className="col-12">
+      <div>
         {!error && !isLoading && totalCount ? (
-          <p className="h2" role="alert" aria-live="assertive">
-            {totalCount} risultati
-          </p>
+          <h6 className="fw-normal mb-0" role="alert" aria-live="assertive">
+            <strong className="fw-bold">{totalCount}</strong> Risultati
+          </h6>
         ) : (
           ""
         )}
