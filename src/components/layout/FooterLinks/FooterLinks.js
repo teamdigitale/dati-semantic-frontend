@@ -16,7 +16,7 @@ const FooterLinks = () => {
           <li className="list-inline-item">
             <a
               className={styles.bottomFooter}
-              href="https://form.agid.gov.it/view/eb6c03ab-525a-42f7-bb41-e828d89f5b82"
+              href="https://form.agid.gov.it/view/70925c70-e5dc-11ee-920a-8d5d37fcca4e"
             >
               Dichiarazione di accessibilità
             </a>
