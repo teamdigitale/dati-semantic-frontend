@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { arrayOf, string, number, shape } from "prop-types";
 import { useNavigate } from "react-router-dom";
 
 export const BreadCrumbs = (props) => {
+  const [isOpenedFromApp, setIsOpenedFromApp] = useState(false);
   const navigate = useNavigate();
 
-  const handleBack = () => {
-    if (document.referrer === "") navigate("/search", { replace: "true" });
-    else navigate(-1);
+  const handleBack = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!isOpenedFromApp || document.referrer == "") {
+      navigate("/search", { replace: true });
+    } else {
+      window.history.back();
+    }
   };
+
+  useEffect(() => {
+    const sourceValue = sessionStorage.getItem("source");
+    if (sourceValue) {
+      setIsOpenedFromApp(sourceValue == "app");
+    }
+  }, []);
 
   return (
     <React.Fragment>
@@ -31,15 +44,12 @@ export const BreadCrumbs = (props) => {
                 <span className="separator">/</span>
               </li>
             ) : bread?.link == "back" ? (
-              <li
-                className="breadcrumb-item"
-                key={bread?.id + "keyBack" + i}
-                onClick={handleBack}
-              >
+              <li className="breadcrumb-item" key={bread?.id + "keyBack" + i}>
                 <a
-                  className="link text-decoration-none"
                   href="#"
+                  className="link text-decoration-none"
                   title={bread?.label}
+                  onClick={(e) => handleBack(e)}
                 >
                   {bread?.label}
                 </a>
