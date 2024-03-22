@@ -24,11 +24,10 @@ const FilterPanel = ({ filter, rightsHoldersList }) => {
     filter: filterState,
     onFilterFieldUpdate,
     setFilter: clearFilter,
-    updateFilter,
     onFilterDispatch
   } = useFilter();
 
-  const { types, themes, rightsHolders } = {
+  const { types, themes, rightsHolders, sortBy, direction } = {
     ...defaultFilterValues,
     ...filter
   };
@@ -82,8 +81,7 @@ const FilterPanel = ({ filter, rightsHoldersList }) => {
     Object.keys(filterState || {}).length == 0 ? "disabled" : "";
 
   useEffect(() => {
-    if (rightsHolders.length > 0)
-      updateFilter({ ...filterState, rightsHolders });
+    if (rightsHolders.length > 0) onRightsHoldersUpdate(rightsHolders);
   }, [rightsHolders.length]);
 
   const renderChips = (chip) => {
@@ -94,8 +92,10 @@ const FilterPanel = ({ filter, rightsHoldersList }) => {
           key="delete_all_chips"
           id="deleteAllFilter"
           role="button"
-          onClick={() => {
-            onFilterDispatch({});
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onFilterDispatch({ sortBy, direction });
             clearFilter({});
           }}
           className="link-primary ms-2"

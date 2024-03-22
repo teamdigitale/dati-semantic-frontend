@@ -27,7 +27,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
     updateFilter
   } = useFilter();
 
-  const { types, themes, rightsHolders } = {
+  const { types, themes, rightsHolders, sortBy, direction } = {
     ...defaultFilterValues,
     ...filter
   };
@@ -71,8 +71,10 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
               key="delete_all_chips"
               id="deleteAllFilter"
               role="button"
-              onClick={() => {
-                onFilterDispatch({});
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onFilterDispatch({ sortBy, direction });
                 clearFilter({});
               }}
               data-bs-dismiss="modal"

@@ -89,7 +89,9 @@ export const OrderFilter = ({ onOrderChange, orderQuery }) => {
                   <li key={option.value}>
                     <button
                       onClick={() => onChangeSelect(option.value)}
-                      className="btn fw-semibold dropdown-item list-item"
+                      className={`btn ${
+                        option.value == orderValue && "primary-color-a6"
+                      } fw-semibold dropdown-item list-item`}
                     >
                       {option.label}
                     </button>
