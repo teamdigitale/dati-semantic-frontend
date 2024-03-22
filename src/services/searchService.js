@@ -1,4 +1,5 @@
 import { getCategories } from "../assets/data/categories";
+import { ORDER_PARAMS } from "../components/search/OrderFilter/constants";
 import {
   DEFAULT_OFFSET,
   PAGE_SIZE
@@ -10,17 +11,32 @@ function getUriForTheme(theme) {
 }
 
 function buildSearchParams(options) {
-  const { pattern, types, themes, offset } = options;
+  const { pattern, types, themes, offset, rightsHolders, sortBy, direction } =
+    options;
   const searchParams = new URLSearchParams();
 
   if (pattern) {
     searchParams.append("q", pattern);
   }
+
   types.forEach((type) => searchParams.append("type", type));
+
+  rightsHolders.forEach((rightsHolder) =>
+    searchParams.append("rightsHolder", rightsHolder)
+  );
 
   themes.forEach((theme) =>
     searchParams.append("theme", getUriForTheme(theme))
   );
+
+  if (sortBy) {
+    searchParams.append("sortBy", sortBy);
+  }
+
+  if (direction) {
+    searchParams.append("direction", direction);
+  }
+
   if (offset) {
     searchParams.append("offset", offset);
   } else {
@@ -35,6 +51,9 @@ export function search(options = {}) {
     pattern: "",
     types: [],
     themes: [],
+    rightsHolders: [],
+    direction: ORDER_PARAMS.ASC,
+    sortBy: ORDER_PARAMS.TITLE,
     limit: PAGE_SIZE,
     offset: DEFAULT_OFFSET
   };

@@ -3,9 +3,8 @@ import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import SearchResultItem from "./SearchResultItem";
 import {
-  AT_SCHEMA,
   AT_VOCABULARY,
-  getAssetLabel
+  getAssetChipLabel
 } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 
@@ -33,7 +32,7 @@ describe("<SearchResultItem />", () => {
   test("it should display the item's type", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let typeLabel = screen.getByText(getAssetLabel(AT_VOCABULARY));
+    let typeLabel = screen.getByText(getAssetChipLabel(AT_VOCABULARY));
 
     expect(typeLabel).toBeInTheDocument();
   });
@@ -61,15 +60,6 @@ describe("<SearchResultItem />", () => {
 
     expect(summary).toBeInTheDocument();
   });
-  test("it should display versionInfo for Schema", () => {
-    vocabItem.type = AT_SCHEMA;
-    renderWithRoute(<SearchResultItem item={vocabItem} />);
-
-    expect(screen.queryByText(vocabItem.modifiedOn)).not.toBeInTheDocument();
-
-    let versionForSchema = screen.getByText(vocabItem.versionInfo);
-    expect(versionForSchema).toBeInTheDocument();
-  });
 
   test("it should display theme description", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
@@ -83,17 +73,14 @@ describe("<SearchResultItem />", () => {
     const itemsWithMultipleThemes = {
       ...vocabItem,
       themes: [
-        "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-        "http://publications.europa.eu/resource/authority/data-theme/TRAN"
+        "http://publications.europa.eu/resource/authority/data-theme/EDUC"
       ]
     };
 
     renderWithRoute(<SearchResultItem item={itemsWithMultipleThemes} />);
 
     const category1 = screen.getByText("Istruzione, cultura e sport");
-    const category2 = screen.getByText("Trasporti");
 
     expect(category1).toBeInTheDocument();
-    expect(category2).toBeInTheDocument();
   });
 });

@@ -1,212 +1,213 @@
 {
-    "name": "digitale",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@babel/core": "7.20.2",
-        "@babel/preset-env": "^7.20.2",
-        "@babel/preset-react": "^7.18.6",
-        "@testing-library/jest-dom": "^5.16.5",
-        "@testing-library/react": "^11.1.0",
-        "@testing-library/user-event": "^13.5.0",
-        "@typescript-eslint/eslint-plugin": "^4.5.0",
-        "@typescript-eslint/parser": "^4.5.0",
-        "axios": "^1.6.7",
-        "babel-loader": "9.1.0",
-        "babel-plugin-named-asset-import": "^0.3.8",
-        "babel-preset-react-app": "10.0.1",
-        "bfj": "^7.0.2",
-        "camelcase": "^6.2.1",
-        "case-sensitive-paths-webpack-plugin": "2.4.0",
-        "css-loader": "5.2.7",
-        "dotenv": "16.0.3",
-        "dotenv-expand": "5.1.0",
-        "file-loader": "6.2.0",
-        "fs-extra": "^11.1.0",
-        "history": "^5.3.0",
-        "html-webpack-plugin": "5.5.0",
-        "husky": "8.0.2",
-        "identity-obj-proxy": "3.0.0",
-        "jquery": "^3.6.1",
-        "mini-css-extract-plugin": "2.7.0",
-        "minimatch": "5.1.1",
-        "mkdirp": "^1.0.4",
-        "node-fetch": "^3.3.0",
-        "optimize-css-assets-webpack-plugin": "6.0.1",
-        "owl.carousel": "^2.3.4",
-        "pnp-webpack-plugin": "1.7.0",
-        "popper.js": "^1.16.1",
-        "postcss-flexbugs-fixes": "5.0.2",
-        "postcss-loader": "7.3.3",
-        "postcss-normalize": "10.0.1",
-        "postcss-preset-env": "9.1.4",
-        "postcss-safe-parser": "6.0.0",
-        "prompts": "2.4.2",
-        "react": "^18.0.2",
-        "react-app-polyfill": "^3.0.0",
-        "react-dom": "^18.0.2",
-        "react-refresh": "^0.14.0",
-        "react-router-dom": "^6.14.2",
-        "readline": "^1.3.0",
-        "resolve": "1.20.0",
-        "resolve-url-loader": "^5.0.0",
-        "sass-loader": "^10.0.5",
-        "semver": "^7.5.2",
-        "style-loader": "2.0.0",
-        "stylelint": "15.10.1",
-        "stylelint-config-sass-guidelines": "9.0.0",
-        "stylelint-config-standard": "24.0.0",
-        "terser-webpack-plugin": "5.3.6",
-        "ts-pnp": "1.2.0",
-        "url-loader": "4.1.1",
-        "web-vitals": "^2.1.2"
+  "name": "digitale",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "axios": "^1.6.7",
+    "babel-loader": "9.1.0",
+    "babel-plugin-named-asset-import": "^0.3.8",
+    "babel-preset-react-app": "10.0.1",
+    "bfj": "^7.0.2",
+    "camelcase": "^6.2.1",
+    "case-sensitive-paths-webpack-plugin": "2.4.0",
+    "css-loader": "5.2.7",
+    "dotenv": "16.0.3",
+    "dotenv-expand": "5.1.0",
+    "file-loader": "6.2.0",
+    "fs-extra": "^11.1.0",
+    "history": "^5.3.0",
+    "html-react-parser": "^5.1.9",
+    "html-webpack-plugin": "5.5.0",
+    "husky": "8.0.2",
+    "identity-obj-proxy": "3.0.0",
+    "jquery": "^3.6.1",
+    "mini-css-extract-plugin": "2.7.0",
+    "minimatch": "5.1.1",
+    "mkdirp": "^1.0.4",
+    "node-fetch": "^3.3.0",
+    "optimize-css-assets-webpack-plugin": "6.0.1",
+    "owl.carousel": "^2.3.4",
+    "pnp-webpack-plugin": "1.7.0",
+    "popper.js": "^1.16.1",
+    "postcss-flexbugs-fixes": "5.0.2",
+    "postcss-loader": "7.3.3",
+    "postcss-normalize": "10.0.1",
+    "postcss-preset-env": "9.1.4",
+    "postcss-safe-parser": "6.0.0",
+    "prompts": "2.4.2",
+    "react": "^18.0.2",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "^18.0.2",
+    "react-refresh": "^0.14.0",
+    "react-router-dom": "^6.14.2",
+    "readline": "^1.3.0",
+    "resolve": "1.20.0",
+    "resolve-url-loader": "^5.0.0",
+    "sass-loader": "^10.0.5",
+    "semver": "^7.5.2",
+    "style-loader": "2.0.0",
+    "stylelint": "15.10.1",
+    "stylelint-config-sass-guidelines": "9.0.0",
+    "stylelint-config-standard": "24.0.0",
+    "terser-webpack-plugin": "5.3.6",
+    "ts-pnp": "1.2.0",
+    "url-loader": "4.1.1",
+    "web-vitals": "^2.1.2"
+  },
+  "devDependencies": {
+    "@babel/preset-flow": "7.18.6",
+    "@babel/register": "^7.18.9",
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.9",
+    "@svgr/webpack": "6.5.1",
+    "@types/k6": "^0.41.0",
+    "@wdio/cli": "^8.22.1",
+    "@wdio/jasmine-framework": "^8.22.1",
+    "@wdio/local-runner": "^8.22.1",
+    "@wdio/spec-reporter": "^8.21.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "29.3.1",
+    "chromedriver": "^119.0.1",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.4",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-testing-library": "5.0.1",
+    "eslint-webpack-plugin": "^3.2.0",
+    "jest": "27.4.5",
+    "jest-circus": "27.4.5",
+    "jest-resolve": "27.4.5",
+    "jest-watch-typeahead": "1.0.0",
+    "k6": "^0.0.0",
+    "prettier": "^2.8.0",
+    "prop-types": "^15.8.1",
+    "react-dev-utils": "12.0.1",
+    "swagger-ui-react": "^4.15.5",
+    "wdio-chromedriver-service": "^8.1.1",
+    "webdriverio": "^8.22.1",
+    "webpack": "5.76.0",
+    "webpack-dev-server": "4.11.1",
+    "webpack-manifest-plugin": "5.0.0",
+    "workbox-webpack-plugin": "6.5.4"
+  },
+  "resolutions": {
+    "semver": "7.5.3",
+    "postcss": "8.4.31",
+    "@babel/traverse": "7.23.2",
+    "axios": "^1.6.1",
+    "@adobe/css-tools": "^4.3.2"
+  },
+  "scripts": {
+    "start": "./env.sh && move env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
+    "start-mock-server": "node mock-server/src/index.js",
+    "build": "set INLINE_RUNTIME_CHUNK=false && node scripts/build.js",
+    "test": "node scripts/test.js",
+    "test:coverage": "node scripts/test.js --coverage --watchAll=false",
+    "test:e2e": "wdio run ./test/config/wdio.conf.js",
+    "lint": "yarn eslint ./src",
+    "prepare": "husky install",
+    "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+    "lint:check": "eslint './src/**/*.{ts,tsx,js,jsx}'",
+    "prettier:fix": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
+    "prettier:check": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
+    "postinstall": "sh talisman/talisman-precommit.sh",
+    "stylelint:check": "stylelint './src/**/*.{scss,css}'",
+    "stylelint:fix": "stylelint --fix './src/**/*.{scss,css}'",
+    "wdio": "wdio run wdio.conf.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/**/*.lazy.js",
+      "!src/index.js"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
-    "devDependencies": {
-        "@babel/preset-flow": "7.18.6",
-        "@babel/register": "^7.18.9",
-        "@pmmmwh/react-refresh-webpack-plugin": "0.5.9",
-        "@svgr/webpack": "6.5.1",
-        "@types/k6": "^0.41.0",
-        "@wdio/cli": "^8.22.1",
-        "@wdio/jasmine-framework": "^8.22.1",
-        "@wdio/local-runner": "^8.22.1",
-        "@wdio/spec-reporter": "^8.21.0",
-        "babel-eslint": "^10.1.0",
-        "babel-jest": "29.3.1",
-        "chromedriver": "^119.0.1",
-        "eslint": "^7.11.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-config-react-app": "^6.0.0",
-        "eslint-plugin-flowtype": "^5.2.0",
-        "eslint-plugin-import": "^2.26.0",
-        "eslint-plugin-jest": "^27.1.4",
-        "eslint-plugin-jsx-a11y": "^6.3.1",
-        "eslint-plugin-prettier": "^4.0.0",
-        "eslint-plugin-react": "^7.31.10",
-        "eslint-plugin-react-hooks": "^4.3.0",
-        "eslint-plugin-testing-library": "5.0.1",
-        "eslint-webpack-plugin": "^3.2.0",
-        "jest": "27.4.5",
-        "jest-circus": "27.4.5",
-        "jest-resolve": "27.4.5",
-        "jest-watch-typeahead": "1.0.0",
-        "k6": "^0.0.0",
-        "prettier": "^2.8.0",
-        "prop-types": "^15.8.1",
-        "react-dev-utils": "12.0.1",
-        "swagger-ui-react": "^4.15.5",
-        "wdio-chromedriver-service": "^8.1.1",
-        "webdriverio": "^8.22.1",
-        "webpack": "5.76.0",
-        "webpack-dev-server": "4.11.1",
-        "webpack-manifest-plugin": "5.0.0",
-        "workbox-webpack-plugin": "6.5.4"
+    "transformIgnorePatterns": [
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
     },
-    "resolutions": {
-        "semver": "7.5.3",
-        "postcss": "8.4.31",
-        "@babel/traverse": "7.23.2",
-        "axios": "^1.6.1",
-        "@adobe/css-tools": "^4.3.2"
-    },
-    "scripts": {
-        "start": "./env.sh && move env-config.js ./public/ && set INLINE_RUNTIME_CHUNK=false && node scripts/start.js",
-        "start-mock-server": "node mock-server/src/index.js",
-        "build": "set INLINE_RUNTIME_CHUNK=false && node scripts/build.js",
-        "test": "node scripts/test.js",
-        "test:coverage": "node scripts/test.js --coverage --watchAll=false",
-        "test:e2e": "wdio run ./test/config/wdio.conf.js",
-        "lint": "yarn eslint ./src",
-        "prepare": "husky install",
-        "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
-        "lint:check": "eslint './src/**/*.{ts,tsx,js,jsx}'",
-        "prettier:fix": "prettier --write './src/**/*.{ts,tsx,js,jsx}'",
-        "prettier:check": "prettier --check './src/**/*.{ts,tsx,js,jsx}'",
-        "postinstall": "sh talisman/talisman-precommit.sh",
-        "stylelint:check": "stylelint './src/**/*.{scss,css}'",
-        "stylelint:fix": "stylelint --fix './src/**/*.{scss,css}'",
-        "wdio": "wdio run wdio.conf.js"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "jest": {
-        "roots": [
-            "<rootDir>/src"
-        ],
-        "collectCoverageFrom": [
-            "src/**/*.{js,jsx}",
-            "!src/**/*.lazy.js",
-            "!src/index.js"
-        ],
-        "setupFiles": [
-            "react-app-polyfill/jsdom"
-        ],
-        "setupFilesAfterEnv": [
-            "<rootDir>/src/setupTests.js"
-        ],
-        "testMatch": [
-            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
-        ],
-        "testEnvironment": "jsdom",
-        "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
-        "testPathIgnorePatterns": [
-            "/node_modules/"
-        ],
-        "transform": {
-            "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
-            "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-            "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
-        },
-        "transformIgnorePatterns": [
-            "^.+\\.module\\.(css|sass|scss)$"
-        ],
-        "modulePaths": [],
-        "moduleNameMapper": {
-            "^react-native$": "react-native-web",
-            "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
-        },
-        "moduleFileExtensions": [
-            "web.js",
-            "js",
-            "web.ts",
-            "ts",
-            "web.tsx",
-            "tsx",
-            "json",
-            "web.jsx",
-            "jsx",
-            "node"
-        ],
-        "watchPlugins": [
-            "jest-watch-typeahead/filename",
-            "jest-watch-typeahead/testname"
-        ],
-        "resetMocks": true
-    },
-    "babel": {
-        "presets": [
-            "@babel/preset-env",
-            [
-                "@babel/preset-react"
-            ]
-        ]
-    },
-    "proxy": "http://localhost:5001"
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "resetMocks": true
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      [
+        "@babel/preset-react"
+      ]
+    ]
+  },
+  "proxy": "http://localhost:5001"
 }

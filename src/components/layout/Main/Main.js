@@ -29,6 +29,7 @@ import Swagger from "../../swagger-ui/Swagger";
 import PropTypes from "prop-types";
 import LeaglNotices from "../../static-content/legal-notices/legalNotices";
 import Validatore from "../../static-content/validatore/Validatore";
+import { FilterProvider } from "../../common/FilterContext/context";
 
 const Main = ({ childRef }) => (
   <main id="main" ref={childRef} tabIndex={-1}>
@@ -38,7 +39,16 @@ const Main = ({ childRef }) => (
       <Route path={ERROR_PAGE} element={<ErrorPage />} />
       <Route path={NEWERROR_PAGE} element={<NewErrorPage />} />
       <Route path={LEGALNOTICES} element={<LeaglNotices />} />
-      <Route path={SEARCH_BASE_URL} element={<SearchPage />} />
+      <Route
+        path={SEARCH_BASE_URL}
+        element={
+          <FilterProvider>
+            <div className="secondaryBkg">
+              <SearchPage />
+            </div>
+          </FilterProvider>
+        }
+      />
       <Route path={FAQ_URL} element={<FaqPage />} />
       <Route path={PROJECT_URL} element={<ProjectPage />} />
       <Route path={VALIDATORE} element={<Validatore />} />

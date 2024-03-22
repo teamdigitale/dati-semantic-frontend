@@ -30,6 +30,7 @@ const SearchResults = (props) => {
   return (
     <div
       data-testid="SearchResults"
+      className="row row-cols-md-2 g-3"
       aria-live={props.areFiltersActive ? "polite" : "off"}
     >
       {emptyResultsMessage()}

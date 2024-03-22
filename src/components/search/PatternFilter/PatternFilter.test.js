@@ -41,7 +41,7 @@ describe("<PatternFilter />", () => {
 
     const searchBox = screen.getByRole("searchbox");
 
-    userEvent.type(searchBox, "{backspace}{backspace}wesome{enter}");
+    userEvent.type(searchBox, "{backspace}{backspace}awesome{enter}");
 
     expect(patternUpdate).toHaveBeenCalledWith("awesome");
   });

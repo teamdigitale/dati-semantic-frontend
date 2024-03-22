@@ -28,7 +28,7 @@ const AssetDetailsPage = () => {
 
   useEffect(() => {
     document.title = "Asset - Catalogo Nazionale Dati";
-  });
+  }, []);
 
   const showErrors = () => {
     if (!query.has("uri")) {

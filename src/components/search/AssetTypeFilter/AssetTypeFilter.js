@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes, { func } from "prop-types";
 import {
   AT_TO_LABEL,
   SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
-import MultiCheckBoxFilter from "../MultiCheckBoxFilter/MultiCheckBoxFilter";
-import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
-
-const keysAndLabels = AT_TO_LABEL.map((ttl) => ({
-  key: ttl.type,
-  label: ttl.label
-}));
+import { MultiSelectChips } from "../MultiSelectChips/MultiSelectChips";
 
 const AssetTypeFilter = ({ types, onTypesUpdate }) => {
+  const keysAndLabels = useMemo(
+    () =>
+      AT_TO_LABEL.map((ttl) => ({
+        key: ttl.type,
+        label: ttl.label
+      })),
+    []
+  );
+
   return (
-    <FilterPanelSection title="Filtra per Tipologie">
-      <MultiCheckBoxFilter
-        title="Tipologie"
-        labbledById="Filtra_per_Tipologie"
-        keysAndLabels={keysAndLabels}
-        selection={types}
-        onSelectionUpdate={onTypesUpdate}
-      />
-    </FilterPanelSection>
+    <MultiSelectChips
+      label="Filtra per Strumento semantico"
+      onSelectionUpdate={onTypesUpdate}
+      keysAndLabels={keysAndLabels}
+      labbledById="Filtra_per_Strumento_sematico"
+      selection={types}
+      type="types"
+    />
   );
 };
 

@@ -11,7 +11,7 @@ describe("Routes object", () => {
       test("should return a simple search URL", () => {
         const searchRoute = routes.search();
 
-        expect(searchRoute).toBe("/search");
+        expect(searchRoute).toBe("/search?sortBy=TITLE&direction=ASC");
       });
 
       test("should return a search URL with a single type", () => {

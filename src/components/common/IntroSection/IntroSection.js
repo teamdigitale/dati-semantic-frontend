@@ -23,13 +23,13 @@ const IntroSection = ({
   }
   const alertMess = getAlertMessage();
   return (
-    <React.Fragment>
+    <>
       {arrayBread ? (
         <div
           className={
             !isSearch || isSearch == undefined
-              ? "introSectionBread py-0 ps-3"
-              : "introSectionBreadWhite" + "row mx-0 px-0 my-0 py-0 ps-3"
+              ? "secondaryBkg py-0 ps-3"
+              : "introSectionBreadWhite " + "row mx-0 px-0 my-0 py-0 ps-3"
           }
         >
           <div className="col-xl-12 ps-5">
@@ -51,14 +51,17 @@ const IntroSection = ({
           </div>
         </div>
       ) : null}
-      <div data-testid="Header" className={!isSearch ? styles.bkgIntro : ""}>
+      <div
+        data-testid="Header"
+        className={!isSearch ? styles.bkgIntro : "bg-white"}
+      >
         <div className="container-fluid schemaPadding py-5">
           <div className="row mx-0 ">
-            <div className=" col-xl-6 mb-0 mb-xl-4 ps-xl-4">
+            <div className=" col-xl-6 mb-0 mb-xl-4 ps-0">
               <div className={"fw-bold " + styles.title}>
-                <h1>{title}</h1>
+                <h3>{title}</h3>
               </div>
-              <p className={styles.subtitle}>{subtitle}</p>
+              <p className={"lead"}>{subtitle}</p>
               <div className={`mt-4 ${styles.buttonSection} row`}>
                 {primaryButtonLink && primaryButtonText ? (
                   <div
@@ -100,7 +103,7 @@ const IntroSection = ({
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -1,18 +1,15 @@
 import PropTypes, { oneOf } from "prop-types";
-import {
-  AT_SCHEMA,
-  SUPPORTED_ASSET_TYPES
-} from "../../../services/dataConstants";
+import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 
 import styles from "./ModifiedOnOrVersion.module.css";
 
 const ModifiedOnOrVersion = (props) => {
-  let label, value, chipColor, statusText;
+  let chipColor, statusText;
 
-  if (props.type === AT_SCHEMA) {
-    label = "Versione ";
-    value = props.versionInfo ?? "n/a";
-  }
+  // if (props.type === AT_SCHEMA) {
+  //   label = "Versione ";
+  //   value = props.versionInfo ?? "n/a";
+  // }
 
   switch (props.status) {
     case "archived":
@@ -22,7 +19,7 @@ const ModifiedOnOrVersion = (props) => {
     case "catalogued":
     case "published":
       statusText = "Stabile";
-      chipColor = "#008053";
+      chipColor = "#008055";
       break;
     case "closed access":
       statusText = "Accesso Ristretto";
@@ -51,15 +48,16 @@ const ModifiedOnOrVersion = (props) => {
         <div
           className={`chip chip-simple chip-lg border-0`}
           style={{
-            backgroundColor: chipColor
+            backgroundColor: chipColor,
+            minWidth: "auto"
           }}
         >
           <span className="chip-label text-white">{statusText}</span>
         </div>
       )}
-      <div className="col-ms-6 px-2">
+      {/* <div className="col-ms-6 px-2">
         {label} <strong>{value}</strong>
-      </div>
+      </div> */}
     </div>
   );
 };

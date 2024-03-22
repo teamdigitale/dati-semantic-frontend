@@ -1,115 +1,37 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { search } from "../../../services/searchService";
-import SearchResults from "../SearchResults/SearchResults";
 import FilterPanel from "../FilterPanel/FilterPanel";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import Pagination, {
-  DEFAULT_OFFSET,
-  PAGE_SIZE
-} from "../Pagination/Pagination";
-
-import SearchResultAlert from "../SearchResultAlert/SearchResultAlert";
+import { useFilter } from "../../common/FilterContext/context";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
+
 import EndSection from "../../common/EndSection/EndSection";
 import IntroSection from "../../common/IntroSection/IntroSection";
-
-const showItems = (isLoading, error, searchResult, areFiltersActive) => {
-  const routNav = useNavigate();
-  function goToError() {
-    routNav("/errore");
-  }
-  if (isLoading) {
-    return (
-      <h2 role="alert" aria-live="assertive">
-        Caricamento...
-      </h2>
-    );
-  }
-  if (error) {
-    goToError();
-    return (
-      <SearchResultAlert
-        title="Errore imprevisto del server"
-        message="Ci scusiamo per il disagio, riprovare fra qualche minuto"
-      />
-    );
-  }
-  if (!(searchResult.data && searchResult.data.length)) {
-    return (
-      <SearchResultAlert
-        title="Nessun risultato trovato"
-        message="La ricerca non ha prodotto nessun risultato, modifica i filtri o prova un'altra chiave di ricerca."
-      />
-    );
-  }
-
-  return (
-    <div className="row mt-5">
-      <div className="col-12">
-        <SearchResults
-          items={searchResult.data}
-          areFiltersActive={areFiltersActive}
-        />
-      </div>
-    </div>
-  );
-};
-
-const onPageSelect = (navigate) => (filterWithPagination) => {
-  navigate(routes.search(filterWithPagination));
-};
-
-function hasSearchResult(searchResult) {
-  return searchResult && searchResult.data && searchResult.data.length > 0;
-}
-
-function renderPagination(isLoading, error, searchResult, filter, navigate) {
-  return (
-    !error &&
-    !isLoading &&
-    hasSearchResult(searchResult) && (
-      <div className="row mt-5 mb-4">
-        <div className="col-12">
-          <Pagination
-            page={{
-              totalCount: searchResult.totalCount,
-              offset: searchResult.offset
-            }}
-            filter={filter}
-            onPageSelect={onPageSelect(navigate)}
-          />
-        </div>
-      </div>
-    )
-  );
-}
-
-function renderResultCount(isLoading, error, searchResult) {
-  return (
-    <div className="row" data-testid="results-count">
-      <div className="col-12">
-        {!error && !isLoading && searchResult?.totalCount ? (
-          <p className="h2" role="alert" aria-live="assertive">
-            {searchResult?.totalCount} risultati
-          </p>
-        ) : (
-          ""
-        )}
-      </div>
-    </div>
-  );
-}
+import { ResultCount } from "./partials/ResultCount";
+import { List } from "./partials/List";
+import { PaginationList } from "./partials/PaginationList";
+import { OrderFilter } from "../OrderFilter/OrderFilter";
+import { ShowOnDesktop, ShowOnMobile } from "../../common/ResponsiveViews";
+import PatternFilter from "../PatternFilter/PatternFilter";
+import { FilterModalMobile } from "../FilterPanel/FilterModalMobile";
+import { getRightsHolders } from "../../../services/rightsHoldersService";
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [areFiltersActive, setAreFiltersActive] = useState(false);
   const { search: urlSearch } = useLocation();
-  const navigate = useNavigate();
+  const { onFilterDispatch, areFiltersActive } = useFilter();
+  const [rightsHoldersList, setRightsHoldersList] = useState([]);
 
   const filter = routes.searchUrlToFilter(urlSearch);
+
+  const onPatternFilter = (newValue) => {
+    onFilterDispatch({ ...filter, pattern: newValue });
+  };
+
+  const onPatternUpdate = useCallback(onPatternFilter, [filter]);
 
   useEffect(() => {
     const doSearch = async () => {
@@ -126,16 +48,29 @@ const SearchPage = () => {
     doSearch();
   }, [urlSearch]);
 
-  const updateFilterStatus = (newFilterStatus) => {
-    setAreFiltersActive(newFilterStatus);
-  };
+  useEffect(() => {
+    const fetchRightsHolders = async () => {
+      try {
+        const result = await getRightsHolders();
+        const formattedRightsHolders = result.map((obj) => {
+          const language = Reflect.has(obj.name, "it") ? "it" : "en";
+
+          return { label: obj.name[language], key: obj.identifier };
+        });
+        setRightsHoldersList(formattedRightsHolders);
+      } catch (e) {
+        throw new Error(e);
+      }
+    };
+    fetchRightsHolders();
+  }, []);
 
   useEffect(() => {
     document.title = "Search - Catalogo Nazionale Dati";
   });
 
   return (
-    <React.Fragment>
+    <>
       <IntroSection
         title="Cerca nel catalogo nazionale 
         della semantica dei dati"
@@ -144,44 +79,74 @@ const SearchPage = () => {
         isSearch={true}
         arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
+      <div className="container-fluid schemaPadding">
+        <div className="col-12 pb-lg-4" role="search">
+          <div className="row mx-0 d-flex justify-content-center">
+            <div className="px-0">
+              <PatternFilter onPatternUpdate={onPatternUpdate} />
+            </div>
+          </div>
+          <ShowOnDesktop>
+            <FilterPanel
+              filter={filter}
+              rightsHoldersList={rightsHoldersList}
+            />
+          </ShowOnDesktop>
+        </div>
+        <ShowOnDesktop>
+          <hr className="my-2" />
+        </ShowOnDesktop>
+      </div>
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
-            <div className="col-12 col-lg-4 ps-lg-4 col-md-4" role="search">
-              <FilterPanel
-                filter={filter}
-                onFilterUpdate={useCallback((newFilter) => {
-                  navigate(
-                    routes.search({
-                      ...newFilter,
-                      limit: PAGE_SIZE,
-                      offset: DEFAULT_OFFSET
-                    })
-                  );
-
-                  document
-                    .getElementById("searchAnchor")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                  updateFilterStatus(true);
-                }, [])}
+            <div className="col-12 px-0" id="searchAnchor">
+              <div className="d-flex direction-row align-items-center align-items-lg-end justify-content-between">
+                <ResultCount
+                  isLoading={isLoading}
+                  error={error}
+                  totalCount={searchResult?.totalCount}
+                />
+                <div className="d-flex flex-row">
+                  <ShowOnMobile>
+                    <button
+                      className="btn link btn-outline-primary p-3"
+                      style={{ fontSize: "14px" }}
+                      onClick={() => window.scrollTo(0, 0)}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModalLongFixed"
+                    >
+                      Filtri
+                    </button>
+                  </ShowOnMobile>
+                  <OrderFilter
+                    orderQuery={filter}
+                    onOrderChange={onFilterDispatch}
+                  />
+                </div>
+              </div>
+              <List
+                isLoading={isLoading}
+                error={error}
+                searchResultData={searchResult?.data}
+                areFiltersActive={areFiltersActive}
               />
-            </div>
-            <div className="col-12 col-lg-8 col-md-8" id="searchAnchor">
-              {renderResultCount(isLoading, error, searchResult)}
-              {showItems(isLoading, error, searchResult, areFiltersActive)}
-              {renderPagination(
-                isLoading,
-                error,
-                searchResult,
-                filter,
-                navigate
-              )}
+              <PaginationList
+                isLoading={isLoading}
+                error={error}
+                searchResult={searchResult}
+                filter={filter}
+              />
             </div>
           </div>
         </div>
         <EndSection type={2} />
       </div>
-    </React.Fragment>
+      <FilterModalMobile
+        filter={filter}
+        rightsHoldersList={rightsHoldersList}
+      />
+    </>
   );
 };
 

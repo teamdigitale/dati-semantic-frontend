@@ -1,3 +1,4 @@
+import { ORDER_PARAMS } from "../components/search/OrderFilter/constants";
 import {
   DEFAULT_OFFSET,
   PAGE_SIZE
@@ -23,7 +24,10 @@ export const NEWERROR_PAGE = "error-page";
 export const SearchParameterNames = {
   type: "type",
   theme: "theme",
-  pattern: "pattern"
+  pattern: "pattern",
+  rightsHolder: "rightsHolder",
+  sortBy: "sortBy",
+  direction: "direction"
 };
 
 class Routes {
@@ -32,18 +36,29 @@ class Routes {
       types: [],
       themes: [],
       pattern: "",
+      rightsHolders: [],
+      rightsHolder: "rightsHolder",
+      sortBy: ORDER_PARAMS.TITLE,
+      direction: ORDER_PARAMS.ASC,
       limit: PAGE_SIZE,
       offset: DEFAULT_OFFSET
     };
-    const { types, themes, pattern, offset } = {
-      ...defaultFilters,
-      ...filters
-    };
+    const { types, themes, pattern, offset, rightsHolders, sortBy, direction } =
+      {
+        ...defaultFilters,
+        ...filters
+      };
 
     const params = [];
     if (types) {
       types
         .map((t) => [SearchParameterNames.type, t])
+        .forEach((p) => params.push(p));
+    }
+
+    if (rightsHolders) {
+      rightsHolders
+        .map((t) => [SearchParameterNames.rightsHolder, t])
         .forEach((p) => params.push(p));
     }
 
@@ -55,6 +70,13 @@ class Routes {
 
     if (pattern) {
       params.push([SearchParameterNames.pattern, pattern]);
+    }
+
+    if (sortBy) {
+      params.push([SearchParameterNames.sortBy, sortBy]);
+    }
+    if (direction) {
+      params.push([SearchParameterNames.direction, direction]);
     }
 
     if (offset && offset > DEFAULT_OFFSET) {
@@ -83,6 +105,15 @@ class Routes {
     }
     if (params.has("offset")) {
       result = { ...result, offset: params.get("offset") };
+    }
+    if (params.has("rightsHolder")) {
+      result = { ...result, ["rightsHolders"]: params.getAll("rightsHolder") };
+    }
+    if (params.has("sortBy")) {
+      result = { ...result, sortBy: params.get("sortBy") };
+    }
+    if (params.has("direction")) {
+      result = { ...result, direction: params.get("direction") };
     }
     return result;
   }

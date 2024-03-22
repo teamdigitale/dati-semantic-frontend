@@ -1,0 +1,32 @@
+.titlePattern {
+  /* heading/5-lg */
+  font-family: "Titillium Web";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 133% */
+
+  /* color/text/secondary */
+  color: #2f475e;
+}
+
+@media screen and (max-width: 992px) {
+  .titlePattern {
+    /* heading/5 */
+    font-family: "Titillium Web";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #2f475e;
+  }
+}
+
+#pattern-input::placeholder {
+  font-weight: 400;
+}
+#pattern-input[type="search"] {
+  font-weight: 600;
+}
