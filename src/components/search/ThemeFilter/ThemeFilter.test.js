@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import ThemeFilter from "./ThemeFilter";
+import userEvent from "@testing-library/user-event";
 
 const themesUpdate = jest.fn();
 
@@ -11,6 +12,8 @@ describe("<ThemeFilter />", () => {
       <ThemeFilter themes={["AGRI", "HEAL"]} onThemesUpdate={themesUpdate} />
     );
 
-    expect(screen.getByTestId("listbox")).toBeInTheDocument();
+    userEvent.click(screen.getByTestId("MultiSelectFilter"));
+
+    expect(screen.getByTestId("dropdownMenu")).toBeInTheDocument();
   });
 });

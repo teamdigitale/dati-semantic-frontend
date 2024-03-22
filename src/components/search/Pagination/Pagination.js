@@ -2,9 +2,10 @@ import PropTypes, { arrayOf, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import rowStyle from "../../semantic-assets/AssetDetails/metadata/MetadataRow.module.css";
+import { ShowOnDesktop, ShowOnMobile } from "../../common/ResponsiveViews";
 import sprite from "../../../assets/images/sprite.svg";
 
-export const PAGE_SIZE = 5;
+export const PAGE_SIZE = 8;
 export const DEFAULT_OFFSET = 0;
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
@@ -76,13 +77,51 @@ const Pagination = ({ page, filter, onPageSelect }) => {
   //   );
   // }
 
+  const disabledIcons = currentPageNumber >= totalPages;
+  const pageList = getPageSlidingWindow(currentPageNumber, totalPages);
+
   return (
     <nav
       className="pagination-wrapper justify-content-center"
       aria-label="Sfoglia pagine dei risultati"
       data-testid="pagination"
     >
-      <ul className="pagination">
+      <ul className="pagination justify-content-center">
+        <li
+          style={{ width: "50px" }}
+          className={`page-item ${
+            currentPageNumber <= 1 ? "disabled" : ""
+          } mx-1 mx-lg-3`}
+        >
+          <a
+            data-testid="skip-first-page"
+            className="page-link"
+            href="#"
+            onClick={(e) => {
+              onPageSelection(0);
+              e.preventDefault();
+            }}
+            aria-disabled={currentPageNumber <= 1 ? "true" : "false"}
+          >
+            <span className="visually-hidden text-black">
+              {"Vai alla prima pagina"}
+            </span>
+            <div className="d-flex flex-row justify-content-center">
+              <svg
+                className={`icon ${currentPageNumber >= 1 && "icon-primary"}`}
+                style={{ position: "relative", left: "23px" }}
+                alt="first-page"
+              >
+                <use href={sprite + "#it-chevron-left"}></use>
+              </svg>{" "}
+              <svg
+                className={`icon ${currentPageNumber >= 1 && "icon-primary"}`}
+              >
+                <use href={sprite + "#it-chevron-left"}></use>
+              </svg>{" "}
+            </div>
+          </a>
+        </li>
         <li className={`page-item ${currentPageNumber <= 1 ? "disabled" : ""}`}>
           <a
             data-testid="previous-page"
@@ -94,7 +133,10 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             }}
             aria-disabled={currentPageNumber <= 1 ? "true" : "false"}
           >
-            <svg className="icon" alt="indietro">
+            <svg
+              className={`icon ${currentPageNumber >= 1 && "icon-primary"}`}
+              alt="indietro"
+            >
               <use href={sprite + "#it-chevron-left"}></use>
             </svg>{" "}
             <span className="visually-hidden text-black">
@@ -102,12 +144,15 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             </span>
           </a>
         </li>
-        {getPageSlidingWindow(currentPageNumber, totalPages).map(
-          (pageNumber) => (
+        <ShowOnDesktop style={{ flexDirection: "row", display: "flex" }}>
+          {pageList.map((pageNumber) => (
             <li
               data-testid={`page-${pageNumber}`}
               key={pageNumber}
-              className={`page-item ${itemState(pageNumber, totalPages)}`}
+              className={`page-item ${itemState(
+                pageNumber,
+                totalPages
+              )} flex-row`}
             >
               <a
                 aria-current={pageNumber === currentPageNumber ? "page" : null}
@@ -126,13 +171,26 @@ const Pagination = ({ page, filter, onPageSelect }) => {
                 {pageNumber}
               </a>
             </li>
-          )
-        )}
-        <li
-          className={`page-item ${
-            currentPageNumber >= totalPages ? "disabled" : ""
-          }`}
-        >
+          ))}
+        </ShowOnDesktop>
+        <ShowOnMobile>
+          <li
+            data-testid={`page-${currentPageNumber}`}
+            key={currentPageNumber}
+            className={`page-item ${itemState(
+              currentPageNumber,
+              totalPages
+            )} me-0`}
+          >
+            <div
+              aria-current={"page"}
+              className={"page-link " + rowStyle.assetLink}
+            >
+              {`pagina ${currentPageNumber}`}
+            </div>
+          </li>
+        </ShowOnMobile>
+        <li className={`page-item ${disabledIcons ? "disabled" : ""}`}>
           <a
             data-testid="next-page"
             className="page-link"
@@ -141,14 +199,52 @@ const Pagination = ({ page, filter, onPageSelect }) => {
               onPageSelection(currentPageNumber * PAGE_SIZE);
               e.preventDefault();
             }}
-            aria-disabled={currentPageNumber >= totalPages ? "true" : "false"}
+            aria-disabled={disabledIcons ? "true" : "false"}
           >
             <span className="visually-hidden text-black">
               Pagina successiva
             </span>
-            <svg className="icon" alt="avanti">
+            <svg
+              className={`icon ${!disabledIcons && "icon-primary"}`}
+              alt="avanti"
+            >
               <use href={sprite + "#it-chevron-right"}></use>
             </svg>{" "}
+          </a>
+        </li>
+        <li
+          style={{ width: "50px" }}
+          className={`page-item ${
+            disabledIcons ? "disabled" : ""
+          } mx-1 mx-lg-3`}
+        >
+          <a
+            data-testid="skip-last-page"
+            className="page-link"
+            href="#"
+            onClick={(e) => {
+              onPageSelection((totalPages - 1) * PAGE_SIZE);
+              e.preventDefault();
+            }}
+            aria-disabled={disabledIcons ? "true" : "false"}
+          >
+            <span className="visually-hidden text-black">
+              {"Vai all'ultima pagina"}
+            </span>
+            <div className="d-flex flex-row justify-content-center">
+              <svg
+                className={`icon ${!disabledIcons && "icon-primary"}`}
+                alt="last-page"
+              >
+                <use href={sprite + "#it-chevron-right"}></use>
+              </svg>
+              <svg
+                className={`icon ${!disabledIcons && "icon-primary"}`}
+                style={{ position: "relative", right: "23px" }}
+              >
+                <use href={sprite + "#it-chevron-right"}></use>
+              </svg>
+            </div>
           </a>
         </li>
       </ul>

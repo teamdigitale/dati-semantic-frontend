@@ -1,27 +1,37 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { search } from "../../../services/searchService";
 import FilterPanel from "../FilterPanel/FilterPanel";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import { DEFAULT_OFFSET, PAGE_SIZE } from "../Pagination/Pagination";
-
+import { useFilter } from "../../common/FilterContext/context";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
+
 import EndSection from "../../common/EndSection/EndSection";
 import IntroSection from "../../common/IntroSection/IntroSection";
 import { ResultCount } from "./partials/ResultCount";
 import { List } from "./partials/List";
 import { PaginationList } from "./partials/PaginationList";
 import { OrderFilter } from "../OrderFilter/OrderFilter";
+import { ShowOnDesktop, ShowOnMobile } from "../../common/ResponsiveViews";
+import PatternFilter from "../PatternFilter/PatternFilter";
+import { FilterModalMobile } from "../FilterPanel/FilterModalMobile";
+import { getRightsHolders } from "../../../services/rightsHoldersService";
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [areFiltersActive, setAreFiltersActive] = useState(false);
   const { search: urlSearch } = useLocation();
-  const navigate = useNavigate();
+  const { onFilterDispatch, areFiltersActive } = useFilter();
+  const [rightsHoldersList, setRightsHoldersList] = useState([]);
 
   const filter = routes.searchUrlToFilter(urlSearch);
+
+  const onPatternFilter = (newValue) => {
+    onFilterDispatch({ ...filter, pattern: newValue });
+  };
+
+  const onPatternUpdate = useCallback(onPatternFilter, [filter]);
 
   useEffect(() => {
     const doSearch = async () => {
@@ -38,23 +48,21 @@ const SearchPage = () => {
     doSearch();
   }, [urlSearch]);
 
-  const updateFilterStatus = (newFilterStatus) => {
-    setAreFiltersActive(newFilterStatus);
-  };
+  useEffect(() => {
+    const fetchRightsHolders = async () => {
+      try {
+        const result = await getRightsHolders();
+        const formattedRightsHolders = result.map((obj) => {
+          const language = Reflect.has(obj.name, "it") ? "it" : "en";
 
-  const onFilterUpdate = useCallback((newFilter) => {
-    navigate(
-      routes.search({
-        ...newFilter,
-        limit: PAGE_SIZE,
-        offset: DEFAULT_OFFSET
-      })
-    );
-
-    document
-      .getElementById("searchAnchor")
-      ?.scrollIntoView({ behavior: "smooth" });
-    updateFilterStatus(true);
+          return { label: obj.name[language], key: obj.identifier };
+        });
+        setRightsHoldersList(formattedRightsHolders);
+      } catch (e) {
+        throw new Error(e);
+      }
+    };
+    fetchRightsHolders();
   }, []);
 
   useEffect(() => {
@@ -72,25 +80,50 @@ const SearchPage = () => {
         arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
       <div className="container-fluid schemaPadding">
-        <div className="col-12 mb-5" role="search">
-          <FilterPanel filter={filter} onFilterUpdate={onFilterUpdate} />
+        <div className="col-12 pb-lg-4" role="search">
+          <div className="row mx-0 d-flex justify-content-center">
+            <div className="px-0">
+              <PatternFilter onPatternUpdate={onPatternUpdate} />
+            </div>
+          </div>
+          <ShowOnDesktop>
+            <FilterPanel
+              filter={filter}
+              rightsHoldersList={rightsHoldersList}
+            />
+          </ShowOnDesktop>
         </div>
-        <hr />
+        <ShowOnDesktop>
+          <hr className="my-2" />
+        </ShowOnDesktop>
       </div>
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
             <div className="col-12 px-0" id="searchAnchor">
-              <div className="d-flex direction-row align-items-end justify-content-between">
+              <div className="d-flex direction-row align-items-center align-items-lg-end justify-content-between">
                 <ResultCount
                   isLoading={isLoading}
                   error={error}
                   totalCount={searchResult?.totalCount}
                 />
-                <OrderFilter
-                  orderQuery={filter}
-                  onOrderChange={onFilterUpdate}
-                />
+                <div className="d-flex flex-row">
+                  <ShowOnMobile>
+                    <button
+                      className="btn link btn-outline-primary p-3"
+                      style={{ fontSize: "14px" }}
+                      onClick={() => window.scrollTo(0, 0)}
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModalLongFixed"
+                    >
+                      Filtri
+                    </button>
+                  </ShowOnMobile>
+                  <OrderFilter
+                    orderQuery={filter}
+                    onOrderChange={onFilterDispatch}
+                  />
+                </div>
               </div>
               <List
                 isLoading={isLoading}
@@ -109,6 +142,10 @@ const SearchPage = () => {
         </div>
         <EndSection type={2} />
       </div>
+      <FilterModalMobile
+        filter={filter}
+        rightsHoldersList={rightsHoldersList}
+      />
     </>
   );
 };

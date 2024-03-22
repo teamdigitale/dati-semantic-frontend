@@ -22,7 +22,7 @@ const ModifiedOnOrVersion = (props) => {
     case "catalogued":
     case "published":
       statusText = "Stabile";
-      chipColor = "#008053";
+      chipColor = "#008055";
       break;
     case "closed access":
       statusText = "Accesso Ristretto";
@@ -51,7 +51,8 @@ const ModifiedOnOrVersion = (props) => {
         <div
           className={`chip chip-simple chip-lg border-0`}
           style={{
-            backgroundColor: chipColor
+            backgroundColor: chipColor,
+            minWidth: "auto"
           }}
         >
           <span className="chip-label text-white">{statusText}</span>

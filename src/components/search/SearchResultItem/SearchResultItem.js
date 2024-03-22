@@ -18,80 +18,137 @@ const SearchResultItem = ({ item }) => {
     (c) => item.themes.indexOf(c.uri) > -1
   );
 
-  const copyUrlToClipboard = () => {
-    navigator.clipboard.writeText(item.assetIri);
-  };
+  const handleRedirectUri = (url) =>
+    window.open(url, "_blank", "noopener noreferrer");
 
   return (
-    <div className="card-wrapper card-space " data-testid="SearchResultItem">
-      <div className={"card card-bg my-2 " + styles.smallerFooter}>
-        <a className="card-body text-decoration-none">
-          <div
-            className={
-              "size-sm d-flex flex-column flex-sm-row " + styles.topmostHeader
-            }
-          >
-            <div>
-              <AssetTypeChip type={item.type} />
-            </div>
-            <ModifiedOnOrVersion
-              type={item.type}
-              versionInfo={item.versionInfo}
-              modifiedOn={item.modifiedOn}
-              size={"small"}
-              status={item.status && item.status[0]}
-            />
-          </div>
-          <div className="category-top clearfix">
-            {categories.map((c) => (
-              <div key={c.key} className="category">
-                {c.label}
+    <div
+      className="card-wrapper card-space mt-1 pb-1 px-1"
+      data-testid="SearchResultItem"
+    >
+      <div className={"card card-bg mx-0 rounded " + styles.smallerFooter}>
+        <a className="card-body text-decoration-none d-flex flex-column justify-content-between">
+          <div>
+            <div
+              className={
+                "size-sm d-flex flex-row flex-wrap flex-sm-row " +
+                styles.topmostHeader
+              }
+            >
+              <div>
+                <AssetTypeChip type={item.type} isSearchChip />
               </div>
-            ))}
+              <ModifiedOnOrVersion
+                type={item.type}
+                versionInfo={item.versionInfo}
+                modifiedOn={item.modifiedOn}
+                size={"small"}
+                status={item.status && item.status[0]}
+              />
+            </div>
+            <div className="d-flex flex-row align-items-center">
+              <span
+                className={
+                  "border border-secondary rounded-circle d-inline-flex me-2"
+                }
+              >
+                <svg
+                  className={"icon icon-sm icon-secondary"}
+                  alt="avatar Titolare"
+                >
+                  <use href={sprite + "#it-user"}></use>
+                </svg>
+              </span>
+              <span className={styles.itemInfoLabel + " "}>
+                {item.rightsHolder.summary}
+              </span>
+            </div>
+
+            <h2
+              className={"h4 card-title primary-color mt-4 " + styles.itemTitle}
+              role="link"
+              tabIndex={0}
+              aria-label="redirect to detail"
+              onClick={(e) => {
+                e.preventDefault();
+                window.location.href = getDetailsPageUrl(item.assetIri);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  window.location.href = getDetailsPageUrl(item.assetIri);
+                }
+              }}
+              style={{ cursor: "pointer" }}
+            >
+              {item.title}
+            </h2>
+            <p className={"card-text " + styles.itemDescription}>
+              {truncate(item.description, 250)}
+            </p>
           </div>
-          <h2
-            className={"h4 card-title primary-color " + styles.itemTitle}
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.href = getDetailsPageUrl(item.assetIri);
-            }}
-            style={{ cursor: "pointer" }}
-          >
-            {item.title}
-          </h2>
-          <p className={"card-text " + styles.itemDescription}>
-            {truncate(item.description, 250)}
-          </p>
           <div className={styles.itemInfo}>
             {item.type !== AT_SCHEMA && (
-              <div>
-                <span className={"fw-bold " + styles.itemInfoLabel}>URI:</span>{" "}
-                <span
-                  onClick={copyUrlToClipboard}
-                  className={styles.copyurl}
-                  title="Copia"
-                >
-                  <span className={styles.itemInfoLabel + " px-1 pe-3"}>
+              <div className="d-flex flex-row justify-content-between">
+                <div>
+                  <span className={`${styles.captionCategories} fw-semibold`}>
+                    URI:
+                  </span>{" "}
+                  <span
+                    onClick={() => handleRedirectUri(item.assetIri)}
+                    style={{ cursor: "pointer" }}
+                    role="link"
+                    aria-label="redirect to uri"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        handleRedirectUri(item.assetIri);
+                      }
+                    }}
+                    className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover px-1 pe-3"
+                  >
                     {item.assetIri}
                   </span>
-                  <span className={styles.copy}>
-                    <svg
-                      className={" icon icon-sm icon-primary"}
-                      alt="copia URI"
-                    >
-                      <use href={sprite + "#it-copy"}></use>
-                    </svg>{" "}
-                  </span>
+                </div>
+                <span
+                  onClick={() => handleRedirectUri(item.assetIri)}
+                  style={{ cursor: "pointer" }}
+                  className="ms-3"
+                  role="link"
+                  aria-label="redirect to uri"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                      handleRedirectUri(item.assetIri);
+                    }
+                  }}
+                >
+                  <svg
+                    className={" icon icon-sm icon-primary"}
+                    alt="redirect to URI"
+                  >
+                    <use href={sprite + "#it-external-link"}></use>
+                  </svg>{" "}
                 </span>
               </div>
             )}
-            <div>
-              <span className={"fw-bold " + styles.itemInfoLabel}>
-                Titolare:
-              </span>{" "}
-              <span className={styles.itemInfoLabel + " rights-holder-name"}>
-                {item.rightsHolder.summary}
-              </span>
+            <div className="mt-4">
+              <div key={categories[0].key}>
+                <span className={`${styles.captionCategories} fw-semibold`}>
+                  {categories[0].label}
+                  {categories.length > 1 && (
+                    <span
+                      className="ms-2 badge rounded-pill fw-semibold"
+                      style={{
+                        backgroundColor: "#D9DADB",
+                        color: "#5C6F82",
+                        fontSize: "16px"
+                      }}
+                    >
+                      {`+${categories.length - 1}`}
+                    </span>
+                  )}
+                </span>
+              </div>
             </div>
           </div>
         </a>

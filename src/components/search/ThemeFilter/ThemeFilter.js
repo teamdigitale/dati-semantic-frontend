@@ -1,8 +1,7 @@
 import React from "react";
-import MultiCheckBoxFilter from "../MultiCheckBoxFilter/MultiCheckBoxFilter";
 import PropTypes, { func } from "prop-types";
 import { getCategories } from "../../../assets/data/categories";
-import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
+import { MultiSelectChips } from "../MultiSelectChips/MultiSelectChips";
 
 const keysAndLabels = getCategories().map((c) => ({
   key: c.key,
@@ -10,17 +9,18 @@ const keysAndLabels = getCategories().map((c) => ({
 }));
 const categoryKeys = keysAndLabels.map((c) => c.key);
 
-const ThemeFilter = ({ themes, onThemesUpdate }) => (
-  <FilterPanelSection title="Filtra per Categorie">
-    <MultiCheckBoxFilter
-      keysAndLabels={keysAndLabels}
-      title="Categorie"
-      labbledById="Filtra_per_Categorie"
-      selection={themes}
+const ThemeFilter = ({ themes, onThemesUpdate }) => {
+  return (
+    <MultiSelectChips
+      label="Filtra per Categoria"
       onSelectionUpdate={onThemesUpdate}
+      keysAndLabels={keysAndLabels}
+      labbledById="Filtra_per_Categoria"
+      selection={themes}
+      type="themes"
     />
-  </FilterPanelSection>
-);
+  );
+};
 
 ThemeFilter.propTypes = {
   themes: PropTypes.arrayOf(PropTypes.oneOf(categoryKeys)).isRequired,

@@ -1,61 +1,78 @@
 import React, { useState } from "react";
-import { func, string } from "prop-types";
-import FilterPanelSection from "../FilterPanelSection/FilterPanelSection";
+import { func } from "prop-types";
 import sprite from "../../../assets/images/sprite.svg";
+import "./PatternFilter.css";
+import { isMobile } from "../../common/ResponsiveViews";
 
-const PatternFilter = ({ pattern, onPatternUpdate }) => {
-  const [value, setValue] = useState(pattern);
+const PatternFilter = ({ onPatternUpdate }) => {
+  const [value, setValue] = useState("");
+
+  const title = "Cerca per parola chiave";
 
   return (
-    <FilterPanelSection title="Ricerca nel Catalogo">
-      <div className="row" data-testid="PatternFilter" role="form">
+    <div className="mt-4" data-testid="FilterPatternSection">
+      <h5 className={`titlePattern`} id={title.split(" ").join("_")}>
+        {title}
+      </h5>
+      <div
+        className="row col-12 col-lg-8 ms-0"
+        data-testid="PatternFilter"
+        role="form"
+      >
         <form
           role="search"
+          className="px-0"
           aria-labelledby="Ricerca_nel_Catalogo"
           onSubmit={(e) => {
             onPatternUpdate(value);
             e.preventDefault();
+            if (!isMobile) setValue("");
           }}
         >
-          <div className="form-group mt-3 mb-1">
-            <div className="align-items-center input-group col-12">
+          <div className="form-group mb-0 mb-lg-5">
+            <div className="input-group position-relative">
+              <span
+                className="position-absolute"
+                style={{ zIndex: 8, top: 6, left: 6 }}
+                aria-hidden="true"
+              >
+                <svg className="icon icon-sm" fill="#5d7083">
+                  <use href={sprite + "#it-search"}></use>
+                </svg>
+              </span>
               <input
-                type="search"
-                className="form-control"
-                placeholder="es. persona, economia, attività"
-                id="pattern-input"
                 role="searchbox"
+                type="text"
+                className="form-control"
+                style={{ paddingLeft: "2.2rem" }}
+                id="pattern-input"
+                placeholder="Scrivi qui una o più parole chiave"
+                name="pattern-input"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
-              <span className="autocomplete-icon" aria-hidden="true">
-                <div className="input-group-prepend">
-                  <div className="col-12 col-md-6 col-lg-4">
-                    <svg className="icon">
-                      <use href={sprite + "#it-search"}></use>
-                    </svg>{" "}
-                  </div>
-                </div>
-              </span>
+              <div className="input-group-append">
+                <button
+                  type="submit"
+                  style={{ fontSize: "14px" }}
+                  className="btn btn-primary"
+                  data-testid="submit"
+                >
+                  Cerca
+                </button>
+              </div>
             </div>
-            <div className="col-12 col-md-12">
-              <button
-                type="submit"
-                className="btn btn-primary w-100 mx-auto m-4 p-2"
-                data-testid="submit"
-              >
-                Cerca
-              </button>
-            </div>
+            <small id="pattern-input" className="form-text">
+              {'*Inserisci parole chiave, ad esempio "tipologie nave"'}
+            </small>
           </div>
         </form>
       </div>
-    </FilterPanelSection>
+    </div>
   );
 };
 
 PatternFilter.propTypes = {
-  pattern: string.isRequired,
   onPatternUpdate: func.isRequired
 };
 

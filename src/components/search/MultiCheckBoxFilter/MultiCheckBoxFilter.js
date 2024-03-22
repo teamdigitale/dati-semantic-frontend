@@ -1,20 +1,22 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { arrayOf, func, shape, string } from "prop-types";
 import { hash } from "../../../services/stringUtils";
 
 const MultiCheckBoxFilter = ({
   title,
   keysAndLabels,
-  selection,
+  selection = [],
   onSelectionUpdate,
   labbledById
 }) => {
+  const filtersList = selection;
+
   const addToSelection = (toBeAdded) => () => {
-    onSelectionUpdate([...selection, toBeAdded]);
+    onSelectionUpdate([...filtersList, toBeAdded]);
   };
 
   const removeFromSelection = (toBeRemoved) => () => {
-    onSelectionUpdate(selection.filter((v) => v !== toBeRemoved));
+    onSelectionUpdate(filtersList.filter((v) => v !== toBeRemoved));
   };
 
   const displayOption = (key, label) => {
@@ -39,18 +41,9 @@ const MultiCheckBoxFilter = ({
     );
   };
 
-  const allSelected = keysAndLabels.length === selection.length;
-  const noneSelected = selection.length === 0;
+  const allSelected = keysAndLabels.length == selection.length;
+  const noneSelected = selection.length == 0;
   const someSelected = !(allSelected || noneSelected);
-
-  const indeterminateSetter = useCallback(
-    (el) => {
-      if (el && someSelected) {
-        el.indeterminate = true;
-      }
-    },
-    [someSelected]
-  );
 
   const rotateAllSelection = () => {
     if (someSelected || noneSelected) {
@@ -72,7 +65,7 @@ const MultiCheckBoxFilter = ({
           data-testid="listbox"
           aria-labelledby={labbledById}
         >
-          <li key="all">
+          <li key={allId}>
             <div className="form-check">
               <input
                 type="checkbox"
@@ -81,9 +74,9 @@ const MultiCheckBoxFilter = ({
                 aria-checked={
                   allSelected ? "true" : someSelected ? "mixed" : "false"
                 }
+                className={someSelected ? "semi-checked" : ""}
                 data-testid="option"
                 onChange={rotateAllSelection}
-                ref={indeterminateSetter}
               />
               <label htmlFor={allId}>Tutte</label>
             </div>
@@ -103,7 +96,7 @@ MultiCheckBoxFilter.propTypes = {
       label: string
     })
   ).isRequired,
-  selection: arrayOf(string).isRequired,
+  selection: arrayOf(string),
   onSelectionUpdate: func.isRequired,
   labbledById: string
 };

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import SearchResultAlert from "../../SearchResultAlert/SearchResultAlert";
 import SearchResults from "../../SearchResults/SearchResults";
 import { bool, array } from "prop-types";
+import { useEffect } from "react";
 
 export const List = ({
   isLoading,
@@ -10,6 +11,11 @@ export const List = ({
   areFiltersActive
 }) => {
   const routNav = useNavigate();
+
+  useEffect(() => {
+    sessionStorage.setItem("source", "app");
+  }, []);
+
   function goToError() {
     routNav("/errore");
   }

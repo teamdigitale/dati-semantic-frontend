@@ -5,7 +5,7 @@ import SearchResultItem from "./SearchResultItem";
 import {
   AT_SCHEMA,
   AT_VOCABULARY,
-  getAssetLabel
+  getAssetChipLabel
 } from "../../../services/dataConstants";
 import { renderWithRoute } from "../../../services/testUtils";
 
@@ -33,7 +33,7 @@ describe("<SearchResultItem />", () => {
   test("it should display the item's type", () => {
     renderWithRoute(<SearchResultItem item={vocabItem} />);
 
-    let typeLabel = screen.getByText(getAssetLabel(AT_VOCABULARY));
+    let typeLabel = screen.getByText(getAssetChipLabel(AT_VOCABULARY));
 
     expect(typeLabel).toBeInTheDocument();
   });
@@ -83,17 +83,14 @@ describe("<SearchResultItem />", () => {
     const itemsWithMultipleThemes = {
       ...vocabItem,
       themes: [
-        "http://publications.europa.eu/resource/authority/data-theme/EDUC",
-        "http://publications.europa.eu/resource/authority/data-theme/TRAN"
+        "http://publications.europa.eu/resource/authority/data-theme/EDUC"
       ]
     };
 
     renderWithRoute(<SearchResultItem item={itemsWithMultipleThemes} />);
 
     const category1 = screen.getByText("Istruzione, cultura e sport");
-    const category2 = screen.getByText("Trasporti");
 
     expect(category1).toBeInTheDocument();
-    expect(category2).toBeInTheDocument();
   });
 });

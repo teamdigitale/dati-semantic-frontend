@@ -21,7 +21,9 @@ describe("Search service", () => {
     const items = await search({});
 
     expect(items.data.length).toBe(2);
-    expect(fetchMock).toHaveBeenCalledWith("/semantic-assets?offset=0&limit=5");
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/semantic-assets?sortBy=TITLE&direction=ASC&offset=0&limit=8"
+    );
   });
 
   test("should return all matching vocabularies when search pattern is provided", async () => {
@@ -29,7 +31,7 @@ describe("Search service", () => {
 
     expect(items.data.length).toBe(2);
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets?q=some-pattern&offset=0&limit=5"
+      "/semantic-assets?q=some-pattern&sortBy=TITLE&direction=ASC&offset=0&limit=8"
     );
   });
 
@@ -38,7 +40,7 @@ describe("Search service", () => {
 
     expect(items.data.length).toBe(2);
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets?q=some+pattern&offset=0&limit=5"
+      "/semantic-assets?q=some+pattern&sortBy=TITLE&direction=ASC&offset=0&limit=8"
     );
   });
 
@@ -46,7 +48,7 @@ describe("Search service", () => {
     await search({ types: ["ONTOLOGY", "SCHEMA"] });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/semantic-assets?type=ONTOLOGY&type=SCHEMA&offset=0&limit=5"
+      "/semantic-assets?type=ONTOLOGY&type=SCHEMA&sortBy=TITLE&direction=ASC&offset=0&limit=8"
     );
   });
 
@@ -60,15 +62,15 @@ describe("Search service", () => {
       "http://publications.europa.eu/resource/authority/data-theme/ECON"
     );
     expect(fetchMock).toHaveBeenCalledWith(
-      `/semantic-assets?theme=${theme1}&theme=${theme2}&offset=0&limit=5`
+      `/semantic-assets?theme=${theme1}&theme=${theme2}&sortBy=TITLE&direction=ASC&offset=0&limit=8`
     );
   });
 
   test("should paginate search with offset", async () => {
-    await search({ offset: 10 });
+    await search({ offset: 16 });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      `/semantic-assets?offset=10&limit=5`
+      `/semantic-assets?sortBy=TITLE&direction=ASC&offset=16&limit=8`
     );
   });
 });
