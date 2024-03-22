@@ -21,9 +21,14 @@ export const List = ({
   }
   if (isLoading) {
     return (
-      <h2 role="alert" aria-live="assertive">
-        Caricamento...
-      </h2>
+      <div
+        className="my-5 py-5 d-flex justify-content-center"
+        style={{ height: "300px" }}
+      >
+        <h2 role="alert" aria-live="assertive">
+          Caricamento...
+        </h2>
+      </div>
     );
   }
   if (error) {

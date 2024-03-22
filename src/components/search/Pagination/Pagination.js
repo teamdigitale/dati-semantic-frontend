@@ -41,7 +41,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
   const currentPageNumber = Math.floor(page.offset / PAGE_SIZE) + 1;
   const onPageSelection = (offset) => {
     onPageSelect({ ...filter, ["offset"]: offset });
-    window.scrollTo(0, 0);
+
+    const anchorElement = document.getElementById("searchAnchor");
+    if (anchorElement) anchorElement.scrollIntoView({ behavior: "smooth" });
   };
 
   // if (totalPages === 1) {
@@ -98,8 +100,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             className="page-link"
             href="#"
             onClick={(e) => {
-              onPageSelection(0);
               e.preventDefault();
+              e.stopPropagation();
+              onPageSelection(0);
             }}
             aria-disabled={currentPageNumber <= 1 ? "true" : "false"}
           >
@@ -128,8 +131,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             className="page-link"
             href="#"
             onClick={(e) => {
-              onPageSelection((currentPageNumber - 2) * PAGE_SIZE);
               e.preventDefault();
+              e.stopPropagation();
+              onPageSelection((currentPageNumber - 2) * PAGE_SIZE);
             }}
             aria-disabled={currentPageNumber <= 1 ? "true" : "false"}
           >
@@ -159,8 +163,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
                 className={"page-link " + rowStyle.assetLink}
                 href="#"
                 onClick={(e) => {
-                  onPageSelection((pageNumber - 1) * PAGE_SIZE);
                   e.preventDefault();
+                  e.stopPropagation();
+                  onPageSelection((pageNumber - 1) * PAGE_SIZE);
                 }}
                 aria-disabled={
                   itemState(pageNumber, totalPages) === "disabled"
@@ -196,8 +201,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             className="page-link"
             href="#"
             onClick={(e) => {
-              onPageSelection(currentPageNumber * PAGE_SIZE);
               e.preventDefault();
+              e.stopPropagation();
+              onPageSelection(currentPageNumber * PAGE_SIZE);
             }}
             aria-disabled={disabledIcons ? "true" : "false"}
           >
@@ -223,8 +229,9 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             className="page-link"
             href="#"
             onClick={(e) => {
-              onPageSelection((totalPages - 1) * PAGE_SIZE);
               e.preventDefault();
+              e.stopPropagation();
+              onPageSelection((totalPages - 1) * PAGE_SIZE);
             }}
             aria-disabled={disabledIcons ? "true" : "false"}
           >

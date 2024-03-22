@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import sprite from "../../../assets/images/sprite.svg";
 import { arrayOf, func, shape, string } from "prop-types";
 import { sortObjectsByAlphabeticalKey } from "../../../services/arrayUtils";
@@ -22,7 +22,13 @@ export const MultiSelectChips = ({
   );
 
   const handleAddFilter = (option) => {
-    if (filterOptions.length == keysAndLabels.length && selection.length > 0) {
+    if (allSelected) {
+      onSelectionUpdate(selection.filter((el) => el == option.key));
+      setFilterList(option);
+      return;
+    }
+
+    if (selection.length == keysAndLabels.length - 1) {
       handleAllFilter();
       return;
     }
@@ -36,16 +42,6 @@ export const MultiSelectChips = ({
     setFilterList(allOption);
   };
 
-  // const handleRemoveFilter = () => {
-  //   setFilterList({ key: "", label: "" });
-
-  //   if (allSelected) {
-  //     setOptions(keysAndLabels);
-  //   } else {
-  //     setOptions(keysAndLabels.filter((el) => !selection.includes(el.key)));
-  //   }
-  // };
-
   useEffect(() => {
     if (selection.length > 0) {
       if (filterList.key == "all" && allSelected) {
@@ -53,7 +49,7 @@ export const MultiSelectChips = ({
         return;
       }
 
-      if (selection.find((e) => e == filterList.key)) {
+      if (selection.find((e) => e == filterList.key) && !allSelected) {
         setFilterList(defaultFilter);
         return;
       }
@@ -82,12 +78,8 @@ export const MultiSelectChips = ({
           {/* Select with chips */}
           <div className="d-flex flex-row g-2 justify-content-between">
             <div className="d-grid row justify-content-start py-2 pe-2">
-              {filterList.key == "" && filterOptions.length != 0 ? (
+              {filterList.key == "" ? (
                 <span className="">{"Scegli un'opzione"}</span>
-              ) : filterOptions.length == 0 ? (
-                <span className="fw-semibold text-truncate">
-                  {allOption.label}
-                </span>
               ) : (
                 <span className="fw-semibold text-truncate">
                   {filterList.label}
@@ -95,9 +87,7 @@ export const MultiSelectChips = ({
               )}
             </div>
             <button
-              className={`btn ms-2 align-self-end p-0 ${
-                filterOptions.length > 0 ? "d-block" : "d-none"
-              }`}
+              className={`btn ms-2 align-self-end p-0`}
               type="button"
               id="dropdownMenuButton"
               aria-haspopup="true"
@@ -109,33 +99,34 @@ export const MultiSelectChips = ({
             </button>
           </div>
           {/* Dropdown with options */}
-          <div
-            data-testid="dropdownMenu"
-            className={`dropdown-menu w-100 ${
-              filterOptions.length == 0 ? "d-none" : ""
-            }`}
-          >
+          <div data-testid="dropdownMenu" className={`dropdown-menu w-100`}>
             <div className="link-list-wrapper">
               <ul className="link-list">
                 <button
                   key={"all"}
                   type="button"
                   data-testid="option"
+                  style={{
+                    display: filterOptions.length != 0 ? "block" : "none"
+                  }}
                   onClick={() => handleAllFilter()}
                   className={`btn dropdown-item list-item`}
                 >
                   Tutte
                 </button>
-                {sortObjectsByAlphabeticalKey(filterOptions, "label").map(
+                {sortObjectsByAlphabeticalKey(keysAndLabels, "label").map(
                   (option) => (
                     <button
                       key={option.key}
                       type="button"
                       data-testid="option"
                       style={{
-                        display: selection.includes(option.key)
-                          ? "none"
-                          : "block"
+                        display:
+                          filterOptions.length == 0
+                            ? "block"
+                            : selection.includes(option.key)
+                            ? "none"
+                            : "block"
                       }}
                       onClick={() => handleAddFilter(option)}
                       className={`btn dropdown-item list-item`}

@@ -79,7 +79,7 @@ const SearchPage = () => {
         isSearch={true}
         arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
-      <div className="container-fluid schemaPadding">
+      <div className="container-fluid schemaPadding" id="searchAnchor">
         <div className="col-12 pb-lg-4" role="search">
           <div className="row mx-0 d-flex justify-content-center">
             <div className="px-0">
@@ -100,7 +100,7 @@ const SearchPage = () => {
       <div data-testid="SearchPage" className="mt-5">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
-            <div className="col-12 px-0" id="searchAnchor">
+            <div className="col-12 px-0">
               <div className="d-flex direction-row align-items-center align-items-lg-end justify-content-between">
                 <ResultCount
                   isLoading={isLoading}

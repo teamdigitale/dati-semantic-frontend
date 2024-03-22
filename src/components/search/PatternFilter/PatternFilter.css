@@ -22,6 +22,10 @@
 
     color: #2f475e;
   }
+
+  #pattern-input::placeholder {
+    font-size: 14px;
+  }
 }
 
 #pattern-input::placeholder {

@@ -43,11 +43,18 @@ const useFilter = () => {
   };
 
   const onFilterFieldUpdate = (field) => (newValue) => {
-    updateFilter({ ...filter, [field]: newValue });
+    updateFilter({ [field]: newValue });
   };
 
   const updateFilterStatus = (newFilterStatus) => {
     setAreFiltersActive(newFilterStatus);
+  };
+
+  const scrollToTopOfElement = () => {
+    const anchorElement = document.getElementById("searchAnchor");
+    if (anchorElement) {
+      anchorElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const onFilterDispatch = (newFilter) => {
@@ -59,9 +66,7 @@ const useFilter = () => {
       })
     );
 
-    document
-      .getElementById("searchAnchor")
-      ?.scrollIntoView({ behavior: "smooth" });
+    scrollToTopOfElement();
 
     updateFilterStatus(true);
   };
