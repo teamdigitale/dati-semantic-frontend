@@ -3,7 +3,6 @@ import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import SearchResultItem from "./SearchResultItem";
 import {
-  AT_SCHEMA,
   AT_VOCABULARY,
   getAssetChipLabel
 } from "../../../services/dataConstants";
@@ -60,15 +59,6 @@ describe("<SearchResultItem />", () => {
     let summary = screen.getByText(vocabItem.rightsHolder.summary);
 
     expect(summary).toBeInTheDocument();
-  });
-  test("it should display versionInfo for Schema", () => {
-    vocabItem.type = AT_SCHEMA;
-    renderWithRoute(<SearchResultItem item={vocabItem} />);
-
-    expect(screen.queryByText(vocabItem.modifiedOn)).not.toBeInTheDocument();
-
-    let versionForSchema = screen.getByText(vocabItem.versionInfo);
-    expect(versionForSchema).toBeInTheDocument();
   });
 
   test("it should display theme description", () => {

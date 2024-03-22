@@ -175,7 +175,7 @@ const Pagination = ({ page, filter, onPageSelect }) => {
         </ShowOnDesktop>
         <ShowOnMobile>
           <li
-            data-testid={`page-${currentPageNumber}`}
+            data-testid={`page-${currentPageNumber}-mobile`}
             key={currentPageNumber}
             className={`page-item ${itemState(
               currentPageNumber,
