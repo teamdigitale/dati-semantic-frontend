@@ -59,7 +59,7 @@ const IntroSection = ({
           <div className="row mx-0 ">
             <div className=" col-xl-6 mb-0 mb-xl-4 ps-0">
               <div className={"fw-bold " + styles.title}>
-                <h3>{title}</h3>
+                <h1 className="h3">{title}</h1>
               </div>
               <p className={"lead"}>{subtitle}</p>
               <div className={`mt-4 ${styles.buttonSection} row`}>

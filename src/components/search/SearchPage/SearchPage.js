@@ -112,7 +112,6 @@ const SearchPage = () => {
                     <button
                       className="btn link btn-outline-primary p-3"
                       style={{ fontSize: "14px" }}
-                      onClick={() => window.scrollTo(0, 0)}
                       data-bs-toggle="modal"
                       data-bs-target="#exampleModalLongFixed"
                     >

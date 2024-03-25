@@ -89,7 +89,9 @@ export const MultiSelectChips = ({
             <button
               className={`btn ms-2 align-self-end p-0`}
               type="button"
-              id="dropdownMenuButton"
+              role="button"
+              aria-label={`dropdown-menu-${labbledById}`}
+              id={`dropdownMenuButton-${labbledById}`}
               aria-haspopup="true"
               aria-expanded="false"
             >
@@ -102,7 +104,7 @@ export const MultiSelectChips = ({
           <div data-testid="dropdownMenu" className={`dropdown-menu w-100`}>
             <div className="link-list-wrapper">
               <ul className="link-list">
-                <button
+                {/* <button
                   key={"all"}
                   type="button"
                   data-testid="option"
@@ -113,7 +115,7 @@ export const MultiSelectChips = ({
                   className={`btn dropdown-item list-item`}
                 >
                   Tutte
-                </button>
+                </button> */}
                 {sortObjectsByAlphabeticalKey(keysAndLabels, "label").map(
                   (option) => (
                     <button

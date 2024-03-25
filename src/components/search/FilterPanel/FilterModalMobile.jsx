@@ -54,7 +54,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
 
   return (
     <div
-      className="modal position-absolute w-100 h-100 it-dialog-scrollable fade"
+      className="modal w-100 h-100 it-dialog-scrollable fade"
       tabIndex="-1"
       role="dialog"
       id="exampleModalLongFixed"

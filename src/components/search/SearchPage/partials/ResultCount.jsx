@@ -5,9 +5,13 @@ export const ResultCount = ({ isLoading, error, totalCount }) => {
     <div className="row" data-testid="results-count">
       <div>
         {!error && !isLoading && totalCount ? (
-          <h6 className="fw-normal mb-0" role="alert" aria-live="assertive">
+          <div
+            className="h6 fw-normal mb-0"
+            role="status"
+            aria-live="assertive"
+          >
             <strong className="fw-bold">{totalCount}</strong> Risultati
-          </h6>
+          </div>
         ) : (
           ""
         )}

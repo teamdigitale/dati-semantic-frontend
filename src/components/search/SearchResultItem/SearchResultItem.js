@@ -64,9 +64,9 @@ const SearchResultItem = ({ item }) => {
               </span>
             </div>
 
-            <h2
+            <div
               className={"h4 card-title primary-color mt-4 " + styles.itemTitle}
-              role="link"
+              role="navigation"
               tabIndex={0}
               aria-label="redirect to detail"
               onClick={(e) => {
@@ -81,7 +81,7 @@ const SearchResultItem = ({ item }) => {
               style={{ cursor: "pointer" }}
             >
               {item.title}
-            </h2>
+            </div>
             <p className={"card-text " + styles.itemDescription}>
               {truncate(item.description, 250)}
             </p>

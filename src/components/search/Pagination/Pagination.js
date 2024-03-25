@@ -148,53 +148,59 @@ const Pagination = ({ page, filter, onPageSelect }) => {
             </span>
           </a>
         </li>
-        <ShowOnDesktop style={{ flexDirection: "row", display: "flex" }}>
-          {pageList.map((pageNumber) => (
-            <li
-              data-testid={`page-${pageNumber}`}
-              key={pageNumber}
-              className={`page-item ${itemState(
-                pageNumber,
-                totalPages
-              )} flex-row`}
-            >
-              <a
-                aria-current={pageNumber === currentPageNumber ? "page" : null}
-                className={"page-link " + rowStyle.assetLink}
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  onPageSelection((pageNumber - 1) * PAGE_SIZE);
-                }}
-                aria-disabled={
-                  itemState(pageNumber, totalPages) === "disabled"
-                    ? "true"
-                    : "false"
-                }
+        <li>
+          <ShowOnDesktop style={{ flexDirection: "row", display: "flex" }}>
+            {pageList.map((pageNumber) => (
+              <div
+                data-testid={`page-${pageNumber}`}
+                key={pageNumber}
+                className={`page-item ${itemState(
+                  pageNumber,
+                  totalPages
+                )} flex-row`}
               >
-                {pageNumber}
-              </a>
-            </li>
-          ))}
-        </ShowOnDesktop>
-        <ShowOnMobile>
-          <li
-            data-testid={`page-${currentPageNumber}-mobile`}
-            key={currentPageNumber}
-            className={`page-item ${itemState(
-              currentPageNumber,
-              totalPages
-            )} me-0`}
-          >
+                <a
+                  aria-current={
+                    pageNumber === currentPageNumber ? "page" : null
+                  }
+                  className={"page-link " + rowStyle.assetLink}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onPageSelection((pageNumber - 1) * PAGE_SIZE);
+                  }}
+                  aria-disabled={
+                    itemState(pageNumber, totalPages) === "disabled"
+                      ? "true"
+                      : "false"
+                  }
+                >
+                  {pageNumber}
+                </a>
+              </div>
+            ))}
+          </ShowOnDesktop>
+        </li>
+        <li>
+          <ShowOnMobile>
             <div
-              aria-current={"page"}
-              className={"page-link " + rowStyle.assetLink}
+              data-testid={`page-${currentPageNumber}-mobile`}
+              key={currentPageNumber}
+              className={`page-item ${itemState(
+                currentPageNumber,
+                totalPages
+              )} me-0`}
             >
-              {`pagina ${currentPageNumber}`}
+              <div
+                aria-current={"page"}
+                className={"page-link " + rowStyle.assetLink}
+              >
+                {`pagina ${currentPageNumber}`}
+              </div>
             </div>
-          </li>
-        </ShowOnMobile>
+          </ShowOnMobile>
+        </li>
         <li className={`page-item ${disabledIcons ? "disabled" : ""}`}>
           <a
             data-testid="next-page"

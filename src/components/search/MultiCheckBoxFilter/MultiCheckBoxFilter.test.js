@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-commented-out-tests */
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -20,7 +21,7 @@ const allValues = [
   { key: "Andy", label: "Any Murray" }
 ];
 
-const allKeys = allValues.map((kl) => kl.key);
+// const allKeys = allValues.map((kl) => kl.key);
 
 describe("<MultiCheckBoxFilter />", () => {
   beforeEach(() => {
@@ -39,7 +40,7 @@ describe("<MultiCheckBoxFilter />", () => {
     expect(screen.getByTestId("listbox")).toBeInTheDocument();
   });
 
-  test("it should display options (including 'All')", () => {
+  test("it should display options", () => {
     render(
       <MultiCheckBoxFilter
         title="the list"
@@ -50,7 +51,7 @@ describe("<MultiCheckBoxFilter />", () => {
     );
 
     const options = screen.getAllByTestId("option");
-    expect(options.length).toEqual(1 + allValues.length);
+    expect(options.length).toEqual(allValues.length);
   });
 
   describe("toggling a single option", () => {
@@ -91,56 +92,56 @@ describe("<MultiCheckBoxFilter />", () => {
     });
   });
 
-  describe("toggling 'All'", () => {
-    test("should propagate from some to all", () => {
-      render(
-        <MultiCheckBoxFilter
-          title="the list"
-          keysAndLabels={allValues}
-          selection={["Roger", "Andy"]}
-          onSelectionUpdate={selectionUpdate}
-        />
-      );
+  // describe("toggling 'All'", () => {
+  //   test("should propagate from some to all", () => {
+  //     render(
+  //       <MultiCheckBoxFilter
+  //         title="the list"
+  //         keysAndLabels={allValues}
+  //         selection={["Roger", "Andy"]}
+  //         onSelectionUpdate={selectionUpdate}
+  //       />
+  //     );
 
-      const checkBox = findCheckBoxFromLabelText("Tutte");
+  //     const checkBox = findCheckBoxFromLabelText("Tutte");
 
-      userEvent.click(checkBox);
+  //     userEvent.click(checkBox);
 
-      expect(selectionUpdate).toHaveBeenCalledWith(allKeys);
-    });
+  //     expect(selectionUpdate).toHaveBeenCalledWith(allKeys);
+  //   });
 
-    test("should propagate from none to all", () => {
-      render(
-        <MultiCheckBoxFilter
-          title="the list"
-          keysAndLabels={allValues}
-          selection={[]}
-          onSelectionUpdate={selectionUpdate}
-        />
-      );
+  //   test("should propagate from none to all", () => {
+  //     render(
+  //       <MultiCheckBoxFilter
+  //         title="the list"
+  //         keysAndLabels={allValues}
+  //         selection={[]}
+  //         onSelectionUpdate={selectionUpdate}
+  //       />
+  //     );
 
-      const checkBox = findCheckBoxFromLabelText("Tutte");
+  //     const checkBox = findCheckBoxFromLabelText("Tutte");
 
-      userEvent.click(checkBox);
+  //     userEvent.click(checkBox);
 
-      expect(selectionUpdate).toHaveBeenCalledWith(allKeys);
-    });
+  //     expect(selectionUpdate).toHaveBeenCalledWith(allKeys);
+  //   });
 
-    test("should propagate from all to none", () => {
-      render(
-        <MultiCheckBoxFilter
-          title="the list"
-          keysAndLabels={allValues}
-          selection={allKeys}
-          onSelectionUpdate={selectionUpdate}
-        />
-      );
+  //   test("should propagate from all to none", () => {
+  //     render(
+  //       <MultiCheckBoxFilter
+  //         title="the list"
+  //         keysAndLabels={allValues}
+  //         selection={allKeys}
+  //         onSelectionUpdate={selectionUpdate}
+  //       />
+  //     );
 
-      const checkBox = findCheckBoxFromLabelText("Tutte");
+  //     const checkBox = findCheckBoxFromLabelText("Tutte");
 
-      userEvent.click(checkBox);
+  //     userEvent.click(checkBox);
 
-      expect(selectionUpdate).toHaveBeenCalledWith([]);
-    });
-  });
+  //     expect(selectionUpdate).toHaveBeenCalledWith([]);
+  //   });
+  // });
 });
