@@ -24,10 +24,10 @@ describe("<AssetTypeFilter />", () => {
     expect(screen.getByTestId("dropdownMenu")).toBeInTheDocument();
   });
 
-  test("it should display options (including 'All')", () => {
+  test("it should display options", () => {
     render(<AssetTypeFilter types={[]} onTypesUpdate={typeUpdate} />);
     userEvent.click(screen.getByTestId("MultiSelectFilter"));
     const options = screen.getAllByTestId("option");
-    expect(options.length).toEqual(1 + SUPPORTED_ASSET_TYPES.length);
+    expect(options.length).toEqual(SUPPORTED_ASSET_TYPES.length);
   });
 });

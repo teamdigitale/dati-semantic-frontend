@@ -1,9 +1,9 @@
 import React from "react";
 import { arrayOf, func, shape, string } from "prop-types";
-import { hash } from "../../../services/stringUtils";
+// import { hash } from "../../../services/stringUtils";
 
 const MultiCheckBoxFilter = ({
-  title,
+  // title,
   keysAndLabels,
   selection = [],
   onSelectionUpdate,
@@ -41,22 +41,22 @@ const MultiCheckBoxFilter = ({
     );
   };
 
-  const allSelected = keysAndLabels.length == selection.length;
-  const noneSelected = selection.length == 0;
-  const someSelected = !(allSelected || noneSelected);
+  // const allSelected = keysAndLabels.length == selection.length;
+  // const noneSelected = selection.length == 0;
+  // const someSelected = !(allSelected || noneSelected);
 
-  const rotateAllSelection = () => {
-    if (someSelected || noneSelected) {
-      onSelectionUpdate(keysAndLabels.map((kl) => kl.key));
-      return;
-    }
+  // const rotateAllSelection = () => {
+  //   if (someSelected || noneSelected) {
+  //     onSelectionUpdate(keysAndLabels.map((kl) => kl.key));
+  //     return;
+  //   }
 
-    if (allSelected) {
-      onSelectionUpdate([]);
-    }
-  };
+  //   if (allSelected) {
+  //     onSelectionUpdate([]);
+  //   }
+  // };
 
-  let allId = "all-" + hash(title);
+  // let allId = "all-" + hash(title);
   return (
     <div data-testid="MultiCheckBoxFilter">
       <div className="it-list-wrapper">
@@ -65,7 +65,7 @@ const MultiCheckBoxFilter = ({
           data-testid="listbox"
           aria-labelledby={labbledById}
         >
-          <li key={allId}>
+          {/* <li key={allId}>
             <div className="form-check">
               <input
                 type="checkbox"
@@ -80,7 +80,7 @@ const MultiCheckBoxFilter = ({
               />
               <label htmlFor={allId}>Tutte</label>
             </div>
-          </li>
+          </li> */}
           {keysAndLabels.map((v) => displayOption(v.key, v.label))}
         </ul>
       </div>

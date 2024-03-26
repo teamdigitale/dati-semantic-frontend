@@ -11,9 +11,9 @@ const PatternFilter = ({ onPatternUpdate }) => {
 
   return (
     <div className="mt-4" data-testid="FilterPatternSection">
-      <h5 className={`titlePattern`} id={title.split(" ").join("_")}>
+      <h2 className={`titlePattern`} id={title.split(" ").join("_")}>
         {title}
-      </h5>
+      </h2>
       <div
         className="row col-12 col-lg-8 ms-0"
         data-testid="PatternFilter"
@@ -62,7 +62,7 @@ const PatternFilter = ({ onPatternUpdate }) => {
                 </button>
               </div>
             </div>
-            <small id="pattern-input" className="form-text">
+            <small id="pattern-input-help-text" className="form-text">
               {'*Inserisci parole chiave, ad esempio "tipologie nave"'}
             </small>
           </div>
