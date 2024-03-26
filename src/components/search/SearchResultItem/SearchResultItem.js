@@ -46,7 +46,10 @@ const SearchResultItem = ({ item }) => {
                 status={item.status && item.status[0]}
               />
             </div>
-            <div className="d-flex flex-row align-items-center">
+            <div
+              className="d-flex flex-row align-items-center"
+              style={{ minHeight: "40px" }}
+            >
               <span
                 className={
                   "border border-secondary rounded-circle d-inline-flex me-2"
