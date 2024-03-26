@@ -83,7 +83,10 @@ const SearchPage = () => {
         <div className="col-12 pb-lg-4" role="search">
           <div className="row mx-0 d-flex justify-content-center">
             <div className="px-0">
-              <PatternFilter onPatternUpdate={onPatternUpdate} />
+              <PatternFilter
+                pattern={filter?.pattern ?? ""}
+                onPatternUpdate={onPatternUpdate}
+              />
             </div>
           </div>
           <ShowOnDesktop>

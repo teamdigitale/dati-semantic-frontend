@@ -27,7 +27,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
     updateFilter
   } = useFilter();
 
-  const { types, themes, rightsHolders, sortBy, direction } = {
+  const { types, themes, pattern, rightsHolders, sortBy, direction } = {
     ...defaultFilterValues,
     ...filter
   };
@@ -74,7 +74,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                onFilterDispatch({ sortBy, direction });
+                onFilterDispatch({ sortBy, direction, pattern });
                 clearFilter({});
               }}
               data-bs-dismiss="modal"
@@ -86,7 +86,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
               className="btn d-flex flex-row align-items-center text-primary p-0"
               type="button"
               data-bs-dismiss="modal"
-              onClick={() => clearFilter({})}
+              onClick={() => updateFilter({ types, themes, rightsHolders })}
               aria-label="Chiudi finestra modale"
             >
               Chiudi
