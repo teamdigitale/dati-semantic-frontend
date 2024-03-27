@@ -134,25 +134,27 @@ const SearchResultItem = ({ item }) => {
                 </span>
               </div>
             )}
-            <div className="mt-4">
-              <div key={categories[0].key}>
-                <span className={`${styles.captionCategories} fw-semibold`}>
-                  {categories[0].label}
-                  {categories.length > 1 && (
-                    <span
-                      className="ms-2 badge rounded-pill fw-semibold"
-                      style={{
-                        backgroundColor: "#D9DADB",
-                        color: "#5C6F82",
-                        fontSize: "16px"
-                      }}
-                    >
-                      {`+${categories.length - 1}`}
-                    </span>
-                  )}
-                </span>
+            {categories.length != 0 && (
+              <div className="mt-4">
+                <div key={categories[0].key}>
+                  <span className={`${styles.captionCategories} fw-semibold`}>
+                    {categories[0].label}
+                    {categories.length > 1 && (
+                      <span
+                        className="ms-2 badge rounded-pill fw-semibold"
+                        style={{
+                          backgroundColor: "#D9DADB",
+                          color: "#5C6F82",
+                          fontSize: "16px"
+                        }}
+                      >
+                        {`+${categories.length - 1}`}
+                      </span>
+                    )}
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </a>
       </div>
