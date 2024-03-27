@@ -48,14 +48,28 @@ const SearchPage = () => {
     doSearch();
   }, [urlSearch]);
 
+  const getLangLabel = (name) => {
+    if (name) {
+      if (typeof name == "object") {
+        if (Object.keys(name).length == 0) return null;
+        if (Reflect.has(name, "it")) return name["it"];
+        if (Reflect.has(name, "en")) return name["en"];
+        if (Reflect.has(name, "DEFAULT")) return name["DEFAULT"];
+      } else if (typeof name == "string") return name;
+    }
+
+    return null;
+  };
+
   useEffect(() => {
     const fetchRightsHolders = async () => {
       try {
         const result = await getRightsHolders();
         const formattedRightsHolders = result.map((obj) => {
-          const language = Reflect.has(obj.name, "it") ? "it" : "en";
-
-          return { label: obj.name[language], key: obj.identifier };
+          return {
+            label: getLangLabel(obj.name) ?? obj.identifier,
+            key: obj.identifier
+          };
         });
         setRightsHoldersList(formattedRightsHolders);
       } catch (e) {
