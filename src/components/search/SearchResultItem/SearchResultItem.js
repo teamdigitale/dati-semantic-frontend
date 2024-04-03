@@ -98,7 +98,7 @@ const SearchResultItem = ({ item }) => {
                   </span>{" "}
                   <span
                     onClick={() => handleRedirectUri(item.assetIri)}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "pointer", overflowWrap: "anywhere" }}
                     role="link"
                     aria-label="redirect to uri"
                     tabIndex={0}
