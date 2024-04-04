@@ -28,11 +28,12 @@ const IntroSection = ({
         <div
           className={
             !isSearch || isSearch == undefined
-              ? "secondaryBkg py-0 ps-3"
-              : "introSectionBreadWhite " + "row mx-0 px-0 my-0 py-0 ps-3"
+              ? "secondaryBkg py-0 ps-3 ps-lg-5"
+              : "introSectionBreadWhite " +
+                "row mx-0 px-0 my-0 py-0 ps-3 ps-lg-5"
           }
         >
-          <div className="col-xl-12 ps-5">
+          <div className="col-xl-12 ps-lg-5">
             <BreadCrumbs arrayBread={arrayBread} />
           </div>
         </div>
