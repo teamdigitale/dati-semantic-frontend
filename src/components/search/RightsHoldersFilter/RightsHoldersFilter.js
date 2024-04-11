@@ -94,7 +94,7 @@ const RightsHoldersFilter = ({
   return (
     <div className="d-grid" data-testid={idRightsHolderFilter}>
       {!isMobileFilter && (
-        <table>
+        <table style={{ captionSide: "unset" }}>
           <caption
             htmlFor="rightsHolderFilter"
             className="pb-3 caption-title text-uppercase fw-semibold"

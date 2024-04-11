@@ -59,7 +59,7 @@ export const MultiSelectChips = ({
   return (
     <>
       <div className="d-grid" data-testid="MultiSelectFilter">
-        <table>
+        <table style={{ captionSide: "unset" }}>
           <caption
             htmlFor="multiSelect"
             className="caption-title text-uppercase fw-semibold"
