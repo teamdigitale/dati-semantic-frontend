@@ -8,8 +8,11 @@ import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
 import { baseUrl } from "../../../../services/fetchUtils";
 import styles from "./AssetDetailsButtons.module.css";
+import { ModalChangeOrientation } from "../../../common/ModalChangeOrientation/ModalChangeOrientation";
+import { isMobile } from "../../../common/ResponsiveViews";
+import { useState } from "react";
 
-const renderButton = (text, url, className) => {
+const renderButton = (text, url, className, handleChangeRedirectUrl) => {
   const handleButtonClick = (event) => {
     if (text === "Vai al sorgente") {
       if (url) {
@@ -29,25 +32,38 @@ const renderButton = (text, url, className) => {
         window.open("/error-page", "_self");
       }
     } else {
+      if (isMobile()) {
+        handleChangeRedirectUrl(url);
+        return;
+      }
       window.open(url);
     }
   };
 
   return (
-    <button
-      aria-label={text + " (si apre in un'altra scheda)"}
-      type="button"
-      className={"btn " + className + " " + styles.detailsButton}
-      onClick={handleButtonClick}
-    >
-      {text}
-    </button>
+    <>
+      <button
+        aria-label={text + " (si apre in un'altra scheda)"}
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target={"#modalChangeOrientation"}
+        className={"btn " + className + " " + styles.detailsButton}
+        onClick={handleButtonClick}
+      >
+        {text}
+      </button>
+    </>
   );
 };
 
 const SPARQL_QUERY_PARAM = "qtxt";
 
 const AssetDetailsButtons = (props) => {
+  const [redirectUrl, setRedirectUrl] = useState("");
+
+  const handleChangeRedirectUrl = (url) => {
+    setRedirectUrl(url);
+  };
   const getAssetSparqlQuery = () => {
     return (
       "select distinct ?prop ?value where { <" +
@@ -57,36 +73,41 @@ const AssetDetailsButtons = (props) => {
   };
 
   return (
-    <div
-      className={"buttons-wrapper my-5 text-center text-sm-end"}
-      data-testid="asset-details-buttons"
-    >
-      {props.type !== AT_SCHEMA && (
+    <>
+      <div
+        className={"buttons-wrapper my-5 text-center text-sm-end"}
+        data-testid="asset-details-buttons"
+      >
+        {props.type !== AT_SCHEMA && (
+          <div className="btn p-0">
+            {renderButton(
+              "sparql",
+              getSparqlEndpoint() +
+                "?" +
+                SPARQL_QUERY_PARAM +
+                "=" +
+                getAssetSparqlQuery(),
+              "btn-outline-primary text-uppercase",
+              handleChangeRedirectUrl
+            )}
+          </div>
+        )}
+        {props.type === AT_VOCABULARY && (
+          <div className="btn p-0">
+            {renderButton(
+              "api",
+              props.vocabUrl,
+              "btn-outline-primary text-uppercase",
+              handleChangeRedirectUrl
+            )}
+          </div>
+        )}
         <div className="btn p-0">
-          {renderButton(
-            "sparql",
-            getSparqlEndpoint() +
-              "?" +
-              SPARQL_QUERY_PARAM +
-              "=" +
-              getAssetSparqlQuery(),
-            "btn-outline-primary text-uppercase"
-          )}
+          {renderButton("Vai al sorgente", props.accessUrl, "btn-primary")}
         </div>
-      )}
-      {props.type === AT_VOCABULARY && (
-        <div className="btn p-0">
-          {renderButton(
-            "api",
-            props.vocabUrl,
-            "btn-outline-primary text-uppercase"
-          )}
-        </div>
-      )}
-      <div className="btn p-0">
-        {renderButton("Vai al sorgente", props.accessUrl, "btn-primary")}
       </div>
-    </div>
+      <ModalChangeOrientation onRedirect={() => window.open(redirectUrl)} />
+    </>
   );
 };
 

@@ -1,1 +1,8 @@
-export const isMobile = window.matchMedia("(max-width: 991px)").matches;
+const recalculateIsMobile = () => () =>
+  window.matchMedia("(max-width: 991px)").matches;
+
+window.addEventListener("resize", () => {
+  recalculateIsMobile();
+});
+
+export const isMobile = recalculateIsMobile();
