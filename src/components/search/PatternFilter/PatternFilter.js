@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { func, string } from "prop-types";
+import { bool, func, string } from "prop-types";
 import sprite from "../../../assets/images/sprite.svg";
 import "./PatternFilter.css";
 import { isMobile } from "../../common/ResponsiveViews";
 
-const PatternFilter = ({ pattern, onPatternUpdate }) => {
+const PatternFilter = ({ pattern, onPatternUpdate, isHomeSection = false }) => {
   const [value, setValue] = useState("");
 
   const title = "Cerca per parola chiave";
 
   useEffect(() => {
-    if (pattern && pattern != "" && isMobile) setValue(pattern);
+    if (pattern && pattern != "" && isMobile()) setValue(pattern);
   }, []);
 
   return (
-    <div className="mt-4" data-testid="FilterPatternSection">
-      <h2 className={`titlePattern`} id={title.split(" ").join("_")}>
-        {title}
-      </h2>
+    <div
+      className={isHomeSection ? "ms-2" : "mt-4"}
+      data-testid="FilterPatternSection"
+    >
+      {!isHomeSection && (
+        <h2 className={`titlePattern`} id={title.split(" ").join("_")}>
+          {title}
+        </h2>
+      )}
       <div
         className="row col-12 col-lg-8 ms-0"
         data-testid="PatternFilter"
@@ -30,7 +35,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
           onSubmit={(e) => {
             onPatternUpdate(value);
             e.preventDefault();
-            if (!isMobile) setValue("");
+            if (!isMobile()) setValue("");
           }}
         >
           <div className="form-group mb-0 mb-lg-5">
@@ -46,7 +51,7 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
               </span>
               <input
                 role="searchbox"
-                type={isMobile ? "search" : "text"}
+                type={isMobile() ? "search" : "text"}
                 className="form-control"
                 style={{ paddingLeft: "2.2rem" }}
                 id="pattern-input"
@@ -78,7 +83,8 @@ const PatternFilter = ({ pattern, onPatternUpdate }) => {
 
 PatternFilter.propTypes = {
   onPatternUpdate: func.isRequired,
-  pattern: string
+  pattern: string,
+  isHomeSection: bool
 };
 
 PatternFilter.defaultProps = {};

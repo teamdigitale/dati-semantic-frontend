@@ -1,61 +1,23 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import ExploreSection from "../ExploreSection/ExploreSection";
 import { useNavigate } from "react-router-dom";
 import { routes } from "../../../services/routes";
-import sprite from "../../../assets/images/sprite.svg";
 import "./ExploreByText.css";
+import PatternFilter from "../../search/PatternFilter/PatternFilter";
 
 const ExploreByText = () => {
-  const [pattern, setPattern] = useState("");
   const navigate = useNavigate();
 
-  const doSubmit = useCallback(
-    (e) => {
-      navigate(routes.search({ pattern: pattern }));
-      e.preventDefault();
-    },
-    [pattern]
-  );
+  const doSubmit = useCallback((value) => {
+    navigate(routes.search({ pattern: value }));
+  }, []);
 
-  const onPatternChange = useCallback((e) => setPattern(e.target.value), []);
+  const onPatternChange = useCallback((value) => doSubmit(value), []);
 
   return (
     <ExploreSection title="Cerca nel catalogo per parola chiave">
-      <div className="pt-3 container-fluid schemaPadding" role="form">
-        <form role="search" onSubmit={doSubmit}>
-          <div className="row ms-1 pe-2">
-            <div className="form-group col-md-7 p-2">
-              <div className="search-group input-group">
-                {/* <span className="input-group-append">
-                  <div className="input-group-text bg-transparent">
-                    <Icon icon="it-search" size="sm" alt="" />
-                  </div>
-                </span> */}
-                <input
-                  aria-label="catalogo"
-                  type="search"
-                  className="form-control"
-                  placeholder="es. persona, economia, attività"
-                  value={pattern}
-                  onChange={onPatternChange}
-                />
-                <span className="autocomplete-icon" aria-hidden="true">
-                  <div className="input-group-prepend"></div>
-                  <div className="col-12 col-md-6 col-lg-4">
-                    <svg className="icon">
-                      <use href={sprite + "#it-search"}></use>
-                    </svg>{" "}
-                  </div>
-                </span>
-              </div>
-            </div>
-            <div className="form-group col-md-3 p-2 d-flex justify-content-center">
-              <button type="submit" className="btn btn-primary w-75 mx-auto">
-                Cerca
-              </button>
-            </div>
-          </div>
-        </form>
+      <div className="container-fluid schemaPadding">
+        <PatternFilter onPatternUpdate={onPatternChange} isHomeSection />
       </div>
     </ExploreSection>
   );
