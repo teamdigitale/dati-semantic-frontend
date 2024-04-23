@@ -72,7 +72,7 @@ const SearchResultItem = ({ item }) => {
 
               <div
                 className={
-                  "h4 card-title primary-color mt-4 " + styles.itemTitle
+                  "h4 card-title link-primary mt-4 " + styles.itemTitle
                 }
                 role="navigation"
                 tabIndex={0}
@@ -115,7 +115,7 @@ const SearchResultItem = ({ item }) => {
                           handleRedirectUri(item.assetIri);
                         }
                       }}
-                      className="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover px-1 pe-3"
+                      className={`link-primary px-1 pe-3 ${styles.assetIri}`}
                     >
                       {item.assetIri}
                     </span>
