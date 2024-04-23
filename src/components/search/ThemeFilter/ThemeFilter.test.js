@@ -14,6 +14,8 @@ describe("<ThemeFilter />", () => {
 
     userEvent.click(screen.getByTestId("MultiSelectFilter"));
 
-    expect(screen.getByTestId("dropdownMenu")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("dropdownMenu-Filtra_per_Categoria")
+    ).toBeInTheDocument();
   });
 });
