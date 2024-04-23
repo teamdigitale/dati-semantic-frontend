@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { bool, func, string } from "prop-types";
 import sprite from "../../../assets/images/sprite.svg";
 import "./PatternFilter.css";
-import { isMobile } from "../../common/ResponsiveViews";
 
-const PatternFilter = ({ pattern, onPatternUpdate, isHomeSection = false }) => {
+const PatternFilter = ({ onPatternUpdate, isHomeSection = false }) => {
   const [value, setValue] = useState("");
 
   const title = "Cerca per parola chiave";
-
-  useEffect(() => {
-    if (pattern && pattern != "" && isMobile()) setValue(pattern);
-  }, []);
 
   return (
     <div
@@ -35,7 +30,7 @@ const PatternFilter = ({ pattern, onPatternUpdate, isHomeSection = false }) => {
           onSubmit={(e) => {
             onPatternUpdate(value);
             e.preventDefault();
-            if (!isMobile()) setValue("");
+            setValue("");
           }}
         >
           <div className="form-group mb-0 mb-lg-5">
@@ -51,7 +46,7 @@ const PatternFilter = ({ pattern, onPatternUpdate, isHomeSection = false }) => {
               </span>
               <input
                 role="searchbox"
-                type={isMobile() ? "search" : "text"}
+                type={"text"}
                 className="form-control"
                 style={{ paddingLeft: "2.2rem" }}
                 id="pattern-input"

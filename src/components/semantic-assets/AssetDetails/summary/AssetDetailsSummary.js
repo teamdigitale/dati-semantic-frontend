@@ -36,8 +36,8 @@ const AssetDetailsSummary = (props) => {
   }, []);
   return (
     <div data-testid="asset-details-summary" id="asset-details-summary">
-      <div className={" row pt-3 pb-3"}>
-        <div className={styles.text + " col-6 text-uppercase fw-bold"}>
+      <div className={"row p-3"}>
+        <div className={styles.text + " col-6 text-uppercase fw-bold px-0"}>
           <div className="category-top pt-1">
             {categories.map((c) => (
               <div key={c.key} className="category">
@@ -46,19 +46,19 @@ const AssetDetailsSummary = (props) => {
             ))}
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 px-0 py-md-0 py-2">
           <div className="d-md-flex justify-content-end">
             <AssetTypeChip type={props.type} bgColor={"blue"} />
           </div>
         </div>
       </div>
-      <div className="row pt-3 pb-3">
-        <div className="col-12">
+      <div className="row p-3">
+        <div className="col-12 px-0">
           <h1 className={"h2"}>{props.title}</h1>
         </div>
       </div>
       <div className={"row " + styles.detailsCard}>
-        <div className="col-12">
+        <div className="col-12 px-0 px-lg-2">
           <div className="card-wrapper card-space">
             <div className={" card card-bg my-2 ps-5 pe-5 pt-5"}>
               <div className={"row " + styles.description}>

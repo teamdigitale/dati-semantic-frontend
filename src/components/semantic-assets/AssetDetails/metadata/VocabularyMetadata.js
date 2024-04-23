@@ -37,7 +37,7 @@ const VocabularyMetadata = ({ details }) => {
               <div className="col-xl-2 col-4 text-end">
                 <a
                   aria-label="Vai all'endpoint (si apre in un'altra scheda)"
-                  className="btn btn-sm pt-0 px-1 pe-3"
+                  className="btn btn-sm pt-0 px-1"
                   href={details.endpointUrl}
                   target="_blank"
                   rel="noreferrer"

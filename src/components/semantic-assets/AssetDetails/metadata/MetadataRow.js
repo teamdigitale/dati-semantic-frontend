@@ -12,7 +12,13 @@ const MetadataRow = (props) => {
         </div>
         <div className="col-12 col-lg-9">
           <div className="row">
-            <div className="col-xl-10 col-8">
+            <div
+              className={`${
+                !props.iconLink && !props.externalLink
+                  ? "col-12"
+                  : "col-xl-10 col-8"
+              }`}
+            >
               <span className={styles.propertyValue}>{props.value}</span>
             </div>
             {!!props.iconLink && (
