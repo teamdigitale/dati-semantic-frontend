@@ -41,15 +41,15 @@ export const filterFormatter = (filtersFromQuery, rightsHoldersArray = []) => {
       return { ...el, type: "Titolari", cat: "rightsHolders" };
     });
 
-  if (formattedTypes.length == typesArray.length)
-    formattedTypes = [
-      { key: "all-types", label: "Tutte", type: "Strumento", cat: "types" }
-    ];
+  // if (formattedTypes.length == typesArray.length)
+  //   formattedTypes = [
+  //     { key: "all-types", label: "Tutte", type: "Strumento", cat: "types" }
+  //   ];
 
-  if (formattedThemes.length == themesArray.length)
-    formattedThemes = [
-      { key: "all-theme", label: "Tutte", type: "Categoria", cat: "themes" }
-    ];
+  // if (formattedThemes.length == themesArray.length)
+  //   formattedThemes = [
+  //     { key: "all-theme", label: "Tutte", type: "Categoria", cat: "themes" }
+  //   ];
 
   // if (formattedRightsHolders.length == rightsHoldersArray.length)
   //   formattedRightsHolders = [

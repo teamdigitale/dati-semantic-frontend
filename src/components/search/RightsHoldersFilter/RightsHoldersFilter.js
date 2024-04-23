@@ -21,6 +21,9 @@ const RightsHoldersFilter = ({
   const idRightsHolderFilter = isMobileFilter
     ? "rightsHolderFilterMobile"
     : "rightsHolderFilter";
+  const idCheckOptions = isMobileFilter ? "check-mobile-" : "check-";
+
+  const selectedOptions = selection.filter((el) => !rightsHolders.includes(el));
 
   const dropdownElementList = [].slice.call(
     document.querySelectorAll(".dropdown-toggle")
@@ -32,7 +35,11 @@ const RightsHoldersFilter = ({
     .find((el) => el._element.id == idRightsHolderFilter);
 
   const addToSelection = (toBeAdded) => () => {
-    onRightsHoldersUpdate([...selection, toBeAdded]);
+    const arr =
+      rightsHolders.length > 0 && isMobileFilter && selection.length != 0
+        ? [...new Set([...selection, ...rightsHolders, toBeAdded])]
+        : [...selection, toBeAdded];
+    onRightsHoldersUpdate(arr);
     dropdownElement.show();
   };
 
@@ -50,16 +57,15 @@ const RightsHoldersFilter = ({
       ? parse(
           label.replace(
             new RegExp(`(${value})`, "gi"),
-            '<strong className="fw-bold">$1</strong>'
+            '<strong className="fw-bold text-primary">$1</strong>'
           )
         )
       : label;
 
-  const optionArray = isMobileFilter
-    ? sortObjectsByAlphabeticalKey(keysAndLabels, "label")
-    : sortObjectsByAlphabeticalKey(keysAndLabels, "label").filter(
-        (el) => !rightsHolders.includes(el.key)
-      );
+  const optionArray = sortObjectsByAlphabeticalKey(
+    keysAndLabels,
+    "label"
+  ).moveItemsToFront((item) => rightsHolders.includes(item.key));
 
   const optionsFiltered = optionArray.filter((el) =>
     el.label.toLowerCase().includes(value.toLowerCase())
@@ -123,17 +129,25 @@ const RightsHoldersFilter = ({
           <input
             role="searchbox"
             type="text"
-            className="form-control"
+            className={`form-control ${
+              selectedOptions.length > 0 ? "selectedItems" : "notSelectedItems"
+            }`}
             style={{ paddingLeft: "2.2rem" }}
             id={idRightsHolderInput}
-            placeholder="Cerca per titolare"
+            placeholder={`${
+              selectedOptions.length > 0
+                ? selectedOptions.length == 1
+                  ? `1 opzione selezionata`
+                  : `${selectedOptions.length} opzioni selezionate`
+                : "Cerca per titolare"
+            }`}
             name={idRightsHolderInput}
             value={value}
             onChange={(e) => onChangeInput(e.target.value)}
           />
         </div>
         {/* Dropdown with options */}
-        <div id={idDropDown} className={`dropdown-menu w-100 px-2`}>
+        <div id={idDropDown} className={`dropdown-menu w-100 p-0`}>
           <div className="link-list-wrapper">
             <ul
               id={isMobileFilter ? "wrapperListMobile" : "wrapperList"}
@@ -142,13 +156,16 @@ const RightsHoldersFilter = ({
               {optionsFiltered.length > 0 ? (
                 optionsFiltered.map((option) => {
                   const checked = selection.includes(option.key);
-                  const id = "check-" + option.key;
+                  const id = idCheckOptions + option.key;
                   const toggleSelection = checked
                     ? removeFromSelection(option.key)
                     : addToSelection(option.key);
 
                   return (
-                    <li className="form-check" key={option.key}>
+                    <li
+                      className="form-check optionsDropdown px-2 py-1 mt-0"
+                      key={option.key}
+                    >
                       <input
                         type="checkbox"
                         id={id}
@@ -158,7 +175,9 @@ const RightsHoldersFilter = ({
                       />
                       <label
                         style={{ fontSize: "16px" }}
-                        className="text-wrap"
+                        className={`${
+                          checked ? "fw-semibold" : "fw-normal"
+                        } text-wrap`}
                         htmlFor={id}
                       >
                         {parseOption(option.label)}

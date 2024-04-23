@@ -5,6 +5,7 @@ import { arrayOf, func, shape, string } from "prop-types";
 const MultiCheckBoxFilter = ({
   // title,
   keysAndLabels,
+  filter,
   selection = [],
   onSelectionUpdate,
   labbledById
@@ -21,7 +22,7 @@ const MultiCheckBoxFilter = ({
 
   const displayOption = (key, label) => {
     const checked = selection.includes(key);
-    const id = "check-" + key;
+    const id = "check-mobile-" + key;
     const toggleSelection = checked
       ? removeFromSelection(key)
       : addToSelection(key);
@@ -35,7 +36,12 @@ const MultiCheckBoxFilter = ({
             data-testid="option"
             onChange={toggleSelection}
           />
-          <label htmlFor={id}>{label}</label>
+          <label
+            className={`${checked ? "fw-semibold" : "fw-normal"}`}
+            htmlFor={id}
+          >
+            {label}
+          </label>
         </div>
       </li>
     );
@@ -81,7 +87,9 @@ const MultiCheckBoxFilter = ({
               <label htmlFor={allId}>Tutte</label>
             </div>
           </li> */}
-          {keysAndLabels.map((v) => displayOption(v.key, v.label))}
+          {keysAndLabels
+            .moveItemsToFront((item) => filter.includes(item.key))
+            .map((v) => displayOption(v.key, v.label))}
         </ul>
       </div>
     </div>
@@ -97,6 +105,7 @@ MultiCheckBoxFilter.propTypes = {
     })
   ).isRequired,
   selection: arrayOf(string),
+  filter: arrayOf(string),
   onSelectionUpdate: func.isRequired,
   labbledById: string
 };

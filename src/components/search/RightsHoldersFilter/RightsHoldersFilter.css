@@ -1,13 +1,42 @@
-#rights-holders-input::placeholder {
+#rights-holders-input.notSelectedItems::placeholder {
   font-weight: 400;
 }
-#rights-holders-input[type="search"] {
+
+#rights-holders-input.selectedItems::placeholder {
+  font-size: 1rem;
+  line-height: 1.5;
   font-weight: 600;
+}
+
+#rights-holders-input[type="text"] {
+  font-weight: 700;
+}
+
+#rights-holders-input-mobile.notSelectedItems::placeholder {
+  font-weight: 400;
+}
+
+#rights-holders-input-mobile.selectedItems::placeholder {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+#rights-holders-input-mobile[type="text"] {
+  font-weight: 700;
 }
 
 .dropdown-menu {
   max-height: 350px;
   overflow-y: auto;
+}
+
+.optionsDropdown:hover {
+  background-color: #dce9f5;
+}
+
+.optionsDropdown:first-child {
+  padding-top: 10px !important;
 }
 
 @keyframes dropdownFadeIn {
