@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback } from "react";
 import { array, arrayOf, oneOf, shape, string } from "prop-types";
 import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
@@ -6,9 +6,6 @@ import AssetTypeFilter from "../AssetTypeFilter/AssetTypeFilter";
 import ThemeFilter from "../ThemeFilter/ThemeFilter";
 import RightsHoldersFilter from "../RightsHoldersFilter/RightsHoldersFilter";
 import { useFilter } from "../../common/FilterContext/context";
-import { filterFormatter } from "../../../services/filterFormatter";
-import sprite from "../../../assets/images/sprite.svg";
-import "./FilterPanel.css";
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 
@@ -23,16 +20,13 @@ const FilterPanel = ({ filter, rightsHoldersList }) => {
   const {
     filter: filterState,
     onFilterFieldUpdate,
-    setFilter: clearFilter,
     onFilterDispatch
   } = useFilter();
 
-  const { types, themes, rightsHolders, sortBy, direction } = {
+  const { types, themes, rightsHolders } = {
     ...defaultFilterValues,
     ...filter
   };
-
-  const filterChips = filterFormatter(filter, rightsHoldersList);
 
   const onTypesUpdate = useCallback(onFilterFieldUpdate("types"), [
     filterState
@@ -47,105 +41,31 @@ const FilterPanel = ({ filter, rightsHoldersList }) => {
 
   const handleDispatchFilters = () => {
     onFilterDispatch({ ...filter, ...filterState });
-    clearFilter({});
-  };
-
-  const handleRemoveFilter = (filterToRemove, event) => {
-    event.stopPropagation();
-
-    if (filterToRemove.key.includes("all")) {
-      onFilterDispatch({ ...filter, [filterToRemove.cat]: [] });
-      clearFilter({});
-      return;
-    }
-
-    if (filterToRemove.cat != "pattern") {
-      onFilterDispatch({
-        ...filter,
-        [filterToRemove.cat]: filter[filterToRemove.cat].filter(
-          (el) => el != filterToRemove.key
-        )
-      });
-      clearFilter({
-        rightsHolders: filterState.rightsHolders
-          ? filterState.rightsHolders.filter((el) => el != filterToRemove.key)
-          : []
-      });
-    } else {
-      delete filter.pattern;
-      onFilterDispatch(filter);
-    }
   };
 
   const isDisableSubmitButton =
     Object.keys(filterState || {}).length == 0 ? "disabled" : "";
 
-  useEffect(() => {
-    if (rightsHolders.length > 0) onRightsHoldersUpdate(rightsHolders);
-  }, [rightsHolders.length]);
-
-  const renderChips = (chip) => {
-    if (chip.key == "removeAll" && filterChips.length > 1)
-      return (
-        <a
-          href="#"
-          key="delete_all_chips"
-          id="deleteAllFilter"
-          role="button"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            onFilterDispatch({ sortBy, direction });
-            clearFilter({});
-          }}
-          className="link-primary ms-2"
-        >
-          Annulla filtri
-        </a>
-      );
-    else if (filterChips.length == 1) return;
-
-    return (
-      <div
-        className="chip m-1 alert chip-primary bg-white"
-        id="chipsFilter"
-        style={{
-          width: "fit-content",
-          maxWidth: "100%"
-        }}
-        key={chip.key}
-      >
-        <span
-          style={{
-            height: "100%",
-            transform: "none"
-          }}
-          className="chip-label d-block fw-bold text-truncate"
-        >
-          {chip.type}: {chip.label}
-        </span>
-        <button onClick={(e) => handleRemoveFilter(chip, e)}>
-          <svg className="icon icon-sm">
-            <use href={`${sprite}#it-close`}></use>
-          </svg>
-          <span className="visually-hidden">Elimina filtro</span>
-        </button>
-      </div>
-    );
-  };
-
   return (
-    <div id="filter-panel" data-testid="FilterPanel">
+    <div id="filter-panel" data-testid="FilterPanel" className="pb-4">
       <div className="row g-4 align-items-end mb-2 justify-content-between">
         <div className="row row-cols-md-3 row-cols-sm-1 col-11">
-          <AssetTypeFilter types={types} onTypesUpdate={onTypesUpdate} />
+          <AssetTypeFilter
+            types={types}
+            selection={filterState?.types}
+            onTypesUpdate={onTypesUpdate}
+          />
           <RightsHoldersFilter
             keysAndLabels={rightsHoldersList}
             rightsHolders={rightsHolders}
             selection={filterState?.rightsHolders}
             onRightsHoldersUpdate={onRightsHoldersUpdate}
           />
-          <ThemeFilter themes={themes} onThemesUpdate={onThemesUpdate} />
+          <ThemeFilter
+            themes={themes}
+            selection={filterState?.themes}
+            onThemesUpdate={onThemesUpdate}
+          />
         </div>
         <div className="col-1 d-flex justify-content-end">
           <button
@@ -158,7 +78,6 @@ const FilterPanel = ({ filter, rightsHoldersList }) => {
           </button>
         </div>
       </div>
-      <div className="mt-4">{filterChips.map(renderChips)}</div>
     </div>
   );
 };
