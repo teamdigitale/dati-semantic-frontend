@@ -7,7 +7,7 @@ const ExploreSection = ({ title, children }) => (
     <div data-testid="ExploreSection">
       <div className="pt-3 ms-1">
         <div className="container-fluid schemaPadding">
-          <h2 className="p-2 second-sub-heading">{title}</h2>
+          <h2 className="p-2 second-sub-heading px-0">{title}</h2>
         </div>
       </div>
       {children}

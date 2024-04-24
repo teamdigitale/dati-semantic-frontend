@@ -12,26 +12,125 @@ import { ResultCount } from "./partials/ResultCount";
 import { List } from "./partials/List";
 import { PaginationList } from "./partials/PaginationList";
 import { OrderFilter } from "../OrderFilter/OrderFilter";
-import { ShowOnDesktop, ShowOnMobile } from "../../common/ResponsiveViews";
+import {
+  ShowOnDesktop,
+  ShowOnMobile,
+  isMobile
+} from "../../common/ResponsiveViews";
 import PatternFilter from "../PatternFilter/PatternFilter";
 import { FilterModalMobile } from "../FilterPanel/FilterModalMobile";
-import { getRightsHolders } from "../../../services/rightsHoldersService";
+import {
+  getLangLabel,
+  getRightsHolders
+} from "../../../services/rightsHoldersService";
+import sprite from "../../../assets/images/sprite.svg";
+import { filterFormatter } from "../../../services/filterFormatter";
 
 const SearchPage = () => {
   const [searchResult, setSearchResult] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const { search: urlSearch } = useLocation();
-  const { onFilterDispatch, areFiltersActive } = useFilter();
+  const {
+    onFilterDispatch,
+    areFiltersActive,
+    setFilter: clearFilter
+  } = useFilter();
   const [rightsHoldersList, setRightsHoldersList] = useState([]);
 
   const filter = routes.searchUrlToFilter(urlSearch);
+  const filterChips = filterFormatter(filter, rightsHoldersList);
+
+  const { types, rightsHolders, themes, sortBy, direction } = filter;
 
   const onPatternFilter = (newValue) => {
     onFilterDispatch({ ...filter, pattern: newValue });
   };
 
   const onPatternUpdate = useCallback(onPatternFilter, [filter]);
+
+  const handleRemoveFilter = (filterToRemove, event) => {
+    event.stopPropagation();
+
+    if (filterToRemove.cat != "pattern") {
+      onFilterDispatch({
+        ...filter,
+        [filterToRemove.cat]: filter[filterToRemove.cat].filter(
+          (el) => el != filterToRemove.key
+        )
+      });
+      clearFilter({
+        types,
+        themes,
+        rightsHolders,
+        [filterToRemove.cat]: filter[filterToRemove.cat].filter(
+          (el) => el != filterToRemove.key
+        )
+      });
+    } else {
+      delete filter.pattern;
+      onFilterDispatch(filter);
+    }
+  };
+
+  const renderChips = (chip) => {
+    if (chip.key == "removeAll" && filterChips.length > 1)
+      return (
+        <a
+          href="#"
+          key="delete_all_chips"
+          id="deleteAllFilter"
+          role="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onFilterDispatch({ sortBy, direction });
+            clearFilter({});
+          }}
+          className="link-primary ms-2"
+        >
+          Annulla filtri
+        </a>
+      );
+    else if (filterChips.length == 1) return;
+
+    return (
+      <div
+        className="chip m-1 alert chip-primary"
+        id="chipsFilter"
+        style={{
+          width: "fit-content",
+          maxWidth: "100%"
+        }}
+        key={chip.key}
+      >
+        <span
+          style={{
+            height: "100%",
+            transform: "none"
+          }}
+          className="chip-label text-truncate"
+        >
+          {chip.type}: {chip.label}
+        </span>
+        <button onClick={(e) => handleRemoveFilter(chip, e)}>
+          <svg className="icon icon-sm">
+            <use href={`${sprite}#it-close`}></use>
+          </svg>
+          <span className="visually-hidden">Elimina filtro</span>
+        </button>
+      </div>
+    );
+  };
+
+  useEffect(() => {
+    if (!isMobile())
+      clearFilter({
+        types,
+        themes,
+        rightsHolders
+      });
+  }, []);
 
   useEffect(() => {
     const doSearch = async () => {
@@ -47,19 +146,6 @@ const SearchPage = () => {
     };
     doSearch();
   }, [urlSearch]);
-
-  const getLangLabel = (name) => {
-    if (name) {
-      if (typeof name == "object") {
-        if (Object.keys(name).length == 0) return null;
-        if (Reflect.has(name, "it")) return name["it"];
-        if (Reflect.has(name, "en")) return name["en"];
-        if (Reflect.has(name, "DEFAULT")) return name["DEFAULT"];
-      } else if (typeof name == "string") return name;
-    }
-
-    return null;
-  };
 
   useEffect(() => {
     const fetchRightsHolders = async () => {
@@ -94,13 +180,10 @@ const SearchPage = () => {
         arrayBread={BREADCRUMBS.SEARCHPAGE}
       />
       <div className="container-fluid schemaPadding" id="searchAnchor">
-        <div className="col-12 pb-lg-4" role="search">
+        <div className="col-12 pb-3" role="search">
           <div className="row mx-0 d-flex justify-content-center">
             <div className="px-0">
-              <PatternFilter
-                pattern={filter?.pattern ?? ""}
-                onPatternUpdate={onPatternUpdate}
-              />
+              <PatternFilter onPatternUpdate={onPatternUpdate} />
             </div>
           </div>
           <ShowOnDesktop>
@@ -108,17 +191,16 @@ const SearchPage = () => {
               filter={filter}
               rightsHoldersList={rightsHoldersList}
             />
+            <div>{filterChips.map(renderChips)}</div>
+            <hr className="mt-4" />
           </ShowOnDesktop>
         </div>
-        <ShowOnDesktop>
-          <hr className="my-2" />
-        </ShowOnDesktop>
       </div>
-      <div data-testid="SearchPage" className="mt-5">
+      <div data-testid="SearchPage" className="mt-3">
         <div className="container-fluid schemaPadding">
           <div className="row mx-0">
             <div className="col-12 px-0">
-              <div className="d-flex direction-row align-items-center align-items-lg-end justify-content-between">
+              <div className="d-flex direction-row align-items-center align-items-lg-end justify-content-between pb-4">
                 <ResultCount
                   isLoading={isLoading}
                   error={error}
@@ -141,6 +223,10 @@ const SearchPage = () => {
                   />
                 </div>
               </div>
+              <ShowOnMobile>
+                <div className="pb-2">{filterChips.map(renderChips)}</div>
+                <hr className="mt-2 m-0" />
+              </ShowOnMobile>
               <List
                 isLoading={isLoading}
                 error={error}

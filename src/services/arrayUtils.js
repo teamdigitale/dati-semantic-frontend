@@ -14,3 +14,24 @@ export const sortObjectsByAlphabeticalKey = (arr = [], key) => {
   });
   return arr;
 };
+
+const moveItemsToFront = (arr, condition) => {
+  const frontItems = [];
+  const otherItems = [];
+
+  // Separiamo gli elementi che soddisfano la condizione da quelli che non la soddisfano
+  arr.forEach((item) => {
+    if (condition(item)) {
+      frontItems.push(item);
+    } else {
+      otherItems.push(item);
+    }
+  });
+
+  // Concateniamo gli elementi che soddisfano la condizione con quelli che non la soddisfano
+  return frontItems.concat(otherItems);
+};
+
+Array.prototype.moveItemsToFront = function (condition) {
+  return moveItemsToFront(this, condition);
+};

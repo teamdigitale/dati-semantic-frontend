@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import PropTypes, { func } from "prop-types";
+import PropTypes, { func, string } from "prop-types";
 import {
   AT_TO_LABEL,
   SUPPORTED_ASSET_TYPES
 } from "../../../services/dataConstants";
 import { MultiSelectChips } from "../MultiSelectChips/MultiSelectChips";
 
-const AssetTypeFilter = ({ types, onTypesUpdate }) => {
+const AssetTypeFilter = ({ types, onTypesUpdate, selection }) => {
   const keysAndLabels = useMemo(
     () =>
       AT_TO_LABEL.map((ttl) => ({
@@ -22,7 +22,8 @@ const AssetTypeFilter = ({ types, onTypesUpdate }) => {
       onSelectionUpdate={onTypesUpdate}
       keysAndLabels={keysAndLabels}
       labbledById="Filtra_per_Strumento_sematico"
-      selection={types}
+      selection={selection}
+      filter={types}
       type="types"
     />
   );
@@ -30,7 +31,8 @@ const AssetTypeFilter = ({ types, onTypesUpdate }) => {
 
 AssetTypeFilter.propTypes = {
   types: PropTypes.arrayOf(PropTypes.oneOf(SUPPORTED_ASSET_TYPES)).isRequired,
-  onTypesUpdate: func.isRequired
+  onTypesUpdate: func.isRequired,
+  selection: PropTypes.arrayOf(string)
 };
 
 AssetTypeFilter.defaultProps = {};

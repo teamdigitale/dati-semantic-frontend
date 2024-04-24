@@ -1,60 +1,83 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import sprite from "../../../assets/images/sprite.svg";
 import { arrayOf, func, shape, string } from "prop-types";
 import { sortObjectsByAlphabeticalKey } from "../../../services/arrayUtils";
 import "./MultiSelectChips.css";
+// import { useFilter } from "../../common/FilterContext/context";
 
 export const MultiSelectChips = ({
   keysAndLabels = [],
   selection = [],
+  filter = [],
   onSelectionUpdate,
   labbledById,
   label = ""
 }) => {
-  const defaultFilter = { key: "", label: "" };
-  const [filterList, setFilterList] = useState(defaultFilter);
+  const idMultiSelectFilter = `multiSelect-${labbledById}`;
+  const idDropDown = `dropdownMenu-${labbledById}`;
+  const idMultiSelectInput = `multiSelectInput-${labbledById}`;
 
-  const allOption = { label: "Tutte", key: "all" };
-  const allSelected = keysAndLabels.length == selection.length;
-
-  const filterOptions = keysAndLabels.filter(
-    (el) => !selection.includes(el.key)
+  const optionsNotSelected = keysAndLabels.filter(
+    (el) => !filter.includes(el.key)
   );
 
-  const handleAddFilter = (option) => {
-    if (allSelected) {
-      onSelectionUpdate(selection.filter((el) => el == option.key));
-      setFilterList(option);
-      return;
-    }
+  const dropdownElementList = [].slice.call(
+    document.querySelectorAll(".dropdown-toggle")
+  );
+  const dropdownElement = dropdownElementList
+    .map(function (dropdownToggleEl) {
+      return new bootstrap.Dropdown(dropdownToggleEl);
+    })
+    .find((el) => el._element.id == idMultiSelectFilter);
 
-    if (selection.length == keysAndLabels.length - 1) {
-      handleAllFilter();
-      return;
-    }
-
-    onSelectionUpdate([...selection, option.key]);
-    setFilterList(option);
+  const addToSelection = (toBeAdded) => () => {
+    const arr =
+      filter.length > 0 && optionsNotSelected.length != 0
+        ? [...new Set([...selection, ...filter, toBeAdded])]
+        : [...selection, toBeAdded];
+    onSelectionUpdate(arr);
+    dropdownElement.show();
   };
 
-  const handleAllFilter = () => {
-    onSelectionUpdate(keysAndLabels.map((kl) => kl.key));
-    setFilterList(allOption);
+  const removeFromSelection = (toBeRemove) => () => {
+    const arr = selection.filter((el) => el !== toBeRemove);
+    onSelectionUpdate(arr);
   };
+
+  const optionArray = sortObjectsByAlphabeticalKey(
+    keysAndLabels,
+    "label"
+  ).moveItemsToFront((item) => filter.includes(item.key));
 
   useEffect(() => {
-    if (selection.length > 0) {
-      if (filterList.key == "all" && allSelected) {
-        setFilterList(defaultFilter);
-        return;
-      }
+    if (filter.length > 0) onSelectionUpdate(filter);
+  }, []);
 
-      if (selection.find((e) => e == filterList.key) && !allSelected) {
-        setFilterList(defaultFilter);
-        return;
-      }
+  useEffect(() => {
+    if (dropdownElement) {
+      document.addEventListener("click", (e) => {
+        if (
+          !e.target.closest(`#${idDropDown}`) &&
+          !e.target.closest(".link-list-wrapper")
+        )
+          dropdownElement.hide();
+
+        if (e.target.closest(`#${idMultiSelectInput}`)) {
+          dropdownElement.show();
+        }
+      });
     }
-  }, [selection]);
+
+    return () => {
+      document.removeEventListener("click", (e) => {
+        if (!e.target.closest(`#${idDropDown}`)) dropdownElement.hide();
+
+        if (e.target.closest(`#${idMultiSelectInput}`)) {
+          dropdownElement.show();
+        }
+      });
+    };
+  }, [dropdownElement]);
 
   return (
     <>
@@ -68,22 +91,25 @@ export const MultiSelectChips = ({
           </caption>
         </table>
         <div
-          id="multiSelect"
+          id={idMultiSelectFilter}
           aria-labelledby={labbledById}
-          data-bs-toggle="dropdown"
           className="dropdown dropdown-toggle px-0
             bg-red border-bottom border-secondary
             container-fluid row align-items-end"
         >
-          {/* Select with chips */}
-          <div className="d-flex flex-row g-2 justify-content-between">
+          <div
+            id={idMultiSelectInput}
+            className="d-flex flex-row g-2 justify-content-between"
+          >
             <div className="d-grid row justify-content-start py-2 pe-2">
-              {filterList.key == "" ? (
-                <span className="">{"Scegli un'opzione"}</span>
-              ) : (
+              {selection.length > 0 ? (
                 <span className="fw-semibold text-truncate">
-                  {filterList.label}
+                  {selection.length == 1
+                    ? "1 opzione selezionata"
+                    : `${selection.length} opzioni selezionate`}
                 </span>
+              ) : (
+                <span className="">{"Scegli un'opzione"}</span>
               )}
             </div>
             <button
@@ -101,42 +127,44 @@ export const MultiSelectChips = ({
             </button>
           </div>
           {/* Dropdown with options */}
-          <div data-testid="dropdownMenu" className={`dropdown-menu w-100`}>
+          <div
+            id={idDropDown}
+            data-testid={idDropDown}
+            className={`dropdown-menu w-100 p-0`}
+          >
             <div className="link-list-wrapper">
-              <ul className="link-list">
-                {/* <button
-                  key={"all"}
-                  type="button"
-                  data-testid="option"
-                  style={{
-                    display: filterOptions.length != 0 ? "block" : "none"
-                  }}
-                  onClick={() => handleAllFilter()}
-                  className={`btn dropdown-item list-item`}
-                >
-                  Tutte
-                </button> */}
-                {sortObjectsByAlphabeticalKey(keysAndLabels, "label").map(
-                  (option) => (
-                    <button
+              <ul id={`wrapperList-${labbledById}`} className="link-list">
+                {optionArray.map((option) => {
+                  const checked = selection.includes(option.key);
+                  const id = "check-" + option.key;
+                  const toggleSelection = checked
+                    ? removeFromSelection(option.key)
+                    : addToSelection(option.key);
+
+                  return (
+                    <li
+                      className="form-check optionsDropdown px-2 py-1 mt-0"
                       key={option.key}
-                      type="button"
-                      data-testid="option"
-                      style={{
-                        display:
-                          filterOptions.length == 0
-                            ? "block"
-                            : selection.includes(option.key)
-                            ? "none"
-                            : "block"
-                      }}
-                      onClick={() => handleAddFilter(option)}
-                      className={`btn dropdown-item list-item`}
                     >
-                      {option.label}
-                    </button>
-                  )
-                )}
+                      <input
+                        type="checkbox"
+                        id={id}
+                        checked={checked}
+                        data-testid="option"
+                        onChange={toggleSelection}
+                      />
+                      <label
+                        style={{ fontSize: "16px" }}
+                        className={`${
+                          checked ? "fw-semibold" : "fw-normal"
+                        } text-wrap`}
+                        htmlFor={id}
+                      >
+                        {option.label}
+                      </label>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -155,6 +183,7 @@ MultiSelectChips.propTypes = {
     })
   ),
   selection: arrayOf(string),
+  filter: arrayOf(string),
   onSelectionUpdate: func,
   labbledById: string,
   type: string

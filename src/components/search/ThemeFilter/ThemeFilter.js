@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes, { func } from "prop-types";
+import PropTypes, { func, string } from "prop-types";
 import { getCategories } from "../../../assets/data/categories";
 import { MultiSelectChips } from "../MultiSelectChips/MultiSelectChips";
 
@@ -9,14 +9,15 @@ const keysAndLabels = getCategories().map((c) => ({
 }));
 const categoryKeys = keysAndLabels.map((c) => c.key);
 
-const ThemeFilter = ({ themes, onThemesUpdate }) => {
+const ThemeFilter = ({ themes, onThemesUpdate, selection }) => {
   return (
     <MultiSelectChips
       label="Filtra per Categoria"
       onSelectionUpdate={onThemesUpdate}
       keysAndLabels={keysAndLabels}
       labbledById="Filtra_per_Categoria"
-      selection={themes}
+      selection={selection}
+      filter={themes}
       type="themes"
     />
   );
@@ -24,7 +25,8 @@ const ThemeFilter = ({ themes, onThemesUpdate }) => {
 
 ThemeFilter.propTypes = {
   themes: PropTypes.arrayOf(PropTypes.oneOf(categoryKeys)).isRequired,
-  onThemesUpdate: func.isRequired
+  onThemesUpdate: func.isRequired,
+  selection: PropTypes.arrayOf(string)
 };
 
 ThemeFilter.defaultProps = {};

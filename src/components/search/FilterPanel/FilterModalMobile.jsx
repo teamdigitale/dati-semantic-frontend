@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import sprite from "../../../assets/images/sprite.svg";
 import MultiCheckBoxFilter from "../MultiCheckBoxFilter/MultiCheckBoxFilter";
 import { themesArray, typesArray } from "../../../services/filterFormatter";
@@ -8,10 +8,12 @@ import { SUPPORTED_ASSET_TYPES } from "../../../services/dataConstants";
 import { getCategories } from "../../../assets/data/categories";
 import { useFilter } from "../../common/FilterContext/context";
 import RightsHoldersFilter from "../RightsHoldersFilter/RightsHoldersFilter";
+import { isMobile } from "../../common/ResponsiveViews";
 
 const SUPPORTED_THEMES = getCategories().map((c) => c.key);
 
 export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
+  const [deselectedAll, setDeselectedAll] = useState(false);
   const defaultFilterValues = {
     pattern: "",
     types: [],
@@ -44,11 +46,26 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
   );
 
   const handleDispatchFilters = () => {
+    //if all filters has been deselected
+    if (Object.keys(filterState).length == 0) {
+      onFilterDispatch({ sortBy, direction, pattern });
+      return;
+    }
+
+    if (deselectedAll && Object.keys(filterState).length != 0) {
+      onFilterDispatch({ ...filterState, sortBy, direction, pattern });
+      return;
+    }
+
     onFilterDispatch({ ...filter, ...filterState });
+    setDeselectedAll(false);
   };
 
   useEffect(() => {
-    if (types.length > 0 || themes.length > 0 || rightsHolders.length > 0)
+    if (
+      isMobile() &&
+      (types.length > 0 || themes.length > 0 || rightsHolders.length > 0)
+    )
       updateFilter({ types, themes, rightsHolders });
   }, []);
 
@@ -74,10 +91,9 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                onFilterDispatch({ sortBy, direction, pattern });
+                setDeselectedAll(true);
                 clearFilter({});
               }}
-              data-bs-dismiss="modal"
               className="link-primary ms-2"
             >
               Rimuovi tutti i filtri
@@ -86,7 +102,10 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
               className="btn d-flex flex-row align-items-center text-primary p-0"
               type="button"
               data-bs-dismiss="modal"
-              onClick={() => updateFilter({ types, themes, rightsHolders })}
+              onClick={() => {
+                updateFilter({ types, themes, rightsHolders });
+                setDeselectedAll(false);
+              }}
               aria-label="Chiudi finestra modale"
             >
               Chiudi
@@ -102,6 +121,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
                   title="Tipologie"
                   labbledById="Filtra_per_Tipologie"
                   keysAndLabels={typesArray}
+                  filter={types}
                   selection={filterState?.types}
                   onSelectionUpdate={onTypesUpdate}
                 />
@@ -121,6 +141,7 @@ export const FilterModalMobile = ({ filter, rightsHoldersList }) => {
                   title="Categorie"
                   labbledById="Filtra_per_Categorie"
                   selection={filterState?.themes}
+                  filter={themes}
                   onSelectionUpdate={onThemesUpdate}
                 />
               </FilterPanelSection>

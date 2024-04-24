@@ -28,24 +28,24 @@ const ExploreByCategory = () => {
 
   return (
     <ExploreSection title="Esplora gli strumenti semantici per categoria">
-      <div className="mt-4 container-fluid px-5 pb-5">
+      <div className="mt-4 container-fluid pb-5">
         <div className="row mx-0">
           <div className="col-xl-12 d-flex justify-content-start">
             {chunk(categoryCells, categoryCells.length).map((row, rowIndex) => {
               return (
-                <div className="row mx-0 px-3" key={"row" + rowIndex}>
+                <div className="row mx-0 px-lg-3" key={"row" + rowIndex}>
                   {row.map((item) => {
                     return (
                       <a
                         href="#"
-                        className={`col-xl-4 col-lg-6 px-2 my-4 ${styles.item} searchForCategoryLink`}
+                        className={`col-xl-4 col-lg-6 px-0 px-lg-2 my-3 my-lg-4 ${styles.item} searchForCategoryLink`}
                         key={item.key}
                         onClick={item.onClick}
                         data-testid={item.key}
                         tabIndex="0"
                       >
                         <div
-                          className={`card card-teaser rounded shadow ${styles.customCard}`}
+                          className={`card card-teaser rounded p-3 p-lg-4 shadow ${styles.customCard}`}
                         >
                           <div className="card-body">
                             <div className="row mx-0 px-1">

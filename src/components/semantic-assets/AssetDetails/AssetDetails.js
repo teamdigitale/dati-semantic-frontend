@@ -74,7 +74,7 @@ const AssetDetails = ({ details }) => {
             </div>
           </div>
         ) : null}
-        <div className="container-fluid schemaPadding" style={{ width: "85%" }}>
+        <div className="container-fluid schemaPadding col-12 col-lg-11">
           <div className="py-5">
             <div className="col-12">
               <AssetDetailsSummary
@@ -94,10 +94,10 @@ const AssetDetails = ({ details }) => {
                 accessUrl={accessUrl ?? downloadUrl}
               />
               <div className="row">
-                <div className="col-12">
+                <div className="col-12 px-0 px-lg-2">
                   <div className="card-wrapper">
                     <div className="card card-bg">
-                      <div className="card-body px-5">
+                      <div className="card-body px-3 px-lg-5">
                         <div className="category-top">
                           <div
                             className={"category " + styles.metadataHeader}

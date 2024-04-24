@@ -21,7 +21,9 @@ describe("<AssetTypeFilter />", () => {
 
     userEvent.click(screen.getByTestId("MultiSelectFilter"));
 
-    expect(screen.getByTestId("dropdownMenu")).toBeInTheDocument();
+    expect(
+      screen.getByTestId("dropdownMenu-Filtra_per_Strumento_sematico")
+    ).toBeInTheDocument();
   });
 
   test("it should display options", () => {
