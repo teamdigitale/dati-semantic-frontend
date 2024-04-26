@@ -8,58 +8,18 @@ import { oneOf } from "prop-types";
 import getSparqlEndpoint from "../../../../services/sparql";
 import { baseUrl } from "../../../../services/fetchUtils";
 import styles from "./AssetDetailsButtons.module.css";
-import { ModalChangeOrientation } from "../../../common/ModalChangeOrientation/ModalChangeOrientation";
 import { isMobile } from "../../../common/ResponsiveViews";
 import { useState } from "react";
-
-const renderButton = (text, url, className, handleChangeRedirectUrl) => {
-  const handleButtonClick = (event) => {
-    if (text === "Vai al sorgente") {
-      if (url) {
-        event.preventDefault();
-        fetch(`${baseUrl()}/check-url?url=${url}`)
-          .then((response) => {
-            if (response.status < 400) {
-              window.open(url);
-            } else {
-              window.open("/error-page", "_self");
-            }
-          })
-          .catch(() => {
-            window.open("/error-page", "_self");
-          });
-      } else {
-        window.open("/error-page", "_self");
-      }
-    } else {
-      if (isMobile()) {
-        handleChangeRedirectUrl(url);
-        return;
-      }
-      window.open(url);
-    }
-  };
-
-  return (
-    <>
-      <button
-        aria-label={text + " (si apre in un'altra scheda)"}
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target={"#modalChangeOrientation"}
-        className={"btn " + className + " " + styles.detailsButton}
-        onClick={handleButtonClick}
-      >
-        {text}
-      </button>
-    </>
-  );
-};
+import { useModalOrientation } from "../../../common/ModalChangeOrientation/useModalOrientation";
 
 const SPARQL_QUERY_PARAM = "qtxt";
 
 const AssetDetailsButtons = (props) => {
   const [redirectUrl, setRedirectUrl] = useState("");
+  const { ModalOrientation, handleOpenModal } = useModalOrientation({
+    isDetailPage: true,
+    redirectUrl
+  });
 
   const handleChangeRedirectUrl = (url) => {
     setRedirectUrl(url);
@@ -69,6 +29,49 @@ const AssetDetailsButtons = (props) => {
       "select distinct ?prop ?value where { <" +
       props.assetIri +
       "> ?prop ?value}"
+    );
+  };
+
+  const renderButton = (text, url, className, handleChangeRedirectUrl) => {
+    const handleButtonClick = (event) => {
+      if (text === "Vai al sorgente") {
+        if (url) {
+          event.preventDefault();
+          fetch(`${baseUrl()}/check-url?url=${url}`)
+            .then((response) => {
+              if (response.status < 400) {
+                window.open(url);
+              } else {
+                window.open("/error-page", "_self");
+              }
+            })
+            .catch(() => {
+              window.open("/error-page", "_self");
+            });
+        } else {
+          window.open("/error-page", "_self");
+        }
+      } else {
+        if (isMobile()) {
+          handleOpenModal();
+          handleChangeRedirectUrl(url);
+          return;
+        }
+        window.open(url);
+      }
+    };
+
+    return (
+      <>
+        <button
+          aria-label={text + " (si apre in un'altra scheda)"}
+          type="button"
+          className={"btn " + className + " " + styles.detailsButton}
+          onClick={handleButtonClick}
+        >
+          {text}
+        </button>
+      </>
     );
   };
 
@@ -106,7 +109,7 @@ const AssetDetailsButtons = (props) => {
           {renderButton("Vai al sorgente", props.accessUrl, "btn-primary")}
         </div>
       </div>
-      <ModalChangeOrientation onRedirect={() => window.open(redirectUrl)} />
+      <ModalOrientation />
     </>
   );
 };

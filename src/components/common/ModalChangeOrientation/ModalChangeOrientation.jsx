@@ -1,7 +1,7 @@
 import { func } from "prop-types";
 import sprite from "../../../assets/images/sprite.svg";
 
-export const ModalChangeOrientation = ({ onRedirect }) => {
+export const ModalChangeOrientation = ({ closeModal, onRedirect }) => {
   return (
     <>
       <div
@@ -24,6 +24,7 @@ export const ModalChangeOrientation = ({ onRedirect }) => {
                 className="btn-close"
                 type="button"
                 data-bs-dismiss="modal"
+                onClick={closeModal}
                 aria-label="Chiudi finestra modale"
               >
                 <svg className="icon">
@@ -43,9 +44,12 @@ export const ModalChangeOrientation = ({ onRedirect }) => {
             <div className="modal-footer justify-content-center">
               <button
                 className="btn btn-primary w-100 btn-sm"
-                data-bs-dismiss="modal"
                 type="button"
-                onClick={onRedirect}
+                data-bs-dismiss="modal"
+                onClick={() => {
+                  closeModal();
+                  onRedirect();
+                }}
               >
                 Ho capito
               </button>
@@ -58,7 +62,8 @@ export const ModalChangeOrientation = ({ onRedirect }) => {
 };
 
 ModalChangeOrientation.propTypes = {
-  onRedirect: func
+  onRedirect: func,
+  closeModal: func
 };
 
 ModalChangeOrientation.defaultProps = {};
