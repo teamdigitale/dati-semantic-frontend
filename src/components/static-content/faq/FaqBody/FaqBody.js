@@ -33,8 +33,8 @@ const FaqBody = () => {
                 <div className="accordion-body">
                   È un catalogo previsto dall’investimento 1.3.1 del Piano
                   Nazionale di Ripresa e Resilienza (PNNR) che contiene
-                  ontologie, vocabolari controllati e schemi dati della pubblica
-                  amministrazione italiana, accessibile a chiunque voglia
+                  ontologie, vocabolari controllati e schemi dati della Pubblica
+                  Amministrazione italiana, accessibile a chiunque voglia
                   consultare o utilizzare degli asset semantici per garantire
                   l&apos;interoperabilità semantica e sviluppare servizi
                   digitali semanticamente e sintatticamente coerenti.
@@ -89,8 +89,8 @@ const FaqBody = () => {
                 aria-labelledby="heading3"
               >
                 <div className="accordion-body">
-                  Il catalogo si rivolge a tutti gli enti della pubblica
-                  amministrazione e ai privati che vogliono ricercare,
+                  Il catalogo si rivolge a tutti gli enti della Pubblica
+                  Amministrazione e ai privati che vogliono ricercare,
                   consultare e utilizzare asset semantici e, in particolare,
                   alle persone che sviluppano servizi digitali e quelle esperte
                   di semantica.
@@ -271,8 +271,8 @@ const FaqBody = () => {
               >
                 <div className="accordion-body">
                   Le ontologie, i vocabolari controllati e gli schemi dati sono
-                  scaricati dai repository ufficiali (e.g. Github o Gitlab)
-                  degli enti della pubblica amministrazione. Il catalogo scarica
+                  scaricati dai repository ufficiali (e.g. GitHub o GitLab)
+                  degli enti della Pubblica Amministrazione. Il catalogo scarica
                   i dati contenuti nella directory che ha subìto
                   l&apos;aggiornamento più recente. I dati provengono da fonti
                   ufficiali in quanto ogni ente è titolare dei metadati
