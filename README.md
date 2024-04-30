@@ -1,9 +1,9 @@
 
-[![License](https://img.shields.io/github/license/italia/bootstrap-italia.svg)](https://github.com/italia/bootstrap-italia/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/teamdigitale/dati-semantic-frontend.svg)](https://github.com/teamdigitale/dati-semantic-frontend/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/teamdigitale/dati-semantic-frontend.svg)](https://github.com/teamdigitale/dati-semantic-frontend/issues)
-[![Join the #design channel](https://img.shields.io/badge/Slack%20channel-%23design-blue.svg)](https://developersitalia.slack.com/messages/C7VPAUVB3/)
+[![Join the #design channel](https://img.shields.io/badge/slack%20channel-%23design-blue.svg)](https://developersitalia.slack.com/messages/C7VPAUVB3/)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
-[![18app on forum.italia.it](https://img.shields.io/badge/Forum-18app-blue.svg)](https://forum.italia.it/c/18app-carta-docente)
+[![Dati on forum.italia.it](https://img.shields.io/badge/forum-dati-blue.svg)](https://forum.italia.it/c/dati/33)
 
 # Frontend for the National Data Catalog (NDC) for Semantic Interoperability
 
