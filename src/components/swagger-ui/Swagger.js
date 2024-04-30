@@ -95,7 +95,7 @@ const Swagger = () => {
           </div>
         ) : null}
 
-        <div className="ms-5 ps-5 pt-5">
+        <div className="ms-lg-5 ps-lg-5 pt-5">
           {!vocabDetails && (
             <ContentParagraph>
               <h1

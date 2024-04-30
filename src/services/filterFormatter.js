@@ -38,7 +38,7 @@ export const filterFormatter = (filtersFromQuery, rightsHoldersArray = []) => {
   formattedRightsHolders = rightsHoldersArray
     .filter((el) => rightsHolders.includes(el.key))
     .map((el) => {
-      return { ...el, type: "Titolari", cat: "rightsHolders" };
+      return { ...el, type: "Titolare", cat: "rightsHolders" };
     });
 
   // if (formattedTypes.length == typesArray.length)
