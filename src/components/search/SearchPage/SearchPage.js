@@ -173,9 +173,8 @@ const SearchPage = () => {
   return (
     <>
       <IntroSection
-        title="Cerca nel catalogo nazionale 
-        della semantica dei dati"
-        subtitle="Cerca e utilizza tra decine di asset semantici. Puoi cercare per parola chiave, filtrare i risultati per categoria o strumento semantico, o titolare."
+        title="Cerca tra le risorse semantiche"
+        subtitle="Cerca una o più risorse semantiche per parole chiave, filtrando i risultati per strumento semantico, titolare o categoria."
         type=""
         isSearch={true}
         arrayBread={BREADCRUMBS.SEARCHPAGE}
