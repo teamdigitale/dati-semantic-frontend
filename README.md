@@ -1,7 +1,7 @@
 
 [![License](https://img.shields.io/github/license/teamdigitale/dati-semantic-frontend.svg)](https://github.com/teamdigitale/dati-semantic-frontend/blob/main/LICENSE)
 [![GitHub issues](https://img.shields.io/github/issues/teamdigitale/dati-semantic-frontend.svg)](https://github.com/teamdigitale/dati-semantic-frontend/issues)
-[![Join the #api-interoperabilita channel](https://img.shields.io/badge/slack%20channel-%23design-blue.svg)](https://developersitalia.slack.com/archives/CDKBYTG74)
+[![Join the #api-interoperabilita channel](https://img.shields.io/badge/slack%20channel-%23api--interoperabilita-blue.svg)](https://developersitalia.slack.com/archives/CDKBYTG74)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
 [![Dati on forum.italia.it](https://img.shields.io/badge/forum-dati-blue.svg)](https://forum.italia.it/c/dati/33)
 
