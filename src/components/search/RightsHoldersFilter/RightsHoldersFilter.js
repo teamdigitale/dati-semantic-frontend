@@ -23,8 +23,6 @@ const RightsHoldersFilter = ({
     : "rightsHolderFilter";
   const idCheckOptions = isMobileFilter ? "check-mobile-" : "check-";
 
-  const selectedOptions = selection.filter((el) => !rightsHolders.includes(el));
-
   const dropdownElementList = [].slice.call(
     document.querySelectorAll(".dropdown-toggle")
   );
@@ -35,10 +33,7 @@ const RightsHoldersFilter = ({
     .find((el) => el._element.id == idRightsHolderFilter);
 
   const addToSelection = (toBeAdded) => () => {
-    const arr =
-      rightsHolders.length > 0 && isMobileFilter && selection.length != 0
-        ? [...new Set([...selection, ...rightsHolders, toBeAdded])]
-        : [...selection, toBeAdded];
+    const arr = [...selection, toBeAdded];
     onRightsHoldersUpdate(arr);
     dropdownElement.show();
   };
@@ -74,28 +69,48 @@ const RightsHoldersFilter = ({
   useEffect(() => {
     if (dropdownElement) {
       document.addEventListener("click", (e) => {
-        if (
-          !e.target.closest(`#${idDropDown}`) &&
-          !e.target.closest(".link-list-wrapper")
-        )
-          dropdownElement.hide();
+        const isRightsHolderFilterClicked = e.target.closest(
+          `#${idRightsHolderFilter}`
+        );
+        const isDropdownOpen = dropdownElement._isShown();
 
-        if (e.target.closest(`#${idRightsHolderInput}`)) {
+        if (e.target.closest(".link-list-wrapper")) return;
+
+        if (
+          !isRightsHolderFilterClicked &&
+          !e.target.closest(".link-list-wrapper")
+        ) {
+          dropdownElement.hide();
+        } else if (isRightsHolderFilterClicked && !isDropdownOpen) {
           dropdownElement.show();
+        } else if (isDropdownOpen) {
+          dropdownElement.hide();
         }
       });
     }
 
     return () => {
       document.removeEventListener("click", (e) => {
-        if (!e.target.closest(`#${idDropDown}`)) dropdownElement.hide();
-        else if (e.target.closest("#wrapperListMobile")) dropdownElement.show();
-        if (e.target.closest(`#${idRightsHolderInput}`)) {
+        const isRightsHolderFilterClicked = e.target.closest(
+          `#${idRightsHolderFilter}`
+        );
+        const isDropdownOpen = dropdownElement._isShown();
+
+        if (e.target.closest(".link-list-wrapper")) return;
+
+        if (
+          !isRightsHolderFilterClicked &&
+          !e.target.closest(".link-list-wrapper")
+        ) {
+          dropdownElement.hide();
+        } else if (isRightsHolderFilterClicked && !isDropdownOpen) {
           dropdownElement.show();
+        } else if (isDropdownOpen) {
+          dropdownElement.hide();
         }
       });
     };
-  }, [dropdownElement]);
+  }, [!!dropdownElement]);
 
   return (
     <div className="d-grid" data-testid={idRightsHolderFilter}>
@@ -130,15 +145,15 @@ const RightsHoldersFilter = ({
             role="searchbox"
             type="text"
             className={`form-control ${
-              selectedOptions.length > 0 ? "selectedItems" : "notSelectedItems"
+              rightsHolders.length > 0 ? "selectedItems" : "notSelectedItems"
             }`}
             style={{ paddingLeft: "2.2rem" }}
             id={idRightsHolderInput}
             placeholder={`${
-              selectedOptions.length > 0
-                ? selectedOptions.length == 1
+              rightsHolders.length > 0
+                ? rightsHolders.length == 1
                   ? `1 opzione selezionata`
-                  : `${selectedOptions.length} opzioni selezionate`
+                  : `${rightsHolders.length} opzioni selezionate`
                 : "Cerca per titolare"
             }`}
             name={idRightsHolderInput}

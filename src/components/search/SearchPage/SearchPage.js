@@ -81,6 +81,7 @@ const SearchPage = () => {
           key="delete_all_chips"
           id="deleteAllFilter"
           role="button"
+          style={{ whiteSpace: "nowrap" }}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
