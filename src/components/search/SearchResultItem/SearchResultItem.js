@@ -12,10 +12,13 @@ import styles from "./SearchResultItem.module.css";
 import { truncate } from "../../../services/stringUtils";
 import ModifiedOnOrVersion from "../../common/ModifiedOnOrVersion/ModifiedOnOrVersion";
 import sprite from "../../../assets/images/sprite.svg";
-import { ModalChangeOrientation } from "../../common/ModalChangeOrientation/ModalChangeOrientation";
 import { isMobile } from "../../common/ResponsiveViews";
+import { useModalOrientation } from "../../common/ModalChangeOrientation/useModalOrientation";
 
 const SearchResultItem = ({ item }) => {
+  const { ModalOrientation, handleOpenModal } = useModalOrientation({
+    redirectUrl: item.assetIri
+  });
   const categories = getCategories().filter(
     (c) => item.themes.indexOf(c.uri) > -1
   );
@@ -76,12 +79,13 @@ const SearchResultItem = ({ item }) => {
                 }
                 role="navigation"
                 tabIndex={0}
-                data-bs-toggle="modal"
-                data-bs-target="#modalChangeOrientation"
                 aria-label="redirect to detail"
-                onClick={(e) => {
-                  e.preventDefault();
-                  if (item.type == AT_SCHEMA && isMobile()) return;
+                onClick={() => {
+                  // e.preventDefault();
+                  if (item.type == AT_SCHEMA && isMobile()) {
+                    handleOpenModal();
+                    return;
+                  }
                   window.location.href = getDetailsPageUrl(item.assetIri);
                 }}
                 onKeyDown={(e) => {
@@ -167,11 +171,7 @@ const SearchResultItem = ({ item }) => {
           </a>
         </div>
       </div>
-      <ModalChangeOrientation
-        onRedirect={() =>
-          (window.location.href = getDetailsPageUrl(item.assetIri))
-        }
-      />
+      <ModalOrientation />
     </>
   );
 };

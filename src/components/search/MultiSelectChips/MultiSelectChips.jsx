@@ -3,7 +3,6 @@ import sprite from "../../../assets/images/sprite.svg";
 import { arrayOf, func, shape, string } from "prop-types";
 import { sortObjectsByAlphabeticalKey } from "../../../services/arrayUtils";
 import "./MultiSelectChips.css";
-// import { useFilter } from "../../common/FilterContext/context";
 
 export const MultiSelectChips = ({
   keysAndLabels = [],
@@ -17,10 +16,6 @@ export const MultiSelectChips = ({
   const idDropDown = `dropdownMenu-${labbledById}`;
   const idMultiSelectInput = `multiSelectInput-${labbledById}`;
 
-  const optionsNotSelected = keysAndLabels.filter(
-    (el) => !filter.includes(el.key)
-  );
-
   const dropdownElementList = [].slice.call(
     document.querySelectorAll(".dropdown-toggle")
   );
@@ -31,10 +26,7 @@ export const MultiSelectChips = ({
     .find((el) => el._element.id == idMultiSelectFilter);
 
   const addToSelection = (toBeAdded) => () => {
-    const arr =
-      filter.length > 0 && optionsNotSelected.length != 0
-        ? [...new Set([...selection, ...filter, toBeAdded])]
-        : [...selection, toBeAdded];
+    const arr = [...selection, toBeAdded];
     onSelectionUpdate(arr);
     dropdownElement.show();
   };
@@ -56,28 +48,48 @@ export const MultiSelectChips = ({
   useEffect(() => {
     if (dropdownElement) {
       document.addEventListener("click", (e) => {
-        if (
-          !e.target.closest(`#${idDropDown}`) &&
-          !e.target.closest(".link-list-wrapper")
-        )
-          dropdownElement.hide();
+        const isMultiSelectFilterClicked = e.target.closest(
+          `#${idMultiSelectFilter}`
+        );
+        const isDropdownOpen = dropdownElement._isShown();
 
-        if (e.target.closest(`#${idMultiSelectInput}`)) {
+        if (e.target.closest(".link-list-wrapper")) return;
+
+        if (
+          !isMultiSelectFilterClicked &&
+          !e.target.closest(".link-list-wrapper")
+        ) {
+          dropdownElement.hide();
+        } else if (isMultiSelectFilterClicked && !isDropdownOpen) {
           dropdownElement.show();
+        } else if (isDropdownOpen) {
+          dropdownElement.hide();
         }
       });
     }
 
     return () => {
       document.removeEventListener("click", (e) => {
-        if (!e.target.closest(`#${idDropDown}`)) dropdownElement.hide();
+        const isMultiSelectFilterClicked = e.target.closest(
+          `#${idMultiSelectFilter}`
+        );
+        const isDropdownOpen = dropdownElement._isShown();
 
-        if (e.target.closest(`#${idMultiSelectInput}`)) {
+        if (e.target.closest(".link-list-wrapper")) return;
+
+        if (
+          !isMultiSelectFilterClicked &&
+          !e.target.closest(".link-list-wrapper")
+        ) {
+          dropdownElement.hide();
+        } else if (isMultiSelectFilterClicked && !isDropdownOpen) {
           dropdownElement.show();
+        } else if (isDropdownOpen) {
+          dropdownElement.hide();
         }
       });
     };
-  }, [dropdownElement]);
+  }, [!!dropdownElement]);
 
   return (
     <>
@@ -102,11 +114,11 @@ export const MultiSelectChips = ({
             className="d-flex flex-row g-2 justify-content-between"
           >
             <div className="d-grid row justify-content-start py-2 pe-2">
-              {selection.length > 0 ? (
+              {filter.length > 0 ? (
                 <span className="fw-semibold text-truncate">
-                  {selection.length == 1
+                  {filter.length == 1
                     ? "1 opzione selezionata"
-                    : `${selection.length} opzioni selezionate`}
+                    : `${filter.length} opzioni selezionate`}
                 </span>
               ) : (
                 <span className="">{"Scegli un'opzione"}</span>
