@@ -13,7 +13,7 @@
 .itemTitle:hover {
   text-decoration: underline;
   text-decoration-color: #06c;
-  text-underline-offset: 7px;
+  text-underline-offset: 3px;
 }
 .assetIri:hover {
   text-decoration: underline;

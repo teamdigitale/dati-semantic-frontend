@@ -13,9 +13,9 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     if (
+      search.includes("theme") ||
       search.includes("pattern") ||
-      search.includes("type") ||
-      search.includes("theme")
+      search.includes("type")
     )
       scrollToTopOfElement();
     else window.scrollTo(0, 0);
