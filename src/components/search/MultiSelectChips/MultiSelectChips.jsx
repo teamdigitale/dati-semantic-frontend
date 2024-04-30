@@ -114,11 +114,11 @@ export const MultiSelectChips = ({
             className="d-flex flex-row g-2 justify-content-between"
           >
             <div className="d-grid row justify-content-start py-2 pe-2">
-              {filter.length > 0 ? (
+              {selection.length > 0 ? (
                 <span className="fw-semibold text-truncate">
-                  {filter.length == 1
+                  {selection.length == 1
                     ? "1 opzione selezionata"
-                    : `${filter.length} opzioni selezionate`}
+                    : `${selection.length} opzioni selezionate`}
                 </span>
               ) : (
                 <span className="">{"Scegli un'opzione"}</span>
@@ -155,7 +155,7 @@ export const MultiSelectChips = ({
 
                   return (
                     <li
-                      className="form-check optionsDropdown px-2 py-1 mt-0"
+                      className="form-check optionsDropdown px-2 py-2 mt-0"
                       key={option.key}
                     >
                       <input
@@ -166,7 +166,12 @@ export const MultiSelectChips = ({
                         onChange={toggleSelection}
                       />
                       <label
-                        style={{ fontSize: "16px" }}
+                        style={{
+                          fontSize: "16px",
+                          width: "100%",
+                          height: "100%",
+                          marginBottom: 0
+                        }}
                         className={`${
                           checked ? "fw-semibold" : "fw-normal"
                         } text-wrap`}

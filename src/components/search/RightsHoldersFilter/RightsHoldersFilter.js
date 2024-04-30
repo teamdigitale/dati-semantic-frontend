@@ -145,15 +145,15 @@ const RightsHoldersFilter = ({
             role="searchbox"
             type="text"
             className={`form-control ${
-              rightsHolders.length > 0 ? "selectedItems" : "notSelectedItems"
+              selection.length > 0 ? "selectedItems" : "notSelectedItems"
             }`}
             style={{ paddingLeft: "2.2rem" }}
             id={idRightsHolderInput}
             placeholder={`${
-              rightsHolders.length > 0
-                ? rightsHolders.length == 1
+              selection.length > 0
+                ? selection.length == 1
                   ? `1 opzione selezionata`
-                  : `${rightsHolders.length} opzioni selezionate`
+                  : `${selection.length} opzioni selezionate`
                 : "Cerca per titolare"
             }`}
             name={idRightsHolderInput}
@@ -178,7 +178,7 @@ const RightsHoldersFilter = ({
 
                   return (
                     <li
-                      className="form-check optionsDropdown px-2 py-1 mt-0"
+                      className="form-check optionsDropdown px-2 py-2 mt-0"
                       key={option.key}
                     >
                       <input
@@ -189,7 +189,12 @@ const RightsHoldersFilter = ({
                         onChange={toggleSelection}
                       />
                       <label
-                        style={{ fontSize: "16px" }}
+                        style={{
+                          fontSize: "16px",
+                          width: "100%",
+                          height: "100%",
+                          marginBottom: 0
+                        }}
                         className={`${
                           checked ? "fw-semibold" : "fw-normal"
                         } text-wrap`}

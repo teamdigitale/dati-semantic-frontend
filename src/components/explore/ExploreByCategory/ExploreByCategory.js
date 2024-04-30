@@ -36,10 +36,11 @@ const ExploreByCategory = () => {
                 <div className="row mx-0 px-lg-3" key={"row" + rowIndex}>
                   {row.map((item) => {
                     return (
-                      <a
-                        href="#"
+                      <div
                         className={`col-xl-4 col-lg-6 px-0 px-lg-2 my-3 my-lg-4 ${styles.item} searchForCategoryLink`}
                         key={item.key}
+                        role="navigation"
+                        aria-label={`search with ${item.label} category filter`}
                         onClick={item.onClick}
                         data-testid={item.key}
                         tabIndex="0"
@@ -62,7 +63,7 @@ const ExploreByCategory = () => {
                             </div>
                           </div>
                         </div>
-                      </a>
+                      </div>
                     );
                   })}
                 </div>
