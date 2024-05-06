@@ -33,7 +33,12 @@ const SearchResultItem = ({ item }) => {
         data-testid="SearchResultItem"
       >
         <div className={"card card-bg mx-0 rounded " + styles.smallerFooter}>
-          <a className="card-body text-decoration-none d-flex flex-column justify-content-between">
+          <div
+            role="listitem"
+            aria-label="result-item"
+            id="searchResultCard"
+            className="card-body text-decoration-none d-flex flex-column justify-content-between"
+          >
             <div>
               <div
                 className={
@@ -168,7 +173,7 @@ const SearchResultItem = ({ item }) => {
                 </div>
               )}
             </div>
-          </a>
+          </div>
         </div>
       </div>
       <ModalOrientation />
