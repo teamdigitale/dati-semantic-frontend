@@ -15,17 +15,6 @@ file a new one: we really appreciate it! :rocket:.
 You're welcome to contribute to open issues with more information or by adding
 :+1: on them: it will help the maintainers identify the issues to be prioritized.
 
-### Creating a new issue
-
-There are three templates for new issues: `Bug report`, `Feature request`
-and `General issue`, pick the relevant one and follow the instructions
-in that template.
-
-If you pick `General issue` please provide a good amount of detail in
-order to let other people clearly understand the issue.
-After the creation of the issue, the maintainers team will promptly triage
-it by assigning the proper labels.
-
 ## Pull Requests
 
 After opening an issue, you may want to further contribute.
@@ -65,17 +54,6 @@ and the general rules of
 If a commit fixes an issue, please
 [reference it](https://docs.github.com/en/enterprise/2.16/user/github/managing-your-work-on-github/closing-issues-using-keywords#about-issue-references)
 in the commit body with `Fix: #ISSUENUMBER`.
-
-## Gitflow
-
-This repository adopts a simplified branch management system as follows:
-
-* `master` is stable and gets deployed automatically. Never push directly to it;
-* feature or fix branches are derived directly from master.
-
-### Releases
-
-TBA :)
 
 ## Community
 
