@@ -1,4 +1,4 @@
-@import "bootstrap-italia.min.css";
+@import url("~bootstrap-italia/dist/css/bootstrap-italia.min.css");
 
 body {
   font-family: "Titillium Web", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
@@ -8,6 +8,11 @@ body {
   margin: 0;
   overflow-x: hidden;
   font-weight: 400;
+}
+
+h3,
+.h3 {
+  line-height: normal;
 }
 
 code {

@@ -7,7 +7,7 @@ const ScrollToTop = () => {
   const scrollToTopOfElement = () => {
     const anchorElement = document.getElementById("searchAnchor");
     if (anchorElement) {
-      anchorElement.scrollIntoView({ behavior: "smooth" });
+      anchorElement.scrollIntoView({ behavior: "instant" });
     }
   };
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Dropdown } from "bootstrap-italia";
 import sprite from "../../../assets/images/sprite.svg";
 import { arrayOf, func, shape, string } from "prop-types";
 import { sortObjectsByAlphabeticalKey } from "../../../services/arrayUtils";
@@ -21,7 +22,7 @@ export const MultiSelectChips = ({
   );
   const dropdownElement = dropdownElementList
     .map(function (dropdownToggleEl) {
-      return new bootstrap.Dropdown(dropdownToggleEl);
+      return new Dropdown(dropdownToggleEl);
     })
     .find((el) => el._element.id == idMultiSelectFilter);
 

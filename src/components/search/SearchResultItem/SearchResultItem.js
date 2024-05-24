@@ -42,7 +42,7 @@ const SearchResultItem = ({ item }) => {
             <div>
               <div
                 className={
-                  "size-sm d-flex flex-row flex-wrap flex-sm-row " +
+                  "size-sm d-flex flex-row flex-wrap gap-2 flex-sm-row " +
                   styles.topmostHeader
                 }
               >

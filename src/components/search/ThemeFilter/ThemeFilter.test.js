@@ -6,6 +6,16 @@ import userEvent from "@testing-library/user-event";
 
 const themesUpdate = jest.fn();
 
+jest.mock("bootstrap-italia", () => {
+  return {
+    Dropdown: jest.fn().mockImplementation(() => {
+      return {
+        toggle: jest.fn()
+      };
+    })
+  };
+});
+
 describe("<ThemeFilter />", () => {
   test("it should display the listbox", () => {
     render(

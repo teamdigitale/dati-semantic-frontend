@@ -10,6 +10,16 @@ import userEvent from "@testing-library/user-event";
 
 const typeUpdate = jest.fn();
 
+jest.mock("bootstrap-italia", () => {
+  return {
+    Dropdown: jest.fn().mockImplementation(() => {
+      return {
+        toggle: jest.fn()
+      };
+    })
+  };
+});
+
 describe("<AssetTypeFilter />", () => {
   beforeEach(() => {
     typeUpdate.mockClear();

@@ -16,6 +16,16 @@ jest.mock("../NotFound/NotFound", () => ({
   default: jest.fn()
 }));
 
+jest.mock("bootstrap-italia", () => {
+  return {
+    Dropdown: jest.fn().mockImplementation(() => {
+      return {
+        toggle: jest.fn()
+      };
+    })
+  };
+});
+
 describe("<Main />", () => {
   beforeEach(() => {
     global.window.scrollTo = jest.fn();
