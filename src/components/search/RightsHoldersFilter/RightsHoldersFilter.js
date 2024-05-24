@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { array, bool, func } from "prop-types";
+import { Dropdown } from "bootstrap-italia";
 import sprite from "../../../assets/images/sprite.svg";
 import { sortObjectsByAlphabeticalKey } from "../../../services/arrayUtils";
 import parse from "html-react-parser";
@@ -28,7 +29,7 @@ const RightsHoldersFilter = ({
   );
   const dropdownElement = dropdownElementList
     .map(function (dropdownToggleEl) {
-      return new bootstrap.Dropdown(dropdownToggleEl);
+      return new Dropdown(dropdownToggleEl);
     })
     .find((el) => el._element.id == idRightsHolderFilter);
 
