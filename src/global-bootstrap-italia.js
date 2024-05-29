@@ -1,6 +1,6 @@
+import { Modal } from "bootstrap-italia";
 import jquery from "jquery";
 import Popper from "popper.js";
-import Modal from "bootstrap/js/dist/modal";
 
 window.__PUBLIC_PATH__ = "/fonts";
 window.Popper = Popper;
