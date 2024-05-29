@@ -3,7 +3,15 @@ import App from "./App";
 import Header from "./components/layout/Header/Header";
 import Main from "./components/layout/Main/Main";
 
-// jest.mock("bootstrap-italia", () => ({ __esModule: true, default: jest.fn() }));
+jest.mock("bootstrap-italia", () => {
+  return {
+    Modal: jest.fn().mockImplementation(() => {
+      return {
+        toggle: jest.fn()
+      };
+    })
+  };
+});
 
 jest.mock("./components/layout/Header/Header", () => ({
   __esModule: true,
