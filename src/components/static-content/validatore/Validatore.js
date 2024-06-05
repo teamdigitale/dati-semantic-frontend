@@ -190,10 +190,7 @@ const Validatore = () => {
                   <div className="row justify-content-center">
                     <div className="col-12">
                       <div className="card-wrapper card-space">
-                        <div
-                          className="card card-bg mt-4"
-                          style={{ height: "23rem" }}
-                        >
+                        <div className="card card-bg mt-4">
                           <div className="mb-2">
                             <div className="w-auto" tabIndex="0">
                               <>
