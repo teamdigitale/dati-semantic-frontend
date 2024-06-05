@@ -1,4 +1,4 @@
-import { Modal } from "bootstrap-italia";
+import { Modal, Accordion } from "bootstrap-italia";
 import jquery from "jquery";
 import Popper from "popper.js";
 
@@ -7,4 +7,5 @@ window.Popper = Popper;
 window.jQuery = jquery;
 window.jquery = jquery;
 window.Modal = Modal;
+window.Accordion = Accordion;
 window.$ = jquery;
