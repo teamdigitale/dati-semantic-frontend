@@ -84,6 +84,6 @@
   background: linear-gradient(to bottom, #f0f6fc 35rem, white 0);
 }
 
-.card::after {
+#cardValidator::after {
   margin-top: 0;
 }
