@@ -63,7 +63,8 @@ const useFilter = () => {
         ...newFilter,
         limit: PAGE_SIZE,
         offset: DEFAULT_OFFSET
-      })
+      }),
+      { replace: true }
     );
 
     scrollToTopOfElement();

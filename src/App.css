@@ -8,6 +8,9 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: auto !important;
+  }
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }

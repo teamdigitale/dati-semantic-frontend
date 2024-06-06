@@ -14,8 +14,10 @@ import ModifiedOnOrVersion from "../../common/ModifiedOnOrVersion/ModifiedOnOrVe
 import sprite from "../../../assets/images/sprite.svg";
 import { isMobile } from "../../common/ResponsiveViews";
 import { useModalOrientation } from "../../common/ModalChangeOrientation/useModalOrientation";
+import { useNavigate } from "react-router-dom";
 
 const SearchResultItem = ({ item }) => {
+  const navigate = useNavigate();
   const { ModalOrientation, handleOpenModal } = useModalOrientation({
     redirectUrl: item.assetIri
   });
@@ -91,11 +93,11 @@ const SearchResultItem = ({ item }) => {
                     handleOpenModal();
                     return;
                   }
-                  window.location.href = getDetailsPageUrl(item.assetIri);
+                  navigate(getDetailsPageUrl(item.assetIri));
                 }}
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
-                    window.location.href = getDetailsPageUrl(item.assetIri);
+                    navigate(getDetailsPageUrl(item.assetIri));
                   }
                 }}
                 style={{ cursor: "pointer" }}

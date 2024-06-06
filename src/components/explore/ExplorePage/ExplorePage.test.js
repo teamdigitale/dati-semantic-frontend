@@ -1,10 +1,11 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import ExplorePage from "./ExplorePage";
 import ExploreByCategory from "../ExploreByCategory/ExploreByCategory";
 import ExploreByType from "../ExploreByType/ExploreByType";
 import ExploreByText from "../ExploreByText/ExploreByText";
+import { renderWithRoute } from "../../../services/testUtils";
 
 jest.mock("../ExploreByCategory/ExploreByCategory", () => ({
   __esModule: true,
@@ -32,7 +33,7 @@ describe("<ExplorePage />", () => {
   });
 
   test("it should mount with an introduction text", () => {
-    render(<ExplorePage />);
+    renderWithRoute(<ExplorePage />);
 
     const introduction = screen.getByTestId("ExplorePage");
 
@@ -43,19 +44,19 @@ describe("<ExplorePage />", () => {
   });
 
   test("it should contain the text search form", () => {
-    render(<ExplorePage />);
+    renderWithRoute(<ExplorePage />);
 
     expect(ExploreByText).toHaveBeenCalled();
   });
 
   test("it should contain the Categories explore links", () => {
-    render(<ExplorePage />);
+    renderWithRoute(<ExplorePage />);
 
     expect(ExploreByCategory).toHaveBeenCalled();
   });
 
   test("it should contain the Types explore links", () => {
-    render(<ExplorePage />);
+    renderWithRoute(<ExplorePage />);
 
     expect(ExploreByType).toHaveBeenCalled();
   });

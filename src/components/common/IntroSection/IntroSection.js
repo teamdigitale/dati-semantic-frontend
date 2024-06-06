@@ -5,6 +5,7 @@ import BreadCrumbs from "../BreadCrumbs/BreadCrumbs";
 
 import { getHeroSpace } from "../../../services/imgHeroSpace";
 import getAlertMessage from "../../../services/alertService";
+import { Link } from "react-router-dom";
 
 const IntroSection = ({
   title,
@@ -72,9 +73,9 @@ const IntroSection = ({
                         : "col-xl-4 mb-2 mb-xl-0 mx-2 px-1"
                     }
                   >
-                    <a className={"btn btn-primary"} href={primaryButtonLink}>
+                    <Link className={"btn btn-primary"} to={primaryButtonLink}>
                       {primaryButtonText}
-                    </a>
+                    </Link>
                   </div>
                 ) : (
                   ""
@@ -82,14 +83,14 @@ const IntroSection = ({
 
                 {secondaryButtonLink ? (
                   <div className="col-xl-6 d-flex justify-content-xl-start mx-0">
-                    <a
+                    <Link
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary
                       }
-                      href={secondaryButtonLink}
+                      to={secondaryButtonLink}
                     >
                       {secondaryButtonText}
-                    </a>
+                    </Link>
                   </div>
                 ) : (
                   ""

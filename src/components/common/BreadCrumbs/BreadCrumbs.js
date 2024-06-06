@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { arrayOf, string, number, shape } from "prop-types";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const BreadCrumbs = (props) => {
   const [isOpenedFromApp, setIsOpenedFromApp] = useState(false);
@@ -34,13 +34,13 @@ export const BreadCrumbs = (props) => {
           {props?.arrayBread?.map((bread, i) => {
             return bread?.link != "" && bread?.link != "back" ? (
               <li className="breadcrumb-item" key={bread?.id + "key" + i}>
-                <a
+                <Link
                   className="link text-decoration-none"
-                  href={bread?.link}
+                  to={bread?.link}
                   title={bread?.label}
                 >
                   {bread?.label}
-                </a>
+                </Link>
                 <span className="separator">/</span>
               </li>
             ) : bread?.link == "back" ? (
