@@ -10,7 +10,7 @@ export const BreadCrumbs = (props) => {
   const handleBack = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (!isOpenedFromApp || document.referrer == "") {
+    if (!isOpenedFromApp) {
       navigate("/search", { replace: true });
     } else {
       window.history.back();
