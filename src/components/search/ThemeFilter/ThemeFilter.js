@@ -29,6 +29,4 @@ ThemeFilter.propTypes = {
   selection: PropTypes.arrayOf(string)
 };
 
-ThemeFilter.defaultProps = {};
-
 export default ThemeFilter;

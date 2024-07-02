@@ -29,6 +29,4 @@ const FaqPage = () => {
 
 FaqPage.propTypes = {};
 
-FaqPage.defaultProps = {};
-
 export default FaqPage;

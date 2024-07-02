@@ -34,6 +34,4 @@ const FooterLinks = () => {
 
 FooterLinks.propTypes = {};
 
-FooterLinks.defaultProps = {};
-
 export default FooterLinks;

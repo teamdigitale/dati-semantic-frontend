@@ -11,6 +11,4 @@ const HeaderNavigation = () => (
 
 HeaderNavigation.propTypes = {};
 
-HeaderNavigation.defaultProps = {};
-
 export default HeaderNavigation;

@@ -58,6 +58,4 @@ SearchResults.propTypes = {
   areFiltersActive: bool
 };
 
-SearchResults.defaultProps = {};
-
 export default SearchResults;

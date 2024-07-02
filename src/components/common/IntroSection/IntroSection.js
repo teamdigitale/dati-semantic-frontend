@@ -125,6 +125,4 @@ IntroSection.propTypes = {
   isSearch: bool
 };
 
-IntroSection.defaultProps = {};
-
 export default IntroSection;

@@ -198,6 +198,4 @@ SearchResultItem.propTypes = {
   }).isRequired
 };
 
-SearchResultItem.defaultProps = {};
-
 export default SearchResultItem;

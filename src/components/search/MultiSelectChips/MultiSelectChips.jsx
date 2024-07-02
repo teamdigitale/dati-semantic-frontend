@@ -206,5 +206,3 @@ MultiSelectChips.propTypes = {
   labbledById: string,
   type: string
 };
-
-MultiSelectChips.defaultProps = {};

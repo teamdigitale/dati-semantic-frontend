@@ -32,6 +32,4 @@ SearchResultAlert.propTypes = {
   message: string.isRequired
 };
 
-SearchResultAlert.defaultProps = {};
-
 export default SearchResultAlert;

@@ -278,6 +278,4 @@ Pagination.propTypes = {
   onPageSelect: PropTypes.func.isRequired
 };
 
-Pagination.defaultProps = {};
-
 export default Pagination;

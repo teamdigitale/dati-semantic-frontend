@@ -108,5 +108,5 @@ export const EndSection = (props) => {
 EndSection.propTypes = {
   type: number.isRequired
 };
-EndSection.defaultProps = {};
+
 export default EndSection;

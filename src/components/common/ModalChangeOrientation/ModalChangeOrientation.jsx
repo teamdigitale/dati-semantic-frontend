@@ -65,5 +65,3 @@ ModalChangeOrientation.propTypes = {
   onRedirect: func,
   closeModal: func
 };
-
-ModalChangeOrientation.defaultProps = {};

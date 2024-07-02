@@ -20,6 +20,4 @@ ExploreSection.propTypes = {
   children: element.isRequired
 };
 
-ExploreSection.defaultProps = {};
-
 export default ExploreSection;

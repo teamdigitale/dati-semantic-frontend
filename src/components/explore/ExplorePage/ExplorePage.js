@@ -37,6 +37,4 @@ const ExplorePage = () => {
 
 ExplorePage.propTypes = {};
 
-ExplorePage.defaultProps = {};
-
 export default ExplorePage;

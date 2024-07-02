@@ -44,6 +44,4 @@ const FooterLogos = () => {
 
 FooterLogos.propTypes = {};
 
-FooterLogos.defaultProps = {};
-
 export default FooterLogos;

@@ -225,6 +225,4 @@ RightsHoldersFilter.propTypes = {
   isMobileFilter: bool
 };
 
-RightsHoldersFilter.defaultProps = {};
-
 export default RightsHoldersFilter;

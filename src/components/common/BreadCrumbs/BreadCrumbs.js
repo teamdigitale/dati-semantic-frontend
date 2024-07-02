@@ -82,5 +82,5 @@ BreadCrumbs.propTypes = {
     })
   ).isRequired
 };
-BreadCrumbs.defaultProps = {};
+
 export default BreadCrumbs;

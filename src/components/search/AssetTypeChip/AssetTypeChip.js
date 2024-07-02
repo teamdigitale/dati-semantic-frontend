@@ -29,6 +29,4 @@ AssetTypeChip.propTypes = {
   isSearchChip: bool
 };
 
-AssetTypeChip.defaultProps = {};
-
 export default AssetTypeChip;

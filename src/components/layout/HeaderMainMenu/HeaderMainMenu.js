@@ -194,6 +194,4 @@ const HeaderMainMenu = () => {
 
 HeaderMainMenu.propTypes = {};
 
-HeaderMainMenu.defaultProps = {};
-
 export default HeaderMainMenu;

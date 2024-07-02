@@ -19,6 +19,4 @@ Anchor.propTypes = {
   children: node
 };
 
-Anchor.defaultProps = {};
-
 export default Anchor;

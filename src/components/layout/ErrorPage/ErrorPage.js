@@ -56,6 +56,4 @@ const ErrorPage = () => {
 };
 ErrorPage.propTypes = {};
 
-ErrorPage.defaultProps = {};
-
 export default ErrorPage;

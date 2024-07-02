@@ -47,6 +47,4 @@ const HeaderMainTitle = () => (
 
 HeaderMainTitle.propTypes = {};
 
-HeaderMainTitle.defaultProps = {};
-
 export default HeaderMainTitle;

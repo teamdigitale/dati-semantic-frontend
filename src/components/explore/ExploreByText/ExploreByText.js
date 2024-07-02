@@ -25,6 +25,4 @@ const ExploreByText = () => {
 
 ExploreByText.propTypes = {};
 
-ExploreByText.defaultProps = {};
-
 export default ExploreByText;

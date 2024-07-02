@@ -69,6 +69,4 @@ Main.propTypes = {
   childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 };
 
-Main.defaultProps = {};
-
 export default Main;
