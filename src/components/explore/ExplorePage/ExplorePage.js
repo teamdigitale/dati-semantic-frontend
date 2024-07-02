@@ -18,8 +18,10 @@ const ExplorePage = () => {
         subtitle="Schema è il catalogo in continua evoluzione, che armonizza e standardizza i modelli di dati condivisi e garantisce che formato e significato delle informazioni scambiate siano preservati e compresi durante gli scambi."
         primaryButtonText="Esplora il catalogo"
         primaryButtonLink={routes.search()}
-        secondaryButtonText="Scopri l’iniziativa"
-        secondaryButtonLink={routes.project()}
+        secondaryButtonText="Leggi la guida"
+        secondaryButtonLink={
+          "https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/index.html"
+        }
         type="HEADER"
         isSearch={false}
       />
