@@ -52,6 +52,4 @@ const NotFound = () => {
 
 NotFound.propTypes = {};
 
-NotFound.defaultProps = {};
-
 export default NotFound;

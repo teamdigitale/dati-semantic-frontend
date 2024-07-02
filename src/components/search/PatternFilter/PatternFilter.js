@@ -82,6 +82,4 @@ PatternFilter.propTypes = {
   isHomeSection: bool
 };
 
-PatternFilter.defaultProps = {};
-
 export default PatternFilter;

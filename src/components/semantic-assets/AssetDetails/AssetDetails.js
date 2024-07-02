@@ -161,6 +161,4 @@ const AssetDetails = ({ details }) => {
 
 AssetDetails.propTypes = { ...getDetailsPropTypes() };
 
-AssetDetails.defaultProps = {};
-
 export default AssetDetails;

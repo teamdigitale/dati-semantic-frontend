@@ -20,5 +20,4 @@ const CookiePanel = () => {
 };
 
 CookiePanel.propTypes = {};
-CookiePanel.defaultProps = {};
 export default CookiePanel;

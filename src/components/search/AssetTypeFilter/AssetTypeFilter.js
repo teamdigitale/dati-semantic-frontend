@@ -35,6 +35,4 @@ AssetTypeFilter.propTypes = {
   selection: PropTypes.arrayOf(string)
 };
 
-AssetTypeFilter.defaultProps = {};
-
 export default AssetTypeFilter;

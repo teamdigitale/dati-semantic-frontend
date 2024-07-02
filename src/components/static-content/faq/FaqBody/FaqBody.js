@@ -488,6 +488,4 @@ const FaqBody = () => {
 
 FaqBody.propTypes = {};
 
-FaqBody.defaultProps = {};
-
 export default FaqBody;

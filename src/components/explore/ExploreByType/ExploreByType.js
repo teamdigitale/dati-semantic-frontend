@@ -68,6 +68,4 @@ const ExploreByType = () => {
 
 ExploreByType.propTypes = {};
 
-ExploreByType.defaultProps = {};
-
 export default ExploreByType;

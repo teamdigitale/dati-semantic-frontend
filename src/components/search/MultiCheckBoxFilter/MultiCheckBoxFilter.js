@@ -110,6 +110,4 @@ MultiCheckBoxFilter.propTypes = {
   labbledById: string
 };
 
-MultiCheckBoxFilter.defaultProps = {};
-
 export default MultiCheckBoxFilter;

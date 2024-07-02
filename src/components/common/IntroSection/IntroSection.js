@@ -64,14 +64,18 @@ const IntroSection = ({
                 <h1 className="h3">{title}</h1>
               </div>
               <p className={"lead"}>{subtitle}</p>
-              <div className={`mt-4 ${styles.buttonSection} row`}>
+              <div
+                className={`mt-4 ${styles.buttonSection} row`}
+                style={{ gap: "20px" }}
+              >
                 {primaryButtonLink && primaryButtonText ? (
                   <div
                     className={
                       primaryButtonText.length > 20
                         ? "col-xl-5 mb-2 mb-xl-0 mx-2 px-1"
-                        : "col-xl-4 mb-2 mb-xl-0 mx-2 px-1"
+                        : "col-xl-4 mb-0 mb-xl-0 ms-2 px-0"
                     }
+                    style={{ width: "fit-content" }}
                   >
                     <Link className={"btn btn-primary"} to={primaryButtonLink}>
                       {primaryButtonText}
@@ -82,15 +86,15 @@ const IntroSection = ({
                 )}
 
                 {secondaryButtonLink ? (
-                  <div className="col-xl-6 d-flex justify-content-xl-start mx-0">
-                    <Link
+                  <div className="col-xl-6 ms-xl-0 ms-2 d-flex justify-content-xl-start px-0 mx-0">
+                    <a
                       className={
                         "btn btn-outline-primary " + styles.btnSecondary
                       }
-                      to={secondaryButtonLink}
+                      href={secondaryButtonLink}
                     >
                       {secondaryButtonText}
-                    </Link>
+                    </a>
                   </div>
                 ) : (
                   ""
@@ -120,7 +124,5 @@ IntroSection.propTypes = {
   arrayBread: array,
   isSearch: bool
 };
-
-IntroSection.defaultProps = {};
 
 export default IntroSection;

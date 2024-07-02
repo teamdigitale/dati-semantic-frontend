@@ -16,6 +16,4 @@ Footer.propTypes = {
   childRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) })
 };
 
-Footer.defaultProps = {};
-
 export default Footer;

@@ -35,6 +35,4 @@ AssetNotFound.propTypes = {
   reason: oneOf([MISSING_URI, MISSING_RESOURCE]).isRequired
 };
 
-AssetNotFound.defaultProps = {};
-
 export default AssetNotFound;

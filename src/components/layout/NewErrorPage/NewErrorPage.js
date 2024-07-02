@@ -206,6 +206,4 @@ const NewErrorPage = () => {
 };
 NewErrorPage.propTypes = {};
 
-NewErrorPage.defaultProps = {};
-
 export default NewErrorPage;

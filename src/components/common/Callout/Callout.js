@@ -31,6 +31,4 @@ Callout.propTypes = {
   children: PropTypes.node
 };
 
-Callout.defaultProps = {};
-
 export default Callout;

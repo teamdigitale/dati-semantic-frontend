@@ -31,6 +31,4 @@ const HeaderSlim = () => (
 
 HeaderSlim.propTypes = {};
 
-HeaderSlim.defaultProps = {};
-
 export default HeaderSlim;

@@ -6,6 +6,11 @@ import { renderWithRoute } from "../../../services/testUtils";
 import NotFound from "../NotFound/NotFound";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 
+jest.mock("swagger-ui-react", () => ({
+  __esModule: true,
+  default: jest.fn()
+}));
+
 jest.mock("../../explore/ExplorePage/ExplorePage", () => ({
   __esModule: true,
   default: jest.fn()

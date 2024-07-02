@@ -91,6 +91,4 @@ FilterPanel.propTypes = {
   rightsHoldersList: array
 };
 
-FilterPanel.defaultProps = {};
-
 export default FilterPanel;

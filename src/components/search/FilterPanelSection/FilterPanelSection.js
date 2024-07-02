@@ -20,6 +20,4 @@ FilterPanelSection.propTypes = {
   children: node
 };
 
-FilterPanelSection.defaultProps = {};
-
 export default FilterPanelSection;

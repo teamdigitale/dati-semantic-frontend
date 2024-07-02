@@ -18,6 +18,4 @@ CategoryIcon.propTypes = {
   }).isRequired
 };
 
-CategoryIcon.defaultProps = {};
-
 export default CategoryIcon;

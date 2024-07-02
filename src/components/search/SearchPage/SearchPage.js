@@ -254,6 +254,4 @@ const SearchPage = () => {
 
 SearchPage.propTypes = {};
 
-SearchPage.defaultProps = {};
-
 export default SearchPage;
