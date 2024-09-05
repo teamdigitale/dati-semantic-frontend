@@ -22,7 +22,7 @@ const HeaderMainMenu = () => {
     });
   }, []);
   const isActive = (href) => {
-    if (href === pathname) {
+    if (href.includes(pathname)) {
       return true;
     }
 

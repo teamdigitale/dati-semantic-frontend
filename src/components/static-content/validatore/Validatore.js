@@ -1,28 +1,40 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable prettier/prettier */
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../services/BreadCrumbsConst";
-import EndSection from "../../common/EndSection/EndSection";
 import { baseUrl } from "../../../services/fetchUtils";
 import sprite from "../../../assets/images/sprite.svg";
 import "./Validatore.css";
+import { useNavigate } from "react-router-dom";
+import { isMobile } from "../../common/ResponsiveViews";
+import { bool } from "prop-types";
 
-const Validatore = () => {
+const Validatore = ({ test = false }) => {
+  const navigate = useNavigate();
   const [selectedFile, setSelectedFile] = useState(null);
   const [currentStep, setCurrentStep] = useState(1);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [showResult, setShowResult] = useState("false");
   const [selectedType, setSelectedType] = useState("");
   const [response, setResponse] = useState(null);
+  const [stoplight, setStoplight] = useState(false);
+
+  const buttonGroupEl = document.getElementById("button-group");
+  const backgroundEl = document.getElementById("background-custom");
 
   const intervalRef = useRef(null);
-  const errorRef = useRef(null);
-  const warningRef = useRef(null);
 
-  const errors = response?.errors;
-  const warnings = response?.warnings;
+  // Required for tooltip functionality (from bootstrap docs)
+  if (!test) {
+    const tooltipTriggerList = [].slice.call(
+      document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    // eslint-disable-next-line no-unused-vars
+    const tooltipList = tooltipTriggerList.map(
+      (tooltipTriggerEl) => new bootstrap.Tooltip(tooltipTriggerEl)
+    );
+  }
 
   const handleFileSelect = (event) => {
     event.preventDefault();
@@ -47,38 +59,14 @@ const Validatore = () => {
     }, 500);
   };
 
-  const downloadFile = () => {
-    let messages = [];
-    let filename = "Lista.txt";
-
-    if (response.errors.length > 0) {
-      messages.push("LISTA ERRORI");
-      messages = messages.concat(
-        response.errors.map((error, index) => `${index + 1}. ${error.message}`)
-      );
+  const cleanStateForHistory = (state) => {
+    const stateWithNoFunctions = {};
+    for (const key of Object.keys(state)) {
+      if (typeof key !== "function") {
+        stateWithNoFunctions[key] = state[key];
+      }
     }
-
-    if (response.warnings.length > 0) {
-      messages.push("LISTA WARNING");
-      messages = messages.concat(
-        response.warnings.map(
-          (warning, index) => `${index + 1}. ${warning.message}`
-        )
-      );
-    }
-
-    if (messages.length === 0) {
-      return;
-    }
-
-    const data = messages.join("\n");
-    const blob = new Blob([data], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = filename;
-    link.click();
-    URL.revokeObjectURL(url);
+    return stateWithNoFunctions;
   };
 
   const handleSubmit = () => {
@@ -108,8 +96,8 @@ const Validatore = () => {
         }
         response.json().then((data) => {
           setResponse(data);
+          navigate("risultato", { state: cleanStateForHistory(data) });
         });
-        setShowResult("true");
       });
     }
   };
@@ -128,22 +116,37 @@ const Validatore = () => {
     clearInterval(intervalRef.current);
   };
 
-  const handlePageReload = () => {
-    window.location.reload();
+  const handleChangeBackground = () => {
+    const offset = buttonGroupEl.getBoundingClientRect().top;
+
+    backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc ${
+      offset - (isMobile() ? 80 : 140)
+    }px, white 0)`;
   };
 
-  const handleShowErrors = () => {
-    errorRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+  useEffect(() => {
+    if (buttonGroupEl) {
+      handleChangeBackground();
+      window.addEventListener("resize", handleChangeBackground);
 
-  const handleShowWarnings = () => {
-    warningRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
+      if (!stoplight) setStoplight(true);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleChangeBackground);
+    };
+  }, [buttonGroupEl, response, backgroundEl]);
+
+  useEffect(() => {
+    setStoplight(true);
+    if (backgroundEl)
+      backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc 600px, white 0)`;
+  }, []);
 
   return (
     <div data-testid="Validatore">
-      {showResult === "false" ? (
-        <div className="mx-0 detailsContainer mb-5">
+      <div id="background-custom">
+        <div className="mx-0 mb-5">
           <div className="container-fluid px-xl-4 px-lg-2 px-0">
             <div className="row mx-0 px-0">
               <div className="col-lg-12 ps-5">
@@ -156,7 +159,7 @@ const Validatore = () => {
             <div className="row pt-5">
               <div className="col-12">
                 <div>
-                  <div className="col-lg-12">
+                  {/* <div className="col-lg-12">
                     <div className="d-flex justify-content-between align-items-center">
                       <div className="col-lg-6 ps-0">
                         <div className="text-uppercase ms-0 title">
@@ -172,19 +175,25 @@ const Validatore = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="row pt-3 pb-3">
                     <div className="col-12">
-                      <h1 className="main ms-2">
-                        Carica il file TTL per validarlo
-                      </h1>
+                      <h1 className="main ms-2">Carica il tuo file Turtle</h1>
                     </div>
                     <div className="description col-6 mb-2">
-                      Viene effettuata una valutazione sintattica e semantica
-                      del file ttl secondo le linee guida definite da Ontopia
-                      per la pubblicazione dei contenuti semantici sul portale
-                      NDC.
+                      Per la pubblicazione sul Catalogo, i metadati devono
+                      essere conformi alle regole indicate nella{" "}
+                      <a
+                        className="link-primary assetIri"
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        href="https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/docs/manuale-operativo/indicazioni-su-modellazione-e-metadatazione-degli-asset-semantici.html"
+                      >
+                        Guida al Catalogo
+                      </a>
+                      . Questo strumento ti permette di validare il file Turtle
+                      e di ottenere dei warning/errori sui metadati se presenti.
                     </div>
                   </div>
                   <div className="row justify-content-center">
@@ -195,13 +204,16 @@ const Validatore = () => {
                             <div className="w-auto" tabIndex="0">
                               <>
                                 <h1 className="subtitle col-16 mt-4">
-                                  Che tipologia di file devi validare?
+                                  Seleziona per quale tipo di risorsa semantica
+                                  vuoi validare il file Turtle
                                 </h1>
                                 <div
+                                  id="button-group"
                                   className="mt-4"
                                   style={{ marginLeft: "1.3rem" }}
                                 >
-                                  <div className="form-check form-check-inline me-4">
+                                  {/* style={{display: 'inline-flex'}} */}
+                                  <div className="form-check form-check-inline me-2">
                                     <input
                                       name="gruppo2"
                                       type="radio"
@@ -212,8 +224,21 @@ const Validatore = () => {
                                       }
                                     />
                                     <label htmlFor="radio4">Ontologia</label>
+
+                                    <svg
+                                      data-bs-toggle="tooltip"
+                                      title="Adottare le regole di metadatazione dell’ontologia ADMS-AP_IT"
+                                      data-bs-placement="bottom"
+                                      data-bs-custom-class="tooltip"
+                                      className="icon icon-xs icon-secondary ms-1"
+                                      style={{ verticalAlign: "text-top" }}
+                                    >
+                                      <use
+                                        href={`${sprite}#it-info-circle`}
+                                      ></use>
+                                    </svg>
                                   </div>
-                                  <div className="form-check form-check-inline me-4">
+                                  <div className="form-check form-check-inline me-2">
                                     <input
                                       name="gruppo2"
                                       type="radio"
@@ -228,8 +253,19 @@ const Validatore = () => {
                                     <label htmlFor="radio5">
                                       Vocabolario controllato
                                     </label>
+                                    <svg
+                                      data-bs-toggle="tooltip"
+                                      title="Adottare le regole di metadatazione DCAT-AP_IT e una licenza aperta"
+                                      data-bs-placement="bottom"
+                                      className="icon icon-xs icon-secondary ms-1"
+                                      style={{ verticalAlign: "text-top" }}
+                                    >
+                                      <use
+                                        href={`${sprite}#it-info-circle`}
+                                      ></use>
+                                    </svg>
                                   </div>
-                                  <div className="form-check form-check-inline me-4">
+                                  <div className="form-check form-check-inline me-2">
                                     <input
                                       name="gruppo2"
                                       type="radio"
@@ -238,10 +274,21 @@ const Validatore = () => {
                                       onChange={() => setSelectedType("schema")}
                                     />
                                     <label htmlFor="radio6">Schema dati</label>
+                                    <svg
+                                      data-bs-toggle="tooltip"
+                                      title="Il file index.ttl deve adottare le regole di metadatazione dell’ontologia ADMS-AP_IT"
+                                      data-bs-placement="bottom"
+                                      className="icon icon-xs icon-secondary ms-1"
+                                      style={{ verticalAlign: "text-top" }}
+                                    >
+                                      <use
+                                        href={`${sprite}#it-info-circle`}
+                                      ></use>
+                                    </svg>
                                   </div>
                                 </div>
                                 <h1 className="subtitle col-16 mt-5">
-                                  Allega il file
+                                  Allega il file Turtle
                                 </h1>
                               </>
                               {currentStep === 1 && (
@@ -262,12 +309,13 @@ const Validatore = () => {
                                     />
                                     <label htmlFor="upload2">
                                       <svg
-                                        className="icon icon-sm"
+                                        className="icon icon-sm me-1"
                                         aria-hidden="true"
+                                        style={{ verticalAlign: "text-bottom" }}
                                       >
                                         <use href={sprite + "#it-upload"}></use>
                                       </svg>
-                                      <span>Upload</span>
+                                      Upload
                                     </label>
                                   </div>
                                 </form>
@@ -418,365 +466,12 @@ const Validatore = () => {
             </div>
           </div>
         </div>
-      ) : (
-        <div>
-          {response &&
-          response.errors.length === 0 &&
-          response.warnings.length === 0 ? (
-            <div className="mx-0 detailsContainer">
-              <div className="container-fluid schemaPadding">
-                <div className="pt-5">
-                  <div className="col-12">
-                    <div>
-                      <div className="col-lg-12">
-                        <div>
-                          <button
-                            type="button"
-                            className="btn btn-outline-primary fw-bold ms-2"
-                            onClick={handlePageReload}
-                          >
-                            <svg className="icon icon-sm ms-0 me-3" fill="blue">
-                              <use href={sprite + "#it-arrow-left"}></use>
-                            </svg>
-                            Torna indietro
-                          </button>
-                          <div className="col-lg-12 ps-2 mt-5 mb-4">
-                            <div className="text-uppercase ms-0 title">
-                              <div className="pt-1 ms-0 title text-success">
-                                DOCUMENTO IDONEO
-                              </div>
-                            </div>
-                          </div>
-
-                          <div className="col-12 mb-5 d-flex">
-                            <svg
-                              className="icon icon-xl me-3 mt-3"
-                              fill="green"
-                            >
-                              <use href={sprite + "#it-check-circle"}></use>
-                            </svg>
-                            <h1 className="main col-6">
-                              Complimenti, il tuo documento risulta essere
-                              idoneo.
-                            </h1>
-                          </div>
-                          <div className=" mb-5">
-                            <a
-                              className="btn btn-primary text-white ms-2 "
-                              onClick={handlePageReload}
-                            >
-                              Valida un altro documento
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : response &&
-            (response.errors.length !== 0 || response.warnings.length !== 0) ? (
-            <>
-              <div className="mx-0 detagliContainer mb-5">
-                <div className="container-fluid schemaPadding d-flex">
-                  <div className="pt-5">
-                    <div className="col-12">
-                      <div>
-                        <div className="col-lg-12">
-                          <div>
-                            {warnings.length !== 0 && (
-                              <div
-                                className="schemaPadding py-3 ms-2 mb-4"
-                                data-testid="messageAlert"
-                              >
-                                <div
-                                  className="alert alert-warning m-0"
-                                  role="alert"
-                                >
-                                  <strong>
-                                    <span className="col-12">
-                                      In caso di soli messaggi di avvertimento
-                                      (WARNING) il processo di harvester sarà in
-                                      grado di acquisire il materiale semantico.
-                                      E' consigliabile, ma non obbligatorio,
-                                      procedere con la risoluzione degli
-                                      avvertimenti segnalati.
-                                    </span>
-                                  </strong>
-                                </div>
-                              </div>
-                            )}
-                            {errors.length !== 0 && (
-                              <div
-                                className="schemaPadding py-3 ms-2 mb-4"
-                                data-testid="messageAlert"
-                              >
-                                <div
-                                  className="alert alert-danger m-0"
-                                  role="alert"
-                                >
-                                  <strong>
-                                    <span>
-                                      In caso di segnalazione di errori (ERROR)
-                                      il processo di harvesting NON potrà
-                                      acquisire il metariale semantico, in
-                                      questo caso è NECESSARIO procedere con la
-                                      correzione di tutti gli errori segnalati
-                                      prima di poter sottomettere l'asset
-                                      semantico al processo di harvesting.
-                                    </span>
-                                  </strong>
-                                </div>
-                              </div>
-                            )}
-
-                            <button
-                              type="button"
-                              className="btn btn-outline-primary fw-bold ms-2"
-                              onClick={handlePageReload}
-                            >
-                              <svg
-                                className="icon icon-sm ms-0 me-3"
-                                fill="blue"
-                              >
-                                <use href={sprite + "#it-arrow-left"}></use>
-                              </svg>
-                              Torna indietro
-                            </button>
-                            <div className="col-lg-12 ps-2 mt-5 mb-4">
-                              <div className="text-uppercase ms-0 title">
-                                <div
-                                  className="pt-1 ms-0 title"
-                                  style={{ color: "hsl(0, 70%, 50%)" }}
-                                >
-                                  DOCUMENTO NON IDONEO
-                                </div>
-                              </div>
-                            </div>
-
-                            <div className="col-12 mb-5 d-flex">
-                              <svg
-                                className="icon icon-xl me-3 mt-3"
-                                fill="red"
-                              >
-                                <use href={sprite + "#it-error"}></use>
-                              </svg>
-                              <h1 className="main col-6">
-                                Attenzione, si è verificato un problema con la
-                                tua richiesta
-                              </h1>
-                            </div>
-                            <div className="d-flex">
-                              {errors?.length !== 0 ? (
-                                <div>
-                                  <a
-                                    className="btn btn-lg btn-danger fw-bold text-white ms-2 "
-                                    onClick={handleShowErrors}
-                                  >
-                                    Mostra errori
-                                  </a>
-                                </div>
-                              ) : null}
-
-                              {warnings?.length !== 0 ? (
-                                <div>
-                                  <a
-                                    className="btn btn-lg btn-outline-danger fw-bold ms-2"
-                                    onClick={handleShowWarnings}
-                                    style={{ color: "hsl(0, 70%, 50%)" }}
-                                  >
-                                    Mostra warning
-                                  </a>
-                                </div>
-                              ) : null}
-
-                              <div>
-                                <a
-                                  className="btn btn-lg btn-primary text-white ms-3"
-                                  onClick={downloadFile}
-                                >
-                                  <svg
-                                    className="icon icon-sm ms-0 me-2"
-                                    fill="white"
-                                  >
-                                    <use href={sprite + "#it-download"}></use>
-                                  </svg>
-                                  Scarica Lista
-                                </a>
-                              </div>
-                            </div>
-
-                            {errors?.length !== 0 ? (
-                              <>
-                                <div
-                                  className="col-12 pt-1 ms-1 mb-2 title"
-                                  ref={errorRef}
-                                  style={{
-                                    color: "#455B71",
-                                    marginTop: "6rem"
-                                  }}
-                                >
-                                  LISTA ERRORI
-                                </div>
-                                <div
-                                  className="card card-bg mt-4"
-                                  style={{ minHeight: "3rem" }}
-                                >
-                                  <div className="col-12 card-space">
-                                    <div className="row">
-                                      <div
-                                        className="pt-1 fw-bold mt-3 mb-4 ms-4"
-                                        ref={errorRef}
-                                        style={{
-                                          fontSize: "0.8rem",
-                                          width: "95%"
-                                        }}
-                                      >
-                                        <span
-                                          className="d-flex"
-                                          style={{
-                                            paddingBottom: "0.8rem",
-                                            borderBottom: "1px solid black"
-                                          }}
-                                        >
-                                          LISTA ERRORI
-                                        </span>
-                                      </div>
-                                      {errors.map((error, index) => {
-                                        return (
-                                          <div
-                                            key={index}
-                                            className="col-12 card-wrapper card-space mx-2"
-                                          >
-                                            <div className="col-12 ms-0 row">
-                                              <h6
-                                                className="col-1 me-5 ms-2 fw-bold"
-                                                style={{ color: "#004080" }}
-                                              >
-                                                Errore {`${index + 1}`}
-                                              </h6>
-                                              <span className="col-10">
-                                                {error.message}
-                                              </span>
-                                              <hr
-                                                className="ms-3 me-4"
-                                                style={{
-                                                  paddingBottom: "0.1rem",
-                                                  width: "95%"
-                                                }}
-                                              />
-                                            </div>
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  </div>
-                                </div>
-                              </>
-                            ) : null}
-
-                            {warnings?.length !== 0 ? (
-                              <>
-                                <div
-                                  className="col-12 pt-1 ms-1 mb-2 title"
-                                  ref={warningRef}
-                                  style={{
-                                    color: "#455B71",
-                                    marginTop: "6rem"
-                                  }}
-                                >
-                                  LISTA WARNING
-                                </div>
-
-                                <div
-                                  className="card card-bg mt-4"
-                                  style={{ minHeight: "3rem" }}
-                                >
-                                  <div className="col-12 card-space">
-                                    <div className="row">
-                                      <div
-                                        className="pt-1 mt-3 mb-4 ms-4 fw-bold"
-                                        ref={warningRef}
-                                        style={{
-                                          fontSize: "0.8rem",
-                                          width: "95%"
-                                        }}
-                                      >
-                                        <span
-                                          className="d-flex"
-                                          style={{
-                                            paddingBottom: "0.8rem",
-                                            borderBottom: "1px solid black"
-                                          }}
-                                        >
-                                          LISTA WARNING
-                                        </span>
-                                      </div>
-                                      {warnings.map((warning, index) => {
-                                        return (
-                                          <div
-                                            key={index}
-                                            className="col-12 card-wrapper card-space mx-2"
-                                          >
-                                            <div className="col-12 ms-0 row">
-                                              <h6
-                                                className="col-1 me-5 ms-2 fw-bold"
-                                                style={{ color: "#004080" }}
-                                              >
-                                                Warning {`${index + 1}`}
-                                              </h6>
-                                              <span className="col-10">
-                                                {warning.message}
-                                              </span>
-                                              <hr
-                                                className="ms-3 me-4"
-                                                style={{
-                                                  paddingBottom: "0.1rem",
-                                                  width: "95%"
-                                                }}
-                                              />
-                                            </div>
-                                          </div>
-                                        );
-                                      })}
-                                    </div>
-                                  </div>
-                                </div>
-                              </>
-                            ) : null}
-
-                            <div className="col-12 d-flex justify-content-end">
-                              <a
-                                className="btn btn-lg btn-primary text-white mt-5"
-                                onClick={downloadFile}
-                              >
-                                <svg
-                                  className="icon icon-sm mt- ms-0 me-2"
-                                  style={{ fill: "white" }}
-                                >
-                                  <use href={sprite + "#it-download"}></use>
-                                </svg>
-                                Scarica Lista
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : null}
-        </div>
-      )}
-      <EndSection type={1} />
+      </div>
     </div>
   );
 };
 
-Validatore.propTypes = {};
+Validatore.propTypes = { test: bool };
 Validatore.defaultPropTypes = {};
 
 export default Validatore;

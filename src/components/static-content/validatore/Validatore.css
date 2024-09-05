@@ -20,6 +20,15 @@
   color: #000000;
 }
 
+.assetIri {
+  text-decoration: none;
+}
+.assetIri:hover {
+  text-decoration: underline;
+  text-decoration-color: #06c;
+  text-underline-offset: 2px;
+}
+
 .subtitle {
   font-family: "Titillium Web";
   font-style: normal;
@@ -42,6 +51,7 @@
 
 .subtitle {
   margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .label {
@@ -86,4 +96,8 @@
 
 #cardValidator::after {
   margin-top: 0;
+}
+
+.tooltip {
+  max-width: 250px;
 }
