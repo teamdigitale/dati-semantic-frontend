@@ -3,15 +3,22 @@ import React from "react";
 import { screen, fireEvent } from "@testing-library/react";
 import Validatore from "./Validatore";
 import { renderWithRoute } from "../../../services/testUtils";
+import "bootstrap";
+
+jest.mock("bootstrap", () => {
+  return {
+    Tooltip: jest.fn()
+  };
+});
 
 describe("Validatore", () => {
   it("renders Validatore component", () => {
-    renderWithRoute(<Validatore />);
+    renderWithRoute(<Validatore test={true} />);
     expect(screen.getByLabelText("Upload")).toBeInTheDocument();
   });
 
   it("handles file selection and updates state", () => {
-    renderWithRoute(<Validatore />);
+    renderWithRoute(<Validatore test={true} />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });
@@ -21,7 +28,7 @@ describe("Validatore", () => {
   });
 
   it("displays the selected file name after successful file selection", () => {
-    renderWithRoute(<Validatore />);
+    renderWithRoute(<Validatore test={true} />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });
@@ -33,7 +40,7 @@ describe("Validatore", () => {
   });
 
   it("displays the upload progress bar during file upload", () => {
-    renderWithRoute(<Validatore />);
+    renderWithRoute(<Validatore test={true} />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });
@@ -45,7 +52,7 @@ describe("Validatore", () => {
   });
 
   it("enables the 'Valida documento' button when a file is selected", () => {
-    renderWithRoute(<Validatore />);
+    renderWithRoute(<Validatore test={true} />);
     const file = new File(["file content"], "test.ttl", {
       type: "text/turtle"
     });

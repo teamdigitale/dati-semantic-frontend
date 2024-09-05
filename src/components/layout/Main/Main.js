@@ -30,6 +30,7 @@ import PropTypes from "prop-types";
 import LeaglNotices from "../../static-content/legal-notices/legalNotices";
 import Validatore from "../../static-content/validatore/Validatore";
 import { FilterProvider } from "../../common/FilterContext/context";
+import ValidatoreResult from "../../static-content/validatore/partials/ValidatoreResult";
 
 const Main = ({ childRef }) => (
   <main id="main" ref={childRef} tabIndex={-1}>
@@ -51,7 +52,10 @@ const Main = ({ childRef }) => (
       />
       <Route path={FAQ_URL} element={<FaqPage />} />
       <Route path={PROJECT_URL} element={<ProjectPage />} />
-      <Route path={VALIDATORE} element={<Validatore />} />
+      <Route path={VALIDATORE}>
+        <Route index element={<Validatore />} />
+        <Route path="risultato" element={<ValidatoreResult />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
       <Route path="/error" element={<NotFound />} />
       <Route path={ASSETS_BASE_URL_TOKEN}>
