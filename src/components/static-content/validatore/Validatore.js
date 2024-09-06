@@ -117,7 +117,7 @@ const Validatore = ({ test = false }) => {
   };
 
   const handleChangeBackground = () => {
-    const offset = buttonGroupEl.getBoundingClientRect().top;
+    const offset = buttonGroupEl.getBoundingClientRect().top + window.scrollY;
 
     backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc ${
       offset - (isMobile() ? 80 : 140)
@@ -179,9 +179,11 @@ const Validatore = ({ test = false }) => {
 
                   <div className="row pt-3 pb-3">
                     <div className="col-12">
-                      <h1 className="main ms-2">Carica il tuo file Turtle</h1>
+                      <h1 className="main ms-2">
+                        Valida i metadati delle risorse semantiche
+                      </h1>
                     </div>
-                    <div className="description col-6 mb-2">
+                    <div className="description col-12 col-md-6 mb-2">
                       Per la pubblicazione sul Catalogo, i metadati devono
                       essere conformi alle regole indicate nella{" "}
                       <a
@@ -228,7 +230,7 @@ const Validatore = ({ test = false }) => {
                                     <svg
                                       data-bs-toggle="tooltip"
                                       title="Adottare le regole di metadatazione dell’ontologia ADMS-AP_IT"
-                                      data-bs-placement="bottom"
+                                      data-bs-placement="right"
                                       data-bs-custom-class="tooltip"
                                       className="icon icon-xs icon-secondary ms-1"
                                       style={{ verticalAlign: "text-top" }}
@@ -256,7 +258,7 @@ const Validatore = ({ test = false }) => {
                                     <svg
                                       data-bs-toggle="tooltip"
                                       title="Adottare le regole di metadatazione DCAT-AP_IT e una licenza aperta"
-                                      data-bs-placement="bottom"
+                                      data-bs-placement="right"
                                       className="icon icon-xs icon-secondary ms-1"
                                       style={{ verticalAlign: "text-top" }}
                                     >
@@ -277,7 +279,7 @@ const Validatore = ({ test = false }) => {
                                     <svg
                                       data-bs-toggle="tooltip"
                                       title="Il file index.ttl deve adottare le regole di metadatazione dell’ontologia ADMS-AP_IT"
-                                      data-bs-placement="bottom"
+                                      data-bs-placement="right"
                                       className="icon icon-xs icon-secondary ms-1"
                                       style={{ verticalAlign: "text-top" }}
                                     >
