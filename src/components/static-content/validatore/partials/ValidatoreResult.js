@@ -18,6 +18,8 @@ const ValidatoreResult = () => {
 
   const buttonGroupErrorEl = document.getElementById("button-group-error");
   const backgroundEl = document.getElementById("background-custom");
+  const pageFrontEl = document.getElementById("page-front");
+  const spaceEl = document.getElementById("space");
 
   const errorRef = useRef(null);
   const warningRef = useRef(null);
@@ -82,18 +84,41 @@ const ValidatoreResult = () => {
       offset - (isMobile() ? 0 : 80)
     }px, white 0)`;
   };
+  const handleChangeSpace = () => {
+    const offset = pageFrontEl.clientHeight;
+    spaceEl.style.height = `calc(${window.screen.height}px - ${
+      offset - 110
+    }px)`;
+  };
 
+  // to calculate the background (light-blue) height
   useEffect(() => {
     if (buttonGroupErrorEl) {
       handleChangeBackground();
       window.addEventListener("resize", handleChangeBackground);
+
       if (!stoplight) setStoplight(true);
     }
 
     return () => {
       window.removeEventListener("resize", handleChangeBackground);
+      window.removeEventListener("resize", handleChangeSpace);
     };
   }, [buttonGroupErrorEl, response, backgroundEl]);
+
+  //to separate div between <main> and <footer>
+  useEffect(() => {
+    if (pageFrontEl && spaceEl) {
+      handleChangeSpace();
+      window.addEventListener("resize", handleChangeSpace);
+
+      if (!stoplight) setStoplight(true);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleChangeSpace);
+    };
+  }, [pageFrontEl, spaceEl, stoplight]);
 
   useEffect(() => {
     setStoplight(true);
@@ -140,7 +165,7 @@ const ValidatoreResult = () => {
                             </div>
                           </div> */}
 
-                          <div className="col-12 mt-5 mb-5 d-flex">
+                          <div className="col-12 mt-4 mb-5 d-flex">
                             <svg
                               className="icon icon-xl me-3 mt-3"
                               fill="green"
@@ -165,6 +190,15 @@ const ValidatoreResult = () => {
                   </div>
                 </div>
               </div>
+              <div
+                id="space"
+                style={{
+                  width: "100%",
+                  height: "200px",
+                  display: "block",
+                  backgroundColor: "rgb(240, 246, 252)"
+                }}
+              ></div>
             </div>
           ) : response &&
             (response.errors.length !== 0 || response.warnings.length !== 0) ? (
