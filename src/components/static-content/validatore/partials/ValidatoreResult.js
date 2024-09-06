@@ -6,9 +6,9 @@ import BreadCrumbs from "../../../common/BreadCrumbs/BreadCrumbs";
 import BREADCRUMBS from "../../../../services/BreadCrumbsConst";
 import sprite from "../../../../assets/images/sprite.svg";
 import "../Validatore.css";
-import { isMobile } from "../../../common/ResponsiveViews";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { VALIDATORE } from "../../../../services/routes";
+import { isMobile } from "../../../common/ResponsiveViews";
 
 const ValidatoreResult = () => {
   const location = useLocation();
@@ -76,9 +76,10 @@ const ValidatoreResult = () => {
   };
 
   const handleChangeBackground = () => {
-    const offset = buttonGroupErrorEl.getBoundingClientRect().top;
+    const offset =
+      buttonGroupErrorEl.getBoundingClientRect().top + window.scrollY;
     backgroundEl.style.background = `linear-gradient(to bottom, #f0f6fc ${
-      offset - (isMobile() ? 0 : 100)
+      offset - (isMobile() ? 0 : 80)
     }px, white 0)`;
   };
 
@@ -86,7 +87,6 @@ const ValidatoreResult = () => {
     if (buttonGroupErrorEl) {
       handleChangeBackground();
       window.addEventListener("resize", handleChangeBackground);
-
       if (!stoplight) setStoplight(true);
     }
 
@@ -117,7 +117,7 @@ const ValidatoreResult = () => {
                 </div>
               </div>
               <div className="container-fluid schemaPadding">
-                <div className="">
+                <div className="col-12">
                   <div className="col-12">
                     <div>
                       <div className="col-lg-12">
@@ -151,7 +151,7 @@ const ValidatoreResult = () => {
                               Complimenti, il tuo file risulta essere idoneo
                             </h1>
                           </div>
-                          <div id="button-group-error" className="mb-5">
+                          <div id="button-group-error">
                             <a
                               className="btn btn-primary text-white ms-2 mb-5"
                               onClick={handlePageReload}
@@ -177,7 +177,7 @@ const ValidatoreResult = () => {
                     </div>
                   </div>
                 </div>
-                <div className="container-fluid schemaPadding d-flex">
+                <div className="container-fluid schemaPadding">
                   <div className="">
                     <div className="col-12">
                       <div>
@@ -187,9 +187,10 @@ const ValidatoreResult = () => {
                               <div
                                 className="schemaPadding py-2 ms-2 mt-3"
                                 data-testid="messageAlert"
+                                style={{ width: "100%" }}
                               >
                                 <div
-                                  className="alert alert-warning m-0"
+                                  className="alert alert-warning m-0 w-100"
                                   role="alert"
                                 >
                                   <strong>
@@ -209,9 +210,10 @@ const ValidatoreResult = () => {
                               <div
                                 className="schemaPadding py-2 ms-2 mt-1"
                                 data-testid="messageAlert"
+                                style={{ width: "100%" }}
                               >
                                 <div
-                                  className="alert alert-danger m-0"
+                                  className="alert alert-danger m-0 w-100"
                                   role="alert"
                                 >
                                   <strong>
@@ -247,16 +249,19 @@ const ValidatoreResult = () => {
                               >
                                 <use href={sprite + "#it-error"}></use>
                               </svg>
-                              <h1 className="main col-6">
+                              <h1 className="main col-8 col-md-6">
                                 Ci dispiace, il tuo file non risulta essere
                                 idoneo
                               </h1>
                             </div>
-                            <div id="button-group-error" className="d-flex">
+                            <div
+                              id="button-group-error"
+                              className="d-flex flex-row gap-2"
+                            >
                               {errors?.length !== 0 ? (
                                 <div>
                                   <button
-                                    className="btn btn-lg btn-danger fw-bold ms-2 "
+                                    className="btn btn-lg btn-danger fw-bold"
                                     onClick={handleShowErrors}
                                   >
                                     Mostra errori
@@ -267,7 +272,7 @@ const ValidatoreResult = () => {
                               {warnings?.length !== 0 ? (
                                 <div>
                                   <button
-                                    className="btn btn-lg btn-outline-warning fw-bold ms-2"
+                                    className="btn btn-lg btn-outline-warning fw-bold"
                                     onClick={handleShowWarnings}
                                     // style={{ color: "hsl(0, 70%, 50%)" }}
                                   >
@@ -278,11 +283,11 @@ const ValidatoreResult = () => {
 
                               <div>
                                 <a
-                                  className="btn btn-lg btn-primary text-white ms-3"
+                                  className="btn btn-lg btn-primary d-flex flex-row text-white"
                                   onClick={downloadFile}
                                 >
                                   <svg
-                                    className="icon icon-sm ms-0 me-2"
+                                    className="icon icon-sm ms-0 d-none d-sm-block me-2"
                                     fill="white"
                                   >
                                     <use href={sprite + "#it-download"}></use>
@@ -305,17 +310,17 @@ const ValidatoreResult = () => {
                                   LISTA ERRORI
                                 </div>
                                 <div
-                                  className="card card-bg mt-4"
+                                  className="card card-bg w-100 p-4 mt-3 mx-0"
                                   style={{ minHeight: "3rem" }}
                                 >
-                                  <div className="col-12 card-space">
-                                    <div className="row">
+                                  <div className="w-100">
+                                    <div className="w-100">
                                       <div
-                                        className="pt-1 fw-bold mt-3 mb-4 ms-4"
+                                        className="fw-bold mt-3 mb-4"
                                         ref={errorRef}
                                         style={{
                                           fontSize: "0.8rem",
-                                          width: "95%"
+                                          width: "100%"
                                         }}
                                       >
                                         <span
@@ -332,23 +337,25 @@ const ValidatoreResult = () => {
                                         return (
                                           <div
                                             key={index}
-                                            className="col-12 card-wrapper card-space mx-2"
+                                            className="w-100 card-wrapper"
                                           >
-                                            <div className="col-12 ms-0 row">
-                                              <h6
-                                                className="col-1 me-5 ms-2 fw-bold"
-                                                style={{ color: "#004080" }}
-                                              >
-                                                Errore {`${index + 1}`}
-                                              </h6>
-                                              <span className="col-10">
-                                                {error.message}
-                                              </span>
+                                            <div className="d-flex flex-column w-100 ms-0">
+                                              <div className="d-flex flex-column flex-md-row">
+                                                <div
+                                                  className="h6 col-12 col-md-2 ms-2 fw-bold"
+                                                  style={{ color: "#004080" }}
+                                                >
+                                                  Errore {`${index + 1}`}
+                                                </div>
+                                                <span className="col-12 col-md-10 ms-2 me-2 text-wrap">
+                                                  {error.message}
+                                                </span>
+                                              </div>
                                               <hr
-                                                className="ms-3 me-4"
+                                                className=""
                                                 style={{
                                                   paddingBottom: "0.1rem",
-                                                  width: "95%"
+                                                  width: "100%"
                                                 }}
                                               />
                                             </div>
@@ -373,19 +380,18 @@ const ValidatoreResult = () => {
                                 >
                                   LISTA WARNING
                                 </div>
-
                                 <div
-                                  className="card card-bg mt-4"
+                                  className="card card-bg w-100 p-4 mt-3 mx-0"
                                   style={{ minHeight: "3rem" }}
                                 >
-                                  <div className="col-12 card-space">
-                                    <div className="row">
+                                  <div className="">
+                                    <div className="">
                                       <div
-                                        className="pt-1 mt-3 mb-4 ms-4 fw-bold"
+                                        className="fw-bold mt-3 mb-4"
                                         ref={warningRef}
                                         style={{
                                           fontSize: "0.8rem",
-                                          width: "95%"
+                                          width: "100%"
                                         }}
                                       >
                                         <span
@@ -402,23 +408,25 @@ const ValidatoreResult = () => {
                                         return (
                                           <div
                                             key={index}
-                                            className="col-12 card-wrapper card-space mx-2"
+                                            className="w-100 card-wrapper"
                                           >
-                                            <div className="col-12 ms-0 row">
-                                              <h6
-                                                className="col-1 me-5 ms-2 fw-bold"
-                                                style={{ color: "#004080" }}
-                                              >
-                                                Warning {`${index + 1}`}
-                                              </h6>
-                                              <span className="col-10">
-                                                {warning.message}
-                                              </span>
+                                            <div className="d-flex flex-column w-100 ms-0">
+                                              <div className="d-flex flex-column flex-md-row">
+                                                <div
+                                                  className="h6 col-12 col-md-2 ms-2 fw-bold"
+                                                  style={{ color: "#004080" }}
+                                                >
+                                                  Warning {`${index + 1}`}
+                                                </div>
+                                                <span className="col-12 col-md-10 ms-2 me-2 text-wrap">
+                                                  {warning.message}
+                                                </span>
+                                              </div>
                                               <hr
-                                                className="ms-3 me-4"
+                                                className=""
                                                 style={{
                                                   paddingBottom: "0.1rem",
-                                                  width: "95%"
+                                                  width: "100%"
                                                 }}
                                               />
                                             </div>
