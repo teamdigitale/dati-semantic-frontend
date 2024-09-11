@@ -13,6 +13,7 @@ export const GITHUB_SCHEMA =
 export const SEARCH_BASE_URL = "search";
 export const FAQ_URL = "faq";
 export const PROJECT_URL = "iniziativa";
+export const OLD_VALIDATORE = "validatore";
 export const VALIDATORE = "validatore_metadati";
 export const DIGITALE_DOCS_URL =
   "https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/";

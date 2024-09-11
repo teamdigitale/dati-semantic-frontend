@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "../NotFound/NotFound";
 import SearchPage from "../../search/SearchPage/SearchPage";
 import AssetDetailsPage from "../../semantic-assets/DetailsPage/AssetDetailsPage";
@@ -15,7 +15,8 @@ import {
   ERROR_PAGE,
   NEWERROR_PAGE,
   LEGALNOTICES,
-  CONTACT
+  CONTACT,
+  OLD_VALIDATORE
 } from "../../../services/routes";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
@@ -52,6 +53,10 @@ const Main = ({ childRef }) => (
       />
       <Route path={FAQ_URL} element={<FaqPage />} />
       <Route path={PROJECT_URL} element={<ProjectPage />} />
+      <Route
+        path={OLD_VALIDATORE}
+        element={<Navigate to={`../${VALIDATORE}`} replace />}
+      />
       <Route path={VALIDATORE}>
         <Route index element={<Validatore />} />
         <Route path="risultato" element={<ValidatoreResult />} />
