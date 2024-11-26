@@ -61,7 +61,7 @@ export const EndSection = (props) => {
                 <div className="row mx-0">
                   <div className="col-xl-12">
                     <p className="txtWhite">
-                      Se trovi errori o bug apri una issue su github.
+                      Se trovi errori o bug apri una issue su GitHub.
                       {/* <br /> Se vuoi contribuire al catalogo con un contenuto{" "}
                       leggi la guida su docs italia                    */}
                     </p>
@@ -73,10 +73,10 @@ export const EndSection = (props) => {
                       className="btn btn-primary endSection link fw-bold d-flex"
                       href={GITHUB_SCHEMA}
                       role="button"
-                      aria-label="vai su github di schema"
-                      title="vai su github di schema"
+                      aria-label="vai su GitHub di schema"
+                      title="vai su GitHub di schema"
                     >
-                      Vai su github
+                      Vai su GitHub
                       <div className="">
                         <svg className="icon icon-sm icon-primary ms-2">
                           <use href={sprite + "#it-github"}></use>
