@@ -17,7 +17,8 @@ import {
   LEGALNOTICES,
   CONTACT,
   OLD_VALIDATORE,
-  SCHEMA_EDITOR
+  SCHEMA_EDITOR,
+  ASSISTANT
 } from "../../../services/routes";
 import ExplorePage from "../../explore/ExplorePage/ExplorePage";
 import FaqPage from "../../static-content/faq/FaqPage/FaqPage";
@@ -34,6 +35,7 @@ import Validatore from "../../static-content/validatore/Validatore";
 import { FilterProvider } from "../../common/FilterContext/context";
 import ValidatoreResult from "../../static-content/validatore/partials/ValidatoreResult";
 import SchemaEditorLanding from "../../static-content/schema-editor/SchemaEditorLanding";
+import AssistantLanding from "../../static-content/assistant/AssistantLanding";
 
 const Main = ({ childRef }) => (
   <main id="main" ref={childRef} tabIndex={-1}>
@@ -64,6 +66,7 @@ const Main = ({ childRef }) => (
         <Route path="risultato" element={<ValidatoreResult />} />
       </Route>
       <Route path={SCHEMA_EDITOR} element={<SchemaEditorLanding />} />
+      <Route path={ASSISTANT} element={<AssistantLanding />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/error" element={<NotFound />} />
       <Route path={ASSETS_BASE_URL_TOKEN}>

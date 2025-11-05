@@ -16,6 +16,7 @@ export const PROJECT_URL = "iniziativa";
 export const OLD_VALIDATORE = "validatore";
 export const VALIDATORE = "validatore_metadati";
 export const SCHEMA_EDITOR = "schema-editor";
+export const ASSISTANT = "assistente";
 export const DIGITALE_DOCS_URL =
   "https://teamdigitale.github.io/dati-semantic-guida-ndc-docs/";
 export const API_DOCS_URL = "api-docs";
