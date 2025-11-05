@@ -4,9 +4,9 @@ import BREADCRUMBS from "../../../services/BreadCrumbsConst";
 import Anchor from "../../common/Anchor/Anchor";
 import BreadCrumbs from "../../common/BreadCrumbs/BreadCrumbs";
 
-const SchemaEditorLanding = () => {
+const AssistantLanding = () => {
   useEffect(() => {
-    document.title = "Schema editor - Catalogo Nazionale Dati";
+    document.title = "Schema Assistant - Catalogo Nazionale Dati";
   });
 
   return (
@@ -22,25 +22,24 @@ const SchemaEditorLanding = () => {
         isSearch={false}
       /> */}
       <div className="col-lg-12 ps-5">
-        <BreadCrumbs arrayBread={BREADCRUMBS.SCHEMAEDITORLANDING} />
+        <BreadCrumbs arrayBread={BREADCRUMBS.ASSISTANTLANDING} />
       </div>
       <div className="container-fluid schemaPadding">
         <div>
           <div className="col-lg-6 pt-5">
             <div className="text-sm-left pb-4">
               <h2>
-                Lo strumento Schema Editor sarà presto disponibile su questo
+                Lo strumento Schema Assistant sarà presto disponibile su questo
                 portale.
               </h2>
               <br />
               <h4>Il nostro team sta completando l&apos;integrazione.</h4>
             </div>
             <p>
-              Se non vuoi aspettare e desideri provare le ultime funzionalità,
-              la versione di sviluppo è accessibile tramite il nostro repository
-              su GitHub al seguente indirizzo:{" "}
-              <Anchor href="https://teamdigitale.github.io/dati-semantic-schema-editor/latest/">
-                https://teamdigitale.github.io/dati-semantic-schema-editor/latest/
+              Se non vuoi aspettare o desideri provare le ultime funzionalità,
+              la versione di sviluppo è accessibile al seguente indirizzo:{" "}
+              <Anchor href="https://www.schema-assistant.it/">
+                https://www.schema-assistant.it/
               </Anchor>{" "}
               <br />
             </p>
@@ -51,7 +50,7 @@ const SchemaEditorLanding = () => {
   );
 };
 
-SchemaEditorLanding.propTypes = {};
-SchemaEditorLanding.defaultPropTypes = {};
+AssistantLanding.propTypes = {};
+AssistantLanding.defaultPropTypes = {};
 
-export default SchemaEditorLanding;
+export default AssistantLanding;

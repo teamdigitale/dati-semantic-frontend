@@ -43,6 +43,10 @@ export const SCHEMAEDITORLANDING = [
   { label: "Home", link: routes.explore(), id: 20 },
   { label: "Schema Editor", link: "", id: 21 }
 ];
+export const ASSISTANTLANDING = [
+  { label: "Home", link: routes.explore(), id: 22 },
+  { label: "Schema Assistant", link: "", id: 23 }
+];
 export const BREADCRUMBS = {
   EXPLOREPAGE: EXPLOREPAGE,
   PROJECTPAGE: PROJECTPAGE,
@@ -54,7 +58,8 @@ export const BREADCRUMBS = {
   PRIVACYPAGE: PRIVACYPAGE,
   CONTACTPAGE: CONTACTPAGE,
   LEGALNOTICES: LEGALNOTICES,
-  SCHEMAEDITORLANDING: SCHEMAEDITORLANDING
+  SCHEMAEDITORLANDING: SCHEMAEDITORLANDING,
+  ASSISTANTLANDING: ASSISTANTLANDING
 };
 
 export default BREADCRUMBS;
