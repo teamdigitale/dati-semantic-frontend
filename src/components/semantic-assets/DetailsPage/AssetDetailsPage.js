@@ -68,6 +68,4 @@ const AssetDetailsPage = () => {
 
 AssetDetailsPage.propTypes = {};
 
-;
-
 export default AssetDetailsPage;

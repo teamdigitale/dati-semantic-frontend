@@ -39,6 +39,14 @@ export const VALIDATORE_RESULT = [
   { label: "Validatore metadati", link: routes.validatore(), id: 18 },
   { label: "Risultato", link: "", id: 19 }
 ];
+export const SCHEMAEDITORLANDING = [
+  { label: "Home", link: routes.explore(), id: 20 },
+  { label: "Schema Editor", link: "", id: 21 }
+];
+export const ASSISTANTLANDING = [
+  { label: "Home", link: routes.explore(), id: 22 },
+  { label: "Schema Assistant", link: "", id: 23 }
+];
 export const BREADCRUMBS = {
   EXPLOREPAGE: EXPLOREPAGE,
   PROJECTPAGE: PROJECTPAGE,
@@ -49,7 +57,9 @@ export const BREADCRUMBS = {
   DETAILSPAGE: DETAILSPAGE,
   PRIVACYPAGE: PRIVACYPAGE,
   CONTACTPAGE: CONTACTPAGE,
-  LEGALNOTICES: LEGALNOTICES
+  LEGALNOTICES: LEGALNOTICES,
+  SCHEMAEDITORLANDING: SCHEMAEDITORLANDING,
+  ASSISTANTLANDING: ASSISTANTLANDING
 };
 
 export default BREADCRUMBS;
