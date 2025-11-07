@@ -128,7 +128,7 @@ const ontoData = buildData(
     accrualPeriodicity:
       "http://publications.europa.eu/resource/authority/frequency/IRREG",
     distributionUrls: [
-      "https://raw.githubusercontent.com/italia/daf-ontologie-vocabolari-controllati/master/Ontologie/IoT/latest",
+      "https://raw.githubusercontent.com/italia/dati-semantic-backend/master/Ontologie/IoT/latest",
     ],
     subjects: [],
     contactPoint: {
