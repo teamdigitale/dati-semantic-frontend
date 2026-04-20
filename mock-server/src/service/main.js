@@ -209,6 +209,13 @@ const schemaData = buildData(
     distributionUrls: [
       "https://github.com/ioggstream/json-semantic-playground/tree/master/assets/schemas/person/v202108.01",
     ],
+  distributions: [
+    {
+      accessUrl: "https://github.com/ioggstream/json-semantic-playground/tree/master/assets/schemas/person/v202108.01",
+      downloadUrl: "https://raw.githubusercontent.com/ioggstream/json-semantic-playground/master/assets/schemas/person/v202108.01/person.oas3.yaml"
+    }
+  ],
+
     conformsTo: [{ iri: "https://w3id.org/italia/onto/CPV", summary: null }],
     keyClasses: [
       {
